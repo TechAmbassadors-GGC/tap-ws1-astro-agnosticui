@@ -28,6 +28,10 @@ let title = 'Astro/AgnosticUI Site';
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
+
+// load blog content: news, etc.
+import { getCollection } from 'astro:content';
+const blogEntries = await getCollection('posts');
 ---
 <html lang="en">
 <head>
@@ -49,6 +53,16 @@ let title = 'Astro/AgnosticUI Site';
 <body>
 	<main>
 		<Heading />
+	<ul>
+	  {blogEntries.map(blogPostEntry => (
+		<li>
+		<a href={`/posts/${blogPostEntry.slug}`}>{blogPostEntry.data.title}</a>
+		<time datetime={blogPostEntry.data.publishedDate.toISOString()}>
+			{blogPostEntry.data.publishedDate.toDateString()}
+		</time>
+		</li>
+  	  ))}
+	</ul>
     <div class="frameworks">
       <React client:load />
       <div class="mbe24" />
