@@ -13,18 +13,28 @@ import "agnostic-vue/dist/common.properties.min.css";
 import "agnostic-vue/dist/common.resets.min.css";
 import "agnostic-vue/dist/common.utilities.min.css";
 import "agnostic-vue/dist/opinions.min.css";
+import "agnostic-vue/dist/index.css";
 
 // Component Imports
 import Heading from '../components/Heading.astro';
-import React from '../components/react/React.jsx';
-import Svelte from '../components/svelte/Svelte.svelte';
+//import React from '../components/react/React.jsx';
+//import Svelte from '../components/svelte/Svelte.svelte';
 import Vue from '../components/vue/Vue.vue';
+
+// Vue imports
+import Card from "agnostic-vue";
+/*export default {
+  name: "CardExample",
+  components: {
+    Card,
+  },
+};*/
 
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
 // It will run during the build, but never in the browser.
 // All variables are available to use in the HTML template below.
-let title = 'Astro/AgnosticUI Site';
+let title = 'GGC Technology Ambassadors Program';
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
@@ -53,24 +63,33 @@ const blogEntries = await getCollection('posts');
 <body>
 	<main>
 		<Heading />
-	<ul>
-	  {blogEntries.map(blogPostEntry => (
-		<li>
-		<a href={`/posts/${blogPostEntry.slug}`}>{blogPostEntry.data.title}</a>
-		<time datetime={blogPostEntry.data.publishedDate.toISOString()}>
-			{blogPostEntry.data.publishedDate.toDateString()}
-		</time>
-		</li>
-  	  ))}
-	</ul>
-    <div class="frameworks">
-      <React client:load />
-      <div class="mbe24" />
-		  <Vue client:load />
-      <div class="mbe24" />
-		  <Svelte client:load />
-      <div class="mbe48" />
-    </div>
+		<!--Card is-border is-rounded client:only="vue"-->
+			<div class="p16">
+				TAP News
+			</div>
+			<div class="p16 flex-grow-1 flex-shrink-1" style="flex-basis: 50ch;" >
+				<ul>
+				{blogEntries.map(blogPostEntry => (
+					<li>
+					<a href={`/posts/${blogPostEntry.slug}`}>{blogPostEntry.data.title}</a>
+					<time datetime={blogPostEntry.data.publishedDate.toISOString()}>
+						{blogPostEntry.data.publishedDate.toDateString()}
+					</time>
+					</li>
+				))}
+				</ul>
+			</div>
+    	<!--/Card-->
+		
+		<div class="frameworks">
+		<!-- React client:load / -->
+		<div class="mbe24" />
+			<Vue client:load />
+		<div class="mbe24" />
+			<!-- Svelte client:load / -->
+		<div class="mbe48" />
+		</div>
 	</main>
+	
 </body>
 </html>
