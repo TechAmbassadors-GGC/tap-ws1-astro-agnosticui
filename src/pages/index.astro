@@ -13,16 +13,17 @@ import "agnostic-vue/dist/common.properties.min.css";
 import "agnostic-vue/dist/common.resets.min.css";
 import "agnostic-vue/dist/common.utilities.min.css";
 import "agnostic-vue/dist/opinions.min.css";
-import "agnostic-vue/dist/index.css";
+
 
 // Component Imports
+import "agnostic-vue/dist/index.css";
+import Card from "agnostic-vue";
 import Heading from '../components/Heading.astro';
 //import React from '../components/react/React.jsx';
 //import Svelte from '../components/svelte/Svelte.svelte';
 import Vue from '../components/vue/Vue.vue';
 
 // Vue imports
-import Card from "agnostic-vue";
 /*export default {
   name: "CardExample",
   components: {
@@ -64,14 +65,14 @@ const blogEntries = await getCollection('posts');
 	<main>
 		<Heading />
 		<!--Card is-border is-rounded client:only="vue"-->
-			<div class="p16">
+			<h3 class="p16">
 				TAP News
-			</div>
+			</h3>
 			<div class="p16 flex-grow-1 flex-shrink-1" style="flex-basis: 50ch;" >
 				<ul>
 				{blogEntries.map(blogPostEntry => (
 					<li>
-					<a href={`/posts/${blogPostEntry.slug}`}>{blogPostEntry.data.title}</a>
+					<a href={`/posts/${blogPostEntry.slug}`}>{blogPostEntry.data.title}</a> &nbsp;
 					<time datetime={blogPostEntry.data.publishedDate.toISOString()}>
 						{blogPostEntry.data.publishedDate.toDateString()}
 					</time>
@@ -84,7 +85,7 @@ const blogEntries = await getCollection('posts');
 		<div class="frameworks">
 		<!-- React client:load / -->
 		<div class="mbe24" />
-			<Vue client:load />
+			<!--Vue client:load /-->
 		<div class="mbe24" />
 			<!-- Svelte client:load / -->
 		<div class="mbe48" />
