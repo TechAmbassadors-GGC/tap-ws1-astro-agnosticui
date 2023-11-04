@@ -25,9 +25,9 @@
 				TAP News
 			</h3>
 			<div class="p16 flex-grow-1 flex-shrink-1" style="flex-basis: 50ch;" >
-				<ul v-for="blogPostEntry in blogEntries">
-					<li>
-					<a href="/posts/{{ blogPostEntry.slug }}">{{ blogPostEntry.data.title }}</a> &nbsp;
+				<ul>
+					<li v-for="blogPostEntry in blogEntries">
+					<a :href="`/posts/${blogPostEntry.slug}`">{{ blogPostEntry.data.title }}</a> &nbsp;
 					<time datetime={{ blogPostEntry.data.publishedDate.toISOString() }}>
 						{{ blogPostEntry.data.publishedDate.toDateString() }}
 					</time>
