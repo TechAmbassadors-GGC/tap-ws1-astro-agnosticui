@@ -7,20 +7,20 @@ import { Header, HeaderNav, HeaderNavItem } from "agnostic-vue";
 <template>  
   <Header isHeaderContentEnd>
     <template v-slot:logoleft>
-      <a class="flex-fill" href="https://web.dev/" >web.dev</a>
+      <a class="flex-fill" href="/" >TAP</a>
     </template>
     <template v-slot:headernav>
       <HeaderNav css="header-mbe16">
         <HeaderNavItem>
-          <a href="https://css-tricks.com/">CSS-Tricks</a>
+          <a href="">Outreach projects</a>
         </HeaderNavItem>
         <HeaderNavItem>
-          <a href="https://developer.mozilla.org/en-US/">MDN</a>
+          <a href="">Activity templates</a>
+        </HeaderNavItem>
+        <HeaderNavItem>
+          <a href="">About</a>
         </HeaderNavItem>
       </HeaderNav>
-    </template>
-    <template v-slot:logoright>
-      <a href="https://www.freecodecamp.org/">freeCodeCamp</a>
     </template>
   </Header> 
 </template>
