@@ -21,94 +21,19 @@
       isStacked
       isShadow
     >
-      <div class="h4">Signup</div>
-      <form @submit.prevent>
-        <Input
-          id="uname-vue"
-          name="usernameVue"
-          label="Username"
-          v-model="formState.usernameVue"
-          autocomplete="username"
-          @change="($event) => handleChange('usernameVue', $event)"
-          @blur="handleBlur('usernameVue')"
-          :isInvalid="result.hasErrors('usernameVue')"
-          :invalidText="result.getErrors('usernameVue').join(' ')"
-        />
-        <div class="mbs12"></div>
-        <Input
-          id="pword-vue"
-          name="passwordVue"
-          label="Password"
-          :type="textIsVisible ? 'text' : 'password'"
-          autocomplete="new-password"
-          v-model="formState.passwordVue"
-          @change="($event) => handleChange('passwordVue', $event)"
-          @blur="handleBlur('passwordVue')"
-          :isInvalid="result.hasErrors('passwordVue')"
-          :invalidText="`${result.getErrors('passwordVue').join(' ')} ${result.getWarnings('passwordVue').join(' ')}`"
-          hasRightAddon
-        >
-        <template #addonRight>
-          <InputAddonItem addon-right>
-            <Button
-              is-blank
-              @click="toggleTextVisibility()"
-            >
-              <span class="screenreader-only">Password visibility toggle</span>
-              <EyeClosed v-if="textIsVisible" />
-              <EyeOpen v-else />
-            </Button>
-          </InputAddonItem>
-        </template>
-        </Input>
-        <div class="mbs12"></div>
-        <Input
-          id="confirm-vue"
-          name="confirmVue"
-          label="Confirm"
-          :type="textIsVisibleConfirm ? 'text' : 'password'"
-          autocomplete="new-password-confirm"
-          v-model="formState.confirmVue"
-          @change="($event) => handleChange('confirmVue', $event)"
-          @blur="handleBlur('confirmVue')"
-          :isInvalid="result.hasErrors('confirmVue')"
-          :invalidText="result.getErrors('confirmVue').join(' ')"
-          hasRightAddon
-        >
-        <template #addonRight>
-          <InputAddonItem addon-right>
-            <Button
-              is-blank
-              @click="toggleTextVisibilityConfirm()"
-            >
-              <span class="screenreader-only">Confirm password visibility toggle</span>
-              <EyeClosed v-if="textIsVisibleConfirm" />
-              <EyeOpen v-else />
-            </Button>
-          </InputAddonItem>
-        </template>
-        </Input>
-        <div class="mbs12"></div>
-        <ChoiceInput
-          id="agrees-vue"
-          type="checkbox"
-          :checkedOptions="checked"
-          :isFieldset="false"
-          legendLabel="agree to terms of service toggle"
-          :isInvalid="result.hasErrors('tosVue')"
-          :options="checkboxOptions"
-          @change="handleCheckbox($event)"
-        />
-        <div class="mbs32"></div>
-        <Button
-          type="submit"
-          mode="primary"
-          @click="handleSubmit()"
-          isRounded
-          isBlock
-          :isDisabled="!result.isValid()"
-        >Submit</Button>
-      </form>
+    <h3 class="p16">
+				TAP News
+			</h3>
+			<div class="p16 flex-grow-1 flex-shrink-1" style="flex-basis: 50ch;" >
+				<ul v-for="blogPostEntry in blogEntries">
+					<li>
+					<a href="/posts/{{ blogPostEntry.slug }}">{{ blogPostEntry.data.title }}</a> &nbsp;
+					<time datetime={{ blogPostEntry.data.publishedDate.toISOString() }}>
+						{{ blogPostEntry.data.publishedDate.toDateString() }}
+					</time>
+					</li>
+				</ul>
+			</div>
     </Card>
   </section>
 </template>
@@ -121,6 +46,10 @@ import { Card, Input, InputAddonItem, Button, ChoiceInput } from "agnostic-vue";
 import EyeClosed from "./vue/icons/EyeClosed.vue";
 import EyeOpen from "./vue/icons/EyeOpen.vue";
 import suiteVue from "./vue/suiteVue";
+
+// load blog content: news, etc.
+import { getCollection } from 'astro:content';
+const blogEntries = await getCollection('posts');
 
 const passwordVue = ref("");
 const usernameVue = ref("");
