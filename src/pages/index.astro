@@ -22,6 +22,7 @@ import Heading from '../components/Heading.astro';
 //import React from '../components/react/React.jsx';
 //import Svelte from '../components/svelte/Svelte.svelte';
 import Vue from '../components/vue/Vue.vue';
+import PostListCard from '../components/PostListCard.vue';
 
 // Vue imports
 /*export default {
@@ -82,6 +83,8 @@ const blogEntries = await getCollection('posts');
 			</div>
     	<!--/Card-->
 		
+		<PostListCard client:load/>
+
 		<div class="frameworks">
 		<!-- React client:load / -->
 		<div class="mbe24" />

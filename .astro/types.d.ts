@@ -180,14 +180,14 @@ declare module 'astro:content' {
   slug: "tap-expo-fall23";
   body: string;
   collection: "posts";
-  data: any
+  data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
 "test.md": {
 	id: "test.md";
   slug: "test-blog";
   body: string;
   collection: "posts";
-  data: any
+  data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
 };
 
@@ -199,5 +199,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	type ContentConfig = never;
+	type ContentConfig = typeof import("../src/content/config");
 }
