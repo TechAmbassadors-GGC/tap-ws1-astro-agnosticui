@@ -19,6 +19,7 @@ import "agnostic-vue/dist/opinions.min.css";
 import "agnostic-vue/dist/index.css";
 import Card from "agnostic-vue";
 import Heading from '../components/Heading.astro';
+import TAPHeader from '../components/TAPHeader.vue';
 //import React from '../components/react/React.jsx';
 //import Svelte from '../components/svelte/Svelte.svelte';
 import Vue from '../components/vue/Vue.vue';
@@ -64,6 +65,7 @@ const blogEntries = await getCollection('posts');
 </head>
 <body>
 	<main>
+		<TAPHeader />
 		<Heading />
 		
 		<section class="flex flex-column items-start">  
