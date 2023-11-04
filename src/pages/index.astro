@@ -65,25 +65,10 @@ const blogEntries = await getCollection('posts');
 <body>
 	<main>
 		<Heading />
-		<!--Card is-border is-rounded client:only="vue"-->
-			<h3 class="p16">
-				TAP News
-			</h3>
-			<div class="p16 flex-grow-1 flex-shrink-1" style="flex-basis: 50ch;" >
-				<ul>
-				{blogEntries.map(blogPostEntry => (
-					<li>
-					<a href={`/posts/${blogPostEntry.slug}`}>{blogPostEntry.data.title}</a> &nbsp;
-					<time datetime={blogPostEntry.data.publishedDate.toISOString()}>
-						{blogPostEntry.data.publishedDate.toDateString()}
-					</time>
-					</li>
-				))}
-				</ul>
-			</div>
-    	<!--/Card-->
 		
-		<PostListCard client:load/>
+		<section class="flex flex-column items-start">  
+			<PostListCard client:load/>
+		</section>
 
 		<div class="frameworks">
 		<!-- React client:load / -->
