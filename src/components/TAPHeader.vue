@@ -18,7 +18,7 @@ import { Header, HeaderNav, HeaderNavItem, Menu } from "agnostic-vue";
           <a href="">Activity templates</a>
         </HeaderNavItem>
         <HeaderNavItem>
-          <Menu id="menu-about" menuTitle="About" :disabledItems="['menuitem-1', 'menuitem-2']" >
+          <Menu id="menu-about" menuTitle="About" :disabledItems="['menuitem-1', 'menuitem-2']" :isBordered="true" type="simple" >
             <template #menuitem-1>History</template>
             <template #menuitem-2>Awards</template>
             <template #menuitem-3><a href="">Join</a></template>            
