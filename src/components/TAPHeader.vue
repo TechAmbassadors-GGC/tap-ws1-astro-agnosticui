@@ -2,7 +2,7 @@
 // Import AgnosticUI global common & component CSS
 import "agnostic-vue/dist/common.min.css";
 import "agnostic-vue/dist/index.css";
-import { Header, HeaderNav, HeaderNavItem } from "agnostic-vue";
+import { Header, HeaderNav, HeaderNavItem, Menu } from "agnostic-vue";
 </script>
 <template>  
   <Header isHeaderContentEnd>
@@ -18,9 +18,15 @@ import { Header, HeaderNav, HeaderNavItem } from "agnostic-vue";
           <a href="">Activity templates</a>
         </HeaderNavItem>
         <HeaderNavItem>
-          <a href="">About</a>
+          <Menu id="menu-about" menuTitle="About" :disabledItems="['menuitem-1', 'menuitem-2']" >
+            <template #menuitem-1>History</template>
+            <template #menuitem-2>Awards</template>
+            <template #menuitem-3><a href="">Join</a></template>            
+            <template #icon>&#9662;</template>
+          </Menu>
         </HeaderNavItem>
       </HeaderNav>
     </template>
-  </Header> 
+  </Header>
+   
 </template>
