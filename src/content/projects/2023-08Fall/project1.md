@@ -11,7 +11,7 @@ semester: fall
 year: 2023
 levels: [ k-12, college ] 
 difficulty: medium
-duration-mins: [ 30, 60, 90 ]
+durationMins: [ 30, 60, 90 ]
 publishedDate: 2023-11-05
 related-ids: []
 ---
@@ -26,4 +26,4 @@ Great project description here.
 
 Link.
 
-![](image.jpg)
+👀 Image

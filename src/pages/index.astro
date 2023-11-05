@@ -24,6 +24,7 @@ import TAPHeader from '../components/TAPHeader.vue';
 //import Svelte from '../components/svelte/Svelte.svelte';
 import Vue from '../components/vue/Vue.vue';
 import PostListCard from '../components/PostListCard.vue';
+import ProjectListCard from '../components/ProjectListCard.vue';
 
 // Vue imports
 /*export default {
@@ -70,6 +71,7 @@ const blogEntries = await getCollection('posts');
 		
 		<section class="flex flex-column items-start">  
 			<PostListCard client:load/>
+			<ProjectListCard client:load/>
 		</section>
 
 		<div class="frameworks">
