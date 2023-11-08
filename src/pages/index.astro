@@ -69,7 +69,7 @@ const blogEntries = await getCollection('posts');
 		<TAPHeader client:load />
 		<Heading />
 		
-		<section class="flex flex-column items-start">  
+		<section class="flex flex-row flex-wrap items-start">  
 			<PostListCard client:load/>
 			<ProjectListCard client:load/>
 		</section>

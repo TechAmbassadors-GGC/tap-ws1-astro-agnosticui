@@ -1,5 +1,6 @@
-<template>
-  <Card
+<template>    
+    <div class="p16 flex-grow-1 flex-shrink-1" style="flex-basis: 40ch;" >
+      <Card
       css="card-demo"
       isStacked
       isShadow
@@ -7,7 +8,6 @@
     <div class="h4 p16">
       TAP News
     </div>
-    <div class="p16 flex-grow-1 flex-shrink-1" style="flex-basis: 50ch;" >
       <ul>
         <li v-for="blogPostEntry in blogEntries">
         <a :href="`/posts/${blogPostEntry.slug}`">{{ blogPostEntry.data.title }}</a> &nbsp;
@@ -16,8 +16,9 @@
         </time>
         </li>
       </ul>
+    </Card>
     </div>
-  </Card>
+  
 </template>
 
 <script setup>
