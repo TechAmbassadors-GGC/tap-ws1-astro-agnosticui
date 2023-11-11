@@ -1,4 +1,25 @@
 ---
+// Style Imports
+import '../../styles/global.css';
+
+// common.min.css is distributed with agnostic-react
+// and agnostic-svelte too. But, since we're using all
+// of these together, we only need to import global CSS
+// once and in one place.
+// common.min.css combines properties, resets, utilities
+// import "agnostic-vue/dist/common.min.css";
+// But!! Rob much prefers individual modular import ;)
+import "agnostic-vue/dist/common.properties.min.css";
+import "agnostic-vue/dist/common.resets.min.css";
+import "agnostic-vue/dist/common.utilities.min.css";
+import "agnostic-vue/dist/opinions.min.css";
+
+// Component Imports
+import "agnostic-vue/dist/index.css";
+import Card from "agnostic-vue";
+import TAPHeader from '../../components/TAPHeader.vue';
+
+// Read from conten collection
 import { getCollection } from 'astro:content';
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
@@ -10,6 +31,30 @@ export async function getStaticPaths() {
 // 2. For your template, you can get the entry directly from the prop
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+// Page title
+let title = `${entry.data.title} - GGC Technology Ambassadors Program`;
+
 ---
-<h1>{entry.data.title}</h1>
-<Content />
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>{title}</title>
+
+	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+	<style>
+	</style>
+</head>
+<body>
+	<main>
+		<TAPHeader client:load />
+
+    <h1>{entry.data.title}</h1>
+    <Content />
+		
+	</main>
+	
+</body>
+</html>
