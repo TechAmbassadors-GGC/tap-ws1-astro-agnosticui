@@ -7,7 +7,7 @@
             isShadow
             >
             <div class="h4 p16">
-                Projects
+                Recent Outreach Projects
             </div>
             <ul> <!-- order recent projects by date? -->
             <li v-for="project in projects">
