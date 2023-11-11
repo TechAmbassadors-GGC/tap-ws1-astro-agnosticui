@@ -12,7 +12,7 @@ import { Header, HeaderNav, HeaderNavItem, Menu } from "agnostic-vue";
     <template v-slot:headernav>
       <HeaderNav css="header-mbe16">
         <HeaderNavItem>
-          <a href="">Outreach projects & templates</a>
+          <a href="projects">Outreach projects & templates</a>
         </HeaderNavItem>
         <HeaderNavItem>
           <a href="">Join the discussion</a>
