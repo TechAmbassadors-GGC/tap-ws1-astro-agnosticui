@@ -33,7 +33,7 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 
 // Page title
-let title = `${entry.data.title} - GGC Technology Ambassadors Program`;
+let title = `${entry.data.title} (${entry.data.publishedDate.toDateString()}) - GGC Technology Ambassadors Program`;
 
 ---
 <html lang="en">
