@@ -9,6 +9,12 @@
     // load blog content: news, etc.
     import { getCollection } from 'astro:content';
     const projects = await getCollection('projects');
+
+    // returns true if no search string or project mathes
+    function matches(project) {
+        // TODO: search in more project fields: students, instructors, tech, levels, etc
+        return (! search_text.value ) || project.data.title.includes(search_text.value);
+    }
 </script>
 <template>
 
@@ -19,20 +25,20 @@
 
     </section>
 
-
-    <h3> Projects Found </h3>
-    <p>Searched for: {{ search_text }}</p>
+    <h3> {{ search_text ? `Projects that contain: ${search_text}` : 'All Projects:' }} </h3>
+    
     <section class="mbe40 project-cards-flex flex flex-row flex-grow-1 flex-shrink-1 flex-wrap flex-fill"> 
-        <Card
-            css="card-project"
-            isStacked
-            isShadow
-            v-for="project in projects"
-            >
-            <a :href="`/projects/${project.data.year}/${project.data.semester}/${project.data.id}`">{{ project.data.title }}</a> &nbsp;
-            {{ project.data.students.toString() }}
-        </Card>
-
+        <template v-for="project in projects">
+            <Card
+                css="card-project"
+                isStacked
+                isShadow
+                v-if="matches(project)"
+                >
+                <a :href="`/projects/${project.data.year}/${project.data.semester}/${project.data.id}`">{{ project.data.title }}</a> &nbsp;
+                {{ project.data.students.toString() }}
+            </Card>
+        </template>
     </section>
     
   </template>
