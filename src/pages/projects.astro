@@ -1,8 +1,40 @@
 ---
+// Style Imports
+import '../styles/global.css';
+
+// common.min.css is distributed with agnostic-react
+// and agnostic-svelte too. But, since we're using all
+// of these together, we only need to import global CSS
+// once and in one place.
+// common.min.css combines properties, resets, utilities
+// import "agnostic-vue/dist/common.min.css";
+// But!! Rob much prefers individual modular import ;)
+import "agnostic-vue/dist/common.properties.min.css";
+import "agnostic-vue/dist/common.resets.min.css";
+import "agnostic-vue/dist/common.utilities.min.css";
+import "agnostic-vue/dist/opinions.min.css";
+
+
+// Component Imports
+import "agnostic-vue/dist/index.css";
 import TAPDefaultLayout from "../layouts/default.astro";
+import ProjectSearch from "../components/ProjectSearch.vue";
+import { Input } from "agnostic-vue";
 ---
 <TAPDefaultLayout title="Outreach Projects">
 
-    Test
-    
+    <h2>Search TAP Outreach Projects</h1>
+
+    <ProjectSearch />  
+
+    <script setup>
+        import { ref } from 'vue';
+        // Import AgnosticUI global common & component CSS
+        import "agnostic-vue/dist/common.min.css";
+        import "agnostic-vue/dist/index.css";
+        import { Input } from "agnostic-vue";
+        const message = ref("");
+        const textAreaMessage = ref("");
+    </script>
 </TAPDefaultLayout>
+
