@@ -18,8 +18,9 @@ import { Header, HeaderNav, HeaderNavItem, Menu } from "agnostic-vue";
           <a href="">Join the discussion</a>
         </HeaderNavItem>
         <HeaderNavItem>
-          <Menu id="menu-about" menuTitle="About" :disabledItems="['menuitem-1', 'menuitem-2']" :isBordered="true" type="simple" >
+          <Menu id="menu-about" menuTitle="About" :disabledItems="['menuitem-1', 'menuitem-2', 'menuitem-people']" :isBordered="true" type="simple" >
             <template #menuitem-1>History</template>
+            <template #menuitem-people>People</template>
             <template #menuitem-2>Awards</template>
             <template #menuitem-3><a href="">Join</a></template>            
             <template #icon>&#9662;</template>
