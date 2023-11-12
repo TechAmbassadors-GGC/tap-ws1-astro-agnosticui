@@ -7,7 +7,18 @@
 
     </section>
 
-    <section class="mbe40"> Found Projects </section>
+    <section class="mbe40"> Found Projects 
+        <Card
+            css="card-demo"
+            isStacked
+            isShadow
+            v-for="project in projects"
+            >
+            <a :href="`/projects/${project.data.year}/${project.data.semester}/${project.data.id}`">{{ project.data.title }}</a> &nbsp;
+            {{ project.data.students.toString() }}
+        </Card>
+
+    </section>
     
   </template>
   
