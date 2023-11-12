@@ -1,13 +1,27 @@
+<script setup>
+    import { computed, ref } from "vue";
+    // Components CSS
+    import "agnostic-vue/dist/index.css";
+    import "agnostic-vue/dist/common.min.css";
+    import { Input, Card } from "agnostic-vue";
+    const search_text = ref("");
+  
+    // load blog content: news, etc.
+    import { getCollection } from 'astro:content';
+    const projects = await getCollection('projects');
+</script>
 <template>
 
     <section class="mbe40"> 
         
         <Input  id="7" is-underlined is-underlined-with-background placeholder="Enter project name, student, technology…" 
-                label="Search for projects" type="text" />
+                label="Search for projects" type="text" v-model="search_text" />
 
     </section>
 
+
     <h3> Projects Found </h3>
+    <p>Searched for: {{ search_text }}</p>
     <section class="mbe40 project-cards-flex flex flex-row flex-grow-1 flex-shrink-1 flex-wrap flex-fill"> 
         <Card
             css="card-project"
@@ -23,18 +37,7 @@
     
   </template>
   
-  <script setup>
-    import { computed, ref } from "vue";
-    // Components CSS
-    import "agnostic-vue/dist/index.css";
-    import "agnostic-vue/dist/common.min.css";
-    import { Input, Card } from "agnostic-vue";
-    const message = ref("");
   
-    // load blog content: news, etc.
-    import { getCollection } from 'astro:content';
-    const projects = await getCollection('projects');
-  </script>
   
   <style scoped>
   </style>

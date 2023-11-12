@@ -25,16 +25,7 @@ import { Input } from "agnostic-vue";
 
     <h2>Search TAP Outreach Projects</h1>
 
-    <ProjectSearch />  
+    <ProjectSearch client:load />  
 
-    <script setup>
-        import { ref } from 'vue';
-        // Import AgnosticUI global common & component CSS
-        import "agnostic-vue/dist/common.min.css";
-        import "agnostic-vue/dist/index.css";
-        import { Input } from "agnostic-vue";
-        const message = ref("");
-        const textAreaMessage = ref("");
-    </script>
 </TAPDefaultLayout>
 
