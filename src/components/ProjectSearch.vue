@@ -2,14 +2,15 @@
 
     <section class="mbe40"> 
         
-        <Input  client:load id="7" is-underlined is-underlined-with-background placeholder="Enter name…" 
+        <Input  id="7" is-underlined is-underlined-with-background placeholder="Enter project name, student, technology…" 
                 label="Search for projects" type="text" />
 
     </section>
 
-    <section class="mbe40"> Found Projects 
+    <h3> Projects Found </h3>
+    <section class="mbe40 project-cards-flex flex flex-row flex-grow-1 flex-shrink-1 flex-wrap flex-fill"> 
         <Card
-            css="card-demo"
+            css="card-project"
             isStacked
             isShadow
             v-for="project in projects"

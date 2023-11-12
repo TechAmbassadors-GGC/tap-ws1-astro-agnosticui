@@ -10,13 +10,12 @@
 body {
   padding-block-start: 2rem;
   padding-block-end: 2rem;
-  min-height: 100vh;
-  display: grid;
-  justify-items: center;
+  /* min-height: 100vh; */
+  display: grid; 
+  justify-items: center; 
   background: var(--agnostic-light);
   color: var(--agnostic-dark);
 }
-
 
 main {
   width: clamp(26ch, 75%, 90ch);
@@ -34,17 +33,22 @@ h2 {
   padding-block-end: var(--fluid-40);
 }
 
+.project-cards-flex {
+  justify-content: space-around;
+  flex-flow: row wrap;
+}
+
+.card-project {
+  min-width: 20rem !important;
+  margin: 0 auto;
+  flex: 1;
+}
+
 .valueprop {
   font-size: clamp(var(--agnostic-h6), 2vw, var(--agnostic-h4));
 }
 .valueprop a {
   font-size: clamp(var(--agnostic-h5), 2.5vw, var(--agnostic-h3));
-}
-
-.frameworks {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--fluid-16);
 }
 
 /* TODO -- we'll need to revisit this once AgnosticUI properly supports dark mode. Breadcrumb links
