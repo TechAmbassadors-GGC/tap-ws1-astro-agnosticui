@@ -16,9 +16,13 @@ publishedDate: 2023-11-05
 related-ids: []
 ---
 
-# Project 1
-
 Great project description here.
+
+Notes: 
+
+- separate techs into hardware vs software?
+- no need for a separate "tags"?
+- difficulty: beginner, intermediate, advanced?
 
 ## Steps
 
@@ -27,3 +31,5 @@ Great project description here.
 Link.
 
 👀 Image
+
+💃 Video
