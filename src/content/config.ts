@@ -15,6 +15,7 @@ const projectCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     id: z.string(),
+    github: z.string().optional(),
     students: z.array(z.string()),
     instructors: z.array(z.string()),
     techs: z.array(z.string()),

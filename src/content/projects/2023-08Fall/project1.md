@@ -1,6 +1,7 @@
 ---
 title: Project 1
 id: project-1
+github: https://github.com
 students: [ a, b, c]
 instructors: [ Anca Doloc-Mihu, Cindy Robertson]
 techs: [sphero]

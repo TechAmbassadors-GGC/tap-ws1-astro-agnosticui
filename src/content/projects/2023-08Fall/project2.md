@@ -1,6 +1,7 @@
 ---
 title: Project 2
 id: project-2
+github: https://github.com
 students: [ d, e, f]
 instructors: [ Anca Doloc-Mihu, Cindy Robertson]
 techs: [makey-makey]
