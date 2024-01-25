@@ -35,6 +35,7 @@
                 isShadow
                 v-if="matches(project)"
                 >
+                <!-- TODO: add more info on the card like profs, techs, etc. -->
                 <a :href="`/projects/${project.data.year}/${project.data.semester}/${project.data.id}`">{{ project.data.title }}</a> &nbsp;
                 {{ project.data.students.toString() }}
             </Card>
