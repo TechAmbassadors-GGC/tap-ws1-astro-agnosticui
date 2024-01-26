@@ -5,11 +5,12 @@ import "agnostic-vue/dist/index.css";
 import "agnostic-vue/dist/common.min.css";
 import { Input, Card, Select } from "agnostic-vue";
 const search_text = ref("");
-const selectedOption = ref("");
+const levels = ref("");
 
 // load blog content: news, etc.
 import { getCollection } from 'astro:content';
 const projects = await getCollection('projects');  //list of projects
+console.log(projects);
 //Step 1 => get list of instructors in a set to avoid duplication
 
 //Step 2 => place them in an object {value = ?, label = ?} to feed into a select option
@@ -18,7 +19,6 @@ const projects = await getCollection('projects');  //list of projects
 
 //Add onclick listener to each dropdown 
 let filteredResults = new Set();
-//console.log(projects);
 //To make sure non-duplicated instructos are included
 
 //console.log(projectInstructor);
@@ -32,59 +32,107 @@ let filteredResults = new Set();
 //None selected, search through the massive list of data
 
 //Instructor selected, search through the list of only instructors
-const filterList = [{ value: 'instructor', label: 'Instructor' }, { value: 'techa', label: 'Tech' }, { value: 'levels', label: 'Levels' }, { value: 'studenta', label: 'Student' }];
-const filtering = computed(filterBy(selectedOption.value));
+const filterList = ref([{ value: 'tech', label: 'Tech' }, { value: 'levels', label: 'Levels' }, { value: 'students', label: 'Student' }]);
+const semesterList = ref([{value: 'Fall', label:'Fall'}, {value: 'Summer', label:'Summer'}, {value: 'Spring', label:'Spring'}, {value:'Winter', label:'Winter'}]);
+const techList = computed(()=>{
+    let techSet = new Set();
+    projects.forEach(element =>{
+        techSet.add(element.data.techs);
+    });
+    // console.log("Tech set here:");
+    // console.log(techSet);
 
-function filterBy(selectedOption) {
-    //looping through the project list to get
-    if (selectedOption == '') {
-        return
-    } else {
-        projects.forEach(element => {
-            let filterResults = element.data.selectedOption;
-            console.log(selectedOption);
-            for (let iterator of filterResults) {
-                filteredResults.add(iterator);
-            }
-            return filteredResults;
-        });
-    }
+    return techSet;
+});
+console.log(techList.value);
+
+//const filtering = computed(filterBy(selectedOption.value));
+
+// function filterBy(selectedOption) {
+//     //looping through the project list to get
+//     if (selectedOption == '') {
+//         return
+//     } else {
+//         projects.forEach(element => {
+//             let filterResults = element.data.selectedOption;
+//             console.log(selectedOption);
+//             for (let iterator of filterResults) {
+//                 filteredResults.add(iterator);
+//             }
+//             return filteredResults;
+//         });
+//     }
 
 
+// }
+
+function getList(tech){
+
+    return 1;
 }
-function matches(filteredResults) {
-    // TODO: search in more project fields: students, instructors, tech, levels, etc
+function matches(project) {
+
+    //Not using select dropdowns
+    //semester: consider this as ref variable 
+
+    //levels
+    console.log(levels.value);
+
+    //tech
 
     //check for case sensitivity
 
-    return (!search_text.value) || filteredResults.has(search_text.value);
+    return (!search_text.value) || project.data.levels.includes(search_text.value.toLowerCase()) || project.data.semester==search_text.value
+     || project.data.techs.includes(search_text.value);
 }
 </script>
 <template>
+    <div>
+
+    
     <section class="mbe40">
 
         <Input id="7" is-underlined is-underlined-with-background placeholder="Enter project name, student, technology…"
             label="Search for projects" type="text" v-model="search_text" />
 
-        <!--list of objects ==> objects[value, label]-->
-        <!-- <Select :options="projectInstructor">Hi </Select>
-        <Select></Select>
-        <Select></Select> -->
-        <Select unique-id="sel1" v-model="selectedOption" :options=filterList></Select>
+        <div>
+            <div>
+                <label>Semester</label>
+                <Select></Select>
+            </div>
+            <div>
+                <label>Tech:</label>
+                <Select>
+                    <!-- <option v-for="tech in techList.value" :value="tech.value">{{ tech.value }}</option> -->
+                </Select>
+
+            </div>
+            <div>
+                <label>Levels:</label>
+                <template>
+                    <section>
+                        <Select name="levels" v-model="levels" :options=filterList></Select>
+                    </section>
+                </template>
+               
+            </div>
+        </div>
+        
 
     </section>
 
     <h3> {{ search_text ? `Projects that contain: ${search_text}` : 'All Projects:' }} </h3>
 
     <section class="mbe40 project-cards-flex flex flex-row flex-grow-1 flex-shrink-1 flex-wrap flex-fill">
-        <template v-for="project in projects">
-            <Card css="card-project" isStacked isShadow v-if="matches(filteredResults)">
+        <template v-for="project in projects">  <!--Unfiltered*-->
+            <Card css="card-project" isStacked isShadow v-if="matches(project)">
                 <a :href="`/projects/${project.data.year}/${project.data.semester}/${project.data.id}`">{{
                     project.data.title }}</a> &nbsp;
                 {{ project.data.students.toString() }}
             </Card>
         </template>
     </section>
+    </div>
 </template>
   
   
