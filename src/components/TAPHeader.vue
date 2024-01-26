@@ -13,7 +13,7 @@ import { Header, HeaderNav, HeaderNavItem, Menu } from "agnostic-vue";
       <HeaderNav css="header-mbe16">
         <HeaderNavItem>
           <!-- edited the href call so that this nav object pointed to the proper url -->
-          <a href="http://localhost:4321/projects">Outreach projects & templates</a>
+          <a href="/projects">Outreach projects & templates</a>
         </HeaderNavItem>
         <HeaderNavItem>
           <a href="">Join the discussion</a>
