@@ -20,6 +20,8 @@ import "agnostic-vue/dist/index.css";
 import Card from "agnostic-vue";
 import Heading from '../components/Heading.astro';
 import TAPHeader from '../components/TAPHeader.vue';
+//import of custom bread-crumb component
+import BreadCrumbs from '../components/BreadCrumbs.astro';
 //import React from '../components/react/React.jsx';
 //import Svelte from '../components/svelte/Svelte.svelte';
 import Vue from '../components/vue/Vue.vue';
@@ -66,8 +68,11 @@ const blogEntries = await getCollection('posts');
 </head>
 <body>
 	<main>
+		<!--Because "TAPHeader" is a Vue.js3 component it can be called with the client:load applied to it the "Heading" which is a Astro component cannot -->
 		<TAPHeader client:load />
+		<BreadCrumbs />
 		<Heading />
+		
 		
 		<section class="flex flex-row flex-wrap items-start">  
 			<PostListCard client:load/>
