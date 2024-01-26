@@ -40,6 +40,7 @@ h2 {
   margin-block-start: var(--fluid-40);
   padding-block-start: var(--fluid-16);
   padding-block-end: var(--fluid-40);
+  background-color: var(--agnostic-gray-mid);
 }
 
 .project-cards-flex {
@@ -51,6 +52,7 @@ h2 {
   min-width: 20rem !important;
   margin: 0 auto;
   flex: 1;
+  background-color: var(--agnostic-gray-mid);
 }
 
 .valueprop {
