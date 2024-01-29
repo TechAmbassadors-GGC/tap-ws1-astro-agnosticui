@@ -6,7 +6,7 @@ import "agnostic-vue/dist/common.min.css";
 import { Input, Card, Select } from "agnostic-vue";
 const search_text = ref("");
 const levels = ref("");
-const semester = ref("");
+const semester = ref([]);
 
 // load blog content: news, etc.
 import { getCollection } from 'astro:content';
@@ -96,8 +96,9 @@ function matches(project) {
         <div>
             <div>
                 <label>Semester</label>
-                <Select @selected="(value) => { semester = value }" label-copy="Select a semester to filter results" 
-                    :options="semesterList"></Select>        
+                <Select name="semester" unique-id="sem" @selected="(value) => { semester = value }" 
+                    label-copy="Select a semester to filter results" 
+                    :options="semesterList" :is-multiple="true" :multiple-size="3"></Select>
             </div>
             <div>
                 <label>Tech:</label>
@@ -120,7 +121,8 @@ function matches(project) {
 
     </section>
 
-    <h3> {{ search_text ? `Projects that contain: ${search_text}` : 'All Projects:' }}</h3>
+    <h3> {{ (search_text ? `Projects that contain: "${search_text}"` : 'All Projects') + 
+            (semester.length > 0 ? ` in ${semester} semester(s)` : "") }}</h3>
 
     <section class="mbe40 project-cards-flex flex flex-row flex-grow-1 flex-shrink-1 flex-wrap flex-fill">
         <template v-for="project in projects">  <!--Unfiltered*-->
