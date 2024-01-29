@@ -6,6 +6,7 @@ import "agnostic-vue/dist/common.min.css";
 import { Input, Card, Select } from "agnostic-vue";
 const search_text = ref("");
 const levels = ref("");
+const semester = ref("");
 
 // load blog content: news, etc.
 import { getCollection } from 'astro:content';
@@ -33,7 +34,7 @@ let filteredResults = new Set();
 
 //Instructor selected, search through the list of only instructors
 const filterList = ref([{ value: 'tech', label: 'Tech' }, { value: 'levels', label: 'Levels' }, { value: 'students', label: 'Student' }]);
-const semesterList = ref([{value: 'Fall', label:'Fall'}, {value: 'Summer', label:'Summer'}, {value: 'Spring', label:'Spring'}, {value:'Winter', label:'Winter'}]);
+const semesterList = ref([{value: 'fall', label:'Fall'}, {value: 'spring', label:'Spring'}, {value: 'summer', label:'Summer'}]);
 const techList = computed(()=>{
     let techSet = new Set();
     projects.forEach(element =>{
@@ -71,12 +72,8 @@ function getList(tech){
     return 1;
 }
 function matches(project) {
-
-    //Not using select dropdowns
     //semester: consider this as ref variable 
-
-    //levels
-    console.log(levels.value);
+    console.log(semester);
 
     //tech
 
@@ -95,10 +92,12 @@ function matches(project) {
         <Input id="7" is-underlined is-underlined-with-background placeholder="Enter project name, student, technology…"
             label="Search for projects" type="text" v-model="search_text" />
 
+        
         <div>
             <div>
                 <label>Semester</label>
-                <Select></Select>
+                <Select @selected="(value) => { semester = value }" label-copy="Select a semester to filter results" 
+                    :options="semesterList"></Select>        
             </div>
             <div>
                 <label>Tech:</label>
@@ -111,7 +110,7 @@ function matches(project) {
                 <label>Levels:</label>
                 <template>
                     <section>
-                        <Select name="levels" v-model="levels" :options=filterList></Select>
+                        <!--Select name="levels" v-model="levels" :options=filterList></Select-->
                     </section>
                 </template>
                
@@ -121,7 +120,7 @@ function matches(project) {
 
     </section>
 
-    <h3> {{ search_text ? `Projects that contain: ${search_text}` : 'All Projects:' }} </h3>
+    <h3> {{ search_text ? `Projects that contain: ${search_text}` : 'All Projects:' }}</h3>
 
     <section class="mbe40 project-cards-flex flex flex-row flex-grow-1 flex-shrink-1 flex-wrap flex-fill">
         <template v-for="project in projects">  <!--Unfiltered*-->
