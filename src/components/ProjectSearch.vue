@@ -36,12 +36,13 @@ let filteredResults = new Set();
 const filterList = ref([{ value: 'tech', label: 'Tech' }, { value: 'levels', label: 'Levels' }, { value: 'students', label: 'Student' }]);
 const semesterList = ref([{value: 'fall', label:'Fall'}, {value: 'spring', label:'Spring'}, {value: 'summer', label:'Summer'}]);
 const techList = computed(()=>{
-    let techSet = new Set();
+    let techSet = projects.map( (x) => x.data.techs).reduce( (acc, x) => acc.add(new Set(x)), new Set());
+    /*let techSet = new Set();
     projects.forEach(element =>{
         techSet.add(element.data.techs);
-    });
-    // console.log("Tech set here:");
-    // console.log(techSet);
+    });*/
+    //console.log("Tech set here:");
+    //console.log(techSet);
 
     return techSet;
 });
