@@ -11,7 +11,6 @@ const semester = ref([]);
 // load blog content: news, etc.
 import { getCollection } from 'astro:content';
 const projects = await getCollection('projects');  //list of projects
-console.log(projects);
 //Step 1 => get list of instructors in a set to avoid duplication
 
 //Step 2 => place them in an object {value = ?, label = ?} to feed into a select option
@@ -34,7 +33,7 @@ let filteredResults = new Set();
 
 //Instructor selected, search through the list of only instructors
 const filterList = ref([{ value: 'tech', label: 'Tech' }, { value: 'levels', label: 'Levels' }, { value: 'students', label: 'Student' }]);
-const semesterList = ref([{value: 'fall', label:'Fall'}, {value: 'spring', label:'Spring'}, {value: 'summer', label:'Summer'}]);
+const semesterList = ref([{value:'', label:'Any'},{value: 'fall', label:'Fall'}, {value: 'spring', label:'Spring'}, {value: 'summer', label:'Summer'}]);
 const techList = computed(()=>{
     let techSet = projects.map( (x) => x.data.techs).reduce( (acc, x) => acc.add(new Set(x)), new Set());
     /*let techSet = new Set();
@@ -68,16 +67,54 @@ console.log(techList.value);
 
 // }
 
-function getList(tech){
 
-    return 1;
-}
 function matches(project) {
     //semester: consider this as ref variable 
-    console.log(semester);
+    console.log(semester.value);
+    let isMatch = false;
+    if(search_text.value || semester.value!=''){   //If Fall semester
+        console.log(semester.value);
+
+        //check filters (dropdown menus)
+        //if dropdown value does not match with project data, it fails match immediately
+        if(semester.value != '' && !semester.value.includes(project.data.semester)){
+            return false;
+        }
+        let searchText = search_text.value.toLowerCase();
+        
+        //if no search Text, then return true;
+        
+        //actual filtering
+        //Now if it passes the search filter, it passes immediately
+        if(searchText == ''){
+            return true;
+        }else
+        if(
+            project.data.title == searchText ||
+            project.data.levels.includes(searchText) ||
+            project.data.semester == searchText ||
+            project.data.techs.includes(searchText)
+            ){
+            return true;
+        }else{
+            console.log(project.data.techs);
+            return false;
+        }
+
+
+    }
+    //otherwise, always return true
+
+    //check if the semester value matches the project.data.semester value
+    // if(semester.value.includes(project.data.semester)){
+    //     return true;
+    // }else{
+    //     return false;
+    // }
+    //only false if parameters are set  and do es notma tch
 
     //tech
-
+    return true;
     //check for case sensitivity
 
     return (!search_text.value) || project.data.levels.includes(search_text.value.toLowerCase()) || project.data.semester==search_text.value
@@ -103,18 +140,16 @@ function matches(project) {
             </div>
             <div>
                 <label>Tech:</label>
-                <Select>
+                <Select :options="techList">
                     <!-- <option v-for="tech in techList.value" :value="tech.value">{{ tech.value }}</option> -->
                 </Select>
 
             </div>
             <div>
                 <label>Levels:</label>
-                <template>
-                    <section>
-                        <!--Select name="levels" v-model="levels" :options=filterList></Select-->
-                    </section>
-                </template>
+                <Select>
+                
+                </Select>
                
             </div>
         </div>
@@ -127,7 +162,7 @@ function matches(project) {
 
     <section class="mbe40 project-cards-flex flex flex-row flex-grow-1 flex-shrink-1 flex-wrap flex-fill">
         <template v-for="project in projects">  <!--Unfiltered*-->
-            <Card css="card-project" isStacked isShadow v-if="matches(project)">
+            <Card css="card-project" isStacked  isShadow v-if="matches(project)">
                 <a :href="`/projects/${project.data.year}/${project.data.semester}/${project.data.id}`">{{
                     project.data.title }}</a> &nbsp;
                 {{ project.data.students.toString() }}
