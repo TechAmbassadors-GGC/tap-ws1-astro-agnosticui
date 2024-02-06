@@ -8,6 +8,8 @@ const search_text = ref("");
 const level = ref('Any');
 const semester = ref(["Any"]);
 const tech = ref('Any');
+const duration = ref(["Any"]);
+const difficulty = ref('Any');
 
 // load blog content: news, etc.
 import { getCollection } from 'astro:content';
@@ -31,21 +33,28 @@ function createOptions(x){
     //Add default option
     optionSet.add("Any");
     projects.forEach(arrayContainer =>{
-        arrayContainer.data[x].forEach(element =>{
+        if(Array.isArray(arrayContainer.data[x])){
+            arrayContainer.data[x].forEach(element =>{
             optionSet.add(element);
         });
+        }else{
+            optionSet.add(arrayContainer.data[x]);
+        }
+        
     });
     return Array.from(optionSet).map(option =>({value:option, label:option}));
 }
 
 const levelOptions = computed(() => createOptions("levels") );
 const techOptions = computed(() => createOptions("techs"));
+const durationOptions = computed(() => createOptions("durationMins"));
+const difficultyOptions = computed(() => createOptions("difficulty"));
 
 
 function matches(project) {
     //semester: consider this as ref variable 
     let isMatch = false;
-    if(search_text.value || semester.value!='Any' || level.value!='Any' || tech!== 'Any'){   //If Fall semester
+    if(search_text.value || semester.value!='Any' || level.value!='Any' || tech!== 'Any' || duration.value != 'Any' || difficulty.value !== 'Any'){   //If Fall semester
 
         //check filters (dropdown menus)
         //if dropdown value does not match with project data, it fails match immediately
@@ -56,6 +65,12 @@ function matches(project) {
             return false;
         }
         if(tech.value != 'Any' && !project.data.techs.includes(tech.value)){
+            return false;
+        }
+        if(duration.value != 'Any' && !project.data.durationMins.toString().includes(duration.value)){
+            return false;
+        }
+        if(difficulty.value != 'Any' && !project.data.difficulty.includes(difficulty.value)){
             return false;
         }
         let searchText = search_text.value.toLowerCase();
@@ -112,7 +127,18 @@ function matches(project) {
                 <label>Levels:</label>
                 <Select unique-id="lev" :options="levelOptions" @selected="(value) => { level = value }">
                 </Select>
-               
+            </div>
+
+            <div>
+                <label>Difficulty:</label>
+                <Select unique-id="dif" :options="difficultyOptions" @selected="(value) => { difficulty = value }">
+                </Select>
+            </div>
+
+            <div>
+                <label>Duration:</label>
+                <Select unique-id="dur" :options="durationOptions" @selected="(value) => { duration = value }">
+                </Select>
             </div>
         </div>
         
