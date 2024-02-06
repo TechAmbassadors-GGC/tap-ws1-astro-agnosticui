@@ -1,6 +1,8 @@
 ---
 title: Project 1
 id: project-1
+desc: This is the most awesome project!
+github: https://github.com
 students: [ a, b, c]
 instructors: [ Anca Doloc-Mihu, Cindy Robertson]
 techs: [sphero]
@@ -10,7 +12,7 @@ events: [CCSC-2023, S3-fall-2023]
 semester: fall
 year: 2023
 levels: [ k-12, college ] 
-difficulty: medium
+difficulty: [ beginner, intermediate ]
 durationMins: [ 30, 60, 90 ]
 publishedDate: 2023-11-05
 related-ids: []

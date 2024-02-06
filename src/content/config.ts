@@ -15,13 +15,15 @@ const projectCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     id: z.string(),
+    desc: z.string(),
+    github: z.string().optional(),
     students: z.array(z.string()),
     instructors: z.array(z.string()),
     techs: z.array(z.string()),
     videos: z.array(z.string()).optional(),
     tags: z.array(z.string()).optional(),
-    levels: z.array(z.string()),
-    difficulty: z.string(),
+    levels: z.array(z.string()),      // most projects will be appropriate for all audiences, but otherwise it could be specified
+    difficulty: z.array(z.string()), // project could be set up to be at different difficulties
     durationMins: z.array(z.number()),
     events: z.array(z.string()).optional(),
     semester: z.string(),

@@ -145,6 +145,7 @@ function matches(project) {
 
     </section>
 
+
     <h3> {{ (search_text ? `Projects that contain: "${search_text}"` : 'All Projects') + 
             (semester.length > 0 ? ` in ${semester} semester(s)` : "") }}</h3>
 
@@ -153,6 +154,7 @@ function matches(project) {
             <Card css="card-project" isStacked  isShadow v-if="matches(project)">
                 <a :href="`/projects/${project.data.year}/${project.data.semester}/${project.data.id}`">{{
                     project.data.title }}</a> &nbsp;
+
                 {{ project.data.students.toString() }}
             </Card>
         </template>
