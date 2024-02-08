@@ -64,7 +64,9 @@ function matches(project) {
         if(level.value != 'Any' && !project.data.levels.includes(level.value)){
             return false;
         }
-        if(tech.value != 'Any' && !project.data.techs.includes(tech.value)){
+        if(tech.value != 'Any' && !tech.value.includes(project.data.techs)){
+            console.log(tech.value);
+            console.log(!project.data.techs.includes(tech.value));
             return false;
         }
         if(duration.value != 'Any' && !project.data.durationMins.toString().includes(duration.value)){
@@ -119,25 +121,25 @@ function matches(project) {
             </div>
             <div>
                 <label>Tech:</label>
-                <Select unique-id="tec" :options="techOptions" @selected="(value) => { tech = value }">
+                <Select unique-id="tec" :options="techOptions" :is-multiple="true" :multiple-size="3" @selected="(value) => { tech = value }">
                 </Select>
 
             </div>
             <div>
                 <label>Levels:</label>
-                <Select unique-id="lev" :options="levelOptions" @selected="(value) => { level = value }">
+                <Select unique-id="lev" :options="levelOptions" :is-multiple="true" :multiple-size="3" @selected="(value) => { level = value }">
                 </Select>
             </div>
 
             <div>
                 <label>Difficulty:</label>
-                <Select unique-id="dif" :options="difficultyOptions" @selected="(value) => { difficulty = value }">
+                <Select unique-id="dif" :options="difficultyOptions" :is-multiple="true" :multiple-size="3"  @selected="(value) => { difficulty = value }">
                 </Select>
             </div>
 
             <div>
                 <label>Duration:</label>
-                <Select unique-id="dur" :options="durationOptions" @selected="(value) => { duration = value }">
+                <Select unique-id="dur" :options="durationOptions" :is-multiple="true" :multiple-size="3" @selected="(value) => { duration = value }">
                 </Select>
             </div>
         </div>
