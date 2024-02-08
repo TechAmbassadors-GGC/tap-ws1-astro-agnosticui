@@ -72,7 +72,7 @@ const blogEntries = await getCollection('posts');
 		<!--Because "TAPHeader" is a Vue.js3 component it can be called with the client:load applied to it the "Heading" which is a Astro component cannot -->
 		<TAPHeader client:load />
 		<BreadCrumbs />
-		<Crumbs />
+		<Crumbs client:load/>
 		<Heading />
 		
 		

@@ -35,7 +35,7 @@ import { Breadcrumb } from "agnostic-vue";
 const trailOfTAPSite = [
     {
         label: "first page",
-        url: "/",
+        url: "/localhost:4321",
     },
     {
         label: "second page",
@@ -53,7 +53,7 @@ const trailOfTAPSite = [
     <h2>Breadcrumbs</h2>
     <div class="mbs24 mbe16">
         <Breadcrumb type="slash" :routes="trailOfTAPSite" />
-        <Breadcrumb :routes="[{label: 'First', url: '#foo'}, { label: 'Second', url: '#bar' }]" />
+        <Breadcrumb :routes="[{label: 'First', url: '/'}, { label: 'Second', url: '#bar' }]" />
     </div>
 </template>
 
