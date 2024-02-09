@@ -4,7 +4,7 @@
 // Import of AugnosticUI global common and its CSS
 import "agnostic-vue/dist/common.min.css";
 import "agnostic-vue/dist/index.css";
-import { Breadcrumb } from "agnostic-vue";
+import Breadcrumb from "./vue/Breadcrumb.vue";
 // import Vue from 'vue'
 // import Router from 'vue-router'
 
