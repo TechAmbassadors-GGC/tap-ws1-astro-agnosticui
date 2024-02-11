@@ -191,6 +191,13 @@ declare module 'astro:content' {
 } & { render(): Render[".md"] };
 };
 "projects": {
+"2023-08Fall/Jedi.md": {
+	id: "2023-08Fall/Jedi.md";
+  slug: "2023-08fall/jedi";
+  body: string;
+  collection: "projects";
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".md"] };
 "2023-08Fall/project1.md": {
 	id: "2023-08Fall/project1.md";
   slug: "2023-08fall/project1";
