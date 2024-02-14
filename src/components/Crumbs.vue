@@ -31,20 +31,19 @@ import Breadcrumb from "./vue/Breadcrumb.vue";
 //         window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
 //     }
 // }
+var current = '';
+
+
 
 const trailOfTAPSite = [
     {
-        label: "first page",
-        url: "/localhost:4321",
+        label: "TAP",
+        url: "/",
     },
     {
-        label: "second page",
+        label: "Projects",
         url: "/projects",
     },
-    {
-        label: "third page",
-        url: "#foo",
-    }
 ];
 
 </script>
@@ -53,7 +52,6 @@ const trailOfTAPSite = [
     <h2>Breadcrumbs</h2>
     <div class="mbs24 mbe16">
         <Breadcrumb type="slash" :routes="trailOfTAPSite" />
-        <Breadcrumb :routes="[{label: 'First', url: '/'}, { label: 'Second', url: '#bar' }]" />
     </div>
 </template>
 
