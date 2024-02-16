@@ -61,18 +61,17 @@ function matches(project) {
         if(semester.value != 'Any' && !semester.value.includes(project.data.semester)){
             return false;
         }
-        if(level.value != 'Any' && !project.data.levels.includes(level.value)){
+        if(level.value != 'Any' && !level.value.some(level => project.data.levels.includes(level))){
             return false;
         }
-        if(tech.value != 'Any' && !tech.value.includes(project.data.techs)){
-            console.log(tech.value);
-            console.log(!project.data.techs.includes(tech.value));
+        if(tech.value != 'Any' && !tech.value.some(tech => project.data.techs.includes(tech))){
             return false;
         }
-        if(duration.value != 'Any' && !project.data.durationMins.toString().includes(duration.value)){
+        //duration.value is an array contains String values. project.data.durationMins contains Number values
+        if(duration.value != 'Any' && !duration.value.some(durationString => project.data.durationMins.some(durationNumber => durationString == String(durationNumber)))){
             return false;
         }
-        if(difficulty.value != 'Any' && !project.data.difficulty.includes(difficulty.value)){
+        if(difficulty.value != 'Any' && !difficulty.value.some(diff => project.data.difficulty.includes(diff))){
             return false;
         }
         let searchText = search_text.value.toLowerCase();
