@@ -21,8 +21,6 @@ import Card from "agnostic-vue";
 import Heading from '../components/Heading.astro';
 import TAPHeader from '../components/TAPHeader.vue';
 //import of custom bread-crumb component
-//import BreadCrumbs from '../components/BreadCrumbs.astro'; This is a depricated attempt at creating a crumb.
-import Crumbs from '../components/Crumbs.vue';
 //import React from '../components/react/React.jsx';
 //import Svelte from '../components/svelte/Svelte.svelte';
 import Vue from '../components/vue/Vue.vue';
@@ -71,8 +69,6 @@ const blogEntries = await getCollection('posts');
 	<main>
 		<!--Because "TAPHeader" is a Vue.js3 component it can be called with the client:load applied to it the "Heading" which is a Astro component cannot -->
 		<TAPHeader client:load />
-		<!-- <BreadCrumbs /> This is a depricated call to a old crumb branch-->
-		<Crumbs client:load/>
 		<Heading />
 		
 		
