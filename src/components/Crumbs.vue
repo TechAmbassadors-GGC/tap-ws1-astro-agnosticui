@@ -7,7 +7,9 @@ import Breadcrumb from "./vue/Breadcrumb.vue";
 
 //set up of the props for seperate pages
 
-// create a prop that can be edited on each of the pages this component is used on and then use the prop as a variable to be entered into the Breadcrumb url module parameter
+// create a prop that can be edited on each of the pages this component 
+// is used on and then use the prop as a variable to be entered into 
+// the vue 3 Breadcrumb module url parameter
 
 const pageProp = defineProps(
   {
@@ -15,8 +17,6 @@ const pageProp = defineProps(
     pageUrl: String
   }
 );
-
-
 
 //bread crumb set up
 
