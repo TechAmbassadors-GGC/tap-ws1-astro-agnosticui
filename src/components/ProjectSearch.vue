@@ -14,6 +14,7 @@ const difficulty = ref('Any');
 // load blog content: news, etc.
 import { getCollection } from 'astro:content';
 const projects = await getCollection('projects');  //list of projects
+console.log(projects);
 //Step 1 => get list of instructors in a set to avoid duplication
 
 //Step 2 => place them in an object {value = ?, label = ?} to feed into a select option
@@ -87,7 +88,9 @@ function matches(project) {
             project.data.title.toLowerCase().includes(searchText) ||
             project.data.levels.some(level => level.includes(searchText)) ||
             project.data.semester == searchText ||
-            project.data.techs.some(tech => tech.includes(searchText))
+            project.data.techs.some(tech => tech.includes(searchText))||
+            project.data.instructors.some(inst => inst.toLowerCase().includes(searchText))||
+            project.data.students.some(stu => stu.toLowerCase().includes(searchText))
             ){
             return true;
         }else{
