@@ -14,22 +14,17 @@ const difficulty = ref('Any');
 // load blog content: news, etc.
 import { getCollection } from 'astro:content';
 const projects = await getCollection('projects');  //list of projects
-console.log(projects);
+
 //Step 1 => get list of instructors in a set to avoid duplication
-
 //Step 2 => place them in an object {value = ?, label = ?} to feed into a select option
-
 //Insert into three select/dropdown menus
-
 //Add onclick listener to each dropdown
-
-
 //Instructor selected, search through the list of only instructors
-const filterList = ref([{ value: 'tech', label: 'Tech' }, { value: 'levels', label: 'Levels' }, { value: 'students', label: 'Student' }]);
+
+// Semester list constant
 const semesterList = ref([{value:'Any', label:'Any'},{value: 'fall', label:'Fall'}, {value: 'spring', label:'Spring'}, {value: 'summer', label:'Summer'}]);
 
-
-function createOptions(x){
+function createOptions(projects, x) {
     let optionSet = new Set();
     //Add default option
     optionSet.add("Any");
@@ -46,10 +41,10 @@ function createOptions(x){
     return Array.from(optionSet).map(option =>({value:option, label:option}));
 }
 
-const levelOptions = createOptions("levels");
-const techOptions = createOptions("techs");
-const durationOptions = createOptions("durationMins");
-const difficultyOptions = createOptions("difficulty");
+const levelOptions = createOptions(projects, "levels");
+const techOptions = createOptions(projects, "techs");
+const durationOptions = createOptions(projects, "durationMins");
+const difficultyOptions = createOptions(projects, "difficulty");
 
 function matches(project) {
     //semester: consider this as ref variable 
