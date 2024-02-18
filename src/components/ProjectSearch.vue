@@ -5,11 +5,11 @@ import "agnostic-vue/dist/index.css";
 import "agnostic-vue/dist/common.min.css";
 import { Input, Card, Select } from "agnostic-vue";
 const search_text = ref("");
-const level = ref('Any');
-const semester = ref(["Any"]);
-const tech = ref('Any');
-const duration = ref(["Any"]);
-const difficulty = ref('Any');
+const level = ref(['Any']);
+const semester = ref(['Any']);
+const tech = ref(['Any']);
+const duration = ref(['Any']);
+const difficulty = ref(['Any']);
 
 // load blog content: news, etc.
 import { getCollection } from 'astro:content';
@@ -144,8 +144,8 @@ function matches(project) {
     </section>
 
 
-    <h3> {{ (search_text ? `Projects that contain: "${search_text}"` : 'All Projects') + 
-            (semester.length > 0 ? ` in ${semester} semester(s)` : "") }}</h3>
+    <h3> {{ ((search_text || !semester.includes('Any') || !level.includes('Any') || !tech.includes('Any') || !duration.includes('Any') || !difficulty.includes('Any')) ? 
+            `Selected projects` : 'All Projects') }}</h3>
 
     <section class="mbe40 project-cards-flex flex flex-row flex-grow-1 flex-shrink-1 flex-wrap flex-fill">
         <template v-for="project in projects">  <!--Unfiltered*-->
