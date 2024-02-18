@@ -46,11 +46,10 @@ function createOptions(x){
     return Array.from(optionSet).map(option =>({value:option, label:option}));
 }
 
-const levelOptions = computed(() => createOptions("levels") );
-const techOptions = computed(() => createOptions("techs"));
-const durationOptions = computed(() => createOptions("durationMins"));
-const difficultyOptions = computed(() => createOptions("difficulty"));
-
+const levelOptions = createOptions("levels");
+const techOptions = createOptions("techs");
+const durationOptions = createOptions("durationMins");
+const difficultyOptions = createOptions("difficulty");
 
 function matches(project) {
     //semester: consider this as ref variable 
