@@ -90,59 +90,52 @@ function matches(project) {
         }else{
             return false;
         }
-
     }
     //otherwise, always return true
-
-    return true;
-  
+    return true;  
 }
 </script>
 <template>
     <div>
-
     
     <section class="mbe40">
 
         <Input id="7" is-underlined is-underlined-with-background placeholder="Enter project name, student, technology…"
             label="Search for projects" type="text" v-model="search_text" />
-
         
-        <div>
-            <div>
+        <div class="project-filter-container">
+            <div class="project-filter-dropdown">
                 <label>Semester</label>
                 <Select name="semester" unique-id="sem" @selected="(value) => { semester = value }" 
                     label-copy="Select a semester to filter results" 
                     :options="semesterList" :is-multiple="true" :multiple-size="3"></Select>
             </div>
-            <div>
+            <div class="project-filter-dropdown">
                 <label>Tech:</label>
                 <Select unique-id="tec" :options="techOptions" :is-multiple="true" :multiple-size="3" @selected="(value) => { tech = value }">
                 </Select>
 
             </div>
-            <div>
+            <div class="project-filter-dropdown">
                 <label>Levels:</label>
                 <Select unique-id="lev" :options="levelOptions" :is-multiple="true" :multiple-size="3" @selected="(value) => { level = value }">
                 </Select>
             </div>
 
-            <div>
+            <div class="project-filter-dropdown">
                 <label>Difficulty:</label>
                 <Select unique-id="dif" :options="difficultyOptions" :is-multiple="true" :multiple-size="3"  @selected="(value) => { difficulty = value }">
                 </Select>
             </div>
 
-            <div>
+            <div class="project-filter-dropdown">
                 <label>Duration:</label>
                 <Select unique-id="dur" :options="durationOptions" :is-multiple="true" :multiple-size="3" @selected="(value) => { duration = value }">
                 </Select>
             </div>
-        </div>
-        
+        </div>        
 
     </section>
-
 
     <h3> {{ ((search_text || !semester.includes('Any') || !level.includes('Any') || !tech.includes('Any') || !duration.includes('Any') || !difficulty.includes('Any')) ? 
             `Selected projects` : 'All Projects') }}</h3>
@@ -158,9 +151,21 @@ function matches(project) {
         </template>
     </section>
     </div>
-</template>
+</template>  
   
-  
-  
-<style scoped></style>
-  
+<style scoped>
+.project-filter-container {
+    justify-content: space-around;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+}
+.project-filter-dropdown {
+    /* apply grid and flex here */
+    min-width: 10rem !important;
+    max-width: 20em;
+    margin: 0 auto;
+    padding: 1em;
+    flex: 1;
+}
+</style>  
