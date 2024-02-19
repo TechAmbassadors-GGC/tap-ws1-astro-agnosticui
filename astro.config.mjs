@@ -5,5 +5,6 @@ import react from '@astrojs/react';
 import agnosticAstro from 'agnosticui-astro';
 
 export default defineConfig({
-	integrations: [vue(), react(), svelte(), agnosticAstro()]
+	integrations: [vue(), react(), svelte(), agnosticAstro()],
+	base: '/tap-ws1-astro-agnosticui'
 });
