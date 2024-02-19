@@ -64,11 +64,17 @@ const blogEntries = await getCollection('posts');
 	</style>
 </head>
 <body>
-	<main>
-		<TAPHeader client:load />
-		<Heading />
+
+	
+	
+	
 		
-		<section class="flex flex-row flex-wrap items-start">  
+		<TAPHeader client:load />
+		
+	
+	<main>
+		<Heading />
+			<section class="flex flex-row flex-wrap items-start">  
 			<PostListCard client:load/>
 			<ProjectListCard client:load/>
 		</section>
