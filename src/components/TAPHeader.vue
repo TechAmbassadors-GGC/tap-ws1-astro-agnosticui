@@ -15,7 +15,7 @@ import { Header, HeaderNav, HeaderNavItem, Menu } from "agnostic-vue";
       <HeaderNav css="header-mbe16">
         <HeaderNavItem>
          
-          <a href="projects">Search Outreach Projects:</a>
+          <a href="projects">Search Outreach Projects</a>
         </HeaderNavItem>
         <HeaderNavItem>
           <a href="">Join the discussion</a>
