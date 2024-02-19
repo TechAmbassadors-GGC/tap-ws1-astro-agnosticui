@@ -17,8 +17,7 @@ body {
   /* Change the min and max sizing based on available space */
   grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
   grid-auto-rows: minmax(100px, auto);
-  justify-items: top
-;  
+  justify-items: top;  
   align-items: top;
   place-items: center;*/
   background: var(--agnostic-light);
