@@ -47,8 +47,6 @@ jobs:
   
   deploy:      
     # Deploy to the github-pages environment
-    # (only accepts being run from gh-pages,
-    # potentially in a separate workflow file)
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }} 
