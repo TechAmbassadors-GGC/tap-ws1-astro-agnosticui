@@ -3,12 +3,14 @@
 import "agnostic-vue/dist/common.min.css";
 import "agnostic-vue/dist/index.css";
 import { Header, HeaderNav, HeaderNavItem, Menu } from "agnostic-vue";
+
+const base = import.meta.env.BASE_URL;
 </script>
 <template>  
   <Header isHeaderContentEnd>
     <template v-slot:logoleft>
       
-      <a class="flex-fill" href="/" >TAP</a>
+      <a class="flex-fill" v-bind:href="base" >TAP</a>
 
     </template>
     <template v-slot:headernav>
