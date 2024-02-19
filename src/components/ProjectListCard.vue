@@ -11,7 +11,7 @@
             </div>
             <ul> <!-- order recent projects by date? -->
             <li v-for="project in projects">
-            <a :href="`/projects/${project.data.year}/${project.data.semester}/${project.data.id}`">{{ project.data.title }}</a> &nbsp;
+            <a :href="`projects/${project.data.year}/${project.data.semester}/${project.data.id}`">{{ project.data.title }}</a> &nbsp;
             {{ project.data.students.toString() }}
             </li>
             </ul>
