@@ -5,6 +5,9 @@ import "agnostic-vue/dist/common.min.css";
 import "agnostic-vue/dist/index.css";
 import Breadcrumb from "./vue/Breadcrumb.vue";
 
+
+
+
 //set up of the props for seperate pages
 
 // create a prop that can be edited on each of the pages this component 
@@ -13,33 +16,57 @@ import Breadcrumb from "./vue/Breadcrumb.vue";
 
 const pageProp = defineProps(
   {
-    pageLabel: String,
-    pageUrl: String
+    pageType: String,
+    pageUrl: String,
   }
 );
 
-//bread crumb set up
+var trailOfTAPSite = []
 
-const trailOfTAPSite = [
+const urls = pageProp.pageUrl.split("/");
+
+if(pageProp.pageType == "projects"){
+  
+ trailOfTAPSite = [
     {
-      label: `${pageProp.pageLabel.split(",")[0]}`,
-      url: `${pageProp.pageUrl.split(",")[0]}`,
+      label: "TAPS",
+      url: `/${urls[0]}`,
     },
     {
-      label: `${pageProp.pageLabel.split(",")[1]}`,
-    }
-];
+      label: `${urls[1]}`,
+    },
+  ];
+}
 
+// if(pageProp.pageLabel == "project"){
+//   const urls = pageProp.pageUrl.split("/")
+//   const trailOfTAPSite = [
+//     {
+//       label: `${urls[0]}`,
+//       url: `/${pageProp.pageUrl.split("/")[0]}`,
+//     },
+//     {
+//       label: `${pageProp.pageLabel.split(",")[1]}`,
+//     },
+//   ];
+// }
+
+// if(pageProp.pageLabel == "post"){
+//   const urls = pageProp.pageUrl.split("/")
+//   const trailOfTAPSite = [
+//     {
+//       label: `${pageProp.pageLabel.split(",")[0]}`,
+//       url: `/${pageProp.pageUrl.split("/")[0]}`,
+//     },
+//     {
+//       label: `${pageProp.pageLabel.split(",")[1]}`,
+//     },
+//   ];
+// }
 </script>
-
-<style>
-/* #crumb{ */
-  /* background-color: rgb(0, 0, 157); */
-/* } */
-</style>
 
 <template>
     <div id="crumb" class="mbs24 mbe16">
-        <h4><Breadcrumb type="slash" :routes="trailOfTAPSite" /></h4>
+        <Breadcrumb type="slash" :routes="trailOfTAPSite" />
     </div>
 </template>
