@@ -38,18 +38,22 @@ if(pageProp.pageType == "projects"){
   ];
 }
 
-// if(pageProp.pageLabel == "project"){
-//   const urls = pageProp.pageUrl.split("/")
-//   const trailOfTAPSite = [
-//     {
-//       label: `${urls[0]}`,
-//       url: `/${pageProp.pageUrl.split("/")[0]}`,
-//     },
-//     {
-//       label: `${pageProp.pageLabel.split(",")[1]}`,
-//     },
-//   ];
-// }
+if(pageProp.pageLabel == "project"){
+
+  trailOfTAPSite = [
+    {
+      label: `${urls[0]}`,
+      url: `/${urls[0]}`,
+    },
+    {
+      label: `${urls[1]}`,
+      url: `${urls[1]}`,
+    },
+    {
+      label: `${urls[2]}`,
+    }
+  ];
+}
 
 // if(pageProp.pageLabel == "post"){
 //   const urls = pageProp.pageUrl.split("/")
