@@ -30,9 +30,12 @@ export async function getStaticPaths() {
   }));
 }
 // 2. For your template, you can get the entry directly from the prop
-const { slug } = Astro.params;
+// const { slug } = Astro.params;
 const { project } = Astro.props;
 const { Content } = await project.render();
+const  projYear  = project.data.year;
+const  projSemester  = project.data.semester;
+const  projName  = project.data.title;
 
 // Page title
 let title = `${project.data.title} - Outreach Project - GGC Technology Ambassadors Program`;
@@ -52,7 +55,7 @@ let title = `${project.data.title} - Outreach Project - GGC Technology Ambassado
 <body>
 	<main>
 		<TAPHeader client:load />
-		<Crumbs pageType="project" pageUrl=`/projects/${slug}` client:load/>
+		<Crumbs pageType="project" pageUrl=`/projects/${projYear}/${projSemester}/${projName}` client:load/>
 
     <h1>{project.data.title}</h1>
     <Content />
