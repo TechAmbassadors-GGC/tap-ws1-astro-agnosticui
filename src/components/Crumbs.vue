@@ -43,7 +43,7 @@ if(pageProp.pageType == "project"){
   trailOfTAPSite = [
     {
       label: "TAP",
-      url: `/`,
+      url: "/",
     },
     {
       label: `${urls[1]}`,
@@ -63,15 +63,39 @@ if(pageProp.pageType == "project"){
   ];
 }
 
-// if(pageProp.pageLabel == "post"){
-//   const urls = pageProp.pageUrl.split("/")
-//   const trailOfTAPSite = [
+// Future pages information
+
+// if(pageProp.pageType == "posts"){
+  
+//   trailOfTAPSite = [
 //     {
-//       label: `${pageProp.pageLabel.split(",")[0]}`,
-//       url: `/${pageProp.pageUrl.split("/")[0]}`,
+//       label: "TAP",
+//       url: "/",
 //     },
 //     {
-//       label: `${pageProp.pageLabel.split(",")[1]}`,
+//       label: `${urls[1]}`,
+//     },
+//   ];
+// }
+
+// if(pageProp.pageType == "post"){
+  
+//   trailOfTAPSite = [
+//     {
+//       label: "TAP",
+//       url: "/",
+//     },
+//     {
+//       label: `${urls[1]}`,
+//       url: `/${urls[1]}`,
+//     },
+//     {
+//       label: `${urls[2]}`,
+//       url: `/${urls[1]}/${urls[2]}`,
+//     },
+//     {
+//       label: `${urls[3]}`,
+//       url: `/${urls[1]}/${urls[2]}/${urls[3]}`,
 //     },
 //   ];
 // }

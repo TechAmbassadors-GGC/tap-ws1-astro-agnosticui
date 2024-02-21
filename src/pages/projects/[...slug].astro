@@ -33,6 +33,8 @@ export async function getStaticPaths() {
 // const { slug } = Astro.params;
 const { project } = Astro.props;
 const { Content } = await project.render();
+
+// BreadCrumb variables
 const  projYear  = project.data.year;
 const  projSemester  = project.data.semester;
 const  projName  = project.data.title;
