@@ -29,7 +29,7 @@ if(pageProp.pageType == "projects"){
   
  trailOfTAPSite = [
     {
-      label: "TAPS",
+      label: "TAP",
       url: `/${urls[0]}`,
     },
     {
@@ -38,11 +38,11 @@ if(pageProp.pageType == "projects"){
   ];
 }
 
-if(pageProp.pageLabel == "project"){
+else if(pageProp.pageLabel == "project"){
 
   trailOfTAPSite = [
     {
-      label: `${urls[0]}`,
+      label: "TAP",
       url: `/${urls[0]}`,
     },
     {
@@ -51,7 +51,16 @@ if(pageProp.pageLabel == "project"){
     },
     {
       label: `${urls[2]}`,
-    }
+      url: `${urls[2]}`,
+    },
+    // {
+    //   label: `${urls[3]}`,
+    //   url: `${urls[3]}`,
+    // },
+    // {
+    //   label: `${urls[4]}`,
+    //   url: `${urls[4]}`,
+    // },
   ];
 }
 

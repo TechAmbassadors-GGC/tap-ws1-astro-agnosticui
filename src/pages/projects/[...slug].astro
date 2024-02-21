@@ -52,7 +52,7 @@ let title = `${project.data.title} - Outreach Project - GGC Technology Ambassado
 <body>
 	<main>
 		<TAPHeader client:load />
-		<Crumbs pageType="project" pageUrl=`/projects/${slug}`/>
+		<Crumbs pageType="project" pageUrl=`/projects/${slug}` client:load/>
 
     <h1>{project.data.title}</h1>
     <Content />
