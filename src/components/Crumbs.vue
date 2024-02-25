@@ -63,50 +63,48 @@ else if(pageProp.pageType == "project"){
   ];
 }
 
-// Future pages information
-
-// else if(pageProp.pageType == "posts"){
+else if(pageProp.pageType == "posts"){
   
-//   trailOfTAPSite = [
-//     {
-//       label: "TAP",
-//       url: "/",
-//     },
-//     {
-//       label: `${urls[1]}`,
-//     },
-//   ];
-// }
+  trailOfTAPSite = [
+    {
+      label: "TAP",
+      url: "/",
+    },
+    {
+      label: `${urls[1]}`,
+    },
+  ];
+}
 
-// else if(pageProp.pageType == "post"){
+else if(pageProp.pageType == "post"){
   
-//   trailOfTAPSite = [
-//     {
-//       label: "TAP",
-//       url: "/",
-//     },
-//     {
-//       label: `${urls[1]}`,
-//       url: `/${urls[1]}`,
-//     },
-//     {
-//       label: `${urls[2]}`,
-//       url: `/${urls[1]}/${urls[2]}`,
-//     },
-//     {
-//       label: `${urls[3]}`,
-//       url: `/${urls[1]}/${urls[2]}/${urls[3]}`,
-//     },
-//   ];
-// }
-// else {
-//   trailOfTAPSite = [
-//     {
-//       label: "TAP",
-//       url: "/",
-//     },
-//   ];
-//}
+  trailOfTAPSite = [
+    {
+      label: "TAP",
+      url: "/",
+    },
+    {
+      label: `${urls[1]}`,
+      url: `/${urls[1]}`,
+    },
+    {
+      label: `${urls[2]}`,
+      url: `/${urls[1]}/${urls[2]}`,
+    },
+    {
+      label: `${urls[3]}`,
+      url: `/${urls[1]}/${urls[2]}/${urls[3]}`,
+    },
+  ];
+}
+else {
+  trailOfTAPSite = [
+    {
+      label: "TAP",
+      url: "/",
+    },
+  ];
+}
 </script>
 
 <template>
