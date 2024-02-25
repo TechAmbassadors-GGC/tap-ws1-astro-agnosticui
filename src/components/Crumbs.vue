@@ -38,7 +38,7 @@ if(pageProp.pageType == "projects"){
   ];
 }
 
-if(pageProp.pageType == "project"){
+else if(pageProp.pageType == "project"){
 
   trailOfTAPSite = [
     {
@@ -65,7 +65,7 @@ if(pageProp.pageType == "project"){
 
 // Future pages information
 
-// if(pageProp.pageType == "posts"){
+// else if(pageProp.pageType == "posts"){
   
 //   trailOfTAPSite = [
 //     {
@@ -78,7 +78,7 @@ if(pageProp.pageType == "project"){
 //   ];
 // }
 
-// if(pageProp.pageType == "post"){
+// else if(pageProp.pageType == "post"){
   
 //   trailOfTAPSite = [
 //     {
@@ -99,6 +99,14 @@ if(pageProp.pageType == "project"){
 //     },
 //   ];
 // }
+// else {
+//   trailOfTAPSite = [
+//     {
+//       label: "TAP",
+//       url: "/",
+//     },
+//   ];
+//}
 </script>
 
 <template>
