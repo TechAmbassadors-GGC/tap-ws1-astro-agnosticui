@@ -22,16 +22,18 @@ const pageProp = defineProps(
 );
 
 var trailOfTAPSite = []
+const TAPlink = 
+    {
+      label: "TAP",
+      url: import.meta.env.BASE_URL,
+    };
 
 const urls = pageProp.pageUrl.split("/");
 
 if(pageProp.pageType == "projects"){
   
  trailOfTAPSite = [
-    {
-      label: "TAP",
-      url: "/",
-    },
+    TAPlink,
     {
       label: `${urls[1]}`,
     },
@@ -41,21 +43,18 @@ if(pageProp.pageType == "projects"){
 else if(pageProp.pageType == "project"){
 
   trailOfTAPSite = [
-    {
-      label: "TAP",
-      url: "/",
-    },
+    TAPlink,
     {
       label: `${urls[1]}`,
-      url: `/${urls[1]}`,
+      url: `${urls[1]}`,
     },
     {
       label: `${urls[2]}`,
-      url: `/${urls[1]}/${urls[2]}`,
+      url: `${urls[1]}/${urls[2]}`,
     },
     {
       label: `${urls[3]}`,
-      url: `/${urls[1]}/${urls[2]}/${urls[3]}`,
+      url: `${urls[1]}/${urls[2]}/${urls[3]}`,
     },
     {
       label: `${urls[4]}`,
@@ -66,10 +65,7 @@ else if(pageProp.pageType == "project"){
 else if(pageProp.pageType == "posts"){
   
   trailOfTAPSite = [
-    {
-      label: "TAP",
-      url: "/",
-    },
+    TAPlink,
     {
       label: `${urls[1]}`,
     },
@@ -79,30 +75,24 @@ else if(pageProp.pageType == "posts"){
 else if(pageProp.pageType == "post"){
   
   trailOfTAPSite = [
-    {
-      label: "TAP",
-      url: "/",
-    },
+    TAPlink,
     {
       label: `${urls[1]}`,
-      url: `/${urls[1]}`,
+      url: `${urls[1]}`,
     },
     {
       label: `${urls[2]}`,
-      url: `/${urls[1]}/${urls[2]}`,
+      url: `${urls[1]}/${urls[2]}`,
     },
     {
       label: `${urls[3]}`,
-      url: `/${urls[1]}/${urls[2]}/${urls[3]}`,
+      url: `${urls[1]}/${urls[2]}/${urls[3]}`,
     },
   ];
 }
 else {
   trailOfTAPSite = [
-    {
-      label: "TAP",
-      url: "/",
-    },
+    TAPlink,
   ];
 }
 </script>
