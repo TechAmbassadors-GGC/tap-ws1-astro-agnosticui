@@ -12,7 +12,6 @@ import { Header, HeaderNav, HeaderNavItem, Menu } from "agnostic-vue";
     <template v-slot:headernav>
       <HeaderNav css="header-mbe16">
         <HeaderNavItem>
-          <!-- edited the href call so that this nav object pointed to the proper url -->
           <a href="/projects">Outreach projects & templates</a>
         </HeaderNavItem>
         <HeaderNavItem>
@@ -23,7 +22,6 @@ import { Header, HeaderNav, HeaderNavItem, Menu } from "agnostic-vue";
             <template #menuitem-1>History</template>
             <template #menuitem-people>People</template>
             <template #menuitem-2>Awards</template>
-            <!--need to add appropriate href for the join section-->
             <template #menuitem-3><a href="">Join</a></template>            
             <template #icon>&#9662;</template>
           </Menu>
