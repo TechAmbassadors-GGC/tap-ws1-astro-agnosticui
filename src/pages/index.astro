@@ -17,7 +17,6 @@ import "agnostic-vue/dist/opinions.min.css";
 
 // Component Imports
 import "agnostic-vue/dist/index.css";
-import Card from "agnostic-vue";
 import Heading from '../components/Heading.astro';
 import TAPHeader from '../components/TAPHeader.vue';
 //import React from '../components/react/React.jsx';
@@ -65,18 +64,21 @@ const blogEntries = await getCollection('posts');
 	</style>
 </head>
 <body>
-	<main>
+
+	
+	
+	
+		
 		<TAPHeader client:load />
+			
+	<main>
 		<Heading />
-		
-		
-		<section class="flex flex-row flex-wrap items-start">  
+			<section class="flex flex-row flex-wrap items-start">  
 			<PostListCard client:load/>
 			<ProjectListCard client:load/>
 		</section>
-
 		<div class="frameworks">
-		<!-- React client:load / -->
+		<!-- React client:load /-->
 		<div class="mbe24" />
 			<!--Vue client:load /-->
 		<div class="mbe24" />
