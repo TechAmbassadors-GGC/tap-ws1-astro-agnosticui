@@ -10,13 +10,13 @@ const base = import.meta.env.BASE_URL;
   <Header isHeaderContentEnd>
     <template v-slot:logoleft>
       
-      <a class="flex-fill" v-bind:href="base" >TAP</a>
+      <a class="flex-fill" :href="base" >TAP</a>
 
     </template>
     <template v-slot:headernav>
       <HeaderNav css="header-mbe16">
         <HeaderNavItem>
-          <a href="projects">Outreach projects & templates</a>
+          <a :href="`${base}/projects`">Outreach projects & templates</a>
         </HeaderNavItem>
         <HeaderNavItem>
           <a href="">Join the discussion</a>

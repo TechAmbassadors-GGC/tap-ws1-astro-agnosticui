@@ -10,7 +10,7 @@
     </div>
       <ul>
         <li v-for="blogPostEntry in blogEntries">
-        <a :href="`posts/${blogPostEntry.slug}`">{{ blogPostEntry.data.title }}</a> &nbsp;
+        <a :href="`${base}/posts/${blogPostEntry.slug}`">{{ blogPostEntry.data.title }}</a> &nbsp;
         <time datetime={{ blogPostEntry.data.publishedDate.toISOString() }}>
           {{ blogPostEntry.data.publishedDate.toDateString() }}
         </time>
@@ -30,6 +30,8 @@ import { Card } from "agnostic-vue";
 // load blog content: news, etc.
 import { getCollection } from 'astro:content';
 const blogEntries = await getCollection('posts');
+
+const base = import.meta.env.BASE_URL;
 </script>
 
 <style scoped>

@@ -11,7 +11,7 @@
             </div>
             <ul> <!-- order recent projects by date? -->
             <li v-for="project in projects">
-            <a :href="`projects/${project.data.year}/${project.data.semester}/${project.data.id}`">{{ project.data.title }}</a> &nbsp;
+            <a :href="`${base}/projects/${project.data.year}/${project.data.semester}/${project.data.id}`">{{ project.data.title }}</a> &nbsp;
             {{ project.data.students.toString() }}
             </li>
             </ul>
@@ -29,6 +29,7 @@
   // load blog content: news, etc.
   import { getCollection } from 'astro:content';
   const projects = await getCollection('projects');
+  const base = import.meta.env.BASE_URL;
   </script>
   
   <style scoped>

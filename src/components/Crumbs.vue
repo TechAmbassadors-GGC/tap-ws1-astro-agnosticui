@@ -5,9 +5,6 @@ import "agnostic-vue/dist/common.min.css";
 import "agnostic-vue/dist/index.css";
 import Breadcrumb from "./vue/Breadcrumb.vue";
 
-
-
-
 //set up of the props for seperate pages
 
 // create a prop that can be edited on each of the pages this component 
@@ -22,10 +19,11 @@ const pageProp = defineProps(
 );
 
 var trailOfTAPSite = []
+const base = import.meta.env.BASE_URL;
 const TAPlink = 
     {
       label: "TAP",
-      url: import.meta.env.BASE_URL,
+      url: base,
     };
 
 const urls = pageProp.pageUrl.split("/");
@@ -46,15 +44,15 @@ else if(pageProp.pageType == "project"){
     TAPlink,
     {
       label: `${urls[1]}`,
-      url: `${urls[1]}`,
+      url: `${base}/${urls[1]}`,
     },
     {
       label: `${urls[2]}`,
-      url: `${urls[1]}/${urls[2]}`,
+      url: `${base}/${urls[1]}/${urls[2]}`,
     },
     {
       label: `${urls[3]}`,
-      url: `${urls[1]}/${urls[2]}/${urls[3]}`,
+      url: `${base}/${urls[1]}/${urls[2]}/${urls[3]}`,
     },
     {
       label: `${urls[4]}`,
@@ -78,15 +76,15 @@ else if(pageProp.pageType == "post"){
     TAPlink,
     {
       label: `${urls[1]}`,
-      url: `${urls[1]}`,
+      url: `${base}/${urls[1]}`,
     },
     {
       label: `${urls[2]}`,
-      url: `${urls[1]}/${urls[2]}`,
+      url: `${base}/${urls[1]}/${urls[2]}`,
     },
     {
       label: `${urls[3]}`,
-      url: `${urls[1]}/${urls[2]}/${urls[3]}`,
+      url: `${base}/${urls[1]}/${urls[2]}/${urls[3]}`,
     },
   ];
 }
