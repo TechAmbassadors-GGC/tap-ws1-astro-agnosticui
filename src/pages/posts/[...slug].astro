@@ -55,7 +55,7 @@ let title = `${entry.data.title} (${entry.data.publishedDate.toDateString()}) - 
 <body>
 	<main>
 		<TAPHeader client:load />
-		<Crumbs pageType="post" pageUrl=`/posts/${postTag}/${postName}` client:load/>
+		<Crumbs pageType="post" pageUrl=`/posts/${postTag}/${postName}` />
     <h1>{entry.data.title}</h1>
     <Content />
 		
