@@ -37,6 +37,22 @@ h2 {
   font-size: clamp(var(--agnostic-h5), 3vw, var(--agnostic-h2));
 }
 
+footer {
+  
+  background: var(--agnostic-light);
+  color:var(--agnostic-action-border-modelight);
+  justify-content: space-around;
+
+  
+    /* @editable font-family:'Gaglin'; */
+    font-size: clamp(var(--agnostic-h5), 1vw, var(--agnostic-h2));
+    /*@editable*/ line-height:150%;
+    padding-top:.5rem;
+    padding-bottom:.5rem;
+    text-align:center;
+
+}
+
 .card-demo {
   max-width: 35rem !important;
   margin: 0 auto;

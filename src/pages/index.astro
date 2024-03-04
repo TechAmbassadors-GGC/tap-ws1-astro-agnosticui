@@ -25,6 +25,13 @@ import Vue from '../components/vue/Vue.vue';
 import PostListCard from '../components/PostListCard.vue';
 import ProjectListCard from '../components/ProjectListCard.vue';
 import "agnostic-react/dist/common.min.css";
+import {
+		Divider,
+		DividerHeader,
+		DividerBody,
+		DividerFooter,
+		Button
+	} from "agnostic-react";
 
 // Vue imports
 /*export default {
@@ -46,13 +53,7 @@ let title = 'GGC Technology Ambassadors Program';
 // load blog content: news, etc.
 import { getCollection } from 'astro:content';
 const blogEntries = await getCollection('posts');
-import {
-  Divider,
-  DividerHeader,
-  DividerBody,
-  DividerFooter,
-  Button
-}
+
 ---
 <html lang="en">
 <head>
@@ -87,13 +88,20 @@ import {
 			<!--Vue client:load /-->
 		<div class="mbe24" />
 			<!-- Svelte client:load / -->
-
-		<div class="flex mbs40 mbe48">
-      <p>
-		HOME, EVENTS, AWARDS, PROJECTS, PUBLICATIONS, APPLY
-		<Divider isVertical>Yes</Divider>
-		</div>
+		
 	</main>
 	
 </body>
+<footer>
+	
+		  <div class="flex mbs40 mbe48">
+			<p>
+				<a href="" target="HOME"> HOME  </a> |
+				<a href="" target="CALENDAR"> EVENTS  </a> |
+				<a href="" target="AWARDS"> AWARDS </a> |
+				<a href="" target="PROJECTS"> PROJECTS </a>|
+				<a href="" target="NEWS"> PUBLICATIONS </a>|
+				<a href="" target="AWARDS"> APPLY </a>
+</p>
+</footer>
 </html>
