@@ -24,6 +24,7 @@ import TAPHeader from '../components/TAPHeader.vue';
 import Vue from '../components/vue/Vue.vue';
 import PostListCard from '../components/PostListCard.vue';
 import ProjectListCard from '../components/ProjectListCard.vue';
+import "agnostic-react/dist/common.min.css";
 
 // Vue imports
 /*export default {
@@ -45,6 +46,13 @@ let title = 'GGC Technology Ambassadors Program';
 // load blog content: news, etc.
 import { getCollection } from 'astro:content';
 const blogEntries = await getCollection('posts');
+import {
+  Divider,
+  DividerHeader,
+  DividerBody,
+  DividerFooter,
+  Button
+}
 ---
 <html lang="en">
 <head>
@@ -55,12 +63,7 @@ const blogEntries = await getCollection('posts');
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
 	<style>
-		header {
-			display: flex;
-			flex-direction: column;
-			gap: 1em;
-			max-width: min(100%, 68ch);
-		}
+	
 	</style>
 </head>
 <body>
@@ -84,7 +87,11 @@ const blogEntries = await getCollection('posts');
 			<!--Vue client:load /-->
 		<div class="mbe24" />
 			<!-- Svelte client:load / -->
-		<div class="mbe48" />
+
+		<div class="flex mbs40 mbe48">
+      <p>
+		HOME, EVENTS, AWARDS, PROJECTS, PUBLICATIONS, APPLY
+		<Divider isVertical>Yes</Divider>
 		</div>
 	</main>
 	

@@ -34,9 +34,11 @@ let title = `${Astro.props.title} - GGC Technology Ambassadors Program`;
 
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 </head>
+
 <body>
+	<TAPHeader client:load />
+
 	<main>
-		<TAPHeader client:load />
         <slot/>
 	</main>
 	
