@@ -33,9 +33,9 @@ const projectCollection = defineCollection({
     year: z.number(),
     publishedDate: z.date(),
     image:image().refine((img) => img.width >= 10, {
-      message: "Cover image must be 1080 pixels wide!",
-      // This part of the config file needs to be reviewed and changed at a later date.
+      message: "Cover image must be at least 1080 pixels wide!",
     }),
+    // image: z.string().optional(),
   }),
 });
 
