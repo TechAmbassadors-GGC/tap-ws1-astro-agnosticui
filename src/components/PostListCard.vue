@@ -31,7 +31,8 @@ import { Card } from "agnostic-vue";
 import { getCollection } from 'astro:content';
 const blogEntries = await getCollection('posts');
 
-const base = import.meta.env.BASE_URL;
+// Remove single slash as it causes double slashes in card
+const base = import.meta.env.BASE_URL == '/' ? '' : import.meta.env.BASE_URL;
 </script>
 
 <style scoped>

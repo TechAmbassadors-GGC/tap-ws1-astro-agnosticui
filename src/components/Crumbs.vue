@@ -19,7 +19,8 @@ const pageProp = defineProps(
 );
 
 var trailOfTAPSite = []
-const base = import.meta.env.BASE_URL;
+// Remove single slash as it causes double slashes in links
+const base = import.meta.env.BASE_URL == '/' ? '' : import.meta.env.BASE_URL;
 const TAPlink = 
     {
       label: "TAP",

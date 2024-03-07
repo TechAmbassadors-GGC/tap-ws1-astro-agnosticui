@@ -16,7 +16,7 @@ const base = import.meta.env.BASE_URL;
     <template v-slot:headernav>
       <HeaderNav css="header-mbe16">
         <HeaderNavItem>
-          <a :href="`${base}/projects`">Outreach projects & templates</a>
+          <a :href="`${base == '/' ? '' : base}/projects`">Outreach projects & templates</a>
         </HeaderNavItem>
         <HeaderNavItem>
           <a href="">Join the discussion</a>
