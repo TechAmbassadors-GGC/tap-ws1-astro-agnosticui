@@ -20,6 +20,15 @@ durationMins: [ 60, 90 ]
 publishedDate: 2023-11-05
 related-ids: []
 ---
+</br>
+
+<div id="images">
+
+<img src="/images/JediImage.jpg" id="image">
+
+
+</div>
+
 <br/>
 
 ## Description:
@@ -45,10 +54,25 @@ The primary goal of this project is educating others about algorithms by program
 ## Materials:
 A classroom set of Spheros, Sphero EDU app,Sphero EDU website teacher account, a 36 in. x 48 in. foldable foam board, and a 36 in. x 48 in. plywood
 
-Link.
+## Full Project Page:
+#### <a href="https://github.com/TAP-GGC/Jedi"> Here </a>
 
-👀 Image
+</br>
 
 ## Short Demo:
 Below is a link to a 5 minute video walkthrough of our workshop that anyone with a sphero can do.       
-<a href="https://youtu.be/W7AJaQqIAE0" target="_blank"> Demo Instructions </a>
+<a href="https://youtu.be/W7AJaQqIAE0"> Demo Instructions </a>
+
+<style>
+
+    images{
+        float: left;
+    }
+
+    .image{
+        float: left;
+        width: 50%;
+        padding: 5px;
+    }
+
+</style>
