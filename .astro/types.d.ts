@@ -191,9 +191,16 @@ declare module 'astro:content' {
 } & { render(): Render[".md"] };
 };
 "projects": {
-"2023-08Fall/Jedi.md": {
-	id: "2023-08Fall/Jedi.md";
-  slug: "2023-08fall/jedi";
+"2023-08Fall/Jedi/Jedi.md": {
+	id: "2023-08Fall/Jedi/Jedi.md";
+  slug: "2023-08fall/jedi/jedi";
+  body: string;
+  collection: "projects";
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".md"] };
+"2023-08Fall/jedi/Jedi.md": {
+	id: "2023-08Fall/jedi/Jedi.md";
+  slug: "2023-08fall/jedi/jedi";
   body: string;
   collection: "projects";
   data: InferEntrySchema<"projects">
