@@ -1,5 +1,5 @@
 ---
-title: Jedi
+title: Jedi-Sphero
 id: P-0001
 # Can I edit parts of this description to have it be more uniform or should I just add the information in as it is from the repository?
 desc: Educating others on algorithms by programming a Sphero robot.
