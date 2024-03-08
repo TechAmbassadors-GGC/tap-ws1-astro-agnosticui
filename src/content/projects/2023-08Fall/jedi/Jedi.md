@@ -13,7 +13,7 @@ tags: []
 events: [ CCSC-2023, S3-Fall-2023, TAP Expo-Fall-2023]
 semester: Fall
 year: 2023
-levels: [ 6th-12th, college ] 
+levels: [ middle-school, high-school, college ] 
 difficulty: [ Intermediate ]
 durationMins: [ 60, 90 ]
 publishedDate: 2023-11-05
