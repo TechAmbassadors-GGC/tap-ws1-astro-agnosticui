@@ -11,7 +11,7 @@ videos: [https://youtu.be/W7AJaQqIAE0]
 # I added the tags in alphabetical order. I am not sure this is how it should be or if we are even doing this as of right now?
 tags: []
 events: [ CCSC-2023, S3-Fall-2023, TAP Expo-Fall-2023]
-semester: Fall
+semester: fall
 year: 2023
 levels: [ middle-school, high-school, college ] 
 difficulty: [ Intermediate ]
