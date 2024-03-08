@@ -1,6 +1,6 @@
 ---
-title: Jedi-Sphero
-id: P-0001
+title: Jedi Sphero
+id: jedi-sphero
 desc: Educating others on algorithms by programming a Sphero robot.
 github: https://github.com/TAP-GGC/Jedi?tab=readme-ov-file
 students: [ ammar mehicevic, etienne laccruche, tony lam]
