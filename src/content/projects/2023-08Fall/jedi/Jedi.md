@@ -9,7 +9,7 @@ instructors: [ dr. cindy robertson, dr. anca doloc-Mihu]
 techs: [sphero]
 videos: []
 # I added the tags in alphabetical order. I am not sure this is how it should be or if we are even doing this as of right now?
-tags: [ Sphero, STEM, TAP]
+tags: []
 events: [ CCSC-2023, S3-Fall-2023, TAP Expo-Fall-2023]
 semester: Fall
 year: 2023
