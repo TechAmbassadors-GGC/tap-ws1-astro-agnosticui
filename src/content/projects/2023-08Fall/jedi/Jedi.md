@@ -3,10 +3,10 @@ title: Jedi-Sphero
 id: P-0001
 desc: Educating others on algorithms by programming a Sphero robot.
 github: https://github.com/TAP-GGC/Jedi?tab=readme-ov-file
-students: [ Ammar Mehicevic, Etienne Laccruche, Tony Lam]
+students: [ ammar mehicevic, etienne laccruche, tony lam]
 # are we talking about the students who taught the material or the professors and Dr. associated with the project?
-instructors: [ Dr. Cindy Robertson, Dr. Anca Doloc-Mihu]
-techs: [Sphero]
+instructors: [ dr. cindy robertson, dr. anca doloc-Mihu]
+techs: [sphero]
 videos: []
 # I added the tags in alphabetical order. I am not sure this is how it should be or if we are even doing this as of right now?
 tags: [ Sphero, STEM, TAP]
