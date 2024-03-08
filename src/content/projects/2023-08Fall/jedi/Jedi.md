@@ -3,17 +3,17 @@ title: Jedi Sphero
 id: jedi-sphero
 desc: Educating others on algorithms by programming a Sphero robot.
 github: https://github.com/TAP-GGC/Jedi?tab=readme-ov-file
-students: [ ammar mehicevic, etienne laccruche, tony lam]
-instructors: [ dr. cindy robertson, dr. anca doloc-Mihu]
+students: [Ammar Mehicevic,Etienne Laccruche,Tony Lam]
+instructors: [Dr. Cindy Robertson, Dr. Anca Doloc-Mihu]
 techs: [sphero]
 videos: [https://youtu.be/W7AJaQqIAE0]
 tags: []
-events: [ CCSC-2023, S3-Fall-2023, TAP Expo-Fall-2023]
+events: [tap-expo-fall23]
 semester: fall
 year: 2023
-levels: [ middle-school, high-school, college ] 
-difficulty: [ Intermediate ]
-durationMins: [ 60, 90 ]
+levels: [middle-school,high-school,college] 
+difficulty: [Intermediate]
+durationMins: [60,90]
 publishedDate: 2024-03-08
 related-ids: []
 image: ./JediImage.jpg
