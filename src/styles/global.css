@@ -44,13 +44,15 @@ footer {
   justify-content: space-around;
   flex-flow: row wrap;
   margin-top: var(--fluid-56);
-    /* @editable font-family:'Gaglin'; */
-    font-size: clamp(var(--agnostic-h5), 1vw, var(--agnostic-h2));
-        /*@editable*/ line-height:1rem;
 
-    padding-top:0rem;
-    padding-bottom:0rem;
-    text-align:center;
+  /* @editable font-family:'Gaglin'; */
+  font-size: clamp(var(--agnostic-h5), 1vw, var(--agnostic-h2));
+  /*@editable*/ line-height:1rem;
+  padding-top: 0rem;
+  padding-bottom:0rem;
+  padding-inline-start: 0%;
+  padding-inline-end: 0%;
+  text-align:center;
 
 }
 
