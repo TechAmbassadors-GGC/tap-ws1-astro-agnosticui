@@ -22,6 +22,10 @@ body {
   color: var(--agnostic-dark);
 }
 
+body.body-prj ul {
+  list-style: inside disc;
+}
+
 main {
   /*margin-left: auto;
   margin-right: auto;
