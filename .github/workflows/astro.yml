@@ -38,7 +38,7 @@ jobs:
       - name: Build site 🔧 
         run: |
           npm i 
-          npm run build
+          npm run build -- --base /tap-ws1-astro-agnosticui
 
       - name: Upload site ↗️
         uses: actions/upload-pages-artifact@v3
