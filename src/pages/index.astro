@@ -24,6 +24,14 @@ import TAPHeader from '../components/TAPHeader.vue';
 import Vue from '../components/vue/Vue.vue';
 import PostListCard from '../components/PostListCard.vue';
 import ProjectListCard from '../components/ProjectListCard.vue';
+import "agnostic-react/dist/common.min.css";
+import {
+		Divider,
+		DividerHeader,
+		DividerBody,
+		DividerFooter,
+		Button
+	} from "agnostic-react";
 
 // Vue imports
 /*export default {
@@ -45,6 +53,7 @@ let title = 'GGC Technology Ambassadors Program';
 // load blog content: news, etc.
 import { getCollection } from 'astro:content';
 const blogEntries = await getCollection('posts');
+
 ---
 <html lang="en">
 <head>
@@ -55,22 +64,12 @@ const blogEntries = await getCollection('posts');
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
 	<style>
-		header {
-			display: flex;
-			flex-direction: column;
-			gap: 1em;
-			max-width: min(100%, 68ch);
-		}
+	
 	</style>
 </head>
 <body>
 
-	
-	
-	
-		
 		<TAPHeader client:load />
-			
 	<main>
 		<Heading />
 			<section class="flex flex-row flex-wrap items-start">  
@@ -83,9 +82,20 @@ const blogEntries = await getCollection('posts');
 			<!--Vue client:load /-->
 		<div class="mbe24" />
 			<!-- Svelte client:load / -->
-		<div class="mbe48" />
-		</div>
+		
 	</main>
 	
 </body>
+<footer>
+	
+		  <div class="flex mbs40 mbe48">
+			<p>
+				<a href="" target="HOME"> HOME  </a> |
+				<a href="" target="CALENDAR"> EVENTS  </a> |
+				<a href="" target="AWARDS"> AWARDS </a> |
+				<a href="" target="PROJECTS"> PROJECTS </a>|
+				<a href="" target="NEWS"> PUBLICATIONS </a>|
+				<a href="https://www.ggc.edu/academics/school-of-science-and-technology/research-internships-service-learning/technology-ambassador-program/tap-application" target="AWARDS"> APPLY </a>
+</p>
+</footer>
 </html>
