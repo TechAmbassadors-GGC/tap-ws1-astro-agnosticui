@@ -25,6 +25,10 @@ body {
   
 }
 
+body.body-prj ul {
+  list-style: inside disc;
+}
+
 main {
    margin-left: auto;
   margin-right: auto;
