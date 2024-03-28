@@ -30,7 +30,7 @@ image: ./jedi-logo.jpg
 
 ## The Creators:
 ![jedi Team Photo](./JediTeamPhoto.jpg)
-**Ammar Mehicevic, Etienne Laccruche, Tony Lam**
+##### Ammar Mehicevic, Etienne Laccruche, Tony Lam
 
 ## Short Demo:
 
