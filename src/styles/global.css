@@ -4,22 +4,25 @@
 }
 
 :root {
-	font-size: clamp(0.875rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem);
+	font-size: clamp(0.575rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem);
 }
 
 body {
-  padding-block-start: 2rem;
+  padding-block-start: 1rem;
   padding-block-end: 2rem;
   /* min-height: 100vh; */
   display: grid; 
+
+
   /* Change the min and max sizing based on available space */
-  grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+  grid-template-columns: flex(auto-fit, minmax(100px,1fr));
   grid-auto-rows: minmax(100px, auto);
-  justify-items: center; 
-  /*align-items: center;
+  justify-items: center;  
+  align-items: top;
   place-items: center;*/
   background: var(--agnostic-light);
-  color: var(--agnostic-dark);
+  color: var(--agnostic-secondary-light-modelight);
+  
 }
 
 body.body-prj ul {
@@ -27,9 +30,9 @@ body.body-prj ul {
 }
 
 main {
-  /*margin-left: auto;
+   margin-left: auto;
   margin-right: auto;
-  align-self: center;*/
+  align-self: center;
   
   width: clamp(26ch, 75%, 90ch);
 }
@@ -38,12 +41,32 @@ h2 {
   font-size: clamp(var(--agnostic-h5), 3vw, var(--agnostic-h2));
 }
 
+footer {
+  
+  background: var(--agnostic-light);
+  color:var(--agnostic-action-border-modelight);
+  justify-content: space-around;
+  flex-flow: row wrap;
+  margin-top: var(--fluid-56);
+
+  /* @editable font-family:'Gaglin'; */
+  font-size: clamp(var(--agnostic-h5), 1vw, var(--agnostic-h2));
+  /*@editable*/ line-height:1rem;
+  padding-top: 0rem;
+  padding-bottom:0rem;
+  padding-inline-start: 0%;
+  padding-inline-end: 0%;
+  text-align:center;
+
+}
+
 .card-demo {
   max-width: 35rem !important;
   margin: 0 auto;
   margin-block-start: var(--fluid-40);
   padding-block-start: var(--fluid-16);
   padding-block-end: var(--fluid-40);
+  background-color: var(--agnostic-gray-mid);
 }
 
 .project-cards-flex {
@@ -55,13 +78,14 @@ h2 {
   min-width: 20rem !important;
   margin: 0 auto;
   flex: 1;
+  background-color: var(--agnostic-gray-mid);
 }
 
 .valueprop {
-  font-size: clamp(var(--agnostic-h6), 2vw, var(--agnostic-h4));
+  font-size: clamp(var(--agnostic-h6), 1vw, var(--agnostic-h4));
 }
 .valueprop a {
-  font-size: clamp(var(--agnostic-h5), 2.5vw, var(--agnostic-h3));
+  font-size: clamp(var(--agnostic-h5), 2vw, var(--agnostic-h3));
 }
 
 /* TODO -- we'll need to revisit this once AgnosticUI properly supports dark mode. Breadcrumb links

@@ -21,6 +21,7 @@ import TAPHeader from '../../components/TAPHeader.vue';
 
 // Read from conten collection
 import { getCollection } from 'astro:content';
+import Crumbs from "../../components/Crumbs.vue"
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -29,11 +30,17 @@ export async function getStaticPaths() {
   }));
 }
 // 2. For your template, you can get the entry directly from the prop
+// const { slug } = Astro.params;
 const { project } = Astro.props;
 const { Content } = await project.render();
 
+// BreadCrumb variables
+const  projYear  = project.data.year;
+const  projSemester  = project.data.semester;
+const  projName  = project.data.title;
+
 // Page title
-let title = `${project.data.title} - Outreach Project - GGC Technology Ambassadors Program`;
+let title = `${project.data.title} - Outreach Projects - GGC Technology Ambassadors Program`;
 
 ---
 <html lang="en">
@@ -46,14 +53,15 @@ let title = `${project.data.title} - Outreach Project - GGC Technology Ambassado
 
 	<style>		
 	</style>
+	
 </head>
 <body class=body-prj>
 	<main>
 		<TAPHeader client:load />
+		<Crumbs pageType="project" pageUrl=`/projects/${projYear}/${projSemester}/${projName}`/>
 
     <h1>{project.data.title}</h1>
     <Content />
-		
 	</main>
 	
 </body>

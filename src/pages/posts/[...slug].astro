@@ -1,4 +1,4 @@
----
+ ---
 // Style Imports
 import '../../styles/global.css';
 
@@ -18,6 +18,7 @@ import "agnostic-vue/dist/opinions.min.css";
 import "agnostic-vue/dist/index.css";
 import Card from "agnostic-vue";
 import TAPHeader from '../../components/TAPHeader.vue';
+import Crumbs from '../../components/Crumbs.vue';
 
 // Read from conten collection
 import { getCollection } from 'astro:content';
@@ -31,6 +32,10 @@ export async function getStaticPaths() {
 // 2. For your template, you can get the entry directly from the prop
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+//BreadCrumb variables
+const postName = entry.data.title;
+const postTag = entry.data.tags;
 
 // Page title
 let title = `${entry.data.title} (${entry.data.publishedDate.toDateString()}) - GGC Technology Ambassadors Program`;
@@ -50,7 +55,7 @@ let title = `${entry.data.title} (${entry.data.publishedDate.toDateString()}) - 
 <body>
 	<main>
 		<TAPHeader client:load />
-
+		<Crumbs pageType="post" pageUrl=`/posts/${postTag}/${postName}` />
     <h1>{entry.data.title}</h1>
     <Content />
 		

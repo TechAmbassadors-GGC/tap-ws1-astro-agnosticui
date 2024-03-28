@@ -23,7 +23,7 @@
     "@astrojs/svelte": "^4.0.3",
     "@astrojs/vue": "^3.0.2",
     "agnosticui-astro": "^0.0.1",
-    "astro": "^3.4.0",
+    "astro": "^3.6.4",
     "eslint": "^8.52.0"
   },
   "dependencies": {
