@@ -34,11 +34,17 @@ image: ./jedi-logo.jpg
 
 ## Short Demo:
 
+<div style="text-align:center;">
+
 **Here is a 5 minute video walkthrough of our workshop that anyone with a sphero can do**
 
 </br>
 
+
+
 <iframe width="560" height="100%" src="https://www.youtube.com/embed/W7AJaQqIAE0?si=D3_BeB6ZyTDeGda7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width: 560px; height: 315px;"></iframe>
+
+</div>
 
 ## Project Setup/Installation:
 - [Installing Sphero Edu](https://github.com/TAP-GGC/Jedi/blob/main/Media/Installing%20Sphero%20Edu.pdf)
