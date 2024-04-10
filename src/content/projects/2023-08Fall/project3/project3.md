@@ -1,6 +1,6 @@
 ---
 title: Project 3
-id: project-2
+id: project-3
 desc: This is project is about...
 github: https://github.com
 students: [ d, e, f]
@@ -15,7 +15,7 @@ levels: [ k-12, college ]
 difficulty: [ advanced ]
 durationMins: [ 30, 60, 90 ]
 publishedDate: 2023-11-05
-related-ids: []
+relatedIds: [project-2]
 image: ./Svelte-icon.svg
 ---
 

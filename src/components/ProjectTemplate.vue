@@ -9,6 +9,7 @@ import { Input, Card, Select, Tag } from "agnostic-vue";
 // load blog content: news, etc.
 import { getCollection } from 'astro:content';
 const projects = await getCollection('projects');  //list of projects
+
 function createOptions(projects, x) {
     let optionSet = new Set();
     projects.forEach(arrayContainer =>{
@@ -62,6 +63,9 @@ const eventList = createOptions(projects, "events");
 //year related
 let date = new Date();
 let year = date.getFullYear();
+let month = date.getMonth()+1;
+let day = date.getDate();
+const todayDate = `${month}/${day}/${year}`;
 let selectedYear = ref('');
 
 //level related
@@ -78,6 +82,12 @@ const diffList = createOptions(projects, "difficulty");
 let durationTerm = ref('');
 let selectedDurations = ref([]);
 const durationList = createOptions(projects, "durationMins");
+
+//related Ids
+let relatedIdTerm = ref('');
+let selRelatedIds = ref([]);  //stores all the selected related ids
+const relatedIdList = createOptions(projects, "relatedIds");
+console.log(projects);
 
 //failed reusable method
 const addItem = (inputField, category)=>{
@@ -122,6 +132,9 @@ function addTerm(termRef, inputField){
             break;
         case "instructorTerm":
             category = selectedInstructors;
+            break;
+        case "relatedIdTerm":
+            category = selRelatedIds;
             break;
     }
     if(inputField != ''){
@@ -288,6 +301,15 @@ const searchTech = computed(() =>{
          <div>
             <Input type="text" label="Enter Published Date" v-model="selectedYear"/>
          </div>
+         <div> <!--Related ID-->
+            <Input type="text" list="relProjectData" label="Enter Related Projects" v-model="relatedIdTerm" @keydown.enter.stop="addTerm('relatedIdTerm',relatedIdTerm)"/>
+            <datalist id="relProjectData"><option v-for="rel in relatedIdList" :value="rel">{{ rel}}</option></datalist>
+            <ul class="tagList">
+                <Tag v-for="(tag, index) in selRelatedIds" :key="tag" class="mie6" shape="round" type="info" is-uppercase>{{tag}}
+                    <button @click="removeTag2(selRelatedIds,index)" class="delete">&#x2718;</button>
+                </Tag>
+            </ul>
+         </div>
          <br>
          <h4>Resulting Markdown File:</h4>
          <p>---</p>
@@ -307,9 +329,9 @@ const searchTech = computed(() =>{
          <p>Project levels: {{ selectedLevels }} </p>
          <p>Project difficulty: {{ selectedDiffs }} </p>
          <p>Project Duration: {{ selectedDurations }}</p>
-         <p>Project Published Date: {{ year }}</p>
+         <p>Project Published Date: {{ todayDate }}</p>
          <!--Input Dropdown, Value: id, label: project title-->
-         <p>Project Related Ids: </p>
+         <p>Project Related Ids: {{ selRelatedIds }}</p>
 
         
 
