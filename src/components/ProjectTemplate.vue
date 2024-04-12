@@ -58,15 +58,18 @@ const newTag = ref('');
 //event related
 let eventTerm = ref('');
 let selectedEvents = ref([]);
-const eventList = createOptions(projects, "events");
+const eventList = Array.from(createOptions(projects, "events")).map(option =>({value:option, label:option}));
 
 //year related
 let date = new Date();
 let year = date.getFullYear();
 let month = date.getMonth()+1;
 let day = date.getDate();
-const todayDate = `${month}/${day}/${year}`;
+const todayDate = `${year}-${day}-${month}`;
 let selectedYear = ref('');
+
+//published date
+let publishedDate = ref(todayDate);
 
 //level related
 let levelTerm = ref('');
@@ -257,9 +260,12 @@ const searchTech = computed(() =>{
          <div> <!--Enter the videos. Once clicked, it should be pushed into an array-->
             <Input type="text" label="Enter video url" v-model="vidUrl"/>
          </div>
+         <br>
          <div> <!--events-->
-            <Input type="text" list="eventData" label="Enter Events" v-model="eventTerm" @keydown.enter="addTerm('eventTerm',eventTerm)"/>
-            <datalist id="eventData"><option v-for="event in eventList" :value="event">{{ event }}</option></datalist>
+            <label>Select an event</label>
+            <!-- <Input type="text" list="eventData" label="Enter Events" v-model="eventTerm" @keydown.enter="addTerm('eventTerm',eventTerm)"/> -->
+            <Select default-option-label="Choose Event" :options="eventList" @selected="(value) => { addTerm('eventTerm',value) }">
+            </Select>
             <ul class="tagList">
                 <Tag v-for="(tag, index) in selectedEvents" :key="tag" class="mie6" shape="round" type="info" is-uppercase>{{tag}}
                     <button @click="removeTag2(selectedEvents,index)" class="delete">&#x2718;</button>
@@ -299,7 +305,7 @@ const searchTech = computed(() =>{
             </ul>
          </div>
          <div>
-            <Input type="text" label="Enter Published Date" v-model="selectedYear"/>
+            <Input type="date" label="Enter Published Date" v-model="publishedDate"/>
          </div>
          <div> <!--Related ID-->
             <Input type="text" list="relProjectData" label="Enter Related Projects" v-model="relatedIdTerm" @keydown.enter.stop="addTerm('relatedIdTerm',relatedIdTerm)"/>
@@ -312,7 +318,7 @@ const searchTech = computed(() =>{
          </div>
          <br>
          <h4>Resulting Markdown File:</h4>
-         <p>---</p>
+         <br>
          <p>Project Name: {{ projectName }}</p>
          <!--Propose a id, User can write id, use a placeholder-->
          <p>Project Id: {{ projectName.trim() }}</p>
@@ -329,7 +335,7 @@ const searchTech = computed(() =>{
          <p>Project levels: {{ selectedLevels }} </p>
          <p>Project difficulty: {{ selectedDiffs }} </p>
          <p>Project Duration: {{ selectedDurations }}</p>
-         <p>Project Published Date: {{ todayDate }}</p>
+         <p>Project Published Date: {{ publishedDate }}</p>
          <!--Input Dropdown, Value: id, label: project title-->
          <p>Project Related Ids: {{ selRelatedIds }}</p>
 
