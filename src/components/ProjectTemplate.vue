@@ -214,13 +214,24 @@ const searchTech = computed(() =>{
 <template>
     <section class="mbe40">
         <div>
-            <Input id="4" size="" v-model="projectName" label="Enter Project Name" placeholder="Example: Atomic Force Microscopy" type="text"></Input>
+            <h1>Create Metadata Block for New Project</h1>
+            <ul>
+                <li>Fill the input boxes below that will automatically populate the metadata block at the bottom of the page.</li>
+                <li>Some boxes allow entering multiple items. Start typing or press the down arrow to see options. 
+                    Make sure to press Enter in the input boxes to save them. 
+                    They will show up as tags below the input box. You can click on the X to remove tags.</li>
+                <li>Once you're done, make sure all the fields in the block is filled. Then copy-paste it into the top of your project Markdown file.</li>
+            </ul>
+        
         </div>
         <div>
-            <Input size="medium" v-model="projectDescrip" label="Enter Project Description" type="text"></Input>
+            <Input id="4" size="" v-model="projectName" label="Enter project name" placeholder="Example: Atomic Force Microscopy" type="text"></Input>
         </div>
         <div>
-            <Input type="text" id="tech" list="techData" label="Enter Tech" placeholder="Type tech" v-model="techTerm"
+            <Input size="medium" v-model="projectDescrip" label="Enter project description" placeholder="One or two phrases that succinctly describe the project" type="text"></Input>
+        </div>
+        <div>
+            <Input type="text" id="tech" list="techData" label="Enter technology keywords" placeholder="Type tech to complete from list or insert a new one. Press enter to add it to the list." v-model="techTerm"
              @keydown.enter="addTag(techTerm)" @keydown.delete="techTerm.length||removeTag(techTags.length-1)">
             </Input>
             <datalist id="techData">
@@ -237,10 +248,11 @@ const searchTech = computed(() =>{
             
         </div>
         <div>
-            <Input type="text" label="Enter Github page" v-model="github"/>
+            <Input type="text" label="Enter Github link" v-model="github"/>
         </div>
         <div>
-            <Input type="text" list="instructorData" label="Enter Instructors" v-model="instructorTerm" @keydown.enter.stop="addTerm('instructorTerm',instructorTerm )"/>
+            <Input type="text" list="instructorData" label="Enter instructors" v-model="instructorTerm" @keydown.enter.stop="addTerm('instructorTerm',instructorTerm )"
+                    placeholder="Type instructor name to complete from list or insert a new one. Press enter to add it to add it to the list."/>
             <datalist id="instructorData"><option v-for="instructor in instructorList" :value="instructor">{{ instructor }}</option></datalist>
             <ul class="tagList">
                 <Tag v-for="(tag, index) in selectedInstructors" :key="tag" class="mie6" shape="round" type="info" is-uppercase>{{tag}}
@@ -249,7 +261,8 @@ const searchTech = computed(() =>{
             </ul>
          </div>
         <div>
-            <Input type="text" list="studentData" label="Enter Student" v-model="studentTerm" @keydown.enter.stop="addTerm('studentTerm',studentTerm )"/>
+            <Input type="text" list="studentData" label="Enter student names" v-model="studentTerm" @keydown.enter.stop="addTerm('studentTerm',studentTerm )"
+                    placeholder="Type student name to complete from list or insert a new one. Press enter to add it to add it to the list."/>
             <datalist id="studentData"><option v-for="student in studentList" :value="student">{{ student }}</option></datalist>
             <ul class="tagList">
                 <Tag v-for="(tag, index) in selectedStudents" :key="tag" class="mie6" shape="round" type="info" is-uppercase>{{tag}}
@@ -258,11 +271,11 @@ const searchTech = computed(() =>{
             </ul>
          </div>
          <div> <!--Enter the videos. Once clicked, it should be pushed into an array-->
-            <Input type="text" label="Enter video url" v-model="vidUrl"/>
+            <Input type="text" label="Enter video link (make sure it's uploaded to the TAP Youtube account)" v-model="vidUrl"/>
          </div>
          <br>
          <div> <!--events-->
-            <label>Select an event</label>
+            <label>Select events that are associated with this project (TAP Expo, conferences, etc). First create a blog post if not listed.</label>
             <!-- <Input type="text" list="eventData" label="Enter Events" v-model="eventTerm" @keydown.enter="addTerm('eventTerm',eventTerm)"/> -->
             <Select default-option-label="Choose Event" :options="eventList" @selected="(value) => { addTerm('eventTerm',value) }">
             </Select>
@@ -274,11 +287,12 @@ const searchTech = computed(() =>{
          </div>
          <br>
          <div>
+            <label>Semester</label>
             <Select default-option-label="Choose Semester" :options="semesters" @selected="(value) => { selectedSemester = value }">
             </Select>
          </div>
          <div> <!--levels-->
-            <Input type="text" list="levelData" label="Enter Level" v-model="levelTerm" @keydown.enter.stop="addTerm('levelTerm',levelTerm)"/>
+            <Input type="text" list="levelData" label="Enter audience levels (K-12, college, etc)" v-model="levelTerm" @keydown.enter.stop="addTerm('levelTerm',levelTerm)"/>
             <datalist id="levelData"><option v-for="level in levelList" :value="level">{{ level }}</option></datalist>
             <ul class="tagList">
                 <Tag v-for="(tag, index) in selectedLevels" :key="tag" class="mie6" shape="round" type="info" is-uppercase>{{tag}}
@@ -287,7 +301,8 @@ const searchTech = computed(() =>{
             </ul>
          </div>
          <div> <!--difficulty-->
-            <Input type="text" list="difficultyData" label="Enter Difficulty" v-model="diffTerm" @keydown.enter.stop="addTerm('diffTerm',diffTerm)"/>
+            <Input type="text" list="difficultyData" label="Enter difficulty levels. Project can have multiple difficulties." v-model="diffTerm" 
+                    @keydown.enter.stop="addTerm('diffTerm',diffTerm)" placeholder="beginner, intermediate, advanced"/>
             <datalist id="difficultyData"><option v-for="diff in diffList" :value="diff">{{ diff}}</option></datalist>
             <ul class="tagList">
                 <Tag v-for="(tag, index) in selectedDiffs" :key="tag" class="mie6" shape="round" type="info" is-uppercase>{{tag}}
@@ -296,7 +311,8 @@ const searchTech = computed(() =>{
             </ul>
          </div>
          <div> <!--duration-->
-            <Input type="text" list="durationData" label="Enter Duration" v-model="durationTerm" @keydown.enter.stop="addTerm('durationTerm',durationTerm)"/>
+            <Input type="text" list="durationData" label="Enter duration of project activities in minutes. You can enter multiple values." 
+                    v-model="durationTerm" @keydown.enter.stop="addTerm('durationTerm',durationTerm)" placeholder="30, 60, 90"/>
             <datalist id="durationData"><option v-for="dur in durationList" :value="dur">{{ dur}}</option></datalist>
             <ul class="tagList">
                 <Tag v-for="(tag, index) in selectedDurations" :key="tag" class="mie6" shape="round" type="info" is-uppercase>{{tag}}
@@ -308,7 +324,8 @@ const searchTech = computed(() =>{
             <Input type="date" label="Enter Published Date" v-model="publishedDate"/>
          </div>
          <div> <!--Related ID-->
-            <Input type="text" list="relProjectData" label="Enter Related Projects" v-model="relatedIdTerm" @keydown.enter.stop="addTerm('relatedIdTerm',relatedIdTerm)"/>
+            <Input type="text" list="relProjectData" label="Enter related project IDs (projects that build on the same idea, etc)" 
+                    v-model="relatedIdTerm" @keydown.enter.stop="addTerm('relatedIdTerm',relatedIdTerm)"/>
             <datalist id="relProjectData"><option v-for="rel in relatedIdList" :value="rel">{{ rel}}</option></datalist>
             <ul class="tagList">
                 <Tag v-for="(tag, index) in selRelatedIds" :key="tag" class="mie6" shape="round" type="info" is-uppercase>{{tag}}
