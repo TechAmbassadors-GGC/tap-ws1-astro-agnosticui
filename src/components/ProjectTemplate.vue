@@ -336,25 +336,27 @@ const searchTech = computed(() =>{
          <br>
          <h4>Resulting Markdown File:</h4>
          <br>
-         <p>Project Name: {{ projectName }}</p>
+         ---
+         <p>title: {{ projectName }}</p>
          <!--Propose a id, User can write id, use a placeholder-->
-         <p>Project Id: {{ projectName.trim() }}</p>
-         <p>Project Description : {{ projectDescrip }}</p>
-         <p>Project Github Page: {{ github }}</p>
-         <p>Project Student: {{ selectedStudents }}</p>
-         <p>Project Instructors: {{ selectedInstructors }} </p>
-         <p>Project Tech: {{ techTags }}</p>
-         <p>Project video url: {{ vidUrl }}</p>
+         <p>id: {{ projectName.trim() }}</p>
+         <p>desc : {{ projectDescrip }}</p>
+         <p>github: {{ github }}</p>
+         <p>students: {{ selectedStudents }}</p>
+         <p>instructors: {{ selectedInstructors }} </p>
+         <p>techs: {{ techTags }}</p>
+         <p>videos: {{ vidUrl }}</p>
          <!-- <p>Project tags: </p> -->
-         <p>Project events: {{selectedEvents}}</p>
-         <p>Project Semester: {{ selectedSemester }}</p>
-         <p>Project year: {{ selectedYear? selectedYear : year }}</p>
-         <p>Project levels: {{ selectedLevels }} </p>
-         <p>Project difficulty: {{ selectedDiffs }} </p>
-         <p>Project Duration: {{ selectedDurations }}</p>
-         <p>Project Published Date: {{ publishedDate }}</p>
+         <p>events: {{selectedEvents}}</p>
+         <p>semester: {{ selectedSemester }}</p>
+         <p>year: {{ selectedYear? selectedYear : year }}</p>
+         <p>levels: {{ selectedLevels }} </p>
+         <p>difficulty: {{ selectedDiffs }} </p>
+         <p>durationMins: {{ selectedDurations }}</p>
+         <p>publishedDate: {{ publishedDate }}</p>
          <!--Input Dropdown, Value: id, label: project title-->
-         <p>Project Related Ids: {{ selRelatedIds }}</p>
+         <p>relatedIds: {{ selRelatedIds }}</p>
+         <p>image: </p>
 
         
 
