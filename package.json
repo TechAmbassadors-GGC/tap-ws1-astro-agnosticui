@@ -27,6 +27,7 @@
     "eslint": "^8.52.0"
   },
   "dependencies": {
+    "@fontsource/pixelify-sans": "^5.0.3",
     "agnostic-astro": "^0.0.10",
     "agnostic-react": "^0.1.32",
     "agnostic-svelte": "^1.1.27",

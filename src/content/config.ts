@@ -33,6 +33,10 @@ const projectCollection = defineCollection({
       message: "Cover image must be 1080 pixels wide!",
       // This part of the config file needs to be reviewed and changed at a later date.
     }),
+    imageTeam:image().refine((img) => img.width >= 10, {
+      message: "Cover image must be 1080 pixels wide!",
+      // This part of the config file needs to be reviewed and changed at a later date.
+    }).optional(),
   }),
 });
 

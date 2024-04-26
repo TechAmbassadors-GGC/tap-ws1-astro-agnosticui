@@ -12,7 +12,7 @@ body {
   padding-block-end: 2rem;
   /* min-height: 100vh; */
   display: grid; 
-
+  /* font-family: 'Sans serif'; */
 
   /* Change the min and max sizing based on available space */
   grid-template-columns: flex(auto-fit, minmax(100px,1fr));
@@ -27,8 +27,14 @@ body {
 
 body.body-prj ul {
   list-style: inside disc;
+  /* font-family: 'Sans serif'; */
 }
 
+h1.project-title {
+  font-size: AUTO;
+  font-family: "Pixelify Sans";
+  padding-bottom: 20px;
+}
 main {
    margin-left: auto;
   margin-right: auto;

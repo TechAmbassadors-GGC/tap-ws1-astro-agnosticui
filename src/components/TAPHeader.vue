@@ -27,7 +27,7 @@ const base = import.meta.env.BASE_URL;
             <template #menuitem-1>About</template>
             <template #menuitem-people>Projects</template>
             <template #menuitem-2>Awards</template>
-            <template #menuitem-3><a href="">Apply</a></template>            
+            <template #menuitem-3><a href="http://www.ggc.edu/tap">Apply</a></template>            
             <template #icon>&#9662;</template>
           </Menu>
         </HeaderNavItem>
