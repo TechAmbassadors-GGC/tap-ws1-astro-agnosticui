@@ -32,7 +32,7 @@ body.body-prj ul {
 
 h1.project-title {
   font-size: AUTO;
-  font-family: "Pixelify Sans Variable";
+  font-family: "Pixelify Sans";
   padding-bottom: 20px;
 
   /* Register your custom font family and tell the browser where to find it. */
