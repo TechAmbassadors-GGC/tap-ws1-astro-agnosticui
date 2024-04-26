@@ -19,7 +19,7 @@ body {
   grid-auto-rows: minmax(100px, auto);
   justify-items: center;  
   align-items: top;
-  place-items: center;*/
+  place-items: center;
   background: var(--agnostic-light);
   color: var(--agnostic-secondary-light-modelight);
   
@@ -32,8 +32,17 @@ body.body-prj ul {
 
 h1.project-title {
   font-size: AUTO;
-  font-family: "Pixelify Sans";
+  font-family: "Pixelify Sans Variable";
   padding-bottom: 20px;
+
+  /* Register your custom font family and tell the browser where to find it. */
+@font-face {
+  font-family: 'DistantGalaxy';
+  src: url('/assets/pixelify-sans_5.0.3/webfonts/pixelify-sans-cyrillic-700-normal.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 }
 main {
    margin-left: auto;
