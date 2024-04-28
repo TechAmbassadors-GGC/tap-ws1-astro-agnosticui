@@ -10,7 +10,7 @@
     </div>
       <ul>
         <li v-for="blogPostEntry in blogEntries">
-        <a :href="`${base}/posts/${blogPostEntry.slug}`">{{ blogPostEntry.data.title }}</a> &nbsp;
+        <a :href="`${base}/posts/${blogPostEntry.data.year}/${blogPostEntry.data.semester}/${blogPostEntry.data.title}`">{{ blogPostEntry.data.title }}</a> &nbsp;
         <time datetime={{ blogPostEntry.data.publishedDate.toISOString() }}>
           {{ blogPostEntry.data.publishedDate.toDateString() }}
         </time>
