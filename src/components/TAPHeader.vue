@@ -7,7 +7,7 @@ import { Header, HeaderNav, HeaderNavItem, Menu } from "agnostic-vue";
 const base = import.meta.env.BASE_URL;
 </script>
 <template>  
-  <Header isHeaderContentEnd>
+  <Header isHeaderContenStart>
     <template v-slot:logoleft>
       
       <a class="flex-fill" :href="base" >TAP</a>

@@ -5,10 +5,10 @@
       isStacked
       isShadow
       isAnimated
-
+      
     >
     <div class="h4 p16">
-      TAP News
+      TAP Publications
     </div>
       <ul>
         <li v-for="blogPostEntry in blogEntries">

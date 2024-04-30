@@ -3,7 +3,7 @@ title: Jedi Sphero
 id: jedi-sphero
 desc: Educating others on algorithms by programming a Sphero robot.
 github: https://github.com/TAP-GGC/Jedi?tab=readme-ov-file
-students: [Ammar Mehicevic, Etienne Laccruche, Tony Lam]
+students: [T. Lam, E. Laccruche, A. Mehicevic, ]
 instructors: [Dr. Cindy Robertson, Dr. Anca Doloc-Mihu]
 techs: [sphero]
 videos: [https://youtu.be/W7AJaQqIAE0]
@@ -31,7 +31,7 @@ imageTeam: ./JediGroupPhoto_cropped.jpg
 
 <b> TITLE: </b> [Teaching Algorithms and Growing STEM with Sphero](https://www.youtube.com/embed/W7AJaQqIAE0?si=D3_BeB6ZyTDeGda7)
 
-<b>MEMBERS:</b> Ammar Mehicevic, Etienne Laccruche, Tony Lam, Dr. Cindy Robertson, Dr. Anca Doloc-Mihu
+<b>MEMBERS:</b>  Tony Lam, Etienne Laccruche, Ammar Mehicevic, , Dr. Cindy Robertson, Dr. Anca Doloc-Mihu
 
 <b>DIFFICULTY:</b> Intermediate
 
