@@ -1,8 +1,7 @@
 <template>
     
-    <div class="p16 flex-grow-1 flex-shrink-1" style="flex-basis: 40ch;" >
+    <div class= card-main >
         <Card
-            css="card-demo"
             isStacked
             isShadow
             isAnimated

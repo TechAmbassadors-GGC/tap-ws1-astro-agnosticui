@@ -14,17 +14,12 @@
 	font-size: clamp(0.575rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem);
 }
 
-html, body {
 
-  margin: 0;
-  
-  padding: 0;
-  
-  height: 100%;
-  
-}
 
 body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
   display: grid; 
   font-family: 'Work Sans', medium; 
   font-size: auto;
@@ -34,7 +29,7 @@ body {
   grid-auto-rows: minmax(100px, auto);
   
   align-content: space-evenly;
-  justify-content: space-between;
+  /*justify-content: space-between;*/
   align-items: center;
   justify-items: center;
   background: var(--agnostic-secondary-hover-modelightt);
@@ -53,7 +48,7 @@ main {
   justify-content: space-evenly;
   align-items: center;
   justify-items: center;
-  width: clamp(26ch, 75%, 90ch);
+  width: clamp(26ch, 75%, 100%);
 }
 
 h2 {
@@ -62,37 +57,57 @@ h2 {
   font-family: 'Gagalin', Helvetica, Arial, sans-serif;
 }
 
-.card-demo {
-  text-align:center;
-  max-width: 35rem !important;
-  margin: 0 auto;
-  margin-block-start: var(--fluid-40);
-  padding-block-start: var(--fluid-16);
-  padding-block-end: var(--fluid-40);
-  background-color: var(--agnostic-gray-mid);
-}
 
-.project-cards-flex {
+.project-cards-flex {  /*Project search page cards container */
   justify-content: space-around;
   flex-flow: row wrap;
 }
 
-.card-project {
+.card-main { /* div contains a single card on index page*/
+
+  /* flex-grow: 1;
+  flex-shrink: 1; */
+  min-width: 10rem !important;
+  max-width: 20em;
+  margin: 0 auto;
+  padding: 1em;
+  flex: 1;
+  /* flex-basis: 100ch; */
+
+  text-align:center;
+  /* max-width: 35rem ;
+  margin: auto;
+  padding: 20px 10px; */
+  /* margin-block-start: var(--fluid-40);
+  padding-block-start: var(--fluid-16);
+  padding-block-end: var(--fluid-40);
+  margin-block-end: var(--fluid-40); */
+  background-color: var(--agnostic-gray-mid);
+}
+
+.card-project { /*project search page cards */
   min-width: 40rem !important;
   margin: 0 auto;
   flex: 1;
   background-color: var(--agnostic-gray-mid);
 }
-h4.card-demo{
+.card-container {
+  justify-content: space-around;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+}
+
+h4.card-demo{ /*Card titles  */
   text-align:center;
   font-size: clamp(var(--agnostic-h5), 1vw, var(--agnostic-h2));
   font-family: 'Gagalin', Helvetica, Arial, sans-serif;
 }
 
-.valueprop {
+.valueprop {/*footer variable */
   font-size: clamp(var(--agnostic-h6), 1vw, var(--agnostic-h4));
 }
-.valueprop a {
+.valueprop a { /*footer variable */
   font-size: clamp(var(--agnostic-h5), 2vw, var(--agnostic-h3));
 }
 
