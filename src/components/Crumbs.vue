@@ -87,6 +87,10 @@ else if(pageProp.pageType == "post"){
       label: `${urls[3]}`,
       url: `${base}/${urls[1]}/${urls[2]}/${urls[3]}`,
     },
+    {
+      label: `${urls[4]}`,
+      url: `${base}/${urls[1]}/${urls[2]}/${urls[3]}/${urls[4]}`,
+    },
   ];
 }
 else {
