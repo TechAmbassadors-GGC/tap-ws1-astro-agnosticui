@@ -17,6 +17,7 @@ import "agnostic-vue/dist/opinions.min.css";
 // Component Imports
 import "agnostic-vue/dist/index.css";
 import Card from "agnostic-vue";
+import { Image } from "astro:assets";
 import TAPHeader from '../../components/TAPHeader.vue';
 
 // Read from conten collection
@@ -60,7 +61,9 @@ let title = `${project.data.title} - Outreach Projects - GGC Technology Ambassad
 		<TAPHeader client:load />
 		<Crumbs pageType="project" pageUrl=`/projects/${projYear}/${projSemester}/${projName}`/>
 
+
     <h1>{project.data.title}</h1>
+	<Image src={project.data.image} alt={project.data.title} />
     <Content />
 	</main>
 	
