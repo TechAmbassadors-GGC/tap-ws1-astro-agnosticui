@@ -90,7 +90,6 @@ const durationList = createOptions(projects, "durationMins");
 let relatedIdTerm = ref('');
 let selRelatedIds = ref([]);  //stores all the selected related ids
 const relatedIdList = createOptions(projects, "relatedIds");
-console.log(projects);
 
 //failed reusable method
 const addItem = (inputField, category)=>{
@@ -101,12 +100,7 @@ const addItem = (inputField, category)=>{
         case 'event':
 
     }
-    console.log(inputField);
-    console.log(typeof inputField);
-    console.log(category);
-    console.log(typeof category);
     if(inputField!= ''){
-        console.log(category);
         inputField ='';
         
         category.value.push(inputField);
@@ -141,7 +135,6 @@ function addTerm(termRef, inputField){
             break;
     }
     if(inputField != ''){
-        console.log(inputField);
         category.value.push(inputField);
         this[termRef] = '';
     }
@@ -195,7 +188,6 @@ const searchTech = computed(() =>{
 
     // we need to find matches 
     let matches = 0;
-    console.log(techList);
     let optionsList = techList.filter(tech =>{
         if(tech.toLowerCase().includes(techTerm.value.toLowerCase()) && matches < 10){
             matches++;
@@ -335,31 +327,30 @@ const searchTech = computed(() =>{
          </div>
          <br>
          <h4>Resulting Markdown File:</h4>
-         <br>
-         ---
-         <p>title: {{ projectName }}</p>
+         <pre>
+---
+title: {{ projectName }}
+id: {{ projectName.trim() }}
+desc : {{ projectDescrip }}
+github: {{ github }}
+students: {{ selectedStudents }}
+instructors: {{ selectedInstructors }} 
+techs: {{ techTags }}
+videos: {{ vidUrl }}
+events: {{selectedEvents}}
+semester: {{ selectedSemester }}
+year: {{ selectedYear? selectedYear : year }}
+levels: {{ selectedLevels }} 
+difficulty: {{ selectedDiffs }} 
+durationMins: {{ selectedDurations }}
+publishedDate: {{ publishedDate }}
+relatedIds: {{ selRelatedIds }}
+image: 
+---
+         </pre>
          <!--Propose a id, User can write id, use a placeholder-->
-         <p>id: {{ projectName.trim() }}</p>
-         <p>desc : {{ projectDescrip }}</p>
-         <p>github: {{ github }}</p>
-         <p>students: {{ selectedStudents }}</p>
-         <p>instructors: {{ selectedInstructors }} </p>
-         <p>techs: {{ techTags }}</p>
-         <p>videos: {{ vidUrl }}</p>
-         <!-- <p>Project tags: </p> -->
-         <p>events: {{selectedEvents}}</p>
-         <p>semester: {{ selectedSemester }}</p>
-         <p>year: {{ selectedYear? selectedYear : year }}</p>
-         <p>levels: {{ selectedLevels }} </p>
-         <p>difficulty: {{ selectedDiffs }} </p>
-         <p>durationMins: {{ selectedDurations }}</p>
-         <p>publishedDate: {{ publishedDate }}</p>
          <!--Input Dropdown, Value: id, label: project title-->
-         <p>relatedIds: {{ selRelatedIds }}</p>
-         <p>image: </p>
-
-        
-
+         <!-- Project tags:  -->
 
         <!--To get the students from dropdown menu or to manually enter the students by email-->
         
