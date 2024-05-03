@@ -1,7 +1,7 @@
 @font-face {
   font-family: Gagalin;
-    src: url('fonts/gagalin/Gagalin/Commercial/TTF/Gagalin-Regular.ttf');
-    src: url('fonts/gagalin/Gagalin/Commercial/TTF/Gagalin-Regular.ttf') format('truetype');
+    src: url('/fonts/gagalin/Gagalin/Commercial/TTF/Gagalin-Regular.ttf');
+    src: url('/fonts/gagalin/Gagalin/Commercial/TTF/Gagalin-Regular.ttf') format('truetype');
 }
 
 * {
