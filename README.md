@@ -18,3 +18,15 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://github.com/withastro/astro) or jump into our [Discord server](https://astro.build/chat).
+
+
+#How to Create a Project
+
+Navigate to Create Projects Markdown
+![Project Markdownpage](./public/assets/CreateMarkdownPage.png)
+
+Complete the form and copy the markdown template below
+![Markdown Template](./public/assets/mdtemplate.png)
+
+Create a folder for desired project with respect to {year}-{month}{semester} (use camelCase)
+![Create Directory](./public/assets/mkdirProject.png)

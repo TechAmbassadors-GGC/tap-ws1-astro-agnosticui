@@ -46,6 +46,7 @@ const techList = createOptions(projects, "techs");
 
 //video url
 let vidUrl = ref('');
+let selectedVids = ref([]);
 
 //Semester related
 let selectedSemester = ref('');
@@ -90,7 +91,7 @@ const durationList = createOptions(projects, "durationMins");
 let relatedIdTerm = ref('');
 let selRelatedIds = ref([]);  //stores all the selected related ids
 const relatedIdList = createOptions(projects, "relatedIds");
-console.log(projects);
+//console.log(projects);
 
 //failed reusable method
 const addItem = (inputField, category)=>{
@@ -139,9 +140,11 @@ function addTerm(termRef, inputField){
         case "relatedIdTerm":
             category = selRelatedIds;
             break;
+        case "vidUrl":
+            category = selectedVids;
+            break;
     }
     if(inputField != ''){
-        console.log(inputField);
         category.value.push(inputField);
         this[termRef] = '';
     }
@@ -161,22 +164,19 @@ function removeTag2(arrayRef, index){
 //     };
 // };
 
-//Setters
 
-//const addLevel = addItem2(levelTerm, selectedLevels);
-
-const addStudent = (student) =>{
-    if(student != ''){
-        selectedStudents.value.push(student);
-        studentTerm.value = '';
-    }
-}
-const addEvent = (event) =>{
-    if(event != '' && !selectedEvents.value.includes(event)){
-        selectedEvents.value.push(event);
-        eventTerm.value='';
-    }
-}
+// const addStudent = (student) =>{
+//     if(student != ''){
+//         selectedStudents.value.push(student);
+//         studentTerm.value = '';
+//     }
+// }
+// const addEvent = (event) =>{
+//     if(event != '' && !selectedEvents.value.includes(event)){
+//         selectedEvents.value.push(event);
+//         eventTerm.value='';
+//     }
+// }
 const addTag = (tag) =>{
     if(tag != ''){
         techTags.value.push(tag);
@@ -271,7 +271,12 @@ const searchTech = computed(() =>{
             </ul>
          </div>
          <div> <!--Enter the videos. Once clicked, it should be pushed into an array-->
-            <Input type="text" label="Enter video link (make sure it's uploaded to the TAP Youtube account)" v-model="vidUrl"/>
+            <Input type="text" label="Enter video link (make sure it's uploaded to the TAP Youtube account)" v-model="vidUrl" @keydown.enter.stop="addTerm('vidUrl',vidUrl )"/>
+            <ul class="tagList">
+                <Tag v-for="(tag, index) in selectedVids" :key="tag" class="mie6" shape="round" type="info" is-uppercase>{{tag}}
+                    <button @click="removeTag2(selectedVids,index)" class="delete">&#x2718;</button>
+                </Tag>
+            </ul>
          </div>
          <br>
          <div> <!--events-->
@@ -311,7 +316,7 @@ const searchTech = computed(() =>{
             </ul>
          </div>
          <div> <!--duration-->
-            <Input type="text" list="durationData" label="Enter duration of project activities in minutes. You can enter multiple values." 
+            <Input type="number" list="durationData" label="Enter duration of project activities in minutes. You can enter multiple values." 
                     v-model="durationTerm" @keydown.enter.stop="addTerm('durationTerm',durationTerm)" placeholder="30, 60, 90"/>
             <datalist id="durationData"><option v-for="dur in durationList" :value="dur">{{ dur}}</option></datalist>
             <ul class="tagList">
@@ -345,7 +350,7 @@ const searchTech = computed(() =>{
          <p>students: {{ selectedStudents }}</p>
          <p>instructors: {{ selectedInstructors }} </p>
          <p>techs: {{ techTags }}</p>
-         <p>videos: {{ vidUrl }}</p>
+         <p>videos: {{ selectedVids }}</p>
          <!-- <p>Project tags: </p> -->
          <p>events: {{selectedEvents}}</p>
          <p>semester: {{ selectedSemester }}</p>
