@@ -16,21 +16,18 @@ const base = import.meta.env.BASE_URL;
     <template v-slot:headernav>
       <HeaderNav css="header-mbe16">
         <HeaderNavItem>
-          <a :href="`${base == '/' ? '' : base}/projects`">Outreach projects & templates</a>
+          <a :href="`${base == '/' ? '' : base}/projects`">Projects</a>
         </HeaderNavItem>
         <HeaderNavItem>
-          <a href="">Join the discussion</a>
-        </HeaderNavItem>
-        <HeaderNavItem>
-          <a href="template">Create Projects Markdown</a>
+          <a href="">Discussion</a>
         </HeaderNavItem>
       
         <HeaderNavItem>
-          <Menu id="menu-Home" menuTitle="Home" :disabledItems="['menuitem-1', 'menuitem-2', 'menuitem-people']" :isBordered="true" type="simple" >
-            <template #menuitem-1>About</template>
-            <template #menuitem-people>Projects</template>
-            <template #menuitem-2>Awards</template>
-            <template #menuitem-3><a href="">Apply</a></template>            
+          <Menu id="menu-More" menuTitle="More" :disabledItems="['menuitem-about', 'menuitem-2', 'menuitem-people']" :isBordered="true" type="simple" >
+            <template #menuitem-about>About</template>
+            <template #menuitem-template><a href="template">Add project</a></template>
+            <template #menuitem-apply><a href="https://ggc.edu/academics/school-of-science-and-technology/research-internships-service-learning/technology-ambassador-program">
+              Student application</a></template>
             <template #icon>&#9662;</template>
           </Menu>
         </HeaderNavItem>
