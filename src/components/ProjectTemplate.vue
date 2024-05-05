@@ -83,7 +83,7 @@ let selectedDiffs = ref([]);
 const diffList = createOptions(projects, "difficulty");
 
 //Duration related
-let durationTerm = ref('');
+let durationTerm = ref();
 let selectedDurations = ref([]);
 const durationList = createOptions(projects, "durationMins");
 
@@ -140,6 +140,7 @@ function addTerm(termRef, inputField){
             break;
     }
     if(inputField != ''){
+        console.log(typeof inputField);
         category.value.push(inputField);
         this[termRef] = '';
     }
@@ -232,9 +233,6 @@ const searchTech = computed(() =>{
                 <option v-for="tech of techList" :value="tech">{{ tech }}</option>
             </datalist>
             <ul class="tagList">
-                <!-- <li v-for="(tag, index) in techTags" :key="tag" class="tag">{{ tag }}
-                <button @click="removeTag(index)" class="delete">x</button>
-                </li> -->
                     <Tag v-for="(tag, index) in techTags" :key="tag" class="mie6" shape="round" type="info" is-uppercase>{{tag}}
                     <button @click="removeTag(index)" class="delete">&#x2718;</button>
                 </Tag>
@@ -312,7 +310,7 @@ const searchTech = computed(() =>{
          <div> <!--duration-->
             <Input type="number" list="durationData" label="Enter duration of project activities in minutes. You can enter multiple values." 
                     v-model="durationTerm" @keydown.enter.stop="addTerm('durationTerm',durationTerm)" placeholder="30, 60, 90"/>
-            <datalist id="durationData"><option v-for="dur in durationList" :value="dur">{{ dur}}</option></datalist>
+            <datalist id="durationData"><option v-for="dur in durationList" :value=dur>{{ dur}}</option></datalist>
             <ul class="tagList">
                 <Tag v-for="(tag, index) in selectedDurations" :key="tag" class="mie6" shape="round" type="info" is-uppercase>{{tag}}
                     <button @click="removeTag2(selectedDurations,index)" class="delete">&#x2718;</button>
@@ -343,16 +341,16 @@ github: {{ github }}
 students: {{ selectedStudents }}
 instructors: {{ selectedInstructors }} 
 techs: {{ techTags }}
-videos: {{ vidUrl }}
+videos: {{ selectedVids }}
 events: {{selectedEvents}}
 semester: {{ selectedSemester }}
 year: {{ selectedYear? selectedYear : year }}
 levels: {{ selectedLevels }} 
 difficulty: {{ selectedDiffs }} 
-durationMins: {{ selectedDurations }}
+durationMins: {{ selectedDurations.map(str => parseInt(str)) }}
 publishedDate: {{ publishedDate }}
 relatedIds: {{ selRelatedIds }}
-image: 
+image: ""
 ---
          </pre>
          <!--Propose a id, User can write id, use a placeholder-->

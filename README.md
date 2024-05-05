@@ -30,3 +30,8 @@ Complete the form and copy the markdown template below
 
 Create a folder for desired project with respect to {year}-{month}{semester} (use camelCase)
 ![Create Directory](./public/assets/mkdirProject.png)
+
+Create a Markdown file within the folder (using camelCase)
+![Create Markdown File](./public/assets/createMDfile.png)
+
+[VERY IMPORTANT!] Every Project requires an image. Attach desired image within folder as well
