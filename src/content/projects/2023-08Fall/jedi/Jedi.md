@@ -21,33 +21,28 @@ imageTeam: ./JediGroupPhoto_cropped.jpg
 ---
 <!-- CONTENT BLOCK -->
 
-<div id="images"; style='width:340px;float: left;height: auto; margin-right: 25px; vertical-align: top; display: inline-block;'>
+<div id="images"; style='width:640px;float: left;height: auto; margin-right: 25px; vertical-align: bottom; display: inline-block;'>
 
 ![jediPhoto](./JediGroupPhoto_cropped.jpg)
-
+##### From left to right: Tony Lam,  Ammar Mehicevic and Etienne Laccruche, 
+<br>
+<br>
+<br>
 </div>
 
-<div id="groupDetails"; style='text-align: left; width:380px; float: right; height: auto; margin-right: 10px; vertical-align: top; display: inline-block;'>
 
-<b> TITLE: </b> [Teaching Algorithms and Growing STEM with Sphero](https://www.youtube.com/embed/W7AJaQqIAE0?si=D3_BeB6ZyTDeGda7)
+<div id="body"; style="text-align: left; width:720px; float: right; height: auto; margin-right: 10px;  vertical-align: bottom; display: inline-block; font-family: ;">
 
-<b>MEMBERS:</b>  Tony Lam, Etienne Laccruche, Ammar Mehicevic, , Dr. Cindy Robertson, Dr. Anca Doloc-Mihu
+<b>TITLE: </b> [Teaching Algorithms and Growing STEM with Sphero](https://www.youtube.com/embed/W7AJaQqIAE0?si=D3_BeB6ZyTDeGda7)
 
-<b>DIFFICULTY:</b> Intermediate
+<b> MEMBERS: </b>  Tony Lam, Etienne Laccruche, Ammar Mehicevic, , Dr. Cindy Robertson, Dr. Anca Doloc-Mihu
 
-<b>PUBLISHED DATE:</b> <publishedDate>
-</div><!-- CONTENT BLOCK -->
+<b> DIFFICULTY: </b> Intermediate
 
->
-
-<!--[sphero,  Algorithm, Code, 6th grade, 7th Grade, 8th grade, 9th grade, 10th grade, 11th grade, 12th grade, college](Tags:)-->
+<b> PUBLISHED DATE:</b> <publishedDate>
 
 
-<div>
-
-<br>
-
-<b>Description: </b>
+### Description: 
 The primary goal of this project is educating others about algorithms by programming a robot through a maze using SpheroEDU. 
 
 Sphero is a small robot ball that moves around by either remote control or code you feed it. This workshop is geared towards educating and creating interest in the IT field for non STEM majors. By engaging in our workshops, students will get to experiment with Sphero.edu and block coding, which allows them to learn about algorithms through relatable examples. 
@@ -56,16 +51,18 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 
 <br>
 
-## The Creators:
-![jedi Team Photo](./JediTeamPhoto.jpg)
-##### Ammar Mehicevic, Etienne Laccruche, Tony Lam
-
-## Short Demo:
-
-<iframe width="560" height="100%" src="https://www.youtube.com/embed/W7AJaQqIAE0?si=D3_BeB6ZyTDeGda7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width: 560px; height: 315px;"></iframe>
-
+### Outreach Actiivties: 
+1. Tap Expo, Oct 10, GGC – To promote IT field and the TAP program to college students
+2. Super Saturday Series (S3), Nov 9, GGC – middle and high school girls to promote IT and STEM career
+3. Class Workshops – October 26th, November 13th, November 14th - promote IT field to non-IT college students
 
 <br>
+<br>
+<br>
+</div>
+
+
+<div style="text-align: center ; justify-content: center; font-family: work sans;">
 
 ## Steps:
 1. Create a SpheroEDU teacher account.
@@ -80,22 +77,24 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 10. Select both codes.
 11. Click submit.
 
+<br>
+<br>
 </div>
 
-## Outreach Actiivties: 
-1. Tap Expo, Oct 10, GGC – To promote IT field and the TAP program to college students
-2. Super Saturday Series (S3), Nov 9, GGC – middle and high school girls to promote IT and STEM career
-3. Class Workshops – October 26th, November 13th, November 14th - promote IT field to non-IT college students
+<div style="text-align:center;">
+<br>
+<br>
+<br>
 
 [Creating A Sphero Teacher Account](https://github.com/TAP-GGC/Jedi/blob/main/Media/Creating%20a%20Teacher%20Sphero%20Account.pdf).
 
-<div style="text-align:center;">
 
-**Here is a 5 minute video walkthrough of our workshop that anyone with a sphero can do**
-
-<iframe width="560" height="100%" src="https://www.youtube.com/embed/W7AJaQqIAE0?si=D3_BeB6ZyTDeGda7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width: 560px; height: 315px;"></iframe>
+<iframe width=560 ;height="100%" src="https://www.youtube.com/embed/W7AJaQqIAE0?si=D3_BeB6ZyTDeGda7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width: 100%; height: 680px;"></iframe>
 
 </div>
+<br>
+<br>
+<br>
 
 ## Project Setup/Installation:
 - [Installing Sphero Edu](https://github.com/TAP-GGC/Jedi/blob/main/Media/Installing%20Sphero%20Edu.pdf)
@@ -103,6 +102,9 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 - [Creating a Classroom and Adding Students in Sphero Edu](https://github.com/TAP-GGC/Jedi/blob/main/Media/CreatingaClassroomandAddingStudentsinSpheroEdu.pdf)
 - [Creating a Program in Sphero Edu](https://github.com/TAP-GGC/Jedi/blob/main/Media/CreatingAProgramInSpheroEdu.pdf)
 - [Construction](https://github.com/TAP-GGC/Jedi/blob/main/Documents/Construction.pdf)
+
+<br>
+<br>
 
 ## Materials List:
 
@@ -121,6 +123,8 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 | ------ | Sphero EDU Desktop Application | ----- |
 
 <br>
+<br>
+
 
 ![Class Set Of Sphero](./SpheroClassSet.jpg)
 ![Sphero Website Logo](./SpheroEdu.jpg)
