@@ -33,7 +33,7 @@ body {
   align-items: center;
   justify-items: center;
   background: var(--agnostic-secondary-hover-modelightt);
-  color: var(--agnostic-light-modelight);
+  color: var(--agnostic-font-color);
   
 }
 
