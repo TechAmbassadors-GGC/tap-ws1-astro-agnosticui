@@ -46,6 +46,7 @@ const techList = createOptions(projects, "techs");
 
 //video url
 let vidUrl = ref('');
+let selectedVids = ref([]);
 
 //Semester related
 let selectedSemester = ref('');
@@ -82,7 +83,7 @@ let selectedDiffs = ref([]);
 const diffList = createOptions(projects, "difficulty");
 
 //Duration related
-let durationTerm = ref('');
+let durationTerm = ref();
 let selectedDurations = ref([]);
 const durationList = createOptions(projects, "durationMins");
 
@@ -90,6 +91,7 @@ const durationList = createOptions(projects, "durationMins");
 let relatedIdTerm = ref('');
 let selRelatedIds = ref([]);  //stores all the selected related ids
 const relatedIdList = createOptions(projects, "relatedIds");
+//console.log(projects);
 
 //failed reusable method
 const addItem = (inputField, category)=>{
@@ -133,8 +135,12 @@ function addTerm(termRef, inputField){
         case "relatedIdTerm":
             category = selRelatedIds;
             break;
+        case "vidUrl":
+            category = selectedVids;
+            break;
     }
     if(inputField != ''){
+        console.log(typeof inputField);
         category.value.push(inputField);
         this[termRef] = '';
     }
@@ -154,22 +160,19 @@ function removeTag2(arrayRef, index){
 //     };
 // };
 
-//Setters
 
-//const addLevel = addItem2(levelTerm, selectedLevels);
-
-const addStudent = (student) =>{
-    if(student != ''){
-        selectedStudents.value.push(student);
-        studentTerm.value = '';
-    }
-}
-const addEvent = (event) =>{
-    if(event != '' && !selectedEvents.value.includes(event)){
-        selectedEvents.value.push(event);
-        eventTerm.value='';
-    }
-}
+// const addStudent = (student) =>{
+//     if(student != ''){
+//         selectedStudents.value.push(student);
+//         studentTerm.value = '';
+//     }
+// }
+// const addEvent = (event) =>{
+//     if(event != '' && !selectedEvents.value.includes(event)){
+//         selectedEvents.value.push(event);
+//         eventTerm.value='';
+//     }
+// }
 const addTag = (tag) =>{
     if(tag != ''){
         techTags.value.push(tag);
@@ -208,6 +211,7 @@ const searchTech = computed(() =>{
         <div>
             <h1>Create Metadata Block for New Project</h1>
             <ul>
+                <li>See the <a href="https://github.com/TAP-GGC/tap-ws1-astro-agnosticui/blob/main/README.md" target="_blank">project README file</a> for detailed instructions.</li>
                 <li>Fill the input boxes below that will automatically populate the metadata block at the bottom of the page.</li>
                 <li>Some boxes allow entering multiple items. Start typing or press the down arrow to see options. 
                     Make sure to press Enter in the input boxes to save them. 
@@ -230,9 +234,6 @@ const searchTech = computed(() =>{
                 <option v-for="tech of techList" :value="tech">{{ tech }}</option>
             </datalist>
             <ul class="tagList">
-                <!-- <li v-for="(tag, index) in techTags" :key="tag" class="tag">{{ tag }}
-                <button @click="removeTag(index)" class="delete">x</button>
-                </li> -->
                     <Tag v-for="(tag, index) in techTags" :key="tag" class="mie6" shape="round" type="info" is-uppercase>{{tag}}
                     <button @click="removeTag(index)" class="delete">&#x2718;</button>
                 </Tag>
@@ -263,7 +264,12 @@ const searchTech = computed(() =>{
             </ul>
          </div>
          <div> <!--Enter the videos. Once clicked, it should be pushed into an array-->
-            <Input type="text" label="Enter video link (make sure it's uploaded to the TAP Youtube account)" v-model="vidUrl"/>
+            <Input type="text" label="Enter video link (make sure it's uploaded to the TAP Youtube account)" v-model="vidUrl" @keydown.enter.stop="addTerm('vidUrl',vidUrl )"/>
+            <ul class="tagList">
+                <Tag v-for="(tag, index) in selectedVids" :key="tag" class="mie6" shape="round" type="info" is-uppercase>{{tag}}
+                    <button @click="removeTag2(selectedVids,index)" class="delete">&#x2718;</button>
+                </Tag>
+            </ul>
          </div>
          <br>
          <div> <!--events-->
@@ -303,9 +309,9 @@ const searchTech = computed(() =>{
             </ul>
          </div>
          <div> <!--duration-->
-            <Input type="text" list="durationData" label="Enter duration of project activities in minutes. You can enter multiple values." 
+            <Input type="number" list="durationData" label="Enter duration of project activities in minutes. You can enter multiple values." 
                     v-model="durationTerm" @keydown.enter.stop="addTerm('durationTerm',durationTerm)" placeholder="30, 60, 90"/>
-            <datalist id="durationData"><option v-for="dur in durationList" :value="dur">{{ dur}}</option></datalist>
+            <datalist id="durationData"><option v-for="dur in durationList" :value=dur>{{ dur}}</option></datalist>
             <ul class="tagList">
                 <Tag v-for="(tag, index) in selectedDurations" :key="tag" class="mie6" shape="round" type="info" is-uppercase>{{tag}}
                     <button @click="removeTag2(selectedDurations,index)" class="delete">&#x2718;</button>
@@ -336,16 +342,16 @@ github: {{ github }}
 students: {{ selectedStudents }}
 instructors: {{ selectedInstructors }} 
 techs: {{ techTags }}
-videos: {{ vidUrl }}
+videos: {{ selectedVids }}
 events: {{selectedEvents}}
 semester: {{ selectedSemester }}
 year: {{ selectedYear? selectedYear : year }}
 levels: {{ selectedLevels }} 
 difficulty: {{ selectedDiffs }} 
-durationMins: {{ selectedDurations }}
+durationMins: {{ selectedDurations.map(str => parseInt(str)) }}
 publishedDate: {{ publishedDate }}
 relatedIds: {{ selRelatedIds }}
-image: 
+image: ""
 ---
          </pre>
          <!--Propose a id, User can write id, use a placeholder-->

@@ -33,7 +33,7 @@ const projectCollection = defineCollection({
     year: z.number(),
     publishedDate: z.date(),
     relatedIds: z.array(z.string()).optional(),
-    image:image().refine((img) => img.width >= 10, {
+    image:image().optional().refine((img) => img.width >= 10, {
       message: "Cover image must be at least 1080 pixels wide!",
     }),
     // image: z.string().optional(),
