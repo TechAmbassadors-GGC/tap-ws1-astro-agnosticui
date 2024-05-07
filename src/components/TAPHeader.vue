@@ -19,7 +19,7 @@ const base = import.meta.env.BASE_URL;
           <a :href="`${base == '/' ? '' : base}/projects`">Projects</a>
         </HeaderNavItem>
         <HeaderNavItem>
-          <a href="">Discussion</a>
+          <a href="https://forum.tapggc.org" target="_blank">Forum</a>
         </HeaderNavItem>
       
         <HeaderNavItem>
