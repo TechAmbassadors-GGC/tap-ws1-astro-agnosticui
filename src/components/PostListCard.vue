@@ -1,10 +1,10 @@
 <template>    
-    <div class= card-main >
-      <Card
+    
+  <Card
       isStacked
       isShadow
       isAnimated
-
+      class=card-main
     >
     <div class="h4 p16">
       TAP News
@@ -17,8 +17,8 @@
         </time>
         </li>
       </ul>
-    </Card>
-    </div>
+  </Card>
+    
   
 </template>
 
