@@ -211,6 +211,7 @@ const searchTech = computed(() =>{
         <div>
             <h1>Create Metadata Block for New Project</h1>
             <ul>
+                <li>See the <a href="https://github.com/TAP-GGC/tap-ws1-astro-agnosticui/blob/main/README.md" target="_blank">project README file</a> for detailed instructions.</li>
                 <li>Fill the input boxes below that will automatically populate the metadata block at the bottom of the page.</li>
                 <li>Some boxes allow entering multiple items. Start typing or press the down arrow to see options. 
                     Make sure to press Enter in the input boxes to save them. 
