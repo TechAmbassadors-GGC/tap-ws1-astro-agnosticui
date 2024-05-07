@@ -25,7 +25,7 @@ const base = import.meta.env.BASE_URL;
         <HeaderNavItem>
           <Menu id="menu-More" menuTitle="More" :disabledItems="['menuitem-about', 'menuitem-2', 'menuitem-people']" :isBordered="true" type="simple" >
             <template #menuitem-about>About</template>
-            <template #menuitem-template><a href="`${base == '/' ? '' : base}/template`">Add project</a></template>
+            <template #menuitem-template><a :href="`${base == '/' ? '' : base}/template`">Add project</a></template>
             <template #menuitem-apply><a href="https://ggc.edu/academics/school-of-science-and-technology/research-internships-service-learning/technology-ambassador-program">
               Student application</a></template>
             <template #icon>&#9662;</template>
