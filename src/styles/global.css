@@ -22,7 +22,7 @@ body {
   height: 100%;
   display: grid; 
   font-family: 'Work Sans', medium; 
-  font-size: auto;
+  font-size: 1em;
 
   /* Change the min and max sizing based on available space */
   grid-template-columns: flex(auto-fit, minmax(100px,1fr));
@@ -39,6 +39,8 @@ body {
 
 body.body-prj ul {
   list-style: inside disc;
+  font-family: 'Work Sans', medium; 
+  font-size: 1.25em;
 }
 
 main {
