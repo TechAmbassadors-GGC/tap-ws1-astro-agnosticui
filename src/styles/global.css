@@ -12,9 +12,8 @@
 
 :root {
 	font-size: clamp(0.575rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem);
+  --agnostic-header-content-width: clamp(320px, 100%, 960px); /* set minimum size of header menu - still maxes out at 560px */
 }
-
-
 
 body {
   margin: 0;
@@ -33,10 +32,11 @@ body {
   align-items: center;
   justify-items: center;
   background: var(--agnostic-secondary-hover-modelightt);
-  color: var(--agnostic-light-modelight);
+  color: var(--agnostic-font-color);
   
 }
 
+/* Project pages show list bullets again */
 body.body-prj ul {
   list-style: inside disc;
   font-family: 'Work Sans', medium; 
@@ -44,7 +44,7 @@ body.body-prj ul {
 }
 
 main {
-   margin-left: 0;
+  margin-left: 0;
   margin-right: 0;
   align-content: space-evenly;
   justify-content: space-evenly;
@@ -65,19 +65,14 @@ h2 {
   flex-flow: row wrap;
 }
 
-.card-main { /* div contains a single card on index page*/
-
-  /* flex-grow: 1;
-  flex-shrink: 1; */
+.card-container .card-main { /* div contains a single card on index page - more specific CSS selector takes priority */
   min-width: 10rem !important;
-  max-width: 20em;
-  margin: 0 auto;
+  max-width: 20em;  
   padding: 1em;
-  flex: 1;
-  /* flex-basis: 100ch; */
-
+  height: 20em;
+  margin: 10px;
   text-align:center;
-  /* max-width: 35rem ;
+  /* 
   margin: auto;
   padding: 20px 10px; */
   /* margin-block-start: var(--fluid-40);
@@ -93,6 +88,7 @@ h2 {
   flex: 1;
   background-color: var(--agnostic-gray-mid);
 }
+
 .card-container {
   justify-content: space-around;
   display: flex;

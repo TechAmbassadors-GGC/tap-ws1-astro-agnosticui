@@ -1,11 +1,10 @@
 <template>
     
-    <div class= card-main >
         <Card
             isStacked
             isShadow
             isAnimated
-
+            class=card-main
             >
             <div class="h4 p16">
                 Recent Outreach Projects
@@ -17,7 +16,6 @@
             </li>
             </ul>
         </Card>
-    </div>
     
   </template>
   
