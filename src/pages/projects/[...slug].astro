@@ -29,6 +29,7 @@ export async function getStaticPaths() {
   return projects.map(project => ({
     params: { slug: `${project.data.year}/${project.data.semester}/${project.data.id}` }, props: { project },
   }));
+  // TODO: add to list: years and semesters as search results pages; potentially add techs/ and students/ folders here or in the base
 }
 // 2. For your template, you can get the entry directly from the prop
 // const { slug } = Astro.params;

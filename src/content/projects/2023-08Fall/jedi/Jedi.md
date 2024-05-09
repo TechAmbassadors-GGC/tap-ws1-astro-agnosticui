@@ -1,7 +1,7 @@
 ---
 title: Jedi Sphero
 id: jedi-sphero
-desc: Educating others on algorithms by programming a Sphero robot.
+desc: Teaches algorithmic thinking by programming a Sphero robot to navigate a maze.
 github: https://github.com/TAP-GGC/Jedi?tab=readme-ov-file
 students: [Ammar Mehicevic, Etienne Laccruche, Tony Lam]
 instructors: [Dr. Cindy Robertson, Dr. Anca Doloc-Mihu]
