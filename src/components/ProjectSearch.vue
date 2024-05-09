@@ -11,8 +11,12 @@ const tech = ref(['Any']);
 const duration = ref(['Any']);
 const difficulty = ref(['Any']);
 
+// Component Imports
+import ProjectCard from "./ProjectCard.vue";
+
 // load blog content: news, etc.
 import { getCollection } from 'astro:content';
+import { Image } from "astro:assets";
 const projects = await getCollection('projects');  //list of projects
 
 //Step 1 => get list of instructors in a set to avoid duplication
@@ -141,15 +145,21 @@ function matches(project) {
             `Selected projects` : 'All Projects') }}</h3>
 
     <section class="mbe40 project-cards-flex flex flex-row flex-grow-1 flex-shrink-1 flex-wrap flex-fill">
-        <template v-for="project in projects">  <!--Unfiltered*-->
-            <Card css="card-project" isStacked  isShadow v-if="matches(project)">
+        <template v-for="project in projects">  <!-- Unfiltered* -->
+        
+            <ProjectCard :item = "project" v-if="matches(project)"/>
+            <!-- <Card css="card-project" isStacked  isShadow v-if="matches(project)">
                 <a :href="`/projects/${project.data.year}/${project.data.semester}/${project.data.id}`">{{
-                    project.data.title }}</a> &nbsp;
+                    project.data.title }}</a> &nbsp; 
 
-                {{ project.data.students.toString() }}
-            </Card>
+                {{ project.data.students.toString() }} &nbsp;
+
+                <img :src="`${project.data.image.src}`" alt="Project Image">
+            </Card> -->
         </template>
     </section>
+
+
     </div>
 </template>  
   
