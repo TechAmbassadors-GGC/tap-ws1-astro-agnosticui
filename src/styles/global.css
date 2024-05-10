@@ -7,7 +7,6 @@
 * {
 	box-sizing: border-box;
 	margin: 0;
-  height: auto;
 }
 
 :root {
@@ -16,9 +15,6 @@
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
   display: grid; 
   font-family: 'Work Sans', medium; 
   font-size: 1em;
@@ -86,7 +82,9 @@ h2 {
   text-align: left;
 }
 
-.card-title {
+.card-title { /*Card titles  */
+  text-align:center;
+  font-size: clamp(var(--agnostic-h5), 1vw, var(--agnostic-h2));
   font-family: 'Gagalin', Helvetica, Arial, sans-serif;
 }
 
@@ -106,12 +104,6 @@ h2 {
   display: flex;
   flex-flow: row wrap;
   align-items: flex-start;
-}
-
-h4.card-demo{ /*Card titles  */
-  text-align:center;
-  font-size: clamp(var(--agnostic-h5), 1vw, var(--agnostic-h2));
-  font-family: 'Gagalin', Helvetica, Arial, sans-serif;
 }
 
 .valueprop {/*footer variable */
