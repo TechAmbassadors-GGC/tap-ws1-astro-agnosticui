@@ -50,18 +50,53 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 <div style="flex: 1; min-width: 25em;">
 
 ## Steps:
+<b> STEP 1: BLENDER & AERO </b>
 
 1. Download [Blender](https://www.blender.org/download/) and [Aero](https://ww.adobe.com/products/aero.html)
 2. Open the blender app, click General to begin modelling
 3. Click the cube already present on the canvas and press the delete/backspace key
-4. Press Shift + A to open the Add menu.
-5. Select Mesh > Icosphere. This will add a regular-sized icosphere to your scene.
-6. Select the icosphere you just added by left-clicking on it.
-7. Press Shift + D to duplicate it.
-8. Press S to scale it smaller.
-9. Press G then Z to move it along the Z-axis.
-10. Scroll your mouse up to move it higher above the first icosphere.
-11. Click submit.
+
+<b> STEP 2: ADD MESH - ICO SPHERE </b>
+
+1. Press Shift + A to open the Add menu.
+2. Select Mesh > Icosphere. This will add a regular-sized icosphere to your scene.
+
+<b> STEP 3: DUPLICATE ICO SPHERE (2x) </b>
+
+1. Select the icosphere you just added by left-clicking on it.
+2. Press Shift + D to duplicate it.
+3. Press S to scale it smaller.
+4. Press G then Z to move it along the Z-axis.
+5. Scroll your mouse up to move it higher above the first icosphere.
+
+<b> STEP 4: EYES OF THE BEHOLDER </b>
+
+1. Add another icosphere by pressing Shift + A and selecting Mesh > Icosphere.
+2. Scale this icosphere as small as you’d like the snowman’s eyes to be:
+3. Press S to scale, then press Y to scale along the Y-axis to make the eyes look like ovals.
+4. Press X to scale along the X-axis to flatten the ovals.
+5. Shift D to duplicate it.
+6. Press G, then X to move the duplicate eye beside the first.
+
+<b> STEP 5: BUTTONS BUTTONS BUTTONS </b>
+
+1. Add another icosphere by pressing Shift + A and selecting Mesh > Icosphere.
+2. Scale this icosphere as small as you’d like the snowman’s buttons to be:
+3. Press S to scale and drag to desired size
+4. Press X to scale along the X-axis to flatten the ovals.
+5. Press G, then Z to place along the z -axis.
+6. Shift D to duplicate it.
+7. Repeat steps until you’re satisfied with the number of buttons
+
+<b> STEP 6: A CONE FOR A NOSE </b>
+
+1. Add a cone by pressing Shift + A and selecting Mesh > Cone.
+2. Rotate the cone on the Y-axis by pressing R then Y and typing 90.
+3. Place the cone on the snowman's face as the nose.
+
+## CONGRATULATIONS! 
+## YOU BUILT A SNOMAN!
+
 </div>
 
 
@@ -73,17 +108,8 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 
 | Amount |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Materials | Dimension |
 |    :----:   |    :----:   |    :----:   |
-| 6 | Foam Boards | 36 in. x 48 in. |
-| 2 | Plywood | 36 in. x 48 in. |
-| 1 | Hot Glue Gun | ----- |
-| 1 | 30 Count Pack of Hot Glue Sticks | ----- |
-| 1 | Exacto Knife | ----- |
-| 1 | Chisel | ----- |
-| 1 | Rubber Mallet | ----- |
-| 2 | 6 Count Packs of Exacto Knife Blades | ----- |
-| 15 | Sphero Bolt Robots | ----- |
-| 15 | Sphero Protractors | ------ |
-| ------ | Sphero EDU Desktop Application | ----- |
+| 24 | Desktops (with Aero desktop & blender downloaded) | n/a |
+| 24 | Mobile Devices - cellphones or Tablets (with Aero mobile downloaded) | n/a |
 
 </div>
 </div>
@@ -111,12 +137,10 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 <!--CONTENT BLOCK -->
 
 ## Project Setup & Installation:
-- [Installing Sphero Edu](https://github.com/TAP-GGC/Jedi/blob/main/Media/Installing%20Sphero%20Edu.pdf)
-- [Creating a Teacher Sphero Account](https://github.com/TAP-GGC/Jedi/blob/main/Media/Creating%20a%20Teacher%20Sphero%20Account.pdf)
-- [Creating a Classroom and Adding Students in Sphero Edu](https://github.com/TAP-GGC/Jedi/blob/main/Media/CreatingaClassroomandAddingStudentsinSpheroEdu.pdf)
-- [Creating a Program in Sphero Edu](https://github.com/TAP-GGC/Jedi/blob/main/Media/CreatingAProgramInSpheroEdu.pdf)
-- [Construction](https://github.com/TAP-GGC/Jedi/blob/main/Documents/Construction.pdf)
-
+- [Download Blender & Aero(Desktop & Mobile)](https://github.com/TAP-GGC/Jedi/blob/main/Media/Installing%20Sphero%20Edu.pdf)
+- [Building a Snowman in Blender](https://github.com/TAP-GGC/Jedi/blob/main/Media/Creating%20a%20Teacher%20Sphero%20Account.pdf)
+- [Augmented Reality Integration with Adobe Aero](https://github.com/TAP-GGC/Jedi/blob/main/Media/CreatingaClassroomandAddingStudentsinSpheroEdu.pdf)
+- 
 <br>
 <br>
 
