@@ -21,7 +21,7 @@ image: ./jedi/jedi-logo.jpg
 imageTeam: ./jedi/JediGroupPhoto_cropped.jpg
 ---
 
-<!--Right text block, Project description -->	
+Great project description here. Files starting with underscore (_) are ignored.
 
 The primary goal of this project is blah blah bla
 
