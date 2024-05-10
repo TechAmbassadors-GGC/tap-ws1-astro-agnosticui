@@ -60,7 +60,38 @@ let title = `${project.data.title} - Outreach Projects - GGC Technology Ambassad
 
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-	<style>		
+	<style>
+		.projectImage {
+			/*float: left;*/
+			margin-right: 1em;
+			width: clamp(25em, 50%, 45em);
+			float: left;
+			padding-bottom: 0.5em;
+			padding-right: 0.5em;
+		}
+
+		.projectText {
+			font-size: 1.125em; 
+			text-align: left;
+			width: clamp(15em, 45%, 45em);
+			/*change these to flex-grow/shrink 
+			width:720px; 
+			float: right; 
+			
+			height: auto;  
+			*/			
+			vertical-align: bottom; 			
+			display: inline-block;
+			margin-bottom: 1em;
+		}
+
+		.projectText p {
+			margin-bottom: 0.5em;
+		}
+
+		.body-prj h2 {
+			margin-top: 2em;
+		}
 	</style>
 	
 </head>
@@ -69,8 +100,38 @@ let title = `${project.data.title} - Outreach Projects - GGC Technology Ambassad
 		<TAPHeader client:load />
 		<Crumbs pageType="project" pageUrl=`/projects/${projYear}/${projSemester}/${projName}`/>
 
-    <h1 class="project-title">{project.data.title}</h1>
-	{project.data.techs}
+    <h1 class="project-title">{project.data.shortTitle ? project.data.shortTitle : project.data.title }</h1>
+
+	<!-- Left logo BLOCK -->
+
+	<!--div id="images"; style='width:640px;float: left;height: auto; vertical-align: bottom; display: inline-block;'-->
+
+	<img src={project.data.imageTeam.src} alt="Project Image" class="projectImage"/>
+
+	<div class="projectText">
+
+		<p><b>TITLE: </b> <a href="https://www.youtube.com/embed/W7AJaQqIAE0?si=D3_BeB6ZyTDeGda7">{project.data.title}</a></p>
+		<!-- TODO: link to publications? or Github -->
+		
+		<p><b> TEAM MEMBERS: </b> {project.data.students.join(", ")} </p>
+		
+		<p><b> ADVISORS: </b>  {project.data.instructors.join(", ")} </p>
+		
+		<p><b> TECH: </b> {project.data.techs.join(", ")} </p>
+
+		<p><b> DIFFICULTY: </b> {project.data.difficulty.join(", ")} </p>
+		
+		<p><b> TARGET AUDIENCE: </b> {project.data.levels.join(", ")} </p>
+		
+		<p><b> DURATION: </b> {project.data.durationMins.join(" - ")} minutes</p>
+		
+		<p><b> PUBLISHED DATE:</b> {project.data.publishedDate} </p>
+		<!-- TODO: change format of date -->
+
+		<p>Read more on <a href={project.data.github} target="_blank">Github</a>.</p>
+
+	</div>
+
     <Content />
 	</main>
 	

@@ -6,7 +6,7 @@
       isAnimated
       class=card-main
     >
-    <div class="h4 p16">
+    <div class="h4 p16 card-title">
       TAP News
     </div>
       <ul>

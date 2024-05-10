@@ -16,6 +16,7 @@ const blogCollection = defineCollection({
 const projectCollection = defineCollection({
   type: 'content', // v2.5.0 and later
   schema:({ image }) => z.object({
+    shortTitle: z.string().optional(),
     title: z.string(),
     id: z.string(),
     desc: z.string(),

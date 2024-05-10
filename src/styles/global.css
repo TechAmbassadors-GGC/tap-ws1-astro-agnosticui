@@ -82,11 +82,23 @@ h2 {
   background-color: var(--agnostic-gray-mid);
 }
 
+.card-main ul {
+  text-align: left;
+}
+
+.card-title {
+  font-family: 'Gagalin', Helvetica, Arial, sans-serif;
+}
+
 .card-project { /*project search page cards */
   min-width: 40rem !important;
   margin: 0 auto;
   flex: 1;
   background-color: var(--agnostic-gray-mid);
+}
+
+.body-prj h2 {
+  margin-top: 0.5em;
 }
 
 .card-container {

@@ -1,5 +1,6 @@
 ---
-title: Jedi Sphero
+shortTitle: Jedi Sphero
+title: Teaching Algorithms and Growing STEM with Sphero
 id: jedi-sphero
 desc: Educating others on algorithms by programming a Sphero robot.
 github: https://github.com/TAP-GGC/Jedi?tab=readme-ov-file
@@ -19,66 +20,34 @@ related-ids: []
 image: ./jedi-logo.jpg
 imageTeam: ./JediGroupPhoto_cropped.jpg
 ---
-<!-- Left logo BLOCK -->
 
-<div id="images"; style='width:640px;float: left;height: auto; vertical-align: bottom; display: inline-block;'>
-
-![jediPhoto](./jedi-logo.jpg)
-<br>
-<br>
-<br>
-<br>
-
-
-</div>
-
-<!--Right text block, Project description -->
-
-<div id="body"; style="font-size: 1.125em; text-align: left; width:720px; float: right; height: auto;  vertical-align: bottom; display: inline-block;">
-
-<b>TITLE: </b> [Teaching Algorithms and Growing STEM with Sphero](https://www.youtube.com/embed/W7AJaQqIAE0?si=D3_BeB6ZyTDeGda7)
-
-<b> TEAM MEMBERS: </b>  Tony Lam, Etienne Laccruche, Ammar Mehicevic,
-
-<b> ADVISORS: </b>  Dr. Cindy Robertson, Dr. Anca Doloc-Mihu
-
-<b> DIFFICULTY: </b> Intermediate
-
-<b> TARGET AUDIENCE: </b> 6th Grade - College
-
-<b> TARGET AUDIENCE: </b> 60-90 minutes
-
-<b> PUBLISHED DATE:</b> <publishedDate>
-<br>
-<br>
+<!--Right text block, Project description -->	
 
 The primary goal of this project is educating others about algorithms by programming a robot through a maze using SpheroEDU. 
-
+			
 Sphero is a small robot ball that moves around by either remote control or code you feed it. This workshop is geared towards educating and creating interest in the IT field for non STEM majors. By engaging in our workshops, students will get to experiment with Sphero.edu and block coding, which allows them to learn about algorithms through relatable examples. 
 
 The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to break the misconceptions of the IT field by providing fun workshops for students of all backgrounds. TAP students design engaging and fun outreach workshops to encourage interest in IT and STEM.
 
-<br>
-<br>
-<br>
-</div>
+<iframe width=560 ;height="100%" src="https://www.youtube.com/embed/W7AJaQqIAE0?si=D3_BeB6ZyTDeGda7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width: 100%; height: 680px; margin-top: 2em;"></iframe>
 
 <!--content block, Activities, steps & materials -->
 
 <div style="text-align: center ; justify-content: center; font-size: 1.125em;">
 
-## Outreach Actiivties: <!--TODO: Fix layout**-->
+## Outreach Activities: <!--TODO: Fix layout**-->
 
 1. Tap Expo, Oct 10, GGC – To promote IT field and the TAP program to college students
 2. Super Saturday Series (S3), Nov 9, GGC – middle and high school girls to promote IT and STEM career
 3. Class Workshops – October 26th, November 13th, November 14th - promote IT field to non-IT college students
 
-<br>
-<br>
 </div>
 
-<div ; style='float: left; margin-right: 15px; vertical-align: bottom; display: inline-block;font-size: 1.125em;'>
+<!-- div ; style='float: left; margin-right: 15px; vertical-align: bottom; display: inline-block;font-size: 1.125em;'-->
 
+<div class="flex flex-row flex-wrap">
+
+<div style="flex: 1; min-width: 25em;">
 
 ## Steps:
 
@@ -93,13 +62,12 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 9. Click add programs.
 10. Select both codes.
 11. Click submit.
-<br>
-<br>
-<br>
 </div>
 
 
-<div ; style='float: right; margin-right: 15px; vertical-align: bottom; display: inline-block; font-size: 1.25em;'>
+<!--div ; style='float: right; margin-right: 15px; vertical-align: bottom; display: inline-block; font-size: 1.25em;'-->
+
+<div style="flex: 1; min-width: 25em;">
 
 ## Materials List:
 
@@ -117,9 +85,7 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 | 15 | Sphero Protractors | ------ |
 | ------ | Sphero EDU Desktop Application | ----- |
 
-<br>
-<br>
-<br>
+</div>
 </div>
 
 <!--TODO: Photo Gallery -->
@@ -132,10 +98,6 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 
 ![jediPhoto](./JediGroupPhoto.jpg)
 ##### From left to right: Tony Lam,  Ammar Mehicevic and Etienne Laccruche, 
-<br>
-<iframe width=560 ;height="100%" src="https://www.youtube.com/embed/W7AJaQqIAE0?si=D3_BeB6ZyTDeGda7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width: 100%; height: 680px;"></iframe>
-<br>
-<br>
 <br>
 
 ![Class Set Of Sphero](./SpheroClassSet.jpg)
@@ -225,7 +187,5 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 <br>
 <br>
 <br>
-
-See more in the [Source Code](https://github.com/TAP-GGC/Jedi).
 
 </div>

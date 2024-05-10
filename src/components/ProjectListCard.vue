@@ -6,13 +6,13 @@
             isAnimated
             class=card-main
             >
-            <div class="h4 p16">
+            <div class="h4 p16 card-title">
                 Recent Outreach Projects
-            </div>
+            </div>            
             <ul> <!-- order recent projects by date? -->
             <li v-for="project in projects">
-            <a :href="`${base}/projects/${project.data.year}/${project.data.semester}/${project.data.id}`">{{ project.data.title }}</a> &nbsp;
-            {{ project.data.students.toString() }}
+            <a :href="`${base}/projects/${project.data.year}/${project.data.semester}/${project.data.id}`">{{ project.data.shortTitle ? project.data.shortTitle : project.data.title }}</a> &nbsp;
+            {{ project.data.year }}
             </li>
             </ul>
         </Card>
