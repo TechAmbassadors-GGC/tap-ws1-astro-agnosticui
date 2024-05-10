@@ -95,12 +95,12 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 
 
 
-![jediPhoto](./JediGroupPhoto.jpg)
+![jediPhoto](./jedi/JediGroupPhoto.jpg)
 ##### From left to right: Tony Lam,  Ammar Mehicevic and Etienne Laccruche, 
 <br>
 
-![Class Set Of Sphero](./SpheroClassSet.jpg)
-![Sphero Website Logo](./SpheroEdu.jpg)
+![Class Set Of Sphero](./jedi/SpheroClassSet.jpg)
+![Sphero Website Logo](./jedi/SpheroEdu.jpg)
 
 <br>
 <br>
@@ -119,7 +119,7 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 <br>
 <br>
 
-![jediPhoto](./JediImage.jpg)
+![jediPhoto](./jedi/JediImage.jpg)
 ##### S3 Workshop 
 
 

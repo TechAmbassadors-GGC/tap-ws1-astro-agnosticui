@@ -17,7 +17,7 @@ durationMins: [60, 90]
 publishedDate: 2024-05-06
 relatedIds: []
 image: ./jedi-logo.jpg
-imageTeam: ./BrGroupPhoto_cropped.jpeg
+imageTeam: ./BrgroupPhoto_cropped.jpeg
 
 ---
 
