@@ -17,6 +17,7 @@ durationMins: [ 30, 60, 90 ]
 publishedDate: 2023-11-05
 related-ids: []
 image: ./jedi/JediImage.jpg
+imageTeam: ./jedi/JediImage.jpg
 ---
 
 Great project description here.

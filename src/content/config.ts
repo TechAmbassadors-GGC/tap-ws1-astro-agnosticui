@@ -16,6 +16,7 @@ const blogCollection = defineCollection({
 const projectCollection = defineCollection({
   type: 'content', // v2.5.0 and later
   schema:({ image }) => z.object({
+    shortTitle: z.string().optional(),
     title: z.string(),
     id: z.string(),
     desc: z.string(),
@@ -36,7 +37,10 @@ const projectCollection = defineCollection({
     image:image().optional().refine((img) => img.width >= 10, {
       message: "Cover image must be at least 1080 pixels wide!",
     }),
-    // image: z.string().optional(),
+    imageTeam:image().refine((img) => img.width >= 10, {
+      message: "Cover image must be 1080 pixels wide!",
+      // This part of the config file needs to be reviewed and changed at a later date.
+    }).optional(),
   }),
 });
 

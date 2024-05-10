@@ -27,6 +27,15 @@
     "eslint": "^8.52.0"
   },
   "dependencies": {
+    "@fontsource/alfa-slab-one": "^5.0.20",
+    "@fontsource/cormorant-garamond": "^5.0.13",
+    "@fontsource/crimson-pro": "^5.0.18",
+    "@fontsource/ibm-plex-mono": "^5.0.13",
+    "@fontsource/pixelify-sans": "^5.0.3",
+    "@fontsource/source-code-pro": "^5.0.18",
+    "@fontsource/source-sans-pro": "^5.0.8",
+    "@fontsource/spectral": "^5.0.13",
+    "@fontsource/work-sans": "^5.0.18",
     "agnostic-astro": "^0.0.10",
     "agnostic-react": "^0.1.32",
     "agnostic-svelte": "^1.1.27",

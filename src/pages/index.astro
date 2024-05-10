@@ -1,6 +1,14 @@
 ---
 // Style Imports
 import '../styles/global.css';
+import '@fontsource/source-sans-pro';
+import '@fontsource/pixelify-sans';
+import '@fontsource/ibm-plex-mono';
+import '@fontsource/work-sans';
+import '@fontsource/cormorant-garamond';
+import '@fontsource/spectral';
+import '@fontsource/crimson-pro';
+import '@fontsource/alfa-slab-one';
 
 // common.min.css is distributed with agnostic-react
 // and agnostic-svelte too. But, since we're using all
@@ -24,6 +32,9 @@ import TAPHeader from '../components/TAPHeader.vue';
 import Vue from '../components/vue/Vue.vue';
 import PostListCard from '../components/PostListCard.vue';
 import ProjectListCard from '../components/ProjectListCard.vue';
+import AwardsListCard from '../components/AwardsListCard.vue';
+import EventsListCard from '../components/EventsListCard.vue';
+import PapersListCard from '../components/PapersListCard.vue';
 import "agnostic-react/dist/common.min.css";
 import {
 		Divider,
@@ -52,6 +63,8 @@ let title = 'GGC Technology Ambassadors Program';
 
 // load blog content: news, etc.
 import { getCollection } from 'astro:content';
+import TAPFooter from '../components/TAPFooter.vue';
+
 const blogEntries = await getCollection('posts');
 
 ---
@@ -63,39 +76,38 @@ const blogEntries = await getCollection('posts');
 
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-	<style>
-	
+	<style type="text/css">	
 	</style>
 </head>
-<body>
 
-		<TAPHeader client:load />
+<body >
+
+	<TAPHeader client:load />
+
 	<main>
+
 		<Heading />
-			<section class="flex flex-row flex-wrap items-start">  
+
+		<section class="card-container">
 			<PostListCard client:load/>
 			<ProjectListCard client:load/>
+			<AwardsListCard client:load/>
+			<EventsListCard client:load/>
+			<PapersListCard client:load/>
 		</section>
-		<div class="frameworks">
-		<!-- React client:load /-->
-		<div class="mbe24" />
-			<!--Vue client:load /-->
-		<div class="mbe24" />
-			<!-- Svelte client:load / -->
 		
 	</main>
 	
 </body>
+
 <footer>
 	
-		  <div class="flex mbs40 mbe48">
-			<p>
-				<a href="" target="HOME"> HOME  </a> |
-				<a href="" target="CALENDAR"> EVENTS  </a> |
-				<a href="" target="AWARDS"> AWARDS </a> |
-				<a href="" target="PROJECTS"> PROJECTS </a>|
-				<a href="" target="NEWS"> PUBLICATIONS </a>|
-				<a href="https://www.ggc.edu/academics/school-of-science-and-technology/research-internships-service-learning/technology-ambassador-program/tap-application" target="AWARDS"> APPLY </a>
-</p>
+		  <div class= h4>
+			
+			<TAPFooter client:load />
+			<!--p>
+			
+				<a href="https://www.ggc.edu/academics/school-of-science-and-technology/research-internships-service-learning/technology-ambassador-program/tap-application" target="AWARDS"> APPLY NOW </a>
+</p-->
 </footer>
 </html>

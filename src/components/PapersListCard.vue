@@ -1,24 +1,24 @@
 <template>    
-    
-  <Card
+    <div class= card-main >
+      <Card
       isStacked
       isShadow
       isAnimated
-      class=card-main
+      
     >
-    <div class="h4 p16 card-title">
-      TAP News
+    <div class="h4 p16">
+      TAP Publications
     </div>
       <ul>
         <li v-for="blogPostEntry in blogEntries">
-        <a :href="`${base}/posts/${blogPostEntry.data.year}/${blogPostEntry.data.semester}/${blogPostEntry.data.title}`">{{ blogPostEntry.data.title }}</a> &nbsp;
+        <a :href="`${base}/posts/${blogPostEntry.slug}`">{{ blogPostEntry.data.title }}</a> &nbsp;
         <time datetime={{ blogPostEntry.data.publishedDate.toISOString() }}>
           {{ blogPostEntry.data.publishedDate.toDateString() }}
         </time>
         </li>
       </ul>
-  </Card>
-    
+    </Card>
+    </div>
   
 </template>
 

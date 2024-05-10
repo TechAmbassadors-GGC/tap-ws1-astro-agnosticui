@@ -1,21 +1,23 @@
 <template>
     
+    <div class= card-main >
         <Card
             isStacked
             isShadow
             isAnimated
-            class=card-main
+
             >
-            <div class="h4 p16 card-title">
-                Recent Outreach Projects
-            </div>            
+            <div class="h4 p16">
+                Recent Events
+            </div>
             <ul> <!-- order recent projects by date? -->
-            <li v-for="project in projects">
-            <a :href="`${base}/projects/${project.data.year}/${project.data.semester}/${project.data.id}`">{{ project.data.shortTitle ? project.data.shortTitle : project.data.title }}</a> &nbsp;
-            {{ project.data.year }}
+            <li v-for="event in events">
+            <a :href="`${base}/events/${event.data.year}/${event.data.month}/${event.data.day}`">{{ event.data.title }}</a> &nbsp;
+            {{ event.data.date.toString() }}
             </li>
             </ul>
         </Card>
+    </div>
     
   </template>
   
@@ -27,7 +29,7 @@
   
   // load blog content: news, etc.
   import { getCollection } from 'astro:content';
-  const projects = await getCollection('projects');
+  const projects = await getCollection('events');
   // Remove single slash as it causes double slashes in card
   const base = import.meta.env.BASE_URL == '/' ? '' : import.meta.env.BASE_URL;
   </script>

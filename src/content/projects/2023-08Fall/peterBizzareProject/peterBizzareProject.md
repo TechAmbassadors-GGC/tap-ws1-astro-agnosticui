@@ -32,6 +32,7 @@ relatedIds: [
   "project-2"
 ]
 image: ./jjbaPCBuild.webp
+imageTeam: ./jjbaPCBuild.webp
 ---
 <br />
 <br />

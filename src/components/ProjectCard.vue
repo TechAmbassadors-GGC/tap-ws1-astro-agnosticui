@@ -22,7 +22,7 @@ const projectProp = defineProps({
         <img :src="`${item.data.image.src}`" alt="Project Image" class="projectImage">
 
         <div class="projectText">                        
-            <h4 class="projectTitle"><a :href="`/projects/${item.data.year}/${item.data.semester}/${item.data.id}`">{{item.data.title}}</a></h4>
+            <h4 class="projectTitle"><a :href="`/projects/${item.data.year}/${item.data.semester}/${item.data.id}`">{{ item.data.shortTitle ? item.data.shortTitle : item.data.title }}</a></h4>
 
             {{item.data.desc}}
 
