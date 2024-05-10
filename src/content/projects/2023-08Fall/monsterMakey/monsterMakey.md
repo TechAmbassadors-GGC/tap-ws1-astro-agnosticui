@@ -16,9 +16,8 @@ difficulty: ["beginner"]
 durationMins: [60]
 publishedDate: 2023-03-08
 relatedIds: []
-image: ""
-imageTeam: ""
-
+image: ./monsterMakeyGroupPhoto_cropped.jpg
+imageTeam: ./monsterMakeyGroupPhoto_cropped.jpg
 ---
 
 
@@ -94,7 +93,7 @@ story and load it.
 
 
 
-![Monster Makey Group Photo](./mosterMakeyGroupPhoto.jpg)
+![Monster Makey Group Photo](./monsterMakeyGroupPhoto.jpg)
 ##### From left to right: Samuel Downs, Jasmine Roach and Kevin Rubio 
 <br>
 
@@ -118,7 +117,7 @@ story and load it.
 <br>
 <br>
 
-![jediPhoto](./JediImage.jpg)
+![Monster Makey Group Photo](./monsterMakeyGroupPhoto.jpg)
 ##### S3 Workshop 
 
 
@@ -134,7 +133,7 @@ story and load it.
 
 </div>
 
-<div style='text-align:center; display: inline-block; font-size: 1.25em'>
+<!--div style='text-align:center; display: inline-block; font-size: 1.25em'>
 
 ## Sphero EDU Easy Portion
 <style='text-align:center; display: inline-block; font-size: 1.25em'>
@@ -179,7 +178,7 @@ story and load it.
 `delay for 1.5s`<br>
 
 <br>
-</div>
+</div-->
 
 <div style='text-align:center; font-size: 1.5em'>
 <br>
