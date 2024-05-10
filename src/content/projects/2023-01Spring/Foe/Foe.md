@@ -12,9 +12,6 @@ instructors: [
   "Dr. Xu Xin"
 ] 
 techs: [
-  "Computer",
-  "Internet Access",
-  "Visual Studio code",
   "javascript"
 ]
 videos: [
