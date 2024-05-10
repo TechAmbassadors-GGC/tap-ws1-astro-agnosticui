@@ -25,17 +25,38 @@ const projectProp = defineProps(
 
 <template>
     <Card css="card-project" isStacked  isShadow>
-        <a :href="`/projects/${item.data.year}/${item.data.semester}/${item.data.id}`">{{item.data.title }}
-        </a> &nbsp; 
-        
-        {{ item.data.students.toString() }} &nbsp; 
-
-        <img :src="`${item.data.image.src}`" alt="Project Image">
+        <div class="card-content">
+            <div class="leftside-img">
+                <img :src="`${item.data.image.src}`" alt="Project Image" class="project-image">
+            </div>
+            <div class="rightside-content">
+                <a :href="`/projects/${item.data.year}/${item.data.semester}/${item.data.id}`">{{item.data.title }}</a>
+                <p>{{ item.data.students.toString() }}</p>
+            </div>
+        </div>
     </Card>
   </template>
 
 
 <style scoped>
+
+.card-content {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Vertically center align items */
+}
+
+.leftside-img {
+    margin-right: 1rem; /* Add some space between the image and content */
+}
+
+.project-image {
+    width: 100px; /* Set the width of the image */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.rightside-content {
+    flex-grow: 1; /* Allow content to grow to fill remaining space */
+}
 </style>
 
 // Export the Card components for each project
