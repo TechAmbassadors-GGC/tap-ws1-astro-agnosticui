@@ -17,18 +17,19 @@ const base = import.meta.env.BASE_URL;
     <template v-slot:headernav>
       <HeaderNav css="header-mbe16">
         <HeaderNavItem>
-          <a :href="`${base == '/' ? '' : base}/projects`">Outreach projects & templates</a>
+          <a :href="`${base == '/' ? '' : base}/projects`">Projects</a>
         </HeaderNavItem>
         <HeaderNavItem>
-          <a href="">Join the discussion</a>
+          <a href="https://forum.tapggc.org" target="_blank">Forum</a>
         </HeaderNavItem>
       
         <HeaderNavItem>
-          <Menu id="menu-Home" menuTitle="Home" :disabledItems="['menuitem-1', 'menuitem-2', 'menuitem-people']" :isBordered="true" type="simple" >
-            <template #menuitem-1>About</template>
-            <template #menuitem-people>Projects</template>
-            <template #menuitem-2>Awards</template>
-            <template #menuitem-3><a href="http://www.ggc.edu/tap">Apply</a></template>            
+          <Menu id="menu-More" menuTitle="More" :disabledItems="['menuitem-about', 'menuitem-2', 'menuitem-people']" :isBordered="true" type="simple" >
+            <template #menuitem-about>About</template>
+            <template #menuitem-template><a :href="`${base == '/' ? '' : base}/template`">Add project</a></template>
+            <template #menuitem-apply>
+              <a href="https://ggc.edu/academics/school-of-science-and-technology/research-internships-service-learning/technology-ambassador-program"
+                 target="_blank">Student application</a></template>
             <template #icon>&#9662;</template>
           </Menu>
         </HeaderNavItem>

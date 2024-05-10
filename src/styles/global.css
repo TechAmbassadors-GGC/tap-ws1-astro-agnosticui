@@ -11,7 +11,7 @@
 
 :root {
 	font-size: clamp(0.575rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem);
-  --agnostic-header-content-width: clamp(320px, 100%, 960px); /* set minimum size of header menu - still maxes out at 560px */
+  --agnostic-header-content-width: 75vw; /* set minimum size of header menu - set to percent of viewport width */
 }
 
 body {

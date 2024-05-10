@@ -33,9 +33,9 @@ const projectCollection = defineCollection({
     semester: z.string(),
     year: z.number(),
     publishedDate: z.date(),
-    image:image().refine((img) => img.width >= 10, {
-      message: "Cover image must be 1080 pixels wide!",
-      // This part of the config file needs to be reviewed and changed at a later date.
+    relatedIds: z.array(z.string()).optional(),
+    image:image().optional().refine((img) => img.width >= 10, {
+      message: "Cover image must be at least 1080 pixels wide!",
     }),
     imageTeam:image().refine((img) => img.width >= 10, {
       message: "Cover image must be 1080 pixels wide!",

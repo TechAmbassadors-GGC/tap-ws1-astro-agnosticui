@@ -5,7 +5,7 @@ desc: This is the most awesome project!
 github: https://github.com
 students: [ a, b, c]
 instructors: [ Anca Doloc-Mihu, Cindy Robertson]
-techs: [sphero]
+techs: [sphero, test, this, is, just, a, random, sample, of, more, than, 10variables,bear, with,me]
 videos: []
 tags: []
 events: [CCSC-2023, S3-fall-2023]
@@ -17,6 +17,7 @@ durationMins: [ 30, 60, 90 ]
 publishedDate: 2023-11-05
 related-ids: []
 image: ./jedi/JediImage.jpg
+imageTeam: ./jedi/JediImage.jpg
 ---
 
 Great project description here.
