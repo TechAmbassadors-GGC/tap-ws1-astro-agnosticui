@@ -21,9 +21,9 @@ techs: [
   "Play-Doh",
   "other techs"
 ]
-videos: [https://www.youtube.com/watch?v=mA80Aa55t-U&ab_channel=TechnologyAmbassadorProgram]
+videos: [https://www.youtube.com/watch?v=mA80Aa55t-U]
 events: [
-    "Tap Expo",
+    "Tap Expo", 
     "Atlanta Science Festival",
     "Super Saturday Series (S3)",
     "Class Workshops"
