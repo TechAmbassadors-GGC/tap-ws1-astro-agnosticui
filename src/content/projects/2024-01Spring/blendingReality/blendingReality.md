@@ -6,12 +6,12 @@ desc: Teaches algorithmic thinking by programming a Sphero robot to navigate a m
 github: https://github.com/TAP-GGC/Jedi?tab=readme-ov-file
 students: [ Tony Lam, Etienne Laccruche, Ammar Mehicevic ]
 instructors: [Dr. Cindy Robertson, Dr. Anca Doloc-Mihu]
-techs: [sphero]
+techs: [Blender, Adobe Aero]
 videos: [https://youtu.be/W7AJaQqIAE0]
 tags: []
 events: [tap-expo-fall23]
-semester: fall
-year: 2023
+semester: spring
+year: 2024
 levels: [middle-school,high-school,college] 
 difficulty: [Intermediate]
 durationMins: [60,90]
