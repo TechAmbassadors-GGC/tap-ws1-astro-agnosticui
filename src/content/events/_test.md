@@ -5,7 +5,7 @@ semester: fall
 year: 2023
 slug: test-blog
 tags: [one,two]
-publishedDate: 2023-10-29
+eventDate: "2023-10-10T00:00:00Z"
 ---
 
 # hello

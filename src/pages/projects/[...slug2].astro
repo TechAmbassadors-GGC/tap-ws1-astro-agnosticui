@@ -32,12 +32,18 @@ import TAPHeader from '../../components/TAPHeader.vue';
 // Read from conten collection
 import { getCollection } from 'astro:content';
 import Crumbs from "../../components/Crumbs.vue"
+import ProjectSearch from '../../components/ProjectSearch.vue';
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
-  return projects.map(project => ({
-    params: { slug: `${project.data.year}/${project.data.semester}/${project.data.id}` }, props: { project },
-  }));
+//   return projects.map(project => ({
+//     params: { slug: `${project.data.year}/${project.data.semester}/${project.data.id}` }, props: { project },
+//   }));
+return [{
+    params:{slug2: "2024/"}, props:{name:"hi"}
+}
+   
+]
   // TODO: add to list: years and semesters as search results pages; potentially add techs/ and students/ folders here or in the base
 }
 
@@ -49,16 +55,16 @@ export async function getStaticPaths() {
 // Goal 2: Actually  
 // 2. For your template, you can get the entry directly from the prop
 // const { slug } = Astro.params;
-const { project } = Astro.props;
-const { Content } = await project.render();
+const { name } = Astro.props;
+// const { Content } = await project.render();
 
-// BreadCrumb variables
-const  projYear  = project.data.year;
-const  projSemester  = project.data.semester;
-const  projName  = project.data.title;
+// // BreadCrumb variables
+// const  projYear  = project.data.year;
+// const  projSemester  = project.data.semester;
+// const  projName  = project.data.title;
 
 // Page title
-let title = `${project.data.title} - Outreach Projects - GGC Technology Ambassadors Program`;
+let title = ` Outreach Projects - GGC Technology Ambassadors Program`;
 
 ---
 <html lang="en">
@@ -107,41 +113,9 @@ let title = `${project.data.title} - Outreach Projects - GGC Technology Ambassad
 <body class=body-prj>
 	<main>
 		<TAPHeader client:load />
-		<Crumbs pageType="project" pageUrl=`/projects/${projYear}/${projSemester}/${projName}`/>
-
-    <h1 class="project-title">{project.data.shortTitle ? project.data.shortTitle : project.data.title }</h1>
-
-	<!-- Left logo BLOCK -->
-
-	<!--div id="images"; style='width:640px;float: left;height: auto; vertical-align: bottom; display: inline-block;'-->
-
-	<img src={project.data.imageTeam.src} alt="Project Image" class="projectImage"/>
-
-	<div class="projectText">
-
-		<p><b>TITLE: </b> <a href={project.data.videos} target="_blank"> {project.data.title}</a></p>
-		<!-- TODO: link to publications? or Github -->
-		
-		<p><b> TEAM MEMBERS: </b> {project.data.students.join(", ")} </p>
-		
-		<p><b> ADVISORS: </b>  {project.data.instructors.join(", ")} </p>
-		
-		<p><b> TECH: </b> {project.data.techs.join(", ")} </p>
-
-		<p><b> DIFFICULTY: </b> {project.data.difficulty.join(", ")} </p>
-		
-		<p><b> TARGET AUDIENCE: </b> {project.data.levels.join(", ")} </p>
-		
-		<p><b> DURATION: </b> {project.data.durationMins.join(" - ")} minutes</p>
-		
-		<p><b> PUBLISHED DATE:</b> {project.data.publishedDate} </p>
-		<!-- TODO: change format of date -->
-
-		<p>Read more on <a href={project.data.github} target="_blank">Github</a>.</p>
-
-	</div>
-
-    <Content />
+		<Crumbs pageType="project" pageUrl=`/projects/name??`/>
+        <ProjectSearch></ProjectSearch>
+    <!--  -->
 	</main>
 	
 </body>

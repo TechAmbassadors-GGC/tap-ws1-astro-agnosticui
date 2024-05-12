@@ -1,6 +1,3 @@
-import "agnostic-react/dist/common.min.css";
-import "agnostic-react/dist/esm/index.css";
-import { Table  } from "agnostic-react";
 
 <template>
   <section class="mbe40">
@@ -13,8 +10,18 @@ import { Table  } from "agnostic-react";
 
 <script setup>
 // Components CSS
+import "agnostic-react/dist/common.min.css";
+import "agnostic-react/dist/esm/index.css";
 import "agnostic-vue/dist/index.css";
 import { Table } from "agnostic-vue";
+// load blog content: news, etc.
+import { getCollection } from 'astro:content';
+
+
+const events = await getCollection('events');
+events.forEach(event => {
+  console.log(event.data.title);
+})
 
 let date = new Date();
 let year = date.getFullYear();
@@ -34,16 +41,24 @@ const createRow = (date, EVENTS) => ({
 
 });
 
-//get events
-
+//get event for a specific day
+let currEvent = "No Event Scheduled";
 
 let rows = [];
 
+//find a way to change eventDate to actual human Date for comparison
+
 for(let i = dayNum; i<dayNum+7; i++){
-  
-    rows.push(createRow(`${days[i]} ${date.getUTCDate()+i}`, "No Event Scheduled"));
+
+  //if currentDate == the date inside the events list
+
+  //then change the value of currEvent = event.data.title
+  //currEvent = title ;
+  rows.push(createRow(`${days[i]} ${date.getUTCDate()+i}`, currEvent));
   }
 
+
+  
 //for loop from current date till (currentDate + 7)
  
 
