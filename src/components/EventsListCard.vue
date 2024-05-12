@@ -13,7 +13,7 @@
             <ul> <!-- order recent projects by date? -->
             <li v-for="event in events">
             <a :href="`${base}/events/${event.data.year}/${event.data.month}/${event.data.day}`">{{ event.data.title }}</a> &nbsp;
-            {{ event.data.date.toString() }}
+            <!-- {{ event.data.date.toString() }} -->Hi
             </li>
             </ul>
         </Card>
@@ -29,7 +29,7 @@
   
   // load blog content: news, etc.
   import { getCollection } from 'astro:content';
-  const projects = await getCollection('events');
+  const events = await getCollection('posts');
   // Remove single slash as it causes double slashes in card
   const base = import.meta.env.BASE_URL == '/' ? '' : import.meta.env.BASE_URL;
   </script>
