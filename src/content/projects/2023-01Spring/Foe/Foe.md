@@ -2,7 +2,7 @@
 shortTitle: Foe
 title: Teaching JavaScript Fundamentals Through a MultiPlayer Fighting Game
 id: Foe
-desc : Experiment with JavaScript, HTML, and CSS code to immediately view their changes on their browser.
+desc : The goal of this project is to educate others about JavaScript basics while building a HTML/CSS webpage. They can experiment with JavaScript, HTML, and CSS code to immediately view their changes on their browser.
 github: https://github.com/TAP-GGC/Foe
 students: [
   "Alex Shaklee",
