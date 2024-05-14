@@ -1,5 +1,5 @@
 ---
-shorttitle: Foe
+shortTitle: Foe
 title: Teaching JavaScript Fundamentals Through a MultiPlayer Fighting Game
 id: Foe
 desc : Experiment with JavaScript, HTML, and CSS code to immediately view their changes on their browser.
