@@ -16,7 +16,7 @@ techs: [
   "javascript"
 ]
 videos: [
-  "https://www.youtube.com/watch?v=TSae0OkMVps&ab_channel=TechnologyAmbassadorProgram"
+  "https://youtu.be/TSae0OkMVps"
 ]
 events: [
     "Atlanta Science Festival",
@@ -50,8 +50,8 @@ Foes is a web-hosted project. This project is curated to peak the interest of no
 
  The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to break the misconceptions of the IT field by providing fun workshops for students of all backgrounds. TAP students design engaging and fun outreach workshops to encourage interest in IT and STEM.
 
- <iframe width=560 ;height="100%" src="https://www.youtube.com/watch?v=TSae0OkMVps&ab_channel=TechnologyAmbassadorProgram" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width: 100%; height: 680px; margin-top: 2em;"></iframe>
-
+ <iframe width="560" height="315" src="https://www.youtube.com/embed/TSae0OkMVps?si=nqnaIe-xp-BCCC4g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+ 
  <!--content block, Activities, steps & materials -->
 
 <div style="text-align: center ; justify-content: center; font-size: 1.125em;">
