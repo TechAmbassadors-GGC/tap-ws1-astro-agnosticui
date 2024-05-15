@@ -17,8 +17,8 @@ difficulty: [Intermediate]
 durationMins: [60,90]
 publishedDate: 2024-03-08
 related-ids: []
-image: ./jedi-logo.jpg
-imageTeam: ./JediGroupPhoto_cropped.jpg
+image: ./jedi/jedi-logo.jpg
+imageTeam: ./jedi/JediGroupPhoto_cropped.jpg
 ---
 
 <!--Right text block, Project description -->	
