@@ -26,6 +26,7 @@ import "agnostic-vue/dist/opinions.min.css";
 // Component Imports
 import "agnostic-vue/dist/index.css";
 import TAPHeader from '../components/TAPHeader.vue';
+import TAPFooter from '../components/TAPFooter.vue';
 
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
@@ -51,4 +52,11 @@ let title = `${Astro.props.title} - GGC Technology Ambassadors Program`;
 	</main>
 	
 </body>
+<footer>
+	
+	<div class= h4>
+	  
+	  <TAPFooter client:load />
+	  
+</footer>
 </html>
