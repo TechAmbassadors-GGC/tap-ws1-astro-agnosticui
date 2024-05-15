@@ -57,7 +57,7 @@ imageTeam: ./ninjaturtlesGroupPhoto.png
 
  The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) is a project-based class that provides a collaborative environment for students to work with their fellow classmates on a semester-long project using technologies of their choice. TAP strives to increase participation in IT through numerous outreach activities and workshops that are designed to showcase the creative and fun side of technology.
 
- <iframe width="560" height="315" src="https://www.youtube.com/embed/mA80Aa55t-U?si=e9hff-A35m2-NLSN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+ <iframe width="560" class="youtube" src="https://www.youtube.com/embed/mA80Aa55t-U?si=e9hff-A35m2-NLSN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
  <!--content block, Activities, steps & materials -->
 
