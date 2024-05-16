@@ -5,9 +5,7 @@ import "agnostic-vue/dist/common.min.css";
 import "agnostic-vue/dist/index.css";
 import { Card } from "agnostic-vue";
 
-// load blog content: news, etc.
-import { getCollection } from 'astro:content';
-const projects = await getCollection('projects');
+
 // Remove single slash as it causes double slashes in card
 const base = import.meta.env.BASE_URL == '/' ? '' : import.meta.env.BASE_URL;
 
@@ -19,7 +17,7 @@ const projectProp = defineProps({
 <template>
     <Card css="projectCard" isShadow>
         
-        <img src="/images/tap-logo.jpg" alt="Project Image" class="projectImage"> <!-- :src="`${item.data.image.src}`" doesn't work -->
+        <img :src="`${item.data.image.src}`" alt="Project Image" class="projectImage">
 
         <div class="projectText">                        
             <h4 class="projectTitle"><a :href="`/projects/${item.data.year}/${item.data.semester}/${item.data.id}`">{{ item.data.shortTitle ? item.data.shortTitle : item.data.title }}</a></h4>

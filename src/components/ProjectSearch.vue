@@ -14,10 +14,11 @@ const difficulty = ref(['Any']);
 // Component Imports
 import ProjectCard from "./ProjectCard.vue";
 
-// load blog content: news, etc.
-import { getCollection } from 'astro:content';
-import { Image } from "astro:assets";
-const projects = await getCollection('projects');  //list of projects
+// load content from props
+const props = defineProps({
+        projectList: Object
+    });
+const projects = props.projectList;
 
 //Step 1 => get list of instructors in a set to avoid duplication
 //Step 2 => place them in an object {value = ?, label = ?} to feed into a select option
@@ -148,6 +149,9 @@ function matches(project) {
         <template v-for="project in projects">  <!-- Unfiltered* -->
         
             <ProjectCard :item = "project" v-if="matches(project)"/>
+
+            <!-- img :src="`${project.data.image.src}`" alt="Project Image" v-if="matches(project)" -->
+
             <!-- <Card css="card-project" isStacked  isShadow v-if="matches(project)">
                 <a :href="`/projects/${project.data.year}/${project.data.semester}/${project.data.id}`">{{
                     project.data.title }}</a> &nbsp; 
