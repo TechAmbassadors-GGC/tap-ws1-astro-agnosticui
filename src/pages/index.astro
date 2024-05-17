@@ -64,50 +64,20 @@ let title = 'GGC Technology Ambassadors Program';
 // load blog content: news, etc.
 import { getCollection } from 'astro:content';
 import TAPFooter from '../components/TAPFooter.vue';
+import TAPDefaultLayout from "../layouts/default.astro";
+
 
 const blogEntries = await getCollection('posts');
 
 ---
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
-	<title>{title}</title>
-
-	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-
-	<style type="text/css">	
-	</style>
-</head>
-
-<body >
-
-	<TAPHeader client:load />
-
-	<main>
-
-		<Heading />
-
-		<section class="card-container">
-			<PostListCard client:load/>
-			<ProjectListCard client:load/>
-			<!--AwardsListCard client:load/>
-			<EventsListCard client:load/>
-			<PapersListCard client:load/-->
-		</section>
-		
-	</main>
-	
-</body>
-
-<footer>
-	
-		  <div class= h4>
-			
-			<TAPFooter client:load />
-			<!--p>
-			
-				<a href="https://www.ggc.edu/academics/school-of-science-and-technology/research-internships-service-learning/technology-ambassador-program/tap-application" target="AWARDS"> APPLY NOW </a>
-</p-->
-</footer>
-</html>
+<TAPDefaultLayout title={title}>
+    <main>
+        <section class="card-container">
+            <PostListCard client:load/>
+            <ProjectListCard client:load/>
+            <!--AwardsListCard client:load/>
+            <EventsListCard client:load/>
+            <PapersListCard client:load/-->
+        </section>
+    </main>
+</TAPDefaultLayout>
