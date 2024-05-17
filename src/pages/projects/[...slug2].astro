@@ -33,20 +33,31 @@ import TAPHeader from '../../components/TAPHeader.vue';
 import { getCollection } from 'astro:content';
 import Crumbs from "../../components/Crumbs.vue"
 import ProjectSearch from '../../components/ProjectSearch.vue';
+import Projects from '../projects.astro';
+
 // 1. Generate a new path for every collection entry
+//filter projects based on the route
+// function filterProjects(year, semester /** 2016/fall*/){ 
+// 	return projects.filter((project) => {project.data.year == year && project.data.semester == semester})
+// }
+
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
-//   return projects.map(project => ({
-//     params: { slug: `${project.data.year}/${project.data.semester}/${project.data.id}` }, props: { project },
-//   }));
-return [{
-    params:{slug2: "2024/"}, props:{name:"hi"}
-}
-   
-]
+  
+  //projects.forEach((project) => console.log(project.data.year == 2023));   //year is number, semester is string
+  const filterProjects = (year, semester) =>{ return projects.filter((project) => project.data.year == year  && project.data.semester == semester)}
+  //console.log(filterProjects(2023));
+  const newProjects = projects.map(project => ({
+	
+    params: { slug2: `${project.data.year}/${project.data.semester}`},
+	props: {projs: filterProjects(project.data.year, project.data.semester) }
+  })); 
+  //console.log(newProjects);
+	return newProjects
   // TODO: add to list: years and semesters as search results pages; potentially add techs/ and students/ folders here or in the base
 }
 
+//for a loop of projects, match the year and semester provided
 
 
 // Goal 1: Make it redirect to the projects.astro page, using the parameters as values for 
@@ -54,12 +65,13 @@ return [{
 
 // Goal 2: Actually  
 // 2. For your template, you can get the entry directly from the prop
-// const { slug } = Astro.params;
-const { name } = Astro.props;
+const { slug2 } = Astro.params;
+const {projs} = Astro.props;
 // const { Content } = await project.render();
 
 // // BreadCrumb variables
-// const  projYear  = project.data.year;
+//console.log(projs);
+const projYear  = slug2;
 // const  projSemester  = project.data.semester;
 // const  projName  = project.data.title;
 
@@ -113,9 +125,10 @@ let title = ` Outreach Projects - GGC Technology Ambassadors Program`;
 <body class=body-prj>
 	<main>
 		<TAPHeader client:load />
-		<Crumbs pageType="project" pageUrl=`/projects/name??`/>
-        <ProjectSearch></ProjectSearch>
+		<Crumbs pageType="project" pageUrl=`/projects/${slug2}/`/>
+        <!-- <ProjectSearch></ProjectSearch> -->
     <!--  -->
+		{projs[0].data.year}
 	</main>
 	
 </body>
