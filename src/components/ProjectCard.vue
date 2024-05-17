@@ -5,9 +5,7 @@ import "agnostic-vue/dist/common.min.css";
 import "agnostic-vue/dist/index.css";
 import { Card } from "agnostic-vue";
 
-// load blog content: news, etc.
-import { getCollection } from 'astro:content';
-const projects = await getCollection('projects');
+
 // Remove single slash as it causes double slashes in card
 const base = import.meta.env.BASE_URL == '/' ? '' : import.meta.env.BASE_URL;
 
