@@ -22,6 +22,7 @@ import "agnostic-vue/dist/common.properties.min.css";
 import "agnostic-vue/dist/common.resets.min.css";
 import "agnostic-vue/dist/common.utilities.min.css";
 import "agnostic-vue/dist/opinions.min.css";
+import { Debug } from 'astro:components';
 
 // Component Imports
 import "agnostic-vue/dist/index.css";
@@ -40,7 +41,7 @@ import Projects from '../projects.astro';
 // function filterProjects(year, semester /** 2016/fall*/){ 
 // 	return projects.filter((project) => {project.data.year == year && project.data.semester == semester})
 // }
-
+const projects = await getCollection('projects');
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
   
@@ -50,7 +51,7 @@ export async function getStaticPaths() {
   const newProjects = projects.map(project => ({
 	
     params: { slug2: `${project.data.year}/${project.data.semester}`},
-	props: {projs: filterProjects(project.data.year, project.data.semester) }
+	props: {projs: filterProjects(project.data.year, project.data.semester), semester:project.data.semester }
   })); 
   //console.log(newProjects);
 	return newProjects
@@ -66,7 +67,7 @@ export async function getStaticPaths() {
 // Goal 2: Actually  
 // 2. For your template, you can get the entry directly from the prop
 const { slug2 } = Astro.params;
-const {projs} = Astro.props;
+const {projs, semester} = Astro.props;
 // const { Content } = await project.render();
 
 // // BreadCrumb variables
@@ -162,8 +163,10 @@ let title = ` Outreach Projects - GGC Technology Ambassadors Program`;
 			</div>
 			</div>
 			))}
+			
 		</div>
 	</main>
-	
+	<!-- <Debug {Astro.props} /> -->
+	<ProjectSearch client:load projectList={projects} filter={Astro.props}/>
 </body>
 </html>

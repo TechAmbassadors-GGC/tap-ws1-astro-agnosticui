@@ -9,7 +9,7 @@ const eventCollection = defineCollection({
     tags: z.array(z.string()),
     semester: z.string(),
     year: z.number(),
-    eventDate: z.string().datetime(),
+    eventDate: z.string().datetime().transform((str) => new Date(str)),
     image: z.string().optional(),
   }),
 });

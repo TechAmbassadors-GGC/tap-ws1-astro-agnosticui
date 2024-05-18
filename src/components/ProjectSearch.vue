@@ -4,21 +4,24 @@ import { computed, ref } from "vue";
 import "agnostic-vue/dist/index.css";
 import "agnostic-vue/dist/common.min.css";
 import { Input, Card, Select } from "agnostic-vue";
-const search_text = ref("");
-const level = ref(['Any']);
-const semester = ref(['Any']);
-const tech = ref(['Any']);
-const duration = ref(['Any']);
-const difficulty = ref(['Any']);
+
 
 // Component Imports
 import ProjectCard from "./ProjectCard.vue";
 
 // load content from props
 const props = defineProps({
-        projectList: Object
+        projectList: Object,
+        filter: Object
     });
 const projects = props.projectList;
+console.log(props.filter);
+const search_text = ref("");
+const level = ref(['Any']);
+const semester =  props.filter?.semester? ref([props.filter.semester]) : ref(['Any']);
+const tech = ref(['Any']);
+const duration = ref(['Any']);
+const difficulty = ref(['Any']);
 
 //Step 1 => get list of instructors in a set to avoid duplication
 //Step 2 => place them in an object {value = ?, label = ?} to feed into a select option
