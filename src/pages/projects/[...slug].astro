@@ -83,8 +83,8 @@ let title = `${project.data.title} - Outreach Projects - GGC Technology Ambassad
 			height: auto;  
 			*/			
 			vertical-align: bottom; 			
-			display: inline-block;
-			margin-bottom: 1em;
+			display: inline;
+			margin-bottom: 1em; /** doesn't work bc of the inline */
 		}
 
 		.projectText p {
@@ -133,7 +133,7 @@ let title = `${project.data.title} - Outreach Projects - GGC Technology Ambassad
 		<p>Read more on <a href={project.data.github} target="_blank">Github</a>.</p>
 
 	</div>
-
+	
     <Content />
 	</main>
 	
