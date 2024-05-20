@@ -71,7 +71,7 @@ const blogEntries = await getCollection('posts');
 
 ---
 <TAPDefaultLayout title={title}>
-    <main>
+    
         <section class="card-container">
             <PostListCard client:load/>
             <ProjectListCard client:load/>
@@ -79,5 +79,5 @@ const blogEntries = await getCollection('posts');
             <EventsListCard client:load/>
             <PapersListCard client:load/-->
         </section>
-    </main>
+  
 </TAPDefaultLayout>
