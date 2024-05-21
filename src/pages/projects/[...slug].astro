@@ -52,17 +52,49 @@ const  projName  = project.data.title;
 
 // Page title
 let title = `${project.data.title} - Outreach Projects - GGC Technology Ambassadors Program`;
+import TAPDefaultLayout from "../../layouts/default.astro";
+
+const visible = true; // Define visibility for videoAD
+const showIframe = project.data.videoAd ? true : false; // Check if videoAd exists
 
 ---
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
-	<title>{title}</title>
+<TAPDefaultLayout title={title}>
+	<Crumbs pageType="project" pageUrl=`/projects/${projYear}/${projSemester}/${projName}`/>
 
-	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <h1 class="project-title">{project.data.shortTitle ? project.data.shortTitle : project.data.title }</h1>
+	<img src={project.data.imageTeam.src} alt="Project Image" class="projectImage"/>
 
-	<style>
+	<div class="projectText">
+
+		<p><b>TITLE: </b> <a href={project.data.videos} target="_blank"> {project.data.title}</a></p>
+		<!-- TODO: link to publications? or Github -->
+		
+		<p><b> TEAM MEMBERS: </b> {project.data.students.join(", ")} </p>
+		
+		<p><b> ADVISORS: </b>  {project.data.instructors.join(", ")} </p>
+		
+		<p><b> TECH: </b> {project.data.techs.join(", ")} </p>
+
+		<p><b> DIFFICULTY: </b> {project.data.difficulty.join(", ")} </p>
+		
+		<p><b> TARGET AUDIENCE: </b> {project.data.levels.join(", ")} </p>
+		
+		<p><b> DURATION: </b> {project.data.durationMins.join(" - ")} minutes</p>
+		
+		<p><b> PUBLISHED DATE:</b> {project.data.publishedDate} </p>
+		<!-- TODO: change format of date -->
+
+		<p>Read more on <a href={project.data.github} target="_blank">Github</a>.</p>
+
+	</div>
+    <Content />
+
+	{showIframe && (
+		<iframe width="560" class="youtube" src={`https://www.youtube.com/embed/${project.data.videoAd}`} frameborder="0" allowfullscreen></iframe>
+	)}
+</TAPDefaultLayout>
+
+<style>
 		.projectImage {
 			/*float: left;*/
 			margin-right: 1em;
@@ -95,47 +127,3 @@ let title = `${project.data.title} - Outreach Projects - GGC Technology Ambassad
 			margin-top: 2em;
 		}
 	</style>
-	
-</head>
-<body class=body-prj>
-	<main>
-		<TAPHeader client:load />
-		<Crumbs pageType="project" pageUrl=`/projects/${projYear}/${projSemester}/${projName}`/>
-
-    <h1 class="project-title">{project.data.shortTitle ? project.data.shortTitle : project.data.title }</h1>
-
-	<!-- Left logo BLOCK -->
-
-	<!--div id="images"; style='width:640px;float: left;height: auto; vertical-align: bottom; display: inline-block;'-->
-
-	<img src={project.data.imageTeam.src} alt="Project Image" class="projectImage"/>
-
-	<div class="projectText">
-
-		<p><b>TITLE: </b> <a href={project.data.videos} target="_blank"> {project.data.title}</a></p>
-		<!-- TODO: link to publications? or Github -->
-		
-		<p><b> TEAM MEMBERS: </b> {project.data.students.join(", ")} </p>
-		
-		<p><b> ADVISORS: </b>  {project.data.instructors.join(", ")} </p>
-		
-		<p><b> TECH: </b> {project.data.techs.join(", ")} </p>
-
-		<p><b> DIFFICULTY: </b> {project.data.difficulty.join(", ")} </p>
-		
-		<p><b> TARGET AUDIENCE: </b> {project.data.levels.join(", ")} </p>
-		
-		<p><b> DURATION: </b> {project.data.durationMins.join(" - ")} minutes</p>
-		
-		<p><b> PUBLISHED DATE:</b> {project.data.publishedDate} </p>
-		<!-- TODO: change format of date -->
-
-		<p>Read more on <a href={project.data.github} target="_blank">Github</a>.</p>
-
-	</div>
-	
-    <Content />
-	</main>
-	
-</body>
-</html>

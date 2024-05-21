@@ -45,6 +45,12 @@ body.body-prj iframe.youtube {
   margin-top: 2em;
 }
 
+iframe.youtube{
+  width: 100%; 
+  height: 680px; 
+  margin-top: 2em;
+}
+
 main {
   margin-left: 0;
   margin-right: 0;

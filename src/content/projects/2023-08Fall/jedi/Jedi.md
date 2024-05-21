@@ -19,6 +19,7 @@ publishedDate: 2024-03-08
 related-ids: []
 image: ./jedi-logo.jpg
 imageTeam: ./JediGroupPhoto_cropped.jpg
+videoAd: "8eZCkfpn1kQ"
 ---
 
 <!--Right text block, Project description -->	
