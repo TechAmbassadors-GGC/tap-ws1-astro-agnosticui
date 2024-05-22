@@ -101,6 +101,7 @@ Foes is a web-hosted project. This project is curated to peak the interest of no
   ##### From left to right: Alec Burns, Alex Shaklee
   <br>
 
+  
   ![VSC logo](./vscLogo.jpeg)
   ##### Visual Studio Code Logo
   <br>

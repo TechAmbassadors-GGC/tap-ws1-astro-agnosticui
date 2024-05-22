@@ -53,12 +53,13 @@ const  projName  = project.data.title;
 // Page title
 let title = `${project.data.title} - Outreach Projects - GGC Technology Ambassadors Program`;
 import TAPDefaultLayout from "../../layouts/default.astro";
+import { Debug } from 'astro:components';
 
 const visible = true; // Define visibility for videoAD
 const showIframe = project.data.videoAd ? true : false; // Check if videoAd exists
 
 ---
-<TAPDefaultLayout title={title}>
+<TAPDefaultLayout title={title} class="body-prj">
 	<Crumbs pageType="project" pageUrl=`/projects/${projYear}/${projSemester}/${projName}`/>
 
     <h1 class="project-title">{project.data.shortTitle ? project.data.shortTitle : project.data.title }</h1>
@@ -87,43 +88,46 @@ const showIframe = project.data.videoAd ? true : false; // Check if videoAd exis
 		<p>Read more on <a href={project.data.github} target="_blank">Github</a>.</p>
 
 	</div>
-    <Content />
-
 	{showIframe && (
-		<iframe width="560" class="youtube" src={`https://www.youtube.com/embed/${project.data.videoAd}`} frameborder="0" allowfullscreen></iframe>
+		<iframe width="560" class="youtube" src={`https://www.youtube.com/embed/${project.data.videoAd}`}
+		title="YouTube video player" frameborder="0" 
+		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+		referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 	)}
+    <Content />
+	
+<style>
+	.projectImage {
+		/*float: left;*/
+		margin-right: 1em;
+		width: clamp(25em, 50%, 45em);
+		float: left;
+		padding-bottom: 0.5em;
+		padding-right: 0.5em;
+	}
+
+	.projectText {
+		font-size: 1.125em; 
+		text-align: left;
+		width: clamp(15em, 45%, 45em);
+		/*change these to flex-grow/shrink 
+		width:720px; 
+		float: right; 
+		
+		height: auto;  
+		*/			
+		vertical-align: bottom; 			
+		display: inline;
+		margin-bottom: 1em; /** doesn't work bc of the inline */
+	}
+
+	.projectText p {
+		margin-bottom: 0.5em;
+	}
+
+	.body-prj h2 {
+		margin-top: 2em;
+	}
+</style>
 </TAPDefaultLayout>
 
-<style>
-		.projectImage {
-			/*float: left;*/
-			margin-right: 1em;
-			width: clamp(25em, 50%, 45em);
-			float: left;
-			padding-bottom: 0.5em;
-			padding-right: 0.5em;
-		}
-
-		.projectText {
-			font-size: 1.125em; 
-			text-align: left;
-			width: clamp(15em, 45%, 45em);
-			/*change these to flex-grow/shrink 
-			width:720px; 
-			float: right; 
-			
-			height: auto;  
-			*/			
-			vertical-align: bottom; 			
-			display: inline;
-			margin-bottom: 1em; /** doesn't work bc of the inline */
-		}
-
-		.projectText p {
-			margin-bottom: 0.5em;
-		}
-
-		.body-prj h2 {
-			margin-top: 2em;
-		}
-	</style>
