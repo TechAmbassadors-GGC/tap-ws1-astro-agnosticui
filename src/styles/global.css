@@ -12,6 +12,7 @@
 :root {
 	font-size: clamp(0.575rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem);
   --agnostic-header-content-width: 75vw; /* set minimum size of header menu - set to percent of viewport width */
+  --project-logo-width: 10em;
 }
 
 body {
@@ -93,13 +94,6 @@ h2 {
   text-align:center;
   font-size: clamp(var(--agnostic-h5), 1vw, var(--agnostic-h2));
   font-family: 'Gagalin', Helvetica, Arial, sans-serif;
-}
-
-.card-project { /*project search page cards */
-  min-width: 40rem !important;
-  margin: 0 auto;
-  flex: 1;
-  background-color: var(--agnostic-gray-mid);
 }
 
 .body-prj h2 {

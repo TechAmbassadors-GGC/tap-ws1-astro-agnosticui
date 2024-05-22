@@ -38,12 +38,12 @@ const projectProp = defineProps({
 .projectImage {
     /*float: left;*/
     margin-right: 1em;
-    width: 10em;    
+    width: var(--project-logo-width);
 }
 
 .projectText {
     text-align: left; /* or justify? */
-    width: 45%;
+    width: calc(100% - var(--project-logo-width) - 1em);
 }
 
 .projectText p {
@@ -55,7 +55,8 @@ const projectProp = defineProps({
 }
 
 .projectCard {
-  min-width: 20rem !important;
+  min-width: 25rem !important;
+  max-width: 35rem;
   margin: 0.5em;
   padding: 1em 1em 1em;
   flex: 1;
