@@ -33,6 +33,7 @@ relatedIds: [
 ]
 image: ./jjbaPCBuild.webp
 imageTeam: ./jjbaPCBuild.webp
+videoAd: ""
 ---
 <br />
 <br />

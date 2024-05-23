@@ -40,6 +40,7 @@ publishedDate: 2023-03-18
 relatedIds: []
 image: ./FoeGroupPhoto.jpeg
 imageTeam: ./FoeGroupPhoto.jpeg
+videoAd: ""
 ---
 
 <!--Right text block, Project description -->

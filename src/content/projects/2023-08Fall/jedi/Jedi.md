@@ -19,7 +19,7 @@ publishedDate: 2024-03-08
 related-ids: []
 image: ./jedi-logo.jpg
 imageTeam: ./JediGroupPhoto_cropped.jpg
-videoAd: "dQw4w9WgXcQ" #Testing youtube code, have to change this later
+videoAd: "8odVRHWLpv4" 
 ---
 
 <!--Right text block, Project description -->	

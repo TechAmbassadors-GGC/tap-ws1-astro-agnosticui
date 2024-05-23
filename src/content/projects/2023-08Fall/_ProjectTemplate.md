@@ -19,6 +19,7 @@ publishedDate: 2024-03-08
 related-ids: []
 image: ./jedi/jedi-logo.jpg
 imageTeam: ./jedi/JediGroupPhoto_cropped.jpg
+videoAd: ""
 ---
 
 Great project description here. Files starting with underscore (_) are ignored.
