@@ -18,7 +18,7 @@ publishedDate: 2024-05-06
 relatedIds: []
 image: ./jedi-logo.jpg
 imageTeam: ./BrgroupPhoto_cropped.jpeg
-videoAd: ""
+videoAd: "_pExIUQkeek"
 ---
 
 <!--Right text block, Project description -->	
