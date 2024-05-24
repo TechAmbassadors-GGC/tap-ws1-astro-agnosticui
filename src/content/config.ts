@@ -38,8 +38,7 @@ const projectCollection = defineCollection({
     year: z.number(),
     publishedDate: z.date(),
     relatedIds: z.array(z.string()).optional(),
-    image: image().optional(),
-    imageLogoLight: image().refine(imageLogoValidator, imageLogoValidatorMsg).optional(), // TODO: make it mandatory
+    imageLogoLight: image().refine(imageLogoValidator, imageLogoValidatorMsg), // mandatory
     imageLogoDark: image().refine(imageLogoValidator, imageLogoValidatorMsg).optional(),
     imageTeam: image().refine((img) => img.width >= 500, {
       message: "Cover image must be at least 500 pixels wide!",
