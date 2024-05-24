@@ -47,6 +47,7 @@ relatedIds: [
 ]
 image: ./ninjaturtlesGroupPhoto.png
 imageTeam: ./ninjaturtlesGroupPhoto.png
+videoAd: ""
 ---
 
 <!--Right text block, Project description -->	

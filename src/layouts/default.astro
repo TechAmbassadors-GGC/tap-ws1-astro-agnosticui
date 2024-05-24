@@ -33,6 +33,7 @@ import TAPFooter from '../components/TAPFooter.vue';
 // It will run during the build, but never in the browser.
 // All variables are available to use in the HTML template below.
 let title = `${Astro.props.title} - GGC Technology Ambassadors Program`;
+let bodyClass = Astro.props.class;
 
 ---
 <html lang="en">
@@ -44,7 +45,7 @@ let title = `${Astro.props.title} - GGC Technology Ambassadors Program`;
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 </head>
 
-<body>
+<body class={bodyClass}>
 	<TAPHeader client:load />
 
 	<main>

@@ -18,6 +18,7 @@ publishedDate: 2023-03-08
 relatedIds: []
 image: ./monsterMakeyGroupPhoto_cropped.jpg
 imageTeam: ./monsterMakeyGroupPhoto_cropped.jpg
+videoAd: "LOmdjDbBOMs"
 ---
 
 
@@ -28,7 +29,6 @@ The goal of this study is to introduce students to recording and editing sound f
 
 The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to break the misconceptions of the IT field by providing fun workshops for students of all backgrounds. TAP students design engaging and fun outreach workshops to encourage interest in IT and STEM.
 
-<iframe width="560" height="100%" src="https://www.youtube.com/embed/LOmdjDbBOMs?si=op71iGr7wi376oTv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width: 100%; height: 680px; margin-top: 2em;"></iframe>
 
 
 <!--content block, Activities, steps & materials -->

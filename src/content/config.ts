@@ -41,6 +41,7 @@ const projectCollection = defineCollection({
       message: "Cover image must be 1080 pixels wide!",
       // This part of the config file needs to be reviewed and changed at a later date.
     }).optional(),
+    videoAd: z.string().optional(),
   }),
 });
 

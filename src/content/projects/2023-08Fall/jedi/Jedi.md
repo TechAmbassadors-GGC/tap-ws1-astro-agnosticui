@@ -19,6 +19,7 @@ publishedDate: 2024-03-08
 related-ids: []
 image: ./jedi-logo.jpg
 imageTeam: ./JediGroupPhoto_cropped.jpg
+videoAd: "8odVRHWLpv4" 
 ---
 
 <!--Right text block, Project description -->	
@@ -28,8 +29,6 @@ The primary goal of this project is educating others about algorithms by program
 Sphero is a small robot ball that moves around by either remote control or code you feed it. This workshop is geared towards educating and creating interest in the IT field for non STEM majors. By engaging in our workshops, students will get to experiment with Sphero.edu and block coding, which allows them to learn about algorithms through relatable examples. 
 
 The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to break the misconceptions of the IT field by providing fun workshops for students of all backgrounds. TAP students design engaging and fun outreach workshops to encourage interest in IT and STEM.
-
-<iframe width="560" class="youtube" src="https://www.youtube.com/embed/8odVRHWLpv4?si=Tu4bjZBEqFRGeynw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <!--content block, Activities, steps & materials -->
 
