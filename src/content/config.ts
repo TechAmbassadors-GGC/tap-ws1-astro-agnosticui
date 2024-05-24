@@ -13,6 +13,10 @@ const blogCollection = defineCollection({
     image: z.string().optional(),
   }),
 });
+const imageLogoValidator = (img) => Math.abs(img.width / img.height - 1) < 0.1;
+const imageLogoValidatorMsg = (img) => ({
+  message: `Logo image must be close to square aspect ratio!\n${img.src} is ${img.width}x${img.height}.`,
+});
 const projectCollection = defineCollection({
   type: 'content', // v2.5.0 and later
   schema:({ image }) => z.object({
@@ -34,11 +38,11 @@ const projectCollection = defineCollection({
     year: z.number(),
     publishedDate: z.date(),
     relatedIds: z.array(z.string()).optional(),
-    image:image().optional().refine((img) => img.width >= 10, {
-      message: "Cover image must be at least 1080 pixels wide!",
-    }),
-    imageTeam:image().refine((img) => img.width >= 10, {
-      message: "Cover image must be 1080 pixels wide!",
+    image: image().optional(),
+    imageLogoLight: image().refine(imageLogoValidator, imageLogoValidatorMsg).optional(), // TODO: make it mandatory
+    imageLogoDark: image().refine(imageLogoValidator, imageLogoValidatorMsg).optional(),
+    imageTeam: image().refine((img) => img.width >= 500, {
+      message: "Cover image must be at least 500 pixels wide!",
       // This part of the config file needs to be reviewed and changed at a later date.
     }).optional(),
     videoAd: z.string().optional(),

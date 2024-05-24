@@ -7,7 +7,7 @@ github: https://github.com/TAP-GGC/Jedi?tab=readme-ov-file
 students: [ Tony Lam, Etienne Laccruche, Ammar Mehicevic ]
 instructors: [Dr. Cindy Robertson, Dr. Anca Doloc-Mihu]
 techs: [sphero]
-videos: ["https://youtu.be/8odVRHWLpv4", "https://youtu.be/fTHYSRMObBw"]
+videos: ["https://youtu.be/fTHYSRMObBw"]
 tags: []
 events: [tap-expo-fall23]
 semester: fall
@@ -17,7 +17,8 @@ difficulty: [Intermediate]
 durationMins: [60,90]
 publishedDate: 2024-03-08
 related-ids: []
-image: ./jedi-logo.jpg
+imageLogoLight: ./jedi-logo.jpg
+imageLogoDark: ./JediGroupPhoto_cropped.jpg
 imageTeam: ./JediGroupPhoto_cropped.jpg
 videoAd: "8odVRHWLpv4" 
 ---

@@ -5,19 +5,25 @@ import "agnostic-vue/dist/common.min.css";
 import "agnostic-vue/dist/index.css";
 import { Card } from "agnostic-vue";
 
-
 // Remove single slash as it causes double slashes in card
 const base = import.meta.env.BASE_URL == '/' ? '' : import.meta.env.BASE_URL;
 
 const projectProp = defineProps({
         item: Object
     });
+
+// Logos
+let imageLogoLight = projectProp.item.data.imageLogoLight?.src;
+const imageLogoDark = projectProp.item.data.imageLogoDark ? projectProp.item.data.imageLogoDark.src : imageLogoLight;
+imageLogoLight = imageLogoLight ? imageLogoLight : imageLogoDark; // in case only dark is provided
+
 </script>
 
 <template>
     <Card css="projectCard" isShadow>
         
-        <img :src="`${item.data.image.src}`" alt="Project Image" class="projectImage">
+        <img :src="imageLogoLight" alt="Project Image" class="projectImage imageLight">
+        <img :src="imageLogoDark" alt="Project Image" class="projectImage imageDark">
 
         <div class="projectText">                        
             <h4 class="projectTitle"><a :href="`/projects/${item.data.year}/${item.data.semester}/${item.data.id}`">{{ item.data.shortTitle ? item.data.shortTitle : item.data.title }}</a></h4>
@@ -66,6 +72,23 @@ const projectProp = defineProps({
 .projectCard h4 {
     margin-bottom: 0.5em;
 }
+
+/* Only show light or dark image based on browser option */
+.imageDark {
+    display: none;
+  }
+  .imageLight {
+    display: block;
+  }
+@media (prefers-color-scheme: dark) {
+  .imageDark {
+    display: block;
+  }
+  .imageLight {
+    display: none;
+  }
+}
+
 
 </style>
 

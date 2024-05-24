@@ -12,7 +12,7 @@
 :root {
 	font-size: clamp(0.575rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem);
   --agnostic-header-content-width: 75vw; /* set minimum size of header menu - set to percent of viewport width */
-  --project-logo-width: 10em;
+  --project-logo-width: 14em;
 }
 
 body {
