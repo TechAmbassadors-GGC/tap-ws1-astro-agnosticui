@@ -18,7 +18,7 @@ durationMins: [60,90]
 publishedDate: 2024-03-08
 related-ids: []
 imageLogoLight: ./jedi-logo.jpg
-imageLogoDark: ./JediGroupPhoto_cropped.jpg
+imageLogoDark: ./jedi-logo-dark.png
 imageTeam: ./JediGroupPhoto_cropped.jpg
 videoAd: "8odVRHWLpv4" 
 ---

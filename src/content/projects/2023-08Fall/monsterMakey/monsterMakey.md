@@ -16,7 +16,8 @@ difficulty: ["beginner"]
 durationMins: [60]
 publishedDate: 2023-03-08
 relatedIds: []
-image: ./monsterMakeyGroupPhoto_cropped.jpg
+imageLogoLight: ./mmakey-logo-light.png
+imageLogoDark: ./mmakey-logo-dark.png
 imageTeam: ./monsterMakeyGroupPhoto_cropped.jpg
 videoAd: "LOmdjDbBOMs"
 ---
