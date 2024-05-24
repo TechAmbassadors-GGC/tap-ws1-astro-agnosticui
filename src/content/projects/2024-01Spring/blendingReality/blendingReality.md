@@ -29,7 +29,7 @@ This project showcases how to build a 3D snowmen in Blender, and then how to imp
 
 The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to break the misconceptions of the IT field by providing fun workshops for students of all backgrounds. TAP students design engaging and fun outreach workshops to encourage interest in IT and STEM.
 
-<iframe width="560" height="100%" src="https://www.youtube.com/embed/AOuorBHAStU?si=KyfqmvnR7CZnEDrS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width: 100%; height: 680px; margin-top: 2em;"></iframe>
+
 
 <!--content block, Activities, steps & materials -->
 
