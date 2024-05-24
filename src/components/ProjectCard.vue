@@ -55,8 +55,8 @@ const projectProp = defineProps({
 }
 
 .projectCard {
-  min-width: 25rem !important;
-  max-width: 35rem;
+  min-width: 30rem !important;
+  max-width: 40rem;
   margin: 0.5em;
   padding: 1em 1em 1em;
   flex: 1;

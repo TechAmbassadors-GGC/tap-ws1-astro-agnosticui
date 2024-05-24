@@ -98,7 +98,6 @@ const showIframe = project.data.videoAd ? true : false; // Check if videoAd exis
 	
 <style>
 	.projectImage {
-		/*float: left;*/
 		margin-right: 1em;
 		width: clamp(25em, 50%, 45em);
 		float: left;
@@ -110,15 +109,9 @@ const showIframe = project.data.videoAd ? true : false; // Check if videoAd exis
 		font-size: 1.125em; 
 		text-align: left;
 		width: clamp(15em, 45%, 45em);
-		/*change these to flex-grow/shrink 
-		width:720px; 
-		float: right; 
-		
-		height: auto;  
-		*/			
 		vertical-align: bottom; 			
 		display: inline;
-		margin-bottom: 1em; /** doesn't work bc of the inline */
+		margin-bottom: 1em; /* doesn't work when display: inline */
 	}
 
 	.projectText p {
