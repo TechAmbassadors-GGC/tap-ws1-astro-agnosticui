@@ -3,7 +3,6 @@
 import "agnostic-vue/dist/common.min.css";
 import "agnostic-vue/dist/index.css";
 import { Header, HeaderNav, HeaderNavItem, Menu } from "agnostic-vue";
-import { Image } from 'astro:assets';
 
 const base = import.meta.env.BASE_URL;
 </script>
@@ -11,7 +10,7 @@ const base = import.meta.env.BASE_URL;
   <Header isHeaderContentStart>
     <template v-slot:logoleft>
       
-      <a class="flex-fill" :href="base" >TAP</a>
+      <a class="flex-fill" :href="base" ><img :src="`${base == '/' ? '' : base}/images/tap-logo.jpg`" width="50px"></a>
 
     </template>
     <template v-slot:headernav>
