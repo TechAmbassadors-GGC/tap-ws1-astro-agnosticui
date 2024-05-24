@@ -8,16 +8,19 @@ const base = import.meta.env.BASE_URL;
 </script>
 <template>  
   <Header isHeaderContentStart>
-    <template v-slot:logoleft>
-      
-      <a class="flex-fill" :href="base" ><img :src="`${base == '/' ? '' : base}/images/tap-logo.jpg`" width="50px"></a>
-
+    <template v-slot:logoleft>      
+      <a class="flex-fill" :href="base" >
+        <img :src="`${base == '/' ? '' : base}/images/tap-logo-dark.jpg`" width="100px" class="imageDark">
+        <img :src="`${base == '/' ? '' : base}/images/tap-logo-light.png`" width="100px" class="imageLight">
+      </a>
     </template>
+
     <template v-slot:headernav>
       <HeaderNav css="header-mbe16">
         <HeaderNavItem>
           <a :href="`${base == '/' ? '' : base}/projects`">Projects</a>
         </HeaderNavItem>
+        
         <HeaderNavItem>
           <a href="https://forum.tapggc.org" target="_blank">Forum</a>
         </HeaderNavItem>

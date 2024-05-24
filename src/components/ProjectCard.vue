@@ -72,24 +72,6 @@ imageLogoLight = imageLogoLight ? imageLogoLight : imageLogoDark; // in case onl
 .projectCard h4 {
     margin-bottom: 0.5em;
 }
-
-/* Only show light or dark image based on browser option */
-.imageDark {
-    display: none;
-  }
-  .imageLight {
-    display: block;
-  }
-@media (prefers-color-scheme: dark) {
-  .imageDark {
-    display: block;
-  }
-  .imageLight {
-    display: none;
-  }
-}
-
-
 </style>
 
 // Export the Card components for each project

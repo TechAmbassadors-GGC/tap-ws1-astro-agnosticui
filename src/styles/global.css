@@ -114,6 +114,21 @@ h2 {
   font-size: clamp(var(--agnostic-h5), 2vw, var(--agnostic-h3));
 }
 
+/* Only show light or dark image based on browser option */
+.imageDark {
+  display: none;
+}
+.imageLight {
+  display: block;
+}
+@media (prefers-color-scheme: dark) {
+  .imageDark {
+    display: block;
+  }
+  .imageLight {
+    display: none;
+  }
+}
 
 /* TODO -- we'll need to revisit this once AgnosticUI properly supports dark mode. Breadcrumb links
 aren't accessible in terms of contrast in dark mode at the moment. */
