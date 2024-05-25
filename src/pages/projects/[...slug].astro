@@ -58,6 +58,8 @@ import { Debug } from 'astro:components';
 const visible = true; // Define visibility for videoAD
 const showIframe = project.data.videoAd ? true : false; // Check if videoAd exists
 
+import githubLogo from '../../github.svg';
+
 ---
 <TAPDefaultLayout title={title} class="body-prj">
 	<Crumbs pageType="project" pageUrl=`/projects/${projYear}/${projSemester}/${projName}`/>
@@ -85,9 +87,17 @@ const showIframe = project.data.videoAd ? true : false; // Check if videoAd exis
 		<p><b> PUBLISHED DATE:</b> {project.data.publishedDate} </p>
 		<!-- TODO: change format of date -->
 
-		<p>Read more on <a href={project.data.github} target="_blank">Github</a>.</p>
+		<!-- <p>Read more on <a href={project.data.github} target="_blank">Github</a>.</p> -->
+
+		<p>Read more on
+			<a href={project.data.github} class="github-button" target="_blank"> 
+			GitHub
+			<Image src={githubLogo} alt="GitHub Octocat" class="octocat-logo">
+			</a>
+		</p>
 
 	</div>
+
 	{showIframe && (
 		<iframe width="560" class="youtube" src={`https://www.youtube.com/embed/${project.data.videoAd}`}
 		title="YouTube video player" frameborder="0" 
@@ -97,6 +107,29 @@ const showIframe = project.data.videoAd ? true : false; // Check if videoAd exis
     <Content />
 	
 <style>
+	.github-button{
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	display: inline-block;
+  	border: none;
+	border-radius: 10px;
+  	background: rgb(14, 183, 14);
+  	cursor: pointer;
+  	padding: 5px;
+	}
+
+	.github-button:hover {
+	background: rgb(13, 218, 78);
+  	transform: translateY(-3px);
+	}
+
+	.octocat-logo{
+	margin-left: 8px;
+    width: 30px;
+    height: 30px;
+	}
+
 	.projectImage {
 		/*float: left;*/
 		margin-right: 1em;
