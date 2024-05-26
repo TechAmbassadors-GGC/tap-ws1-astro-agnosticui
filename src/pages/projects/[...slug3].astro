@@ -46,13 +46,14 @@ export async function getStaticPaths() {
   const projects = await getCollection('projects');
   
   //projects.forEach((project) => console.log(project.data.year == 2023));   //year is number, semester is string
-  const filterProjects = (year) =>{ return projects.filter((project) => project.data.year == year)}
-  
+  const filterProjects = (year, semester) =>{ return projects.filter((project) => project.data.year == year  && project.data.semester == semester)}
+  //console.log(filterProjects(2023));
   const newProjects = projects.map(project => ({
 	
-    params: { slug2: `${project.data.year}`},
-	props: {projs: filterProjects(project.data.year), semester:'Any' }
+    params: { slug3: `${project.data.year}/${project.data.semester}`},
+	props: {projs: filterProjects(project.data.year, project.data.semester), semester:project.data.semester }
   })); 
+  //console.log(newProjects);
 	return newProjects
   // TODO: add to list: years and semesters as search results pages; potentially add techs/ and students/ folders here or in the base
 }
@@ -65,13 +66,13 @@ export async function getStaticPaths() {
 
 // Goal 2: Actually  
 // 2. For your template, you can get the entry directly from the prop
-const { slug2 } = Astro.params;
+const { slug3 } = Astro.params;
 const {projs, semester} = Astro.props;
 // const { Content } = await project.render();
 
 // // BreadCrumb variables
 //console.log(projs);
-const projYear  = slug2;
+const projYear  = slug3;
 // const  projSemester  = project.data.semester;
 // const  projName  = project.data.title;
 
@@ -125,7 +126,7 @@ let title = ` Outreach Projects - GGC Technology Ambassadors Program`;
 <body class=body-prj>
 	<main>
 		<TAPHeader client:load />
-		<Crumbs pageType="project" pageUrl=`/projects/${slug2}//`/>
+		<Crumbs pageType="project" pageUrl=`/projects/${slug3}/`/>
 		
 	</main>
 	<!-- <Debug {Astro.props} /> -->

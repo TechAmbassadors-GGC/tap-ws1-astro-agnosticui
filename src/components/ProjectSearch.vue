@@ -15,7 +15,6 @@ const props = defineProps({
         filter: Object
     });
 const projects = props.projectList;
-console.log(props.filter);
 const search_text = ref("");
 const level = ref(['Any']);
 const semester =  props.filter?.semester? ref([props.filter.semester]) : ref(['Any']);
