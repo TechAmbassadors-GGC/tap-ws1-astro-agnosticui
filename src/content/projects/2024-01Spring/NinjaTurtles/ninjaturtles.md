@@ -1,5 +1,5 @@
 ---
-shortTitle: Ninja Turtles
+shortTitle: SOS Quest
 title: Introduction to Programming Techniques Using a Simplified Interactive Game Development Experience
 id: NinjaTurtles
 desc : Using Makey Makey and Scratch the fundamental programming concepts such as variables, if-else statements, and loops; and walkthrough the process of developing an algorithm.
@@ -45,8 +45,10 @@ publishedDate: 2024-04-11
 relatedIds: [
   "https://github.com/TAP-GGC/MonsterMakey"
 ]
-image: ./ninjaturtlesGroupPhoto.png
+imageLogoLight: ./SOSquest-logo-light.png
+imageLogoDark: ./SOSquest-logo-dark.png
 imageTeam: ./ninjaturtlesGroupPhoto.png
+videoAd: ""
 ---
 
 <!--Right text block, Project description -->	

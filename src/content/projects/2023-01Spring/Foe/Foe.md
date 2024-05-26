@@ -38,8 +38,10 @@ durationMins: [
 ]
 publishedDate: 2023-03-18
 relatedIds: []
-image: ./FoeGroupPhoto.jpeg
+imageLogoLight: ./foe-logo-light.png
+imageLogoDark: ./foe-logo-dark.png
 imageTeam: ./FoeGroupPhoto.jpeg
+videoAd: "TSae0OkMVps"
 ---
 
 <!--Right text block, Project description -->
@@ -50,7 +52,7 @@ Foes is a web-hosted project. This project is curated to peak the interest of no
 
  The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to break the misconceptions of the IT field by providing fun workshops for students of all backgrounds. TAP students design engaging and fun outreach workshops to encourage interest in IT and STEM.
 
- <iframe width="560" class="youtube" src="https://www.youtube.com/embed/TSae0OkMVps?si=nqnaIe-xp-BCCC4g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
  
  <!--content block, Activities, steps & materials -->
 
@@ -101,6 +103,7 @@ Foes is a web-hosted project. This project is curated to peak the interest of no
   ##### From left to right: Alec Burns, Alex Shaklee
   <br>
 
+  
   ![VSC logo](./vscLogo.jpeg)
   ##### Visual Studio Code Logo
   <br>

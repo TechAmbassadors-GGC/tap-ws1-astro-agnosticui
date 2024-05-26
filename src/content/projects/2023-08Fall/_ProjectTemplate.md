@@ -1,13 +1,13 @@
 ---
-shortTitle: Jedi Sphero
-title: Teaching Algorithms and Growing STEM with Sphero
-id: jedi-sphero
-desc: Teaches algorithmic thinking by programming a Sphero robot to navigate a maze.
-github: https://github.com/TAP-GGC/Jedi?tab=readme-ov-file
+shortTitle: short hand title
+title: Publication title
+id: group name
+desc: short summary of project
+github: https://github.com/TAP-GGC/
 students: [ Tony Lam, Etienne Laccruche, Ammar Mehicevic ]
 instructors: [Dr. Cindy Robertson, Dr. Anca Doloc-Mihu]
 techs: [sphero]
-videos: ["https://youtu.be/fTHYSRMObBw"]
+videos: [https://youtu.be/W7AJaQqIAE0]
 tags: []
 events: [tap-expo-fall23]
 semester: fall
@@ -17,19 +17,18 @@ difficulty: [Intermediate]
 durationMins: [60,90]
 publishedDate: 2024-03-08
 related-ids: []
-imageLogoLight: ./jedi-logo.jpg
-imageLogoDark: ./jedi-logo-dark.png
-imageTeam: ./JediGroupPhoto_cropped.jpg
-videoAd: "8odVRHWLpv4" 
+image: ./jedi/jedi-logo.jpg
+imageTeam: ./jedi/JediGroupPhoto_cropped.jpg
+videoAd: ""
 ---
 
-<!--Right text block, Project description -->	
+Great project description here. Files starting with underscore (_) are ignored.
 
-The primary goal of this project is educating others about algorithms by programming a robot through a maze using SpheroEDU. 
-			
-Sphero is a small robot ball that moves around by either remote control or code you feed it. This workshop is geared towards educating and creating interest in the IT field for non STEM majors. By engaging in our workshops, students will get to experiment with Sphero.edu and block coding, which allows them to learn about algorithms through relatable examples. 
+The primary goal of this project is blah blah bla
 
 The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to break the misconceptions of the IT field by providing fun workshops for students of all backgrounds. TAP students design engaging and fun outreach workshops to encourage interest in IT and STEM.
+
+<iframe width=560 ;height="100%" src="https://www.youtube.com/embed/W7AJaQqIAE0?si=D3_BeB6ZyTDeGda7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width: 100%; height: 680px; margin-top: 2em;"></iframe>
 
 <!--content block, Activities, steps & materials -->
 
@@ -37,9 +36,9 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 
 ## Outreach Activities: <!--TODO: Fix layout**-->
 
-1. Tap Expo, Oct 10, GGC – To promote IT field and the TAP program to college students
-2. Super Saturday Series (S3), Nov 9, GGC – middle and high school girls to promote IT and STEM career
-3. Class Workshops – October 26th, November 13th, November 14th - promote IT field to non-IT college students
+1. Activity 1
+2. Activity 2
+3. Activity 3
 
 </div>
 
@@ -51,17 +50,9 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 
 ## Steps:
 
-1. Create a SpheroEDU teacher account.
-2. Click on my content.
-3. Click on “Create a Program”.
-4. Create your easy code that completes the easy part of the maze.
-5. Create your hard code that completes the hard part of the maze.
-6. Allocate the program into the shared resources so students will have access to it.
-7. Go to your classes tab.
-8. Go to shared resources.
-9. Click add programs.
-10. Select both codes.
-11. Click submit.
+1. list the steps of the project
+2. here
+3. thank you :)
 </div>
 
 
@@ -73,17 +64,10 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 
 | Amount |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Materials | Dimension |
 |    :----:   |    :----:   |    :----:   |
-| 6 | Foam Boards | 36 in. x 48 in. |
-| 2 | Plywood | 36 in. x 48 in. |
-| 1 | Hot Glue Gun | ----- |
-| 1 | 30 Count Pack of Hot Glue Sticks | ----- |
-| 1 | Exacto Knife | ----- |
-| 1 | Chisel | ----- |
-| 1 | Rubber Mallet | ----- |
-| 2 | 6 Count Packs of Exacto Knife Blades | ----- |
-| 15 | Sphero Bolt Robots | ----- |
-| 15 | Sphero Protractors | ------ |
-| ------ | Sphero EDU Desktop Application | ----- |
+| 1 | material 1 | 36 in. x 48 in. |
+| 2 | material 2 | 36 in. x 48 in. |
+| ------ | Application | ----- |
+| ------ | Application | ----- |
 
 </div>
 </div>
@@ -96,12 +80,12 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 
 
 
-![jediPhoto](./JediGroupPhoto.jpg)
+![group photo here](./JediGroupPhoto.jpg)
 ##### From left to right: Tony Lam,  Ammar Mehicevic and Etienne Laccruche, 
 <br>
 
-![Class Set Of Sphero](./SpheroClassSet.jpg)
-![Sphero Website Logo](./SpheroEdu.jpg)
+![material pics](./SpheroClassSet.jpg)
+![material pics](./SpheroEdu.jpg)
 
 <br>
 <br>
@@ -110,19 +94,16 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 
 <!--CONTENT BLOCK -->
 
-<iframe width="560" class="youtube" src="https://www.youtube.com/embed/fTHYSRMObBw?si=5DyCDRpUBAxpnLX8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
 ## Project Setup & Installation:
-- [Installing Sphero Edu](https://github.com/TAP-GGC/Jedi/blob/main/Media/Installing%20Sphero%20Edu.pdf)
-- [Creating a Teacher Sphero Account](https://github.com/TAP-GGC/Jedi/blob/main/Media/Creating%20a%20Teacher%20Sphero%20Account.pdf)
-- [Creating a Classroom and Adding Students in Sphero Edu](https://github.com/TAP-GGC/Jedi/blob/main/Media/CreatingaClassroomandAddingStudentsinSpheroEdu.pdf)
-- [Creating a Program in Sphero Edu](https://github.com/TAP-GGC/Jedi/blob/main/Media/CreatingAProgramInSpheroEdu.pdf)
+- [Video Demo on Workshop](https://github.com/TAP-GGC/Jedi/blob/main/Media/Installing%20Sphero%20Edu.pdf)
+- [PDF doc with instructions](https://github.com/TAP-GGC/Jedi/blob/main/Media/Creating%20a%20Teacher%20Sphero%20Account.pdf)
+- [App Installation](https://github.com/TAP-GGC/Jedi/blob/main/Media/CreatingaClassroomandAddingStudentsinSpheroEdu.pdf)
 - [Construction](https://github.com/TAP-GGC/Jedi/blob/main/Documents/Construction.pdf)
 
 <br>
 <br>
 
-![jediPhoto](./JediImage.jpg)
+![workshop photo](./JediImage.jpg)
 ##### S3 Workshop 
 
 
@@ -138,7 +119,7 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 
 </div>
 
-<div style='text-align:center; display: inline-block; font-size: 1.25em'>
+<!--div style='text-align:center; display: inline-block; font-size: 1.25em'>
 
 ## Sphero EDU Easy Portion
 <style='text-align:center; display: inline-block; font-size: 1.25em'>
@@ -183,7 +164,7 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 `delay for 1.5s`<br>
 
 <br>
-</div>
+</div-->
 
 <div style='text-align:center; font-size: 1.5em'>
 <br>

@@ -16,9 +16,10 @@ difficulty: ["intermediate"]
 durationMins: [60, 90]
 publishedDate: 2024-05-06
 relatedIds: []
-image: ./jedi-logo.jpg
+imageLogoLight: ./breality-logo-light.png
+imageLogoDark: ./breality-logo-dark.png
 imageTeam: ./BrgroupPhoto_cropped.jpeg
-
+videoAd: "_pExIUQkeek"
 ---
 
 <!--Right text block, Project description -->	
