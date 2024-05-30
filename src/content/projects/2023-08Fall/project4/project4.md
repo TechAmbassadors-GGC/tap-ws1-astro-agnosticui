@@ -16,8 +16,7 @@ difficulty: [ advanced ]
 durationMins: [ 30, 60, 90 ]
 publishedDate: 2023-11-05
 relatedIds: [project-2]
-image: ./Svelte-icon.svg
-imageTeam: ./Svelte-icon.svg
+imageLogoLight: ./Svelte-icon.svg
 ---
 
 # Project 2

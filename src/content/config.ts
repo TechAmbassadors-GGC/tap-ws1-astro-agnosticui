@@ -13,7 +13,7 @@ const eventCollection = defineCollection({
     image: z.string().optional(),
   }),
 });
-const imageLogoValidator = (img) => Math.abs(img.width / img.height - 1) < 0.1;
+const imageLogoValidator = (img) => Math.abs(img.width / img.height - 1) < 0.2;
 const imageLogoValidatorMsg = (img) => ({
   message: `Logo image must be close to square aspect ratio!\n${img.src} is ${img.width}x${img.height}.`,
 });
