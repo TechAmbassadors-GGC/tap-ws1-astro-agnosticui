@@ -5,7 +5,7 @@ semester: spring
 year: 2024
 slug: teachers-workshop-spring24
 tags: [nsf]
-publishedDate: 2024-05-10
+eventDate: "2024-05-10T00:00:00Z"
 ---
 
 # Our First NSF-funded Teachers' Workshop
