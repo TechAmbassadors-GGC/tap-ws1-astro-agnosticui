@@ -1,0 +1,81 @@
+---
+// Style Imports
+import '../../styles/global.css';
+import '@fontsource/source-sans-pro';
+import '@fontsource/pixelify-sans';
+import '@fontsource/ibm-plex-mono';
+import '@fontsource/work-sans';
+import '@fontsource/cormorant-garamond';
+import '@fontsource/spectral';
+import '@fontsource/crimson-pro';
+import '@fontsource/alfa-slab-one';
+
+// common.min.css is distributed with agnostic-react
+// and agnostic-svelte too. But, since we're using all
+// of these together, we only need to import global CSS
+// once and in one place.
+// common.min.css combines properties, resets, utilities
+// import "agnostic-vue/dist/common.min.css";
+// But!! Rob much prefers individual modular import ;)
+import "agnostic-vue/dist/common.properties.min.css";
+import "agnostic-vue/dist/common.resets.min.css";
+import "agnostic-vue/dist/common.utilities.min.css";
+import "agnostic-vue/dist/opinions.min.css";
+
+// Component Imports
+import "agnostic-vue/dist/index.css";
+
+// Read from content collection
+import { getCollection } from 'astro:content';
+import Crumbs from "../../components/Crumbs.vue"
+import ProjectSearch from '../../components/ProjectSearch.vue';
+import TAPDefaultLayout from "../../layouts/default.astro";
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');  
+  let slugs = new Array();
+
+  // New algorithm: find unique year/semester combinations
+  let yearSemester = new Object();
+  projects.forEach(project => {
+    if (! yearSemester[project.data.year]) {
+      yearSemester[project.data.year] = new Set([project.data.semester]);
+    } else yearSemester[project.data.year].add(project.data.semester);
+  });
+
+  Object.keys(yearSemester).forEach(year => {
+    slugs.push({	
+      params: { "slug2": `${year}`},
+      props:  { "year": year }
+    });
+    
+    yearSemester[year].forEach(semester => {
+      slugs.push({	
+        params: { "semesterYear": `${year}/${semester}`},
+        props:  { "year": year, "semester": semester }
+      });
+    });
+  });
+
+  //console.log(slugs);
+
+  return slugs;  
+  // TODO: add to list: techs/ and students/ folders here or in the base
+}
+
+// read to pass to ProjectSearch
+const projects = await getCollection('projects');
+
+// 2. For your template, you can get the entry directly from the prop
+const { year, semester } = Astro.props;
+
+// Page title
+let title = `Projects from ${semester ? semester : ''} ${year} - GGC Technology Ambassadors Program`;
+---
+<TAPDefaultLayout title=`${title}`>
+
+	<Crumbs pageType="project" pageUrl=`/projects/${year}${semester ? '/' + semester : ''}`/>
+
+	<ProjectSearch client:load projectList={projects} filter={Astro.props}/>
+
+</TAPDefaultLayout>

@@ -31,7 +31,7 @@ const TAPlink =
 const urls = pageProp.pageUrl.split("/");
 
 trailOfTAPSite = [ TAPlink ].concat(urls.slice(1).map( (url, index, restURLs) => { return { label: url, url: [ base ].concat(urls.slice(1, index + 2)).join('/') } }));
-console.log(trailOfTAPSite); 
+//console.log(trailOfTAPSite); 
 
 /*
 No need for page types anymore?

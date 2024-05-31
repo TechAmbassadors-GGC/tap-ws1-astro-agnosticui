@@ -46,15 +46,16 @@ export async function getStaticPaths() {
   const projects = await getCollection('projects');
   
   //projects.forEach((project) => console.log(project.data.year == 2023));   //year is number, semester is string
-  const filterProjects = (year, semester) =>{ return projects.filter((project) => project.data.year == year  && project.data.semester == semester)}
-  //console.log(filterProjects(2023));
-  const newProjects = projects.map(project => ({
+//   const filterProjects = (year, semester) =>{ return projects.filter((project) => project.data.year == year  && project.data.semester == semester)}
+//   //console.log(filterProjects(2023));
+//   const newProjects = projects.map(project => ({
 	
-    params: { slug3: `${project.data.year}/${project.data.semester}`},
-	props: {projs: filterProjects(project.data.year, project.data.semester), semester:project.data.semester }
-  })); 
-  //console.log(newProjects);
-	return newProjects
+//     params: { slug3: `${project.data.year}/${project.data.semester}`},
+// 	props: {projs: filterProjects(project.data.year, project.data.semester), semester:project.data.semester }
+//   })); 
+//   //console.log(newProjects);
+// 	return newProjects
+return [];
   // TODO: add to list: years and semesters as search results pages; potentially add techs/ and students/ folders here or in the base
 }
 
