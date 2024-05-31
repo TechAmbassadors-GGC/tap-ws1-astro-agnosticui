@@ -45,7 +45,7 @@ export async function getStaticPaths() {
 
   Object.keys(yearSemester).forEach(year => {
     slugs.push({	
-      params: { "slug2": `${year}`},
+      params: { "semesterYear": `${year}`},
       props:  { "year": year }
     });
     
