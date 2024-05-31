@@ -10,7 +10,6 @@ import '@fontsource/spectral';
 import '@fontsource/crimson-pro';
 import '@fontsource/alfa-slab-one';
 
-
 // common.min.css is distributed with agnostic-react
 // and agnostic-svelte too. But, since we're using all
 // of these together, we only need to import global CSS
@@ -30,11 +29,12 @@ import Card from "agnostic-vue";
 import { Image } from "astro:assets";
 import TAPHeader from '../../components/TAPHeader.vue';
 
-// Read from conten collection
+// Read from content collection
 import { getCollection } from 'astro:content';
 import Crumbs from "../../components/Crumbs.vue"
 import ProjectSearch from '../../components/ProjectSearch.vue';
 import Projects from '../projects.astro';
+import TAPDefaultLayout from "../../layouts/default.astro";
 
 // 1. Generate a new path for every collection entry
 //filter projects based on the route
@@ -42,18 +42,21 @@ import Projects from '../projects.astro';
 // 	return projects.filter((project) => {project.data.year == year && project.data.semester == semester})
 // }
 const projects = await getCollection('projects');
+
 export async function getStaticPaths() {
-  const projects = await getCollection('projects');
+  const projects = await getCollection('projects');  
   
   //projects.forEach((project) => console.log(project.data.year == 2023));   //year is number, semester is string
-  const filterProjects = (year) =>{ return projects.filter((project) => project.data.year == year)}
-  
+  const filterYearSemesterProjects = (year, semester) =>{ return projects.filter((project) => project.data.year == year  && project.data.semester == semester)};
+  const filterYearProjects = (year) =>{ return projects.filter((project) => project.data.year == year)};
+  //console.log(filterProjects(2023));
   const newProjects = projects.map(project => ({
 	
-    params: { slug2: `${project.data.year}`},
-	props: {projs: filterProjects(project.data.year), semester:'Any' }
+    params: { slug2: `${project.data.year}/${project.data.semester}`},
+	props: {projs: filterProjects(project.data.year, project.data.semester), semester:project.data.semester }
   })); 
-	return newProjects
+  
+  return newProjects
   // TODO: add to list: years and semesters as search results pages; potentially add techs/ and students/ folders here or in the base
 }
 
@@ -65,70 +68,16 @@ export async function getStaticPaths() {
 
 // Goal 2: Actually  
 // 2. For your template, you can get the entry directly from the prop
-const { slug2 } = Astro.params;
-const {projs, semester} = Astro.props;
-// const { Content } = await project.render();
-
-// // BreadCrumb variables
-//console.log(projs);
-const projYear  = slug2;
-// const  projSemester  = project.data.semester;
-// const  projName  = project.data.title;
+const { projs, year, semester } = Astro.props;
 
 // Page title
-let title = ` Outreach Projects - GGC Technology Ambassadors Program`;
+let title = `Projects from ${semester} ${year} - GGC Technology Ambassadors Program`;
 
 ---
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
-	<title>{title}</title>
+<TAPDefaultLayout title="Outreach Projects">
 
-	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+	<Crumbs pageType="project" pageUrl=`/projects/${year}/${semester}`/>
 
-	<style>
-		.projectImage {
-			/*float: left;*/
-			margin-right: 1em;
-			width: clamp(25em, 50%, 45em);
-			float: left;
-			padding-bottom: 0.5em;
-			padding-right: 0.5em;
-		}
-
-		.projectText {
-			font-size: 1.125em; 
-			text-align: left;
-			width: clamp(15em, 45%, 45em);
-			/*change these to flex-grow/shrink 
-			width:720px; 
-			float: right; 
-			
-			height: auto;  
-			*/			
-			vertical-align: bottom; 			
-			display: inline-block;
-			margin-bottom: 1em;
-		}
-
-		.projectText p {
-			margin-bottom: 0.5em;
-		}
-
-		.body-prj h2 {
-			margin-top: 2em;
-		}
-	</style>
-	
-</head>
-<body class=body-prj>
-	<main>
-		<TAPHeader client:load />
-		<Crumbs pageType="project" pageUrl=`/projects/${slug2}//`/>
-		
-	</main>
-	<!-- <Debug {Astro.props} /> -->
 	<ProjectSearch client:load projectList={projects} filter={Astro.props}/>
-</body>
-</html>
+
+</TAPDefaultLayout>
