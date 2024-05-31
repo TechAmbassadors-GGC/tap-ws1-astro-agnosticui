@@ -17,7 +17,8 @@ const props = defineProps({
 const projects = props.projectList;
 const search_text = ref("");
 const level = ref(['Any']);
-const semester =  props.filter?.semester? ref([props.filter.semester]) : ref(['Any']);
+const year =  props.filter?.year ? ref([props.filter.year]) : ref(['Any']);
+const semester =  props.filter?.semester ? ref([props.filter.semester]) : ref(['Any']);
 const tech = ref(['Any']);
 const duration = ref(['Any']);
 const difficulty = ref(['Any']);
@@ -48,6 +49,7 @@ function createOptions(projects, x) {
     return Array.from(optionSet).map(option =>({value:option, label:option}));
 }
 
+const yearOptions = createOptions(projects, "year");
 const levelOptions = createOptions(projects, "levels");
 const techOptions = createOptions(projects, "techs");
 const durationOptions = createOptions(projects, "durationMins");
@@ -60,6 +62,9 @@ function matches(project) {
 
         //check filters (dropdown menus)
         //if dropdown value does not match with project data, it fails match immediately
+        if(year.value != 'Any' && !year.value.includes(project.data.year.toString())){
+            return false;
+        }
         if(semester.value != 'Any' && !semester.value.includes(project.data.semester)){
             return false;
         }
@@ -86,9 +91,11 @@ function matches(project) {
             return true;
         }else
         if(
+            project.data.shortTitle.toLowerCase().includes(searchText) ||
             project.data.title.toLowerCase().includes(searchText) ||
             project.data.levels.some(level => level.includes(searchText)) ||
             project.data.semester == searchText ||
+            `${project.data.year}`.includes(searchText) ||
             project.data.techs.some(tech => tech.includes(searchText))||
             project.data.instructors.some(inst => inst.toLowerCase().includes(searchText))||
             project.data.students.some(stu => stu.toLowerCase().includes(searchText))
@@ -101,6 +108,10 @@ function matches(project) {
     //otherwise, always return true
     return true;  
 }
+
+const filteredProjects = computed(() => {
+  return projects.filter((project) => matches(project));
+})
 </script>
 <template>
     <div>
@@ -110,13 +121,7 @@ function matches(project) {
         <Input id="7" is-underlined is-underlined-with-background placeholder="Enter project name, student, technology…"
             label="Search for projects" type="text" v-model="search_text" />
         
-        <div class="project-filter-container">
-            <div class="project-filter-dropdown">
-                <label>Semester</label>
-                <Select name="semester" unique-id="sem" @selected="(value) => { semester = value }" 
-                    label-copy="Select a semester to filter results" 
-                    :options="semesterList" :is-multiple="true" :multiple-size="3"></Select>
-            </div>
+        <div class="project-filter-container">            
             <div class="project-filter-dropdown">
                 <label>Tech:</label>
                 <Select unique-id="tec" :options="techOptions" :is-multiple="true" :multiple-size="3" @selected="(value) => { tech = value }">
@@ -140,16 +145,29 @@ function matches(project) {
                 <Select unique-id="dur" :options="durationOptions" :is-multiple="true" :multiple-size="3" @selected="(value) => { duration = value }">
                 </Select>
             </div>
+            <div class="project-filter-dropdown">
+                <label>Semester</label>
+                <Select name="semester" unique-id="sem" @selected="(value) => { semester = value }" 
+                    label-copy="Select a semester to filter results" 
+                    :options="semesterList" :is-multiple="true" :multiple-size="3"></Select>
+            </div>
+            <div class="project-filter-dropdown">
+                <label>Year</label>
+                <Select name="year" unique-id="year" @selected="(value) => { year = value }" 
+                    label-copy="Select a year to filter results" 
+                    :options="yearOptions" :is-multiple="true" :multiple-size="3"></Select>
+            </div>
         </div>        
 
     </section>
 
-    <h3> {{ ((search_text || !semester.includes('Any') || !level.includes('Any') || !tech.includes('Any') || !duration.includes('Any') || !difficulty.includes('Any')) ? 
-            `Selected projects` : 'All Projects') }}</h3>
+    <h3> {{ ((search_text || !semester.includes('Any') || !year.includes('Any') || !level.includes('Any') || 
+              !tech.includes('Any') || !duration.includes('Any') || !difficulty.includes('Any')) ? 
+            `Selected projects` : 'All Projects') }} ({{ filteredProjects.length }})</h3>
 
     <section class="mbe40 project-cards-flex flex flex-row flex-grow-1 flex-shrink-1 flex-wrap flex-fill">
-        <template v-for="project in projects">  
-            <ProjectCard :item = "project" v-if="matches(project)"/>
+        <template v-for="project in filteredProjects" :key="project.data.id">
+            <ProjectCard :item = "project" />
         </template>
     </section>
 
