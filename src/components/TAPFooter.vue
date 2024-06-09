@@ -5,8 +5,13 @@ import "agnostic-vue/dist/index.css";
 import { Header, HeaderNav, HeaderNavItem, Menu } from "agnostic-vue";
 import { Icon } from "agnostic-vue";
 import NSFStatement from './NSFStatement.astro';
+import { ref } from 'vue';
 
-const year = 2024;
+const year = ref(new Date().getFullYear());
+setInterval(() => {
+  year.value = new Date().getFullYear(); 
+}, 1000);
+
 </script>
 <template>
   <footer class="footer-container">
