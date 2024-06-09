@@ -4,7 +4,6 @@ import "agnostic-vue/dist/common.min.css";
 import "agnostic-vue/dist/index.css";
 import { Header, HeaderNav, HeaderNavItem, Menu } from "agnostic-vue";
 import { Icon } from "agnostic-vue";
-import NSFStatement from './NSFStatement.astro';
 import { ref } from 'vue';
 
 const year = ref(new Date().getFullYear());
