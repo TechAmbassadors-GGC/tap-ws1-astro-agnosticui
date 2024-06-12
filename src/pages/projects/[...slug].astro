@@ -63,7 +63,7 @@ const showIframe = project.data.videoAd ? true : false; // Check if videoAd exis
 
 // Github button
 import { Button, ButtonGroup } from 'agnostic-vue';
-import githubLogo from '../../github.svg';
+import githubLogo from '/public/assets/github.svg';
 
 ---
 <TAPDefaultLayout title={title}>
@@ -96,8 +96,8 @@ import githubLogo from '../../github.svg';
 		<!-- <p>Read more on <a href={project.data.github} target="_blank">Github</a>.</p> -->
 
 		<p>Read more on
-			<a href={project.data.github} class="github-button" target="_blank">
-			<button class="btn btn-primary btn-rounded ">Github <Image src={githubLogo} alt="GitHub Octocat" class="octocat-logo"></Image></button>
+			<a href={project.data.github} target="_blank">
+			<Button mode="primary" isRounded>Github <Image src={githubLogo} alt="GitHub Octocat" class="octocat-logo"></Image></button>
 			</a>
 		</p>
 
