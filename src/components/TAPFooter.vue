@@ -7,10 +7,6 @@ import { Icon } from "agnostic-vue";
 import { ref } from 'vue';
 
 const year = ref(new Date().getFullYear());
-setInterval(() => {
-  year.value = new Date().getFullYear(); 
-}, 1000);
-
 </script>
 <template>
   <footer class="footer-container">
@@ -35,24 +31,23 @@ setInterval(() => {
         <div class="footer-column">
           <h4>Follow Us</h4>
           <ul class="social-media-icons">
-            <li><a href="#"><img src="/public/logos/facebook-logo.svg"></a></li>
-            <li><a href="#"><img src="/public/logos/instagram-logo.svg"></a></li>
-            <li><a href="#"><img src="/public/logos/linkedin-logo.svg"></a></li>
+            <li><a href="#"><img src="/logos/facebook-logo.svg"></a></li>
+            <li><a href="#"><img src="/logos/instagram-logo.svg"></a></li>
+            <li><a href="#"><img src="/logos/linkedin-logo.svg"></a></li>
           </ul>
         </div>
       </div>
       <div class="nsf-statement">
         <div cols="12">
-          <p>Supported by NSF Broadening Participation in Computing (BPC) Demo Project #2315804</p>
+          <p>Supported by National Science Foundation Broadening Participation in Computing (BPC) Demo Project #2315804</p>
           <a href="https://www.nsf.gov/"><img src="/public/logos/NSF_Official_logo.png" alt="NSF Logo"></a>
-        
         </div>
       </div>
-      <v-row class="copyright">
-        <v-col cols="12">
+      <div class="copyright">
+        <div cols="12">
           <p>&copy; {{year}} Technology Ambassador Program. All Rights Reserved.</p>
-        </v-col>
-      </v-row>
+        </div>
+      </div>
     </div>
   </footer>
 </template>
