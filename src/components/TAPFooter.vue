@@ -6,6 +6,7 @@ import { Header, HeaderNav, HeaderNavItem, Menu } from "agnostic-vue";
 import { Icon } from "agnostic-vue";
 import { ref } from 'vue';
 
+const base = import.meta.env.BASE_URL;
 const year = ref(new Date().getFullYear());
 </script>
 <template>
