@@ -17,8 +17,8 @@ const year = ref(new Date().getFullYear());
           <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">About Us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+            <!-- <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li> -->
           </ul>
         </div>
         <div class="footer-column">
@@ -97,6 +97,10 @@ ul {
 .social-media-icons li {
   display: inline-block;
   margin-right: 10px;
+}
+
+.social-media-icons li a img{
+  height: 50px;
 }
 
 .nsf-statement {
