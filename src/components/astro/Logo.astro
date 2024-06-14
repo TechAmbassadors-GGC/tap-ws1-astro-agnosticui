@@ -3,9 +3,10 @@ interface Props {
   src: string;
   alt: string;
   link: string;
+  caption?: string; // Optional caption prop
 }
 
-const { src, alt, link} = Astro.props;
+const { src, alt, link,caption} = Astro.props;
 ---
 
 <section class="logo-section">
@@ -16,6 +17,7 @@ const { src, alt, link} = Astro.props;
     ):(
         <img src={src} alt={alt} class="logo"/>
     )}
+    {caption && <p class="caption">{caption}</p>}
 </section>
 
 <style>
@@ -27,5 +29,8 @@ const { src, alt, link} = Astro.props;
         width: 250px;
         height: auto;
     }
-    
+    .caption {
+        font-size: 1em;
+        margin-top: 0.5em;
+    }
 </style>
