@@ -25,6 +25,7 @@
     "eslint": "^8.52.0"
   },
   "dependencies": {
+    "@astrojs/mdx": "^3.1.0",
     "@fontsource/alfa-slab-one": "^5.0.20",
     "@fontsource/cormorant-garamond": "^5.0.13",
     "@fontsource/crimson-pro": "^5.0.18",
