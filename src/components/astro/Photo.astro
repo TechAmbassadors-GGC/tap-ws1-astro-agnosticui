@@ -5,36 +5,36 @@ interface Props {
   link: string;
   caption?: string; // Optional caption prop
 }
-
 const { src, alt, link,caption} = Astro.props;
 ---
 
-<section class="logo-section">
+<section class="photo-section">
     {link ? ( 
         <a href={link} target="blank" rel="noopener noreferrer">
-            <img src={src} alt={alt} class="logo" />
+            <img src={src} alt={alt} class="photo" />
         </a>
     ):(
-        <img src={src} alt={alt} class="logo"/>
+        <img src={src} alt={alt} class="photo"/>
     )}
     {caption && <p class="caption">{caption}</p>}
 </section>
 
 <style>
-    .logo-section{
+    .photo-section{
         text-align: center;
         margin: 1em 0.5em;
     }
-    .logo{
-        height: 250px;
-        width: auto;
-        transition: transform 0.05s;
+    .photo{
+        width: 500px;
+        height: auto;
+        transition: transform 0.05s ease-in-out;
+        
     }
     .caption {
         font-size: 1em;
         margin-top: 0.5em;
     }
-    .logo:hover{
-        transform: scale(1.1);
+    .photo:hover{
+        transform: scale(1.2);
     }
 </style>

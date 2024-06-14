@@ -22,10 +22,12 @@ imageTeam: ./JediGroupPhoto_cropped.jpg
 videoAd: "8odVRHWLpv4" 
 ---
 import { Image } from "astro:assets";
+import Photo from '/src/components/astro/Photo.astro';
 import Logo from '/src/components/astro/Logo.astro';
 import spheroClassSet from './SpheroClassSet.jpg';
 import spheroEduLogo from './SpheroEdu.jpg';
 import JediGroupPhoto from './JediGroupPhoto.jpg'
+import JediAtS3 from './JediImage.jpg';
 
 {/* Right text block, Project description */}	
 
@@ -37,6 +39,16 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 
 {/* content block, Activities, steps & materials */}
 
+{/* TODO: Photo Gallery */}
+<div style="text-align:center;">
+<h2>Team members</h2>
+
+
+{/* ![jediPhoto](./JediGroupPhoto.jpg) */}
+<Image src={JediGroupPhoto} alt="JediPhoto" />
+<h4>From left to right: Tony Lam, Ammar Mehicevic and Etienne Laccruche</h4>
+<br />
+</div>
 <div style="text-align: center; justify-content: center; font-size: 1.125em;">
 
 <h2> Outreach Activities: </h2>{/*TODO: Fix layout***/}
@@ -45,6 +57,19 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 2. Super Saturday Series (S3), Nov 9, GGC - middle and high school girls to promote IT and STEM career
 3. Class Workshops - October 26th, November 13th, November 14th - promote IT field to non-IT college students
 
+</div>
+
+
+<h2>Gallery</h2>
+<div style='text-align:center; display: grid; justify-content: center; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); grid-gap: 20px; font-size: 1.25em;'>
+<Photo src={JediAtS3.src} alt="Jedi at S3 photo" caption="S3 Workshop" />
+<Photo src={JediGroupPhoto.src} alt="Jedi at S3 photo" caption="S3 Workshop" />
+{/*Texting the gallery*/}
+<Photo src={JediAtS3.src} alt="Jedi at S3 photo" caption="S3 Workshop" />
+<Photo src={JediAtS3.src} alt="Jedi at S3 photo" caption="S3 Workshop" />
+<Photo src={JediAtS3.src} alt="Jedi at S3 photo" caption="S3 Workshop" />
+<Photo src={JediAtS3.src} alt="Jedi at S3 photo" caption="S3 Workshop" />
+<Photo src={JediAtS3.src} alt="Jedi at S3 photo" caption="S3 Workshop" />
 </div>
 
 <div class="flex flex-row flex-wrap">
@@ -88,17 +113,7 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 </div>
 </div>
 
-{/* TODO: Photo Gallery */}
-<div style="text-align:center;">
-<br />
-<br />
-<br />
 
-{/* ![jediPhoto](./JediGroupPhoto.jpg) */}
-<Image src={JediGroupPhoto} alt="JediPhoto" />
-<h4>From left to right: Tony Lam, Ammar Mehicevic and Etienne Laccruche</h4>
-<br />
-</div>
 
 
 <h2>Technology</h2>
@@ -120,20 +135,14 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 
 <br />
 <br />
-
-![jediPhoto](./JediImage.jpg)
-<h5> S3 Workshop</h5>
-
-<br />
-<br />
-<br />
 </div>
 
 <div style='text-align:center; display: inline-block; font-size: 1.25em'>
 
 <div style='text-align:center; display: inline-block; font-size: 1.25em'>
 <h2>Sphero EDU Easy Portion</h2>
-<Image src="https://github.com/TechAmbassadors-GGC/Jedi/assets/150178791/6a1fa4e0-d42d-4d23-a1bd-4cdca06ca128" alt="easyCode" width="400" height="500"/>
+{/* <Image src="https://github.com/TechAmbassadors-GGC/Jedi/assets/150178791/6a1fa4e0-d42d-4d23-a1bd-4cdca06ca128" alt="easyCode" width="400" height="500"/> */}
+<Photo src="https://github.com/TechAmbassadors-GGC/Jedi/assets/150178791/6a1fa4e0-d42d-4d23-a1bd-4cdca06ca128" alt="easyCode"/>
 {/* ![easyCode](https://github.com/TechAmbassadors-GGC/Jedi/assets/150178791/6a1fa4e0-d42d-4d23-a1bd-4cdca06ca128)  */} <br />
 `on start program`<br />
 `roll 0° at 75 speed for 2.1s`<br />
@@ -146,11 +155,13 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 
 <h2> Sphero EDU Hard Portion</h2>
 
-<Image src="https://github.com/TechAmbassadors-GGC/Jedi/assets/150178791/a27a312a-c283-401a-8de1-74c1e43dda30" alt="hardCode1" width="400" height="500"/>
+<Photo src="https://github.com/TechAmbassadors-GGC/Jedi/assets/150178791/a27a312a-c283-401a-8de1-74c1e43dda30"  width="400" height="500" />
 {/*![hardCode1](https://github.com/TechAmbassadors-GGC/Jedi/assets/150178791/a27a312a-c283-401a-8de1-74c1e43dda30) */}
+{/*<Image src="https://github.com/TechAmbassadors-GGC/Jedi/assets/150178791/a27a312a-c283-401a-8de1-74c1e43dda30" alt="hardCode1" width="400" height="500"/>
+*/}
 <br />
-
-<Image src="https://github.com/TechAmbassadors-GGC/Jedi/assets/150178791/9b5b4073-b6d2-4522-b855-c7a69e5e9a64" alt="hardCode2" margin-top="20" width="400" height="500"/>
+<Photo src="https://github.com/TechAmbassadors-GGC/Jedi/assets/150178791/9b5b4073-b6d2-4522-b855-c7a69e5e9a64" alt="hardCode2" />
+{/*<Image src="https://github.com/TechAmbassadors-GGC/Jedi/assets/150178791/9b5b4073-b6d2-4522-b855-c7a69e5e9a64" alt="hardCode2" margin-top="20" width="400" height="500"/>*/}
 {/*![hardCode2](https://github.com/TechAmbassadors-GGC/Jedi/assets/150178791/9b5b4073-b6d2-4522-b855-c7a69e5e9a64)*/}<br />
 `on start program`<br />
 `roll 0° at 75 speed for 1.5s`<br />
@@ -176,11 +187,5 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 `roll 0° at 75 speed for 0.6s`<br />
 `delay for 1.5s`<br />
 </div>
-
-{/* <div style='text-align:center; font-size: 1.5em'>
-  <br />
-  <br />
-  <br />
-</div> */}
-
 </div>
+
