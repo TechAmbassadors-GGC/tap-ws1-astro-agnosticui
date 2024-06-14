@@ -25,23 +25,23 @@ const year = ref(new Date().getFullYear());
         <div class="footer-column">
           <h4>Contact Us</h4>
           <ul>
-            <li>Email: admin@tapggc.org</li>
+            <li>Email: <a href="mailto:admin@tapggc.org">admin@tapggc.org</a></li>
             <li>Address: 1000 University Center Ln, Lawrenceville, GA 30043</li>
           </ul>
         </div>
         <div class="footer-column">
           <h4>Follow Us</h4>
           <ul class="social-media-icons">
-            <li><a href="#"><img src="/logos/facebook-logo.svg"></a></li>
-            <li><a href="#"><img src="/logos/instagram-logo.svg"></a></li>
-            <li><a href="#"><img src="/logos/linkedin-logo.svg"></a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer"><img :src= "`${base}logos/facebook-logo.svg`" alt="Facebook Logo"></a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer"><img :src= "`${base}logos/instagram-logo.svg`" alt="Instagram Logo"></a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer"><img :src= "`${base}logos/linkedin-logo.svg`" alt="LinkedIn Logo"></a></li>
           </ul>
         </div>
       </div>
       <div class="nsf-statement">
         <div cols="12">
           <p>Supported by National Science Foundation Broadening Participation in Computing (BPC) Demo Project #2315804</p>
-          <a href="https://www.nsf.gov/"><img src="/public/logos/NSF_Official_logo.png" alt="NSF Logo"></a>
+          <a href="https://www.nsf.gov/" target="_blank" rel="noopener noreferrer"><img :src="`${base}logos/NSF_Official_logo.png`" alt="NSF Logo"></a>
         </div>
       </div>
       <div class="copyright">
