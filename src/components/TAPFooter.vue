@@ -6,7 +6,7 @@ import { Header, HeaderNav, HeaderNavItem, Menu } from "agnostic-vue";
 import { Icon } from "agnostic-vue";
 import { ref } from 'vue';
 
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL == '/' ? '' : import.meta.env.BASE_URL;
 const year = ref(new Date().getFullYear());
 </script>
 <template>
@@ -32,16 +32,16 @@ const year = ref(new Date().getFullYear());
         <div class="footer-column">
           <h4>Follow Us</h4>
           <ul class="social-media-icons">
-            <li><a href="#" target="_blank" rel="noopener noreferrer"><img :src= "`${base}logos/facebook-logo.svg`" alt="Facebook Logo"></a></li>
-            <li><a href="#" target="_blank" rel="noopener noreferrer"><img :src= "`${base}logos/instagram-logo.svg`" alt="Instagram Logo"></a></li>
-            <li><a href="#" target="_blank" rel="noopener noreferrer"><img :src= "`${base}logos/linkedin-logo.svg`" alt="LinkedIn Logo"></a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer"><img :src= "`${base}/logos/facebook-logo.svg`" alt="Facebook Logo"></a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer"><img :src= "`${base}/logos/instagram-logo.svg`" alt="Instagram Logo"></a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer"><img :src= "`${base}/logos/linkedin-logo.svg`" alt="LinkedIn Logo"></a></li>
           </ul>
         </div>
       </div>
       <div class="nsf-statement">
         <div cols="12">
           <p>Supported by National Science Foundation Broadening Participation in Computing (BPC) Demo Project #2315804</p>
-          <a href="https://www.nsf.gov/" target="_blank" rel="noopener noreferrer"><img :src="`${base}logos/NSF_Official_logo.png`" alt="NSF Logo"></a>
+          <a href="https://www.nsf.gov/" target="_blank" rel="noopener noreferrer"><img :src="`${base}/logos/NSF_Official_logo.png`" alt="NSF Logo"></a>
         </div>
       </div>
       <div class="copyright">
