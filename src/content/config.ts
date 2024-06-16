@@ -1,7 +1,7 @@
 // 1. Import utilities from `astro:content`
 import { z, defineCollection } from 'astro:content';
 // 2. Define your collection(s)
-const blogCollection = defineCollection({
+const eventCollection = defineCollection({
   type: 'content', // v2.5.0 and later
   schema: z.object({
     title: z.string(),
@@ -9,9 +9,13 @@ const blogCollection = defineCollection({
     tags: z.array(z.string()),
     semester: z.string(),
     year: z.number(),
-    publishedDate: z.date(),
+    eventDate: z.string().datetime().transform((str) => new Date(str)),
     image: z.string().optional(),
   }),
+});
+const imageLogoValidator = (img) => Math.abs(img.width / img.height - 1) < 0.2;
+const imageLogoValidatorMsg = (img) => ({
+  message: `Logo image must be close to square aspect ratio!\n${img.src} is ${img.width}x${img.height}.`,
 });
 const projectCollection = defineCollection({
   type: 'content', // v2.5.0 and later
@@ -34,11 +38,10 @@ const projectCollection = defineCollection({
     year: z.number(),
     publishedDate: z.date(),
     relatedIds: z.array(z.string()).optional(),
-    image:image().optional().refine((img) => img.width >= 10, {
-      message: "Cover image must be at least 1080 pixels wide!",
-    }),
-    imageTeam:image().refine((img) => img.width >= 10, {
-      message: "Cover image must be 1080 pixels wide!",
+    imageLogoLight: image().refine(imageLogoValidator, imageLogoValidatorMsg), // mandatory
+    imageLogoDark: image().refine(imageLogoValidator, imageLogoValidatorMsg).optional(),
+    imageTeam: image().refine((img) => img.width >= 500, {
+      message: "Cover image must be at least 500 pixels wide!",
       // This part of the config file needs to be reviewed and changed at a later date.
     }).optional(),
     videoAd: z.string().optional(),
@@ -57,6 +60,6 @@ const testCollection = defineCollection({
 // 3. Export a single `collections` object to register your collection(s)
 //    This key should match your collection directory name in "src/content"
 export const collections = {
-  'posts': blogCollection,
+  'events': eventCollection,
   'projects': projectCollection,
 };

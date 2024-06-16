@@ -38,7 +38,8 @@ durationMins: [
 ]
 publishedDate: 2023-03-18
 relatedIds: []
-image: ./FoeGroupPhoto.jpeg
+imageLogoLight: ./foe-logo-light.png
+imageLogoDark: ./foe-logo-dark.png
 imageTeam: ./FoeGroupPhoto.jpeg
 videoAd: "TSae0OkMVps"
 ---

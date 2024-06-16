@@ -12,8 +12,8 @@
       <ul>
         <li v-for="blogPostEntry in blogEntries">
         <a :href="`${base}/posts/${blogPostEntry.data.year}/${blogPostEntry.data.semester}/${blogPostEntry.data.title}`">{{ blogPostEntry.data.title }}</a> &nbsp;
-        <time datetime={{ blogPostEntry.data.publishedDate.toISOString() }}>
-          {{ blogPostEntry.data.publishedDate.toDateString() }}
+        <time datetime={{ blogPostEntry.data.eventDate.toISOString() }}>
+          {{ blogPostEntry.data.eventDate.toDateString() }}
         </time>
         </li>
       </ul>
@@ -30,7 +30,7 @@ import { Card } from "agnostic-vue";
 
 // load blog content: news, etc.
 import { getCollection } from 'astro:content';
-const blogEntries = await getCollection('posts');
+const blogEntries = await getCollection('events');
 
 // Remove single slash as it causes double slashes in card
 const base = import.meta.env.BASE_URL == '/' ? '' : import.meta.env.BASE_URL;

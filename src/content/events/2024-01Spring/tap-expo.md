@@ -5,7 +5,7 @@ semester: spring
 year: 2024
 slug: tap-expo-spring24
 tags: [sphero,3d_modeling,VR]
-publishedDate: 2024-02-29
+eventDate: "2023-10-10T00:00:00Z"
 ---
 
 # TAP Expo drew crowds!
