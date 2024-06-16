@@ -28,6 +28,8 @@ import "agnostic-vue/dist/index.css";
 import Card from "agnostic-vue";
 import { Image } from "astro:assets";
 import TAPHeader from '../../components/TAPHeader.vue';
+import TAPFooter from '../../components/TAPFooter.vue';
+
 
 // Read from conten collection
 import { getCollection } from 'astro:content';
@@ -62,13 +64,18 @@ let title = `${project.data.title} - Projects`;
 import TAPDefaultLayout from "../../layouts/default.astro";
 import { Debug } from 'astro:components';
 
+// VideoAd
 const visible = true; // Define visibility for videoAD
 const showIframe = project.data.videoAd ? true : false; // Check if videoAd exists
 
----
-<TAPDefaultLayout title={title} class="body-prj">
-	<Crumbs pageType="project" pageUrl=`/projects/${projYear}/${projSemester}/${project.data.id}`/>
+// Github button
+import { Button, ButtonGroup } from 'agnostic-vue';
+import githubLogo from '/public/assets/github.svg';
 
+---
+<TAPDefaultLayout title={title}>
+	<Crumbs pageType="project" pageUrl=`/projects/${projYear}/${projSemester}/${project.data.id}`/>
+	<div class="body-prj">
     <h1 class="projectTitle">{project.data.shortTitle ? project.data.shortTitle : project.data.title }</h1>
 	{ project.data.shortTitle && (
 		<h2 class="projectSubtitle"> {project.data.title} </h2>
@@ -94,9 +101,16 @@ const showIframe = project.data.videoAd ? true : false; // Check if videoAd exis
 		<p><b> PUBLISHED DATE:</b> {project.data.publishedDate} </p>
 		<!-- TODO: change format of date -->
 
-		<p>Read more on <a href={project.data.github} target="_blank">Github</a>.</p>
+		<!-- <p>Read more on <a href={project.data.github} target="_blank">Github</a>.</p> -->
+
+		<p>Read more on
+			<a href={project.data.github} target="_blank">
+			<Button mode="primary" isRounded>Github <Image src={githubLogo} alt="GitHub Octocat" class="octocat-logo"></Image></button>
+			</a>
+		</p>
 
 	</div>
+
 	{showIframe && (
 		<iframe width="560" class="youtube" src={`https://www.youtube.com/embed/${project.data.videoAd}`}
 		title="YouTube video player" frameborder="0" 
@@ -104,8 +118,32 @@ const showIframe = project.data.videoAd ? true : false; // Check if videoAd exis
 		referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 	)}
     <Content />
+</div>
 	
 <style>
+	/* .github-button{
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	display: inline-block;
+  	border: none;
+	border-radius: 10px;
+  	background: rgb(14, 183, 14);
+  	cursor: pointer;
+  	padding: 5px;
+	}
+
+	.github-button:hover {
+	background: rgb(13, 218, 78);
+  	transform: translateY(-3px);
+	} */
+
+	.octocat-logo{
+	margin-left: 8px;
+    width: 30px;
+    height: 30px;
+	}
+
 	.projectImage {
 		margin-right: 1em;
 		width: clamp(25em, 50%, 45em);
