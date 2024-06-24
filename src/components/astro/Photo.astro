@@ -14,7 +14,9 @@ const { src, alt, link,caption} = Astro.props;
             <img src={src} alt={alt} class="photo" />
         </a>
     ):(
+        <a href={src}>
         <img src={src} alt={alt} class="photo"/>
+        </a>
     )}
     {caption && <p class="caption">{caption}</p>}
 </section>
