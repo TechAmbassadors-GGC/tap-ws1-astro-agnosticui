@@ -32,8 +32,7 @@ import JediAtS3 from './JediImage.jpg';
 import easyCode from './easyCode.jpeg';
 import hardCode1 from './hardCode1.jpeg';
 import hardCode2 from './hardCode2.jpeg';
-
-
+import Gallery from '/src/components/astro/Gallery.astro';
 
 
 {/* Right text block, Project description */}	
@@ -65,13 +64,12 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 <div style='text-align:center; display: grid; justify-content: center; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); grid-gap: 20px; font-size: 1.25em;'>
 <Photo src={JediAtS3.src} alt="Jedi at S3 photo" caption="S3 Workshop" />
 <Photo src={JediGroupPhoto.src} alt="Jedi at S3 photo" caption="S3 Workshop" />
-{/* Texting the gallery
-<Photo src={JediAtS3.src} alt="Jedi at S3 photo" caption="S3 Workshop" />
-<Photo src={JediAtS3.src} alt="Jedi at S3 photo" caption="S3 Workshop" />
-<Photo src={JediAtS3.src} alt="Jedi at S3 photo" caption="S3 Workshop" />
-<Photo src={JediAtS3.src} alt="Jedi at S3 photo" caption="S3 Workshop" />
-<Photo src={JediAtS3.src} alt="Jedi at S3 photo" caption="S3 Workshop" /> */}
 </div>
+
+<Gallery photos={[
+    { src: 'jedi/JediImage.jpg', alt:'Jedi at S3 photo', link: 'jedi/JediImage.jpg' },
+    { src: 'jedi/SpheroEdu.jpg', alt: 'Image 2', link: 'jedi/SpheroEdu.jpg' },
+]} />
 
 <div class="flex flex-row flex-wrap">
 
