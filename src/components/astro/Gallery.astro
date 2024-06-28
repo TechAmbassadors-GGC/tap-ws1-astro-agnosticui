@@ -17,7 +17,7 @@ const { photos } = Astro.props;
 ---
 
 <div id="light-gallery">
-  <LightGallery>
+  <LightGallery client:load>
     {photos.slice(0, 9).map((Photo, index) => (
         <a href={Photo.link || Photo.src}>
           <img alt={Photo.alt} src={Photo.src} />
