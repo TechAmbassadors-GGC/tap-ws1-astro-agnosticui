@@ -17,12 +17,37 @@ const { photos } = Astro.props;
 ---
 
 <div id="light-gallery">
-  <LightGallery client:load>
+  <LightGallery>
     {photos.slice(0, 9).map((Photo, index) => (
         <a href={Photo.link || Photo.src}>
           <img alt={Photo.alt} src={Photo.src} />
           {Photo.caption && <p class="caption">{Photo.caption}</p>}
         </a>
       ))}
+      </div>
   </LightGallery>
 </div>
+<style>
+#light-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#light-gallery a img {
+  width: auto;
+  margin-bottom: 6px;
+  max-width: 500px;
+  height: 250px;
+  transition: transform 0.2s ease-in-out;
+}
+
+#light-gallery a img:hover {
+  transform: scale(1.1);
+}
+
+.caption {
+  font-size: 1em;
+  margin-top: 0.5em;
+}
+  </style>
