@@ -1,6 +1,15 @@
 ---
 import { h } from 'vue';
-import LightGallery from '../vue/LightGallery.vue';
+
+import LightGallery from 'lightgallery/vue'; 
+import lgThumbnail from 'lightgallery/plugins/thumbnail';
+import lgZoom from 'lightgallery/plugins/zoom';
+
+const plugins = [lgThumbnail, lgZoom];
+
+import 'lightgallery/css/lightgallery.css';
+import 'lightgallery/css/lg-thumbnail.css';
+import 'lightgallery/css/lg-zoom.css';
 
 interface PhotoProps {
   src: string;
@@ -16,38 +25,13 @@ interface Props {
 const { photos } = Astro.props;
 ---
 
-<div id="light-gallery">
-  <LightGallery>
+<LightGallery client:load settings={ { speed: 500, selector: ".gallery-item" /*, plugins: plugins*/ } }>
+  <div id="light-gallery">
     {photos.slice(0, 9).map((Photo, index) => (
-        <a href={Photo.link || Photo.src}>
-          <img alt={Photo.alt} src={Photo.src} />
-          {Photo.caption && <p class="caption">{Photo.caption}</p>}
-        </a>
-      ))}
-      </div>
-  </LightGallery>
-</div>
-<style>
-#light-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-#light-gallery a img {
-  width: auto;
-  margin-bottom: 6px;
-  max-width: 500px;
-  height: 250px;
-  transition: transform 0.2s ease-in-out;
-}
-
-#light-gallery a img:hover {
-  transform: scale(1.1);
-}
-
-.caption {
-  font-size: 1em;
-  margin-top: 0.5em;
-}
-  </style>
+      <a href={Photo.link || Photo.src} class="gallery-item">
+        <img alt={Photo.alt} src={Photo.src} />
+        {Photo.caption && <p class="caption">{Photo.caption}</p>}
+      </a>
+    ))}
+  </div>
+</LightGallery>
