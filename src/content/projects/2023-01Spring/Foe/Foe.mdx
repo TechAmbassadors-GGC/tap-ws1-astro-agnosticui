@@ -55,6 +55,8 @@ import ASF3 from './ASF3.jpg';
 import cssSample from './cssSample.png';
 import htmlSample from './htmlSample.png';
 import jsSample from './jsSample.png';
+import Gallery from '/src/components/astro/Gallery.astro';
+
 
 
 
@@ -90,17 +92,19 @@ Foes is a web-hosted project. This project is curated to peak the interest of no
 </div>
 
 
+<div style="margin-top:50px">
 ## Gallery
-<div style='text-align:center; display: grid; justify-content: center; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); grid-gap: 20px; font-size: 1.25em;'>
-<Photo src={TapExpo1.src} alt="TapExpo1" caption="Tap Expo 1" />
-<Photo src={TapExpo2.src} alt="TapExpo1" caption="Tap Expo 2" />
-<Photo src={TapExpo3.src} alt="TapExpo1" caption="Tap Expo 3" />
-<Photo src={ASF3.src} alt="ASF3" caption="Atlanta Science Festival" />
+<Gallery photos={[
+  {src:TapExpo1.src,alt:'Tap Expo 1'},
+  {src:TapExpo2.src,alt:'Tap Expo 2'},
+  {src:TapExpo3.src,alt:'Tap Expo 3'},
+  {src:ASF3.src,alt:'Atlanta Science Festival'}
+]} />
 </div>
 
-  <div class="flex flex-row flex-wrap">
+<div class="flex flex-row flex-wrap">
 
-  <div style="flex: 1; min-width: 25em;">
+<div style="flex: 1; min-width: 25em;margin-top:50px">
 
   ## Play Foes: 
   1. Click the following link: ITEC 4450 - Alec Burns (aburns10.altervista.org)
@@ -119,13 +123,13 @@ Foes is a web-hosted project. This project is curated to peak the interest of no
   12. Once the game is over a small message at the bottom of the game screen will appear showing who won the game.
   13. To play again click the 'Reset Game' button at the top of the screen.
   14. To quit, close your browser.
-  </div>
+</div>
 
-  </div>
+</div>
 
 
   ## Technology
-  <div style='text-align:center; display: flex; justify-content: center; font-size: 1.25em'>
+  <div style='text-align:center; display: flex; justify-content: center; font-size: 1.25em;'>
   <Logo src= {vscLogo.src} alt="Visual Code Studi" link="https://code.visualstudio.com/" />
   </div>
 {/* 

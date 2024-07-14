@@ -59,6 +59,7 @@ import NinjaTurtlesASF2 from './NinjaTurtlesASF2.png';
 import NinjaTurtlesS3 from './NinjaTurtlesS3.png';
 import scratchlogo from './scratchlogo.png';
 import blockBase from './block-basedlanguage.png';
+import Gallery from '/src/components/astro/Gallery.astro';
 
 
 
@@ -85,10 +86,12 @@ import blockBase from './block-basedlanguage.png';
   4. Class Workshops on April 5, April 9, April 11, and April 12, to promote IT field to non-IT college students.
 </div>
 
+<div style="margin-top:50px;margin-bottom:50px">
 ## Gallery
-<div style='text-align:center; display: grid; justify-content: center; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); grid-gap: 20px; font-size: 1.25em;'>
-<Photo src={NinjaTurtlesS3.src} alt="NinjaTurtlesS3" caption="Ninja Turtles at S3 photo" />
-<Photo src={NinjaTurtlesASF2.src} alt="NinjaturlesASF2" caption="Ninja Turles at Atlanta Science Festival" />
+<Gallery photos={[
+   {src:NinjaTurtlesS3.src, alt:'S3 Workshop'},
+   {src:NinjaTurtlesASF2.src,alt:'Atlanta Science Festival'}
+]} />
 </div>
 
 {/* <!--CONTENT BLOCK --> */}
