@@ -90,7 +90,11 @@ import githubLogo from '/public/assets/github.svg';
 		
 		<p><b> ADVISORS: </b>  {project.data.instructors.join(", ")} </p>
 		
-		<p><b> TECH: </b> {project.data.techs.join(", ")} </p>
+		<p><b> TECH: </b> 
+			<a href={`/techs/${project.data.techs}`} target="_blank">
+			{project.data.techs.join(", ")} 
+		</a>
+		</p>
 
 		<p><b> DIFFICULTY: </b> {project.data.difficulty.join(", ")} </p>
 		
