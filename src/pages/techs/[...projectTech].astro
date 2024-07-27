@@ -49,7 +49,7 @@ export async function getStaticPaths() {
 
   Object.keys(projectTech).forEach(tech => {
     slugs.push({	
-      params: { "tech": `${tech}` },
+      params: { "projectTech": `${tech}` },
       props: { "tech": tech, "projects": projectTech[tech] }
     });
   });
@@ -61,14 +61,14 @@ export async function getStaticPaths() {
 const projects = await getCollection('projects');
 
 // 2. For your template, you can get the entry directly from the prop
-const { techs } = Astro.props;
+const { tech } = Astro.props;
 
 // Page title
-let title = `Projects with ${techs}`;
+let title = `Projects with ${tech}`;
 ---
 <TAPDefaultLayout title=`${title}`>
 
-	<Crumbs pageType="tech" pageUrl=`/techs/${techs}`/>
+	<Crumbs pageType="tech" pageUrl=`/techs/${tech}`/>
 
 	<ProjectSearch client:load projectList={projects} filter={Astro.props}/>
 
