@@ -21,7 +21,7 @@ const search_text = ref("");
 const level = ref(['Any']);
 const year =  props.filter?.year ? ref([props.filter.year]) : ref(['Any']);
 const semester =  props.filter?.semester ? ref([props.filter.semester]) : ref(['Any']);
-const tech = ref(['Any']);
+const tech = props.filter?.tech ? ref([props.filter.tech]) : ref(['Any']);
 const duration = ref(['Any']);
 const difficulty = ref(['Any']);
 
