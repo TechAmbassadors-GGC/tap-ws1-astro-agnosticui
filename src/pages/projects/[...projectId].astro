@@ -95,7 +95,7 @@ import githubLogo from '/public/assets/github.svg';
 			<b>TECH:</b>
 			{project.data.techs.map((tech, index) => (
 			  <>
-				<a href={`/techs/${tech}`} target="_blank">{tech}</a>
+				<a href={`/techs/${tech}`}>{tech}</a>
 				{index < project.data.techs.length - 1 ? ", " : ""}
 			  </>
 			))}

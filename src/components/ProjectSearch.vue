@@ -191,7 +191,7 @@ const base = import.meta.env.BASE_URL;
     justify-content: space-around;
     display: flex;
     flex-flow: row wrap;
-    align-items: flex-start;
+    /* align-items: flex-start; */ 
     justify-content: center;
     align-items: center;
 }
