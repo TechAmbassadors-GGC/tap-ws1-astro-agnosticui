@@ -90,7 +90,16 @@ import githubLogo from '/public/assets/github.svg';
 		
 		<p><b> ADVISORS: </b>  {project.data.instructors.join(", ")} </p>
 		
-		<p><b> TECH: </b> {project.data.techs.join(", ")} </p>
+		<!-- Separate each tech and create different links -->
+		<p>
+			<b>TECH:</b>
+			{project.data.techs.map((tech, index) => (
+			  <>
+				<a href={`/techs/${tech}`}>{tech}</a>
+				{index < project.data.techs.length - 1 ? ", " : ""}
+			  </>
+			))}
+		  </p>
 
 		<p><b> DIFFICULTY: </b> {project.data.difficulty.join(", ")} </p>
 		

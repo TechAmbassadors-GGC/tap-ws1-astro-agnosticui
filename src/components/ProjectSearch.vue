@@ -4,6 +4,8 @@ import { computed, ref } from "vue";
 import "agnostic-vue/dist/index.css";
 import "agnostic-vue/dist/common.min.css";
 import { Input, Card, Select } from "agnostic-vue";
+import { Button, ButtonGroup } from 'agnostic-vue';
+
 
 
 // Component Imports
@@ -19,7 +21,7 @@ const search_text = ref("");
 const level = ref(['Any']);
 const year =  props.filter?.year ? ref([props.filter.year]) : ref(['Any']);
 const semester =  props.filter?.semester ? ref([props.filter.semester]) : ref(['Any']);
-const tech = ref(['Any']);
+const tech = props.filter?.tech ? ref([props.filter.tech]) : ref(['Any']);
 const duration = ref(['Any']);
 const difficulty = ref(['Any']);
 
@@ -112,7 +114,11 @@ function matches(project) {
 const filteredProjects = computed(() => {
   return projects.filter((project) => matches(project));
 })
+
+const base = import.meta.env.BASE_URL;
+
 </script>
+
 <template>
     <div>
     
@@ -157,6 +163,11 @@ const filteredProjects = computed(() => {
                     label-copy="Select a year to filter results" 
                     :options="yearOptions" :is-multiple="true" :multiple-size="3"></Select>
             </div>
+            <div class="project-filter-dropdown">
+                <a :href="`${base == '/' ? '' : base}/projects`">
+			<Button mode="primary" isRounded>Reset</button>
+			</a>
+            </div>
         </div>        
 
     </section>
@@ -180,7 +191,9 @@ const filteredProjects = computed(() => {
     justify-content: space-around;
     display: flex;
     flex-flow: row wrap;
-    align-items: flex-start;
+    /* align-items: flex-start; */ 
+    justify-content: center;
+    align-items: center;
 }
 .project-filter-dropdown {
     /* apply grid and flex here */
@@ -190,4 +203,5 @@ const filteredProjects = computed(() => {
     padding: 1em;
     flex: 1;
 }
+
 </style>  
