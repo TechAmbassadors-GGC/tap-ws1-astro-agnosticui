@@ -1,0 +1,141 @@
+---
+// Style Imports
+import '../../styles/global.css';
+import '@fontsource/source-sans-pro';
+import '@fontsource/pixelify-sans';
+import '@fontsource/ibm-plex-mono';
+import '@fontsource/work-sans';
+import '@fontsource/cormorant-garamond';
+import '@fontsource/spectral';
+import '@fontsource/crimson-pro';
+import '@fontsource/alfa-slab-one';
+
+
+// common.min.css is distributed with agnostic-react
+// and agnostic-svelte too. But, since we're using all
+// of these together, we only need to import global CSS
+// once and in one place.
+// common.min.css combines properties, resets, utilities
+// import "agnostic-vue/dist/common.min.css";
+// But!! Rob much prefers individual modular import ;)
+import "agnostic-vue/dist/common.properties.min.css";
+import "agnostic-vue/dist/common.resets.min.css";
+import "agnostic-vue/dist/common.utilities.min.css";
+import "agnostic-vue/dist/opinions.min.css";
+
+// Component Imports
+import "agnostic-vue/dist/index.css";
+import Card from "agnostic-vue";
+import { Image } from "astro:assets";
+import TAPHeader from '../../components/TAPHeader.vue';
+
+// Read from conten collection
+import { getCollection } from 'astro:content';
+import Crumbs from "../../components/Crumbs.vue"
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map(project => ({
+    params: { slug: `${project.data.year}/${project.data.semester}/${project.data.id}` }, props: { project },
+  }));
+  // TODO: add to list: years and semesters as search results pages; potentially add techs/ and students/ folders here or in the base
+}
+// 2. For your template, you can get the entry directly from the prop
+// const { slug } = Astro.params;
+const { project } = Astro.props;
+const { Content } = await project.render();
+
+// BreadCrumb variables
+const  projYear  = project.data.year;
+const  projSemester  = project.data.semester;
+const  projName  = project.data.title;
+
+// Page title
+let title = `${project.data.title} - Outreach Projects - GGC Technology Ambassadors Program`;
+
+---
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>{title}</title>
+
+	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+	<style>
+		.projectImage {
+			/*float: left;*/
+			margin-right: 1em;
+			width: clamp(25em, 50%, 45em);
+			float: left;
+			padding-bottom: 0.5em;
+			padding-right: 0.5em;
+		}
+
+		.projectText {
+			font-size: 1.125em; 
+			text-align: left;
+			width: clamp(15em, 45%, 45em);
+			/*change these to flex-grow/shrink 
+			width:720px; 
+			float: right; 
+			
+			height: auto;  
+			*/			
+			vertical-align: bottom; 			
+			display: inline-block;
+			margin-bottom: 1em;
+		}
+
+		.projectText p {
+			margin-bottom: 0.5em;
+		}
+
+		.body-prj h2 {
+			margin-top: 2em;
+		}
+	</style>
+	
+</head>
+<body class=body-prj>
+	<main>
+		<TAPHeader client:load />
+		<Crumbs pageType="project" pageUrl=`/projects/${projYear}/${projSemester}/${projName}`/>
+
+    <h1 class="project-title">{project.data.shortTitle ? project.data.shortTitle : project.data.title }</h1>
+
+	<!-- Left logo BLOCK -->
+
+	<!--div id="images"; style='width:640px;float: left;height: auto; vertical-align: bottom; display: inline-block;'-->
+
+	<img src={project.data.imageTeam.src} alt="Project Image" class="projectImage"/>
+
+	<div class="projectText">
+
+		<p><b>TITLE: </b> <a href="https://www.youtube.com/embed/W7AJaQqIAE0?si=D3_BeB6ZyTDeGda7">{project.data.title}</a></p>
+		<!-- TODO: link to publications? or Github -->
+		
+		<p><b> TEAM MEMBERS: </b> {project.data.students.join(", ")} </p>
+		
+		<p><b> ADVISORS: </b>  {project.data.instructors.join(", ")} </p>
+		
+		<p><b> TECH: </b> {project.data.techs.join(", ")} </p>
+
+		<p><b> DIFFICULTY: </b> {project.data.difficulty.join(", ")} </p>
+		
+		<p><b> TARGET AUDIENCE: </b> {project.data.levels.join(", ")} </p>
+		
+		<p><b> DURATION: </b> {project.data.durationMins.join(" - ")} minutes</p>
+		
+		<p><b> PUBLISHED DATE:</b> {project.data.publishedDate} </p>
+		<!-- TODO: change format of date -->
+
+		<p>Read more on <a href={project.data.github} target="_blank">Github</a>.</p>
+
+	</div>
+
+    <Content />
+	</main>
+	
+</body>
+</html>

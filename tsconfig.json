@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "strictNullChecks": true,
+    "allowJs": true
   }
 }

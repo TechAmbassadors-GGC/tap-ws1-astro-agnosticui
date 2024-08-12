@@ -33,7 +33,7 @@ import Crumbs from '../../components/Crumbs.vue';
 import { getCollection } from 'astro:content';
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('posts');
+  const blogEntries = await getCollection('events');
   return blogEntries.map(entry => ({
     params: { slug: `${entry.data.year}/${entry.data.semester}/${entry.data.title}` }, props: { entry },
   }));
@@ -47,28 +47,12 @@ const postName = entry.data.title;
 const postTag = entry.data.tags;
 
 // Page title
-let title = `${entry.data.title} (${entry.data.publishedDate.toDateString()}) - GGC Technology Ambassadors Program`;
+let title = `${entry.data.title} (${entry.data.eventDate.toDateString()}) - GGC Technology Ambassadors Program`;
 
+import TAPDefaultLayout from "../../layouts/default.astro";
 ---
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
-	<title>{title}</title>
-
-	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-
-	<style>
-	</style>
-</head>
-<body>
-	<main>
-		<TAPHeader client:load />
-		<Crumbs pageType="post" pageUrl=`/posts/${entry.data.year}/${entry.data.semester}/${entry.data.title}` />
+<TAPDefaultLayout title={title}>
+	<Crumbs pageType="post" pageUrl=`/posts/${entry.data.year}/${entry.data.semester}/${entry.data.title}` />
     <h1>{entry.data.title}</h1>
     <Content />
-		
-	</main>
-	
-</body>
-</html>
+</TAPDefaultLayout>

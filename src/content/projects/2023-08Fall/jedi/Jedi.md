@@ -7,7 +7,7 @@ github: https://github.com/TAP-GGC/Jedi?tab=readme-ov-file
 students: [ Tony Lam, Etienne Laccruche, Ammar Mehicevic ]
 instructors: [Dr. Cindy Robertson, Dr. Anca Doloc-Mihu]
 techs: [sphero]
-videos: [https://youtu.be/W7AJaQqIAE0]
+videos: ["https://youtu.be/fTHYSRMObBw"]
 tags: []
 events: [tap-expo-fall23]
 semester: fall
@@ -17,8 +17,10 @@ difficulty: [Intermediate]
 durationMins: [60,90]
 publishedDate: 2024-03-08
 related-ids: []
-image: ./jedi-logo.jpg
+imageLogoLight: ./jedi-logo.jpg
+imageLogoDark: ./jedi-logo-dark.png
 imageTeam: ./JediGroupPhoto_cropped.jpg
+videoAd: "8odVRHWLpv4" 
 ---
 
 <!--Right text block, Project description -->	
@@ -28,8 +30,6 @@ The primary goal of this project is educating others about algorithms by program
 Sphero is a small robot ball that moves around by either remote control or code you feed it. This workshop is geared towards educating and creating interest in the IT field for non STEM majors. By engaging in our workshops, students will get to experiment with Sphero.edu and block coding, which allows them to learn about algorithms through relatable examples. 
 
 The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to break the misconceptions of the IT field by providing fun workshops for students of all backgrounds. TAP students design engaging and fun outreach workshops to encourage interest in IT and STEM.
-
-<iframe width=560 ;height="100%" src="https://www.youtube.com/embed/W7AJaQqIAE0?si=D3_BeB6ZyTDeGda7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width: 100%; height: 680px; margin-top: 2em;"></iframe>
 
 <!--content block, Activities, steps & materials -->
 
@@ -109,6 +109,8 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 </div>
 
 <!--CONTENT BLOCK -->
+
+<iframe width="560" class="youtube" src="https://www.youtube.com/embed/fTHYSRMObBw?si=5DyCDRpUBAxpnLX8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Project Setup & Installation:
 - [Installing Sphero Edu](https://github.com/TAP-GGC/Jedi/blob/main/Media/Installing%20Sphero%20Edu.pdf)
