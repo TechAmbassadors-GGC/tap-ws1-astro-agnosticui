@@ -29,7 +29,9 @@
   
   // load blog content: news, etc.
   import { getCollection } from 'astro:content';
+
   const events = await getCollection('posts');
+
   // Remove single slash as it causes double slashes in card
   const base = import.meta.env.BASE_URL == '/' ? '' : import.meta.env.BASE_URL;
   </script>

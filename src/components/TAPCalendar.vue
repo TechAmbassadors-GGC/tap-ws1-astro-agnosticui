@@ -16,9 +16,9 @@ import { Table  } from "agnostic-react";
 import "agnostic-vue/dist/index.css";
 import { Table } from "agnostic-vue";
 
-const createRow = (date, EVENTS) => ({
+const createRow = (date, events) => ({
   date,
-  EVENTS,
+  events,
 
 });
 
