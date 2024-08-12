@@ -4,7 +4,7 @@ id: tap-expo
 semester: spring
 year: 2024
 slug: tap-expo-spring24
-tags: [sphero,3d_modeling,VR]
+tags: [sphero,3d_modeling,VR,AR, makey-makey,]
 publishedDate: 2024-02-29
 ---
 
