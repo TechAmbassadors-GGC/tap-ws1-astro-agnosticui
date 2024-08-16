@@ -18,12 +18,12 @@ const props = defineProps({
     });
 const projects = props.projectList;
 const search_text = ref("");
-const level = ref(['Any']);
+const level = props.filter?.level ? ref([props.filter.level]) : ref(['Any']);
 const year =  props.filter?.year ? ref([props.filter.year]) : ref(['Any']);
 const semester =  props.filter?.semester ? ref([props.filter.semester]) : ref(['Any']);
 const tech = props.filter?.tech ? ref([props.filter.tech]) : ref(['Any']);
 const duration = ref(['Any']);
-const difficulty = ref(['Any']);
+const difficulty = props.filter?.difficulty ? ref([props.filter.difficulty]) : ref(['Any']);
 
 //Step 1 => get list of instructors in a set to avoid duplication
 //Step 2 => place them in an object {value = ?, label = ?} to feed into a select option
