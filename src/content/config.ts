@@ -40,6 +40,7 @@ const projectCollection = defineCollection({
     relatedIds: z.array(z.string()).optional(),
     imageLogoLight: image().refine(imageLogoValidator, imageLogoValidatorMsg), // mandatory
     imageLogoDark: image().refine(imageLogoValidator, imageLogoValidatorMsg).optional(),
+    imageLogoTrans: image().refine(imageLogoValidator, imageLogoValidatorMsg).nullable(),
     imageTeam: image().refine((img) => img.width >= 500, {
       message: "Cover image must be at least 500 pixels wide!",
       // This part of the config file needs to be reviewed and changed at a later date.

@@ -71,6 +71,8 @@ const showIframe = project.data.videoAd ? true : false; // Check if videoAd exis
 // Github button
 import { Button, ButtonGroup } from 'agnostic-vue';
 import githubLogo from '/public/assets/github.svg';
+import Logo from '../../components/astro/Logo.astro';
+
 
 ---
 <TAPDefaultLayout title={title}>
@@ -85,6 +87,7 @@ import githubLogo from '/public/assets/github.svg';
 	<div class="projectText">
 		
 		<!-- TODO: link to publications? or Github -->
+		<img src={project.data.imageLogoTrans.src} alt="Project Logo" class="projectLogoTrans"/>
 		
 		<p><b> TEAM MEMBERS: </b> {project.data.students.join(", ")} </p>
 		
@@ -159,6 +162,10 @@ import githubLogo from '/public/assets/github.svg';
 		float: left;
 		padding-bottom: 0.5em;
 		padding-right: 0.5em;
+	}
+
+	.projectLogoTrans{
+		width: clamp(5em, 100%, 10em);
 	}
 
 	.projectText {
