@@ -36,7 +36,7 @@ export async function getStaticPaths() {
   let slugs = new Array();
 
   
-  // New algorithm: find unique tech combinations
+// New algorithm: find unique tech combinations
   let projectDiff = {};
   projects.forEach(project => {
     project.data.difficulty.forEach(diff => {
@@ -49,7 +49,7 @@ export async function getStaticPaths() {
 
   Object.keys(projectDiff).forEach(diff => {
     slugs.push({	
-      params: { "projectDiff": `${diff}` },
+    params: { "projectDifficulty": `${diff}` },
       props: { "diff": diff, "projects": projectDiff[diff] }
     });
   });
