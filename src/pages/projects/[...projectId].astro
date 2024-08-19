@@ -101,9 +101,23 @@ import githubLogo from '/public/assets/github.svg';
 			))}
 		  </p>
 
-		<p><b> DIFFICULTY: </b> {project.data.difficulty.join(", ")} </p>
+		<p><b> DIFFICULTY: </b> 
+			{project.data.difficulty.map((diff, index) =>(
+			<>
+			<a href={`/difficulties/${diff}`}>{diff}</a>
+			{index < project.data.difficulty.length - 1 ? ", " : ""}
+			</>
+			))} 
+		</p>
 		
-		<p><b> TARGET AUDIENCE: </b> {project.data.levels.join(", ")} </p>
+		<p><b> TARGET AUDIENCE: </b>
+			{project.data.levels.map((level, index) =>(
+				<>
+				<a href={`/levels/${level}`}>{level}</a>
+				{index < project.data.levels.length - 1 ? ", " : ""}
+				</>
+			))} 
+		</p>
 		
 		<p><b> DURATION: </b> {project.data.durationMins.join(" - ")} minutes</p>
 		
