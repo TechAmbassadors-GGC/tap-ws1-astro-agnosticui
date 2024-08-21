@@ -80,7 +80,9 @@ import githubLogo from '/public/assets/github.svg';
 	{ project.data.shortTitle && (
 		<h2 class="projectSubtitle"> {project.data.title} </h2>
 	)}
-	<img src={project.data.imageTeam.src} alt="Project Image" class="projectImage"/>
+	<!-- <img src={project.data.imageTeam.src} alt="Project Image" class="projectImage"/> -->
+	
+	<img src={project.data.imageLogoTrans ? project.data.imageLogoTrans.src : project.data.imageLogoLight.src} alt="Transparent Logo" class="TransparentLogo"/>
 
 	<div class="projectText">
 		
@@ -156,6 +158,14 @@ import githubLogo from '/public/assets/github.svg';
 	.projectImage {
 		margin-right: 1em;
 		width: clamp(25em, 50%, 45em);
+		float: left;
+		padding-bottom: 0.5em;
+		padding-right: 0.5em;
+	}
+
+	.TransparentLogo{
+		margin-right: 1em;
+		width: clamp(15em, 50%, 25em);
 		float: left;
 		padding-bottom: 0.5em;
 		padding-right: 0.5em;
