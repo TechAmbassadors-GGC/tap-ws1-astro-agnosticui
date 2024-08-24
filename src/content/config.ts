@@ -46,6 +46,7 @@ const projectCollection = defineCollection({
       // This part of the config file needs to be reviewed and changed at a later date.
     }).optional(),
     videoAd: z.string().optional(),
+    curator: z.array(z.string()).optional(), //the student who created the project entry
   }),
 });
 
