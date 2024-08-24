@@ -70,7 +70,13 @@ const showIframe = project.data.videoAd ? true : false; // Check if videoAd exis
 // Github button
 import { Button, ButtonGroup } from 'agnostic-vue';
 import githubLogo from '/public/assets/github.svg';
-
+// Logos
+let imageLogoLight = project.data.imageLogoLight?.src;
+let imageLogoDark = project.data.imageLogoDark ? project.data.imageLogoDark.src : imageLogoLight;
+imageLogoLight = imageLogoLight ? imageLogoLight : imageLogoDark; // in case only dark is provided
+const imageLogoTrans = project.data.imageLogoTrans?.src;
+imageLogoLight = imageLogoTrans ? imageLogoTrans : imageLogoLight;
+imageLogoDark = imageLogoTrans ? imageLogoTrans : imageLogoDark;
 ---
 <TAPDefaultLayout title={title}>
 	<Crumbs pageType="project" pageUrl=`/projects/${projYear}/${projSemester}/${project.data.id}`/>
@@ -79,8 +85,12 @@ import githubLogo from '/public/assets/github.svg';
 	{ project.data.shortTitle && (
 		<h2 class="projectSubtitle"> {project.data.title} </h2>
 	)}
-	<img src={project.data.imageTeam.src} alt="Project Image" class="projectImage"/>
-
+	<!-- <img src={project.data.imageTeam.src} alt="Project Image" class="projectImage"/> -->
+	
+	<!-- <img src={project.data.imageLogoTrans ? project.data.imageLogoTrans.src : project.data.imageLogoLight.src} alt="Transparent Logo" class="TransparentLogo"/> -->
+	<img src= {imageLogoLight} alt="Project Image" class="TransparentLogo imageLight">
+    <img src= {imageLogoDark} alt="Project Image" class="TransparentLogo imageDark">
+	
 	<div class="projectText">
 		
 		<!-- TODO: link to publications? or Github -->
@@ -169,6 +179,14 @@ import githubLogo from '/public/assets/github.svg';
 	.projectImage {
 		margin-right: 1em;
 		width: clamp(25em, 50%, 45em);
+		float: left;
+		padding-bottom: 0.5em;
+		padding-right: 0.5em;
+	}
+
+	.TransparentLogo{
+		margin-right: 1em;
+		width: clamp(15em, 50%, 25em);
 		float: left;
 		padding-bottom: 0.5em;
 		padding-right: 0.5em;
