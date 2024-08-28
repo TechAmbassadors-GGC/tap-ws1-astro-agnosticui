@@ -1,3 +1,4 @@
+
 <template>
     
         <Card
@@ -23,6 +24,7 @@
   import { computed, ref } from "vue";
   // Components CSS
   import "agnostic-vue/dist/index.css";
+  import '../styles/global.css';
   import { Card } from "agnostic-vue";
   
   // load blog content: news, etc.

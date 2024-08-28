@@ -1,13 +1,7 @@
 ---
 // Style Imports
 import '../styles/global.css';
-import '@fontsource/source-sans-pro';
-import '@fontsource/pixelify-sans';
-import '@fontsource/ibm-plex-mono';
 import '@fontsource/work-sans';
-import '@fontsource/cormorant-garamond';
-import '@fontsource/spectral';
-import '@fontsource/crimson-pro';
 import '@fontsource/alfa-slab-one';
 
 // common.min.css is distributed with agnostic-react
@@ -56,11 +50,16 @@ let bodyClass = Astro.props.class;
 </head>
 
 <body class={bodyClass}>
+	<header class = "custom-header">
 	<TAPHeader client:load />
-
+	</header>
+	
 	<main>
-        <slot/>
+		<section>
+       	 <slot/>
+		</section>
 	</main>
+
 	<TAPFooter client:load />
 
 </body>
