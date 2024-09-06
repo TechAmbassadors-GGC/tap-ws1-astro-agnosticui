@@ -30,12 +30,18 @@ const truncatedDescription = computed(() => {
 <template>
     <a :href="`/projects/${item.data.year}/${item.data.semester}/${item.data.id}`" class="card-link" isShadow>
         <Card css="projectCard" isShadow>
-            
-            <img :src="imageLogoLight" alt="Project Image" class="projectImage imageLight">
-            <img :src="imageLogoDark" alt="Project Image" class="projectImage imageDark">
-
             <div class="projectText">                        
+
+                <img :src="imageLogoLight" alt="Project Image" class="projectImage imageLight">
+                <img :src="imageLogoDark" alt="Project Image" class="projectImage imageDark">
+
                 <h4 class="projectTitle">{{ item.data.shortTitle ? item.data.shortTitle : item.data.title }}</h4>
+
+                <!-- Display Techs as Tags -->
+                <p><em>Techs:</em></p>
+                <div class="tag-container">
+                    <span v-for="(tech, index) in item.data.techs" :key="index" class="tag">{{ tech }}</span>
+                </div>
 
                 <p class="description">{{ truncatedDescription }}</p>
 
@@ -45,13 +51,7 @@ const truncatedDescription = computed(() => {
                     <span v-for="(student, index) in item.data.students" :key="index" class="tag">{{ student }}</span>
                 </div>
 
-                <!-- Display Techs as Tags -->
-                <p><em>Techs:</em></p>
-                <div class="tag-container">
-                    <span v-for="(tech, index) in item.data.techs" :key="index" class="tag">{{ tech }}</span>
-                </div>
-
-                <p><em>Pulished:</em> {{ item.data.publishedDate}}</p>
+              <p><em>Pulished:</em> {{ item.data.publishedDate.toDateString() }}</p>
             
                 <!-- <p>{{ item.data.semester.charAt(0).toUpperCase() + item.data.semester.slice(1) }} {{ item.data.year }}</p> -->
 
@@ -63,15 +63,17 @@ const truncatedDescription = computed(() => {
 
 
 <style scoped>
+
 .projectImage {
-    /*float: left;*/
+  --project-logo-width: 14em;
+    float: left;
     margin-right: 1em;
     width: var(--project-logo-width);
 }
 
 .projectText {
     text-align: left; /* or justify? */
-    width: calc(100% - var(--project-logo-width) - 1em);
+    width: calc(100% - 1em); /* - var(--project-logo-width) */
 }
 
 .projectText p {

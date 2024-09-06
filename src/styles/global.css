@@ -11,8 +11,7 @@
 
 :root {
 	font-size: clamp(0.575rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem);
-  --agnostic-header-content-width: 75vw; /* set minimum size of header menu - set to percent of viewport width */
-  --project-logo-width: 14em;
+  --agnostic-header-content-width: 75vw; /* set minimum size of header menu - set to percent of viewport width */  
 }
 
 body {
@@ -54,7 +53,7 @@ main {
   justify-content: space-evenly;
   align-items: center;
   justify-items: center;
-  width: clamp(26ch, 75%, 100%);
+  width: clamp(26ch, 90%, 100%);
 }
 
 h2 {
