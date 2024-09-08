@@ -17,39 +17,63 @@ let imageLogoLight = projectProp.item.data.imageLogoLight?.src;
 const imageLogoDark = projectProp.item.data.imageLogoDark ? projectProp.item.data.imageLogoDark.src : imageLogoLight;
 imageLogoLight = imageLogoLight ? imageLogoLight : imageLogoDark; // in case only dark is provided
 
+// Truncate description to a fixed number of characters
+const maxDescriptionLength = 100; // Adjust the length as needed
+const truncatedDescription = computed(() => {
+  const desc = projectProp.item.data.desc || '';
+  return desc.length > maxDescriptionLength
+    ? desc.substring(0, maxDescriptionLength) + '...'
+    : desc;
+});
 </script>
 
 <template>
-    <Card css="projectCard" isShadow>
-        
-        <img :src="imageLogoLight" alt="Project Image" class="projectImage imageLight">
-        <img :src="imageLogoDark" alt="Project Image" class="projectImage imageDark">
+    <a :href="`/projects/${item.data.year}/${item.data.semester}/${item.data.id}`" class="card-link" isShadow>
+        <Card css="projectCard" isShadow>
+            <div class="projectText">                        
 
-        <div class="projectText">                        
-            <h4 class="projectTitle"><a :href="`/projects/${item.data.year}/${item.data.semester}/${item.data.id}`">{{ item.data.shortTitle ? item.data.shortTitle : item.data.title }}</a></h4>
+                <img :src="imageLogoLight" alt="Project Image" class="projectImage imageLight">
+                <img :src="imageLogoDark" alt="Project Image" class="projectImage imageDark">
 
-            {{item.data.desc}}
+                <h4 class="projectTitle">{{ item.data.shortTitle ? item.data.shortTitle : item.data.title }}</h4>
 
-            <p><em>Techs:</em> {{ item.data.techs.join(", ") }}</p>
+                <div class="dateStamp">{{ item.data.publishedDate.toDateString().slice(4) }}</div>
+
+                <!-- Display Techs as Tags -->
+                <p><em>Techs:</em></p>
+                <div class="tag-container">
+                    <a v-for="(tech, index) in item.data.techs" :key="index" :href="`/techs/${tech}`" class="tag" >{{ tech }}</a>
+                </div>
+
+                <p class="description">{{ truncatedDescription }}</p>
+
+                <!-- Display students as Tags (disable for now)
+                <p><em>Students:</em></p>
+                <div class="tag-container">
+                    <a v-for="(student, index) in item.data.students" :key="index" :href="`/students/${student}`" class="tag">{{ student }}</a>
+                </div>-->
             
-            <p>{{ item.data.semester.charAt(0).toUpperCase() + item.data.semester.slice(1) }} {{ item.data.year }}</p>
+                <!-- <p>{{ item.data.semester.charAt(0).toUpperCase() + item.data.semester.slice(1) }} {{ item.data.year }}</p> -->
 
-            <p><a href="`${item.data.github}`">Github link</a></p>
-        </div>
-    </Card>
+                <!-- <p><a href="`${item.data.github}`">Github link</a></p> -->
+            </div>
+        </Card>
+    </a>
 </template>
 
 
 <style scoped>
+
 .projectImage {
-    /*float: left;*/
+    --project-logo-width: 14em;
+    float: left;
     margin-right: 1em;
     width: var(--project-logo-width);
 }
 
 .projectText {
     text-align: left; /* or justify? */
-    width: calc(100% - var(--project-logo-width) - 1em);
+    width: calc(100% ); /* - var(--project-logo-width) - 1em  */
 }
 
 .projectText p {
@@ -65,12 +89,64 @@ imageLogoLight = imageLogoLight ? imageLogoLight : imageLogoDark; // in case onl
   max-width: 40rem;
   margin: 0.5em;
   padding: 1em 1em 1em;
-  flex: 1;
+  /*flex: 1; since .card-link  is now the flex component */
   background-color: var(--agnostic-gray-mid);
+  transition: transform 0.2s ease-in;
+}
+
+.projectCard:hover{
+    transform: translateY(-3px);
+
 }
 
 .projectCard h4 {
     margin-bottom: 0.5em;
+}
+
+/* Tag Styling */
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.25em 0.75em;
+  font-size: 0.875em;
+  background-color: var(--agnostic-primary);
+  color: var(--agnostic-btn-primary-color, var(--agnostic-light));
+  border-radius: var(--agnostic-btn-radius, var(--agnostic-radius, .25rem));
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-decoration: none; /* Remove underline from links */
+}
+
+/* Save this until we can have links for each tag */
+.tag:hover {
+  background-color: #0056b3;
+  color: var(--agnostic-btn-hover-color, white); /* Change color on hover */
+
+}
+
+/* Ensure the card link covers the entire card and removes default anchor styling */
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  pointer-events: none;
+}
+
+.card-link .projectCard {
+  pointer-events: auto; /* Allow the card itself to be clickable */
+}
+
+/* Date shown to the right and small */
+.dateStamp {
+  text-align: right;
+  font-style: italic;
+  font-size: small;
+  height: 0;
+  margin: 0;
 }
 </style>
 
