@@ -70,6 +70,7 @@ const showIframe = project.data.videoAd ? true : false; // Check if videoAd exis
 // Github button
 import { Button, ButtonGroup } from 'agnostic-vue';
 import githubLogo from '/public/assets/github.svg';
+import VideoAd from '../../components/astro/VideoAd.astro';
 
 ---
 <TAPDefaultLayout title={title}>
@@ -141,6 +142,9 @@ import githubLogo from '/public/assets/github.svg';
 		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
 		referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 	)} -->
+
+	{/* Video Ad */}
+	<VideoAd src={project.data.videoAd} showIframe={true}></VideoAd>
 
 
     <Content />
