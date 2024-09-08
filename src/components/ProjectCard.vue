@@ -37,6 +37,8 @@ const truncatedDescription = computed(() => {
 
                 <h4 class="projectTitle">{{ item.data.shortTitle ? item.data.shortTitle : item.data.title }}</h4>
 
+                <div class="dateStamp">{{ item.data.publishedDate.toDateString().slice(4) }}</div>
+
                 <!-- Display Techs as Tags -->
                 <p><em>Techs:</em></p>
                 <div class="tag-container">
@@ -45,13 +47,11 @@ const truncatedDescription = computed(() => {
 
                 <p class="description">{{ truncatedDescription }}</p>
 
-                <!-- Display students as Tags -->
+                <!-- Display students as Tags (disable for now)
                 <p><em>Students:</em></p>
                 <div class="tag-container">
                     <a v-for="(student, index) in item.data.students" :key="index" :href="`/students/${student}`" class="tag">{{ student }}</a>
-                </div>
-
-              <p><em>Pulished:</em> {{ item.data.publishedDate.toDateString() }}</p>
+                </div>-->
             
                 <!-- <p>{{ item.data.semester.charAt(0).toUpperCase() + item.data.semester.slice(1) }} {{ item.data.year }}</p> -->
 
@@ -65,7 +65,7 @@ const truncatedDescription = computed(() => {
 <style scoped>
 
 .projectImage {
-  --project-logo-width: 14em;
+    --project-logo-width: 14em;
     float: left;
     margin-right: 1em;
     width: var(--project-logo-width);
@@ -73,7 +73,7 @@ const truncatedDescription = computed(() => {
 
 .projectText {
     text-align: left; /* or justify? */
-    width: calc(100% - 1em); /* - var(--project-logo-width) */
+    width: calc(100% ); /* - var(--project-logo-width) - 1em  */
 }
 
 .projectText p {
@@ -89,7 +89,7 @@ const truncatedDescription = computed(() => {
   max-width: 40rem;
   margin: 0.5em;
   padding: 1em 1em 1em;
-  flex: 1;
+  /*flex: 1; since .card-link  is now the flex component */
   background-color: var(--agnostic-gray-mid);
   transition: transform 0.2s ease-in;
 }
@@ -138,6 +138,15 @@ const truncatedDescription = computed(() => {
 
 .card-link .projectCard {
   pointer-events: auto; /* Allow the card itself to be clickable */
+}
+
+/* Date shown to the right and small */
+.dateStamp {
+  text-align: right;
+  font-style: italic;
+  font-size: small;
+  height: 0;
+  margin: 0;
 }
 </style>
 
