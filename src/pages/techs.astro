@@ -1,0 +1,57 @@
+---
+// Style Imports
+import '../styles/global.css';
+
+// common.min.css is distributed with agnostic-react
+// and agnostic-svelte too. But, since we're using all
+// of these together, we only need to import global CSS
+// once and in one place.
+// common.min.css combines properties, resets, utilities
+// import "agnostic-vue/dist/common.min.css";
+// But!! Rob much prefers individual modular import ;)
+import "agnostic-vue/dist/common.properties.min.css";
+import "agnostic-vue/dist/common.resets.min.css";
+import "agnostic-vue/dist/common.utilities.min.css";
+import "agnostic-vue/dist/opinions.min.css";
+
+
+// Component Imports
+import "agnostic-vue/dist/index.css";
+import TAPDefaultLayout from "../layouts/default.astro";
+import ProjectSearch from "../components/ProjectSearch.vue";
+import { Input } from "agnostic-vue";
+import Crumbs from '../components/Crumbs.vue';
+import { getCollection } from 'astro:content';
+import TechTable from '../components/vue/TechTable.vue';
+
+// Fetch the projects and build the tech counts
+const projects = await getCollection('projects');
+let techCounts = {};
+
+// Build tech counts from the projects
+projects.forEach(project => {
+  project.data.techs.forEach(tech => {
+    if (!techCounts[tech]) {
+      techCounts[tech] = 0;
+    }
+    techCounts[tech]++;
+  });
+});
+
+// Prepare the data for TechTable
+const techProjectsData = Object.keys(techCounts).map(tech => ({
+  tech,
+  count: techCounts[tech],
+  projects: projects.filter(project => project.data.techs.includes(tech)),
+}));
+
+---
+<TAPDefaultLayout title="Technologies">
+  <Crumbs pageType="techs" pageUrl="/techs" />
+    
+  <h2>Technologies Used in Projects</h2>
+  
+  <!-- Pass the combined tech and project data to TechTable -->
+  <TechTable client:load projects={techProjectsData} />
+
+</TAPDefaultLayout>

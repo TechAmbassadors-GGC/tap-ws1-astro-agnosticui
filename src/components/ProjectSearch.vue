@@ -18,6 +18,8 @@ const props = defineProps({
     });
 const projects = props.projectList;
 const search_text = ref("");
+const student = props.filter?.student ? ref([props.filter.student]) : ref(['Any']);
+const instructor = props.filter?.instructor ? ref([props.filter.instructor]) : ref(['Any']);
 const level = props.filter?.level ? ref([props.filter.level]) : ref(['Any']);
 const year =  props.filter?.year ? ref([props.filter.year]) : ref(['Any']);
 const semester =  props.filter?.semester ? ref([props.filter.semester]) : ref(['Any']);
