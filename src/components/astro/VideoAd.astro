@@ -1,0 +1,23 @@
+---
+interface Props {
+  src:string;
+  showIframe: boolean;
+}
+
+const { src, showIframe } = Astro.props;
+---
+
+<section class="video-section">
+  {showIframe && (
+    <iframe
+      width="560"
+      class="youtube"
+      src={`https://www.youtube.com/embed/${src}`}
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+  )}
+</section>

@@ -70,6 +70,7 @@ const showIframe = project.data.videoAd ? true : false; // Check if videoAd exis
 // Github button
 import { Button, ButtonGroup } from 'agnostic-vue';
 import githubLogo from '/public/assets/github.svg';
+import VideoAd from '../../components/astro/VideoAd.astro';
 // Logos
 let imageLogoLight = project.data.imageLogoLight?.src;
 let imageLogoDark = project.data.imageLogoDark ? project.data.imageLogoDark.src : imageLogoLight;
@@ -145,12 +146,17 @@ imageLogoDark = imageLogoTrans ? imageLogoTrans : imageLogoDark;
 
 	</div>
 
-	{showIframe && (
+	<!-- {showIframe && (
 		<iframe width="560" class="youtube" src={`https://www.youtube.com/embed/${project.data.videoAd}`}
 		title="YouTube video player" frameborder="0" 
 		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
 		referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-	)}
+	)} -->
+
+	{/* Video Ad */}
+	<VideoAd src={project.data.videoAd} showIframe={true}></VideoAd>
+
+
     <Content />
 </div>
 	

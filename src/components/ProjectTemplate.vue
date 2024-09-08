@@ -15,10 +15,10 @@ function createOptions(projects, x) {
     projects.forEach(arrayContainer =>{
         if(Array.isArray(arrayContainer.data[x])){
             arrayContainer.data[x].forEach(element =>{
-            optionSet.add(element);
+            optionSet.add(String(element).toLowerCase());
         });
         }else{
-            optionSet.add(arrayContainer.data[x]);
+            optionSet.add(String(arrayContainer.data[x]).toLowerCase());
         }
         
     });
@@ -139,7 +139,8 @@ function addTerm(termRef, inputField){
             category = selectedVids;
             break;
     }
-    if(inputField != ''){
+    inputField = inputField.toLowerCase(); // Convert input to lowercase
+    if(inputField != ''&& !category.value.includes(inputField)){
         console.log(typeof inputField);
         category.value.push(inputField);
         this[termRef] = '';
@@ -174,7 +175,8 @@ function removeTag2(arrayRef, index){
 //     }
 // }
 const addTag = (tag) =>{
-    if(tag != ''){
+    tag = tag.toLowerCase(); // Convert to lowercase
+    if(tag != ''&& !techTags.value.includes(tag)){
         techTags.value.push(tag);
         techTerm.value= '';
     }
