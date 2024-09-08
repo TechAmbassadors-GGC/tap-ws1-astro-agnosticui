@@ -7,11 +7,10 @@ interface Props {
 const { src, showIframe } = Astro.props;
 ---
 
-<section class="video-section">
+<section>
   {showIframe && (
     <iframe
-      width="560"
-      class="youtube"
+      class="video-section"
       src={`https://www.youtube.com/embed/${src}`}
       title="YouTube video player"
       frameborder="0"
@@ -21,3 +20,10 @@ const { src, showIframe } = Astro.props;
     ></iframe>
   )}
 </section>
+<style>
+    .video-section{
+    width: 100%; 
+    max-width: 800px; 
+    height: 450px;
+    }
+</style>
