@@ -40,7 +40,7 @@ const truncatedDescription = computed(() => {
                 <!-- Display Techs as Tags -->
                 <p><em>Techs:</em></p>
                 <div class="tag-container">
-                    <span v-for="(tech, index) in item.data.techs" :key="index" class="tag">{{ tech }}</span>
+                    <a v-for="(tech, index) in item.data.techs" :key="index" :href="`/techs/${tech}`" class="tag" >{{ tech }}</a>
                 </div>
 
                 <p class="description">{{ truncatedDescription }}</p>
@@ -48,7 +48,7 @@ const truncatedDescription = computed(() => {
                 <!-- Display students as Tags -->
                 <p><em>Students:</em></p>
                 <div class="tag-container">
-                    <span v-for="(student, index) in item.data.students" :key="index" class="tag">{{ student }}</span>
+                    <a v-for="(student, index) in item.data.students" :key="index" :href="`/students/${student}`" class="tag">{{ student }}</a>
                 </div>
 
               <p><em>Pulished:</em> {{ item.data.publishedDate.toDateString() }}</p>
@@ -117,13 +117,16 @@ const truncatedDescription = computed(() => {
   background-color: var(--agnostic-primary);
   color: var(--agnostic-btn-primary-color, var(--agnostic-light));
   border-radius: var(--agnostic-btn-radius, var(--agnostic-radius, .25rem));
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-decoration: none; /* Remove underline from links */
 }
 
 /* Save this until we can have links for each tag */
-/* .tag:hover {
+.tag:hover {
   background-color: #0056b3;
-} */
+  color: var(--agnostic-btn-hover-color, white); /* Change color on hover */
+
+}
 
 /* Ensure the card link covers the entire card and removes default anchor styling */
 .card-link {
