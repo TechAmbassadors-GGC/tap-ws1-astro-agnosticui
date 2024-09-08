@@ -13,8 +13,9 @@
 :root {
 	font-size: clamp(0.575rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem);
   --primary-accent-color: #369d53; /* green */
-  --secondary-blue: #4242e6; /* Complementary blue */
-  --secondary-orange: #fdb623; /* golden orange */
+  --tertiary-blue: #4242e6; /* Complementary blue */
+  --secondary-yellow: #fdb623; /* golden orange */
+  --accent-orange: #ed5936; /*orange*/
   --text-color: #000; /* Default text color */
   --background-color: #fff; /* Default background color */
   
@@ -33,16 +34,17 @@ header {
 }
 
 /* HeaderNav Styling */
-.header-nav a {
+button, a {
   color: var(--text-color);
+  text-decoration: underline;
+}
+
+button, a:hover {
+  color: var(--secondary-yellow);
   text-decoration: none;
 }
 
-.header-nav a:hover {
-  color: var(--secondary-orange);
-}
-
-header-nav a:visited {
+button,a:visited {
   color: var(--secondary-blue);
   text-decoration: none;
 }

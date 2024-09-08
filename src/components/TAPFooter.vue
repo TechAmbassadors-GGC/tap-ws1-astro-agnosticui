@@ -42,19 +42,21 @@ const year = ref(new Date().getFullYear());
         </div> 
 
         <!--- col 3 --->
-        <div class="footer-column" style="text-align: left;"> 
-          <h4>Contact Us</h4>
-          <ul>
-            <li>Email: <a href="mailto:admin@tapggc.org" target="_blank">admin@tapggc.org</a></li>
-            <li>Address: 1000 University Center Ln, Lawrenceville, GA 30043</li>
-          </ul>
+        <div class="footer-column" style=""> 
+          <div class="contact">
+            <h4>Contact Us</h4>
+            <ul>
+              <li>Email: <a href="mailto:admin@tapggc.org" target="_blank">admin@tapggc.org</a></li>
+              <li>Address: 1000 University Center Ln, Lawrenceville, GA 30043</li>
+            </ul>
           
-          <h4>Follow Us</h4>
-          <ul class="social-media-icons">
-            <li><a href="#" target="_blank" rel="noopener noreferrer"><img :src= "`${base}/logos/facebook-logo.svg`" alt="Facebook Logo"></a></li>
-            <li><a href="#" target="_blank" rel="noopener noreferrer"><img :src= "`${base}/logos/instagram-logo.svg`" alt="Instagram Logo"></a></li>
-            <li><a href="#" target="_blank" rel="noopener noreferrer"><img :src= "`${base}/logos/linkedin-logo.svg`" alt="LinkedIn Logo"></a></li>
-          </ul>
+            <h4>Follow Us</h4>
+            <ul class="social-media-icons">
+              <li><a href="#" target="_blank" rel="noopener noreferrer"><img :src= "`${base}/logos/facebook-logo.svg`" alt="Facebook Logo"></a></li>
+              <li><a href="#" target="_blank" rel="noopener noreferrer"><img :src= "`${base}/logos/instagram-logo.svg`" alt="Instagram Logo"></a></li>
+              <li><a href="#" target="_blank" rel="noopener noreferrer"><img :src= "`${base}/logos/linkedin-logo.svg`" alt="LinkedIn Logo"></a></li>
+            </ul>
+          </div> 
         </div> 
       </div> 
       <!--end of footer colums -->
@@ -67,22 +69,17 @@ const year = ref(new Date().getFullYear());
 </template>
 
 <style scoped>
-.footer-container{
-    /* display: flex;
-    flex-direction: row;
-    align-items: center;   
-    bottom: 0;
-    justify-content: space-between;
-    padding: 1em;
-    width: 100%;
-    flex-flow: row wrap;
 
-    margin-top: 0.25em; */
-    
+
+.footer-container{
+    display: inline-flex;
+    padding: 0 3em;
+    width: 100%;
+    align-content: center;
+
 }
 
 .footer-columns {
-  align-items: center;
   justify-content: center;
 
 }
@@ -93,13 +90,13 @@ const year = ref(new Date().getFullYear());
   /* min-width: 250px; */
   box-sizing: border-box;
   text-align: center;
-  min-width: 35rem !important;
-  max-width: 40rem;
+  min-inline-size: 35rem;
+  max-inline-size: 100%;
 }
 
 h4 {
   margin-bottom: 1em;
-  font-size: 1.25em;
+  font-size: 1.75em;
 }
 
 ul {
@@ -109,51 +106,42 @@ ul {
 
 .footer-column ul li {
   margin-bottom: 1em;
-  /* justify-content: space-evenly; */
+  justify-content: space-evenly;
+}
+.contact li{
+  display: block;
+  margin: 0 2rem;
+  text-align: right;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .social-media-icons li {
   display: inline-block;
-  margin-right: 7px;
+  margin: 0 4px;
 }
 
 .social-media-icons li a img{
-  height: 32px;
+  height: 40px;
 }
 
-/* .nsf-statement {
-  font-size: 12px;
-} */
 
-.nsf-statement p {
-  margin-bottom: 4px;
-}
+.nsf-statement {
+  margin-top: 5rem;
+  font-size: 18px;
+  flex-flow: row wrap;
+} 
 
 .nsf-statement a img{
-  height: 52px;
+  height: 60px;
 }
 .tap-logo a img{
-  height: 250px;
+  height: 230px;
 }
 
 .copyright {
   text-align: center;
-  margin-top: 1em;
+  margin: 1em;
 }
-
-/* Responsive Design */
-/* @media (max-width: 768px) {
-  .footer-columns {
-    flex-direction: column;
-  }
-
-  .footer-column {
-    flex: 1 0 100%;
-    max-width: 100%;
-    margin-bottom: 1em;
-    text-align: center;
-    
-  } */
-/* } */
 
 </style>
