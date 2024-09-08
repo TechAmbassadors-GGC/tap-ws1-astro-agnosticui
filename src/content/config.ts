@@ -27,6 +27,7 @@ const projectCollection = defineCollection({
     github: z.string().optional(),
     students: z.array(z.string()),
     instructors: z.array(z.string()),
+    curator: z.array(z.string()).optional(),
     techs: z.array(z.string()),
     videos: z.array(z.string()).optional(),
     tags: z.array(z.string()).optional(),
