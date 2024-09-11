@@ -28,37 +28,38 @@ const truncatedDescription = computed(() => {
 </script>
 
 <template>
-    <a :href="`/projects/${item.data.year}/${item.data.semester}/${item.data.id}`" class="card-link" isShadow>
-        <Card css="projectCard" isShadow>
-            <div class="projectText">                        
+    
+    <Card css="projectCard" isShadow>
+        <a :href="`/projects/${item.data.year}/${item.data.semester}/${item.data.id}`" class="card-link" isShadow></a>
+        <div class="projectText">                        
 
-                <img :src="imageLogoLight" alt="Project Image" class="projectImage imageLight">
-                <img :src="imageLogoDark" alt="Project Image" class="projectImage imageDark">
+            <img :src="imageLogoLight" alt="Project Image" class="projectImage imageLight">
+            <img :src="imageLogoDark" alt="Project Image" class="projectImage imageDark">
 
-                <h4 class="projectTitle">{{ item.data.shortTitle ? item.data.shortTitle : item.data.title }}</h4>
+            <h4 class="projectTitle">{{ item.data.shortTitle ? item.data.shortTitle : item.data.title }}</h4>
 
-                <div class="dateStamp">{{ item.data.publishedDate.toDateString().slice(4) }}</div>
+            <div class="dateStamp">{{ item.data.publishedDate.toDateString().slice(4) }}</div>
 
-                <!-- Display Techs as Tags -->
-                <p><em>Techs:</em></p>
-                <div class="tag-container">
-                    <a v-for="(tech, index) in item.data.techs" :key="index" :href="`/techs/${tech}`" class="tag" >{{ tech }}</a>
-                </div>
-
-                <p class="description">{{ truncatedDescription }}</p>
-
-                <!-- Display students as Tags (disable for now)
-                <p><em>Students:</em></p>
-                <div class="tag-container">
-                    <a v-for="(student, index) in item.data.students" :key="index" :href="`/students/${student}`" class="tag">{{ student }}</a>
-                </div>-->
-            
-                <!-- <p>{{ item.data.semester.charAt(0).toUpperCase() + item.data.semester.slice(1) }} {{ item.data.year }}</p> -->
-
-                <!-- <p><a href="`${item.data.github}`">Github link</a></p> -->
+            <!-- Display Techs as Tags -->
+            <p><em>Techs:</em></p>
+            <div class="tag-container">
+                <a v-for="(tech, index) in item.data.techs" :key="index" :href="`/techs/${tech}`" class="tag" >{{ tech }}</a>
             </div>
-        </Card>
-    </a>
+
+            <p class="description">{{ truncatedDescription }}</p>
+
+            <!-- Display students as Tags (disable for now)
+            <p><em>Students:</em></p>
+            <div class="tag-container">
+                <a v-for="(student, index) in item.data.students" :key="index" :href="`/students/${student}`" class="tag">{{ student }}</a>
+            </div>-->
+        
+            <!-- <p>{{ item.data.semester.charAt(0).toUpperCase() + item.data.semester.slice(1) }} {{ item.data.year }}</p> -->
+
+            <!-- <p><a href="`${item.data.github}`">Github link</a></p> -->
+        </div>
+    </Card>
+    
 </template>
 
 
@@ -119,6 +120,7 @@ const truncatedDescription = computed(() => {
   border-radius: var(--agnostic-btn-radius, var(--agnostic-radius, .25rem));
   transition: background-color 0.3s ease, color 0.3s ease;
   text-decoration: none; /* Remove underline from links */
+  z-index: 1; /* needed to take precedence over the card link */
 }
 
 /* Save this until we can have links for each tag */
@@ -129,15 +131,24 @@ const truncatedDescription = computed(() => {
 }
 
 /* Ensure the card link covers the entire card and removes default anchor styling */
-.card-link {
+.projectCard .card-link {
   text-decoration: none;
   color: inherit;
-  display: flex;
-  pointer-events: none;
+  pointer-events: auto; /* Allow the card itself to be clickable */
+  display: block;
 }
 
-.card-link .projectCard {
-  pointer-events: auto; /* Allow the card itself to be clickable */
+/* expands the clickable area of the main link 
+  to fill the parent container, because it's the nearest
+  ancestor with "position:relative" */
+.projectCard .card-link::before {
+  content: '';
+  position: absolute;
+  inset: 0; 
+}
+
+.projectCard {
+  /*pointer-events: auto;*/ 
 }
 
 /* Date shown to the right and small */
