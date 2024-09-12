@@ -1,0 +1,105 @@
+---
+shortTitle: Alien Invaders
+title: Introducing Java Programming Concepts through Making a Retro-style Game
+id: alien-invaders
+desc : Developing a simple game in Processing inspired from the Japanese 1978 fixed shooter video game while learning the fundamental programming concepts in Java such as loops, if else statements, and object-oriented programming that could also be applied to other languages.
+github: https://github.com/TAP-GGC/AlienInvader
+students: [
+  "Ryan Young",
+  "Natalie Haney",
+  "Haniel Villarreal",
+  "Jaehyun Na"
+]
+instructors: [
+  "Dr. Wei Jin",
+  "Dr. Xu Xin"
+] 
+techs: [
+  "processing",
+  "tableau"
+]
+videos: []
+events: [
+  "tap expo",
+  "atlanta science festival",
+  "class workshops"
+]
+semester: spring
+year: 2023
+levels: [
+  "k-12",
+  "middle-school",
+  "high-school",
+  "college"
+] 
+difficulty: [] 
+durationMins: [
+  60,
+  90
+]
+publishedDate: 2024-09-12
+relatedIds: [
+  "fruit rain"
+]
+image: ""
+imageLogoLight: ./welcomescreenW-crop.png
+imageTeam: ./STARS_Symposium.png
+curator: [Trung Dao]
+---
+import { Image } from "astro:assets";
+import Photo from '/src/components/astro/Photo.astro';
+import Logo from '/src/components/astro/Logo.astro';
+import Gallery from '/src/components/astro/Gallery.astro';
+
+
+import groupPhoto from './STARS_Symposium.png';
+import tableau from './tableau.png';
+import Processing from './Processing.png';
+import ASF from './AtlantaScienceFestival.png';
+import TapExpo1 from './TapExpo1.png';
+import TapExpo2 from './TAPExpo2.png';
+
+{/* Right text block, Project description */}
+
+This TAP project is our take on the classic game Space Invaders. Using Processing, we are able to develop a multiplayer retro style arcade game with the inspiration from the Japanese 1978 fixed shooter video game. It's a fun and simple game created in an effort to help drive students towards programming and increase general interest in the field. We also planned and led several workshops to teach students about some fundamental programming concepts and basic Procesing functions that we used to create our our game.
+
+The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to break the misconceptions of the IT field by providing fun workshops for students of all backgrounds. TAP students design engaging and fun outreach workshops to encourage interest in IT and STEM.
+
+{/* content block, Activities, steps & materials */}
+
+<div style="text-align:center;">
+## Team members
+<Image src={groupPhoto} alt="Alien Invader Photo" />
+#### From left to right: Jaehyun Na, Haniel Villarreal, Natalie Haney, and Ryan Young
+<br />
+</div>
+
+<div style="text-align: center; justify-content: center; font-size: 1.125em;">
+## Outreach Activities:
+1. Atlanta Science Festival, March 25, Piedmont Park - To promote computing and technology to children.
+2. Tap Expo, Mar 21, 2023, Georgia Gwinnett College – To promote IT field and the TAP program to college students.
+3. Class Workshops – on Apr 10 and two on Apr 13, to promote IT field to non-IT college students.
+</div>
+
+<div style="margin-top:50px">
+## Gallery
+<Gallery photos={[
+    { src: ASF.src, alt:'Atlanta Science Festival'},
+    { src: TapExpo1.src, alt:'Tap Expo 1'},
+    { src: TapExpo2.src, alt:'Tap Expo 2'},
+]} />
+</div>
+
+## Technology
+<div style='text-align:center; display: flex; justify-content: center; font-size: 1.25em'>
+<Logo src= {tableau.src} alt="Tableau Logo" link="https://www.tableau.com/" />
+<Logo src= {Processing.src} alt="Processing Logo" link="https://processing.org/"/>
+</div>
+
+## Project Setup & Installation:
+<div style='text-align:center; justify-content: center; font-size: 1em; top-margin: 50px; bottom-margin: 100px; ' >
+- [Download Processing](https://github.com/TAP-GGC/AlienInvader/blob/main/Documents/tutorial/How%20to%20download%20Processing.md)
+- [How to play the game](https://github.com/TAP-GGC/AlienInvader/blob/main/Documents/tutorial/How%20to%20play%20the%20game.md)
+- [How to make a Retro Game Workshop](https://github.com/TAP-GGC/AlienInvader/blob/main/Documents/workshop_materials/AlienInvader_TAPProcessingWorkshop.pdf)
+
+</div>
