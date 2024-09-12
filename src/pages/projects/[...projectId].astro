@@ -168,9 +168,10 @@ imageLogoDark = imageLogoTrans ? imageLogoTrans : imageLogoDark;
 		referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 	)} -->
 
-	{/* Video Ad */}
-	<VideoAd src={project.data.videoAd} showIframe={true}></VideoAd>
-
+	{ project.data?.videoAd && ( /* Video Ad */
+		<VideoAd src={project.data.videoAd} showIframe={true}></VideoAd>
+			)}
+	
 
     <Content />
 </div>
