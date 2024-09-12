@@ -148,7 +148,7 @@ imageLogoDark = imageLogoTrans ? imageLogoTrans : imageLogoDark;
 
 		<p><b> CURATOR(S): </b> {project.data.curator?.join(", ")} </p>
 
-		<p><b> PUBLISHED DATE:</b> {project.data.publishedDate} </p>
+		<p><b> PUBLISHED DATE:</b> {project.data.publishedDate.toDateString().slice(4)} </p>
 		<!-- TODO: change format of date -->
 
 		<!-- <p>Read more on <a href={project.data.github} target="_blank">Github</a>.</p> -->
