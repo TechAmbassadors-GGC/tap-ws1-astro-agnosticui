@@ -10,10 +10,11 @@
                 Recent Outreach Projects
             </div>            
             <ul> <!-- order recent projects by date? -->
-            <li v-for="project in projects">
+            <li v-for="project in projects.slice(0,4)">
             <a :href="`${base}/projects/${project.data.year}/${project.data.semester}/${project.data.id}`">{{ project.data.shortTitle ? project.data.shortTitle : project.data.title }}</a> &nbsp;
             {{ project.data.year }}
             </li>
+            <li><a :href="`${base}/projects/`">More . . .</a></li>
             </ul>
         </Card>
     
