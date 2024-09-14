@@ -1,0 +1,14 @@
+---
+interface Props {
+  id:string;
+}
+
+const { id } = Astro.props;
+
+import projectIds from './ProjectIds.js';
+---
+
+<a href={projectIds[id].data.slug}> {projectIds[id].data.shortTitle} </a>
+
+<style>
+</style>
