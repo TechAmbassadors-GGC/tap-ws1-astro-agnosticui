@@ -25,6 +25,12 @@ const truncatedDescription = computed(() => {
     ? desc.substring(0, maxDescriptionLength) + '...'
     : desc;
 });
+
+const date_options = {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+};
 </script>
 
 <template>
@@ -38,7 +44,7 @@ const truncatedDescription = computed(() => {
 
             <h4 class="projectTitle">{{ item.data.shortTitle ? item.data.shortTitle : item.data.title }}</h4>
 
-            <div class="dateStamp">{{ item.data.publishedDate.toDateString().slice(4) }}</div>
+            <div class="dateStamp">{{ item.data.publishedDate.toLocaleDateString(undefined, date_options) }}</div>
 
             <!-- Display Techs as Tags -->
             <p><em>Techs:</em></p>

@@ -13,7 +13,7 @@
         <li v-for="blogPostEntry in blogEntries">
         <a :href="`${base}/posts/${blogPostEntry.data.year}/${blogPostEntry.data.semester}/${blogPostEntry.data.title}`">{{ blogPostEntry.data.title }}</a> &nbsp;
         <time datetime={{ blogPostEntry.data.eventDate.toISOString() }}>
-          {{ blogPostEntry.data.eventDate.toDateString() }}
+          {{ blogPostEntry.data.eventDate.toLocaleDateString(undefined, date_options) /*.toDateString().slice(4)*/ }}
         </time>
         </li>
       </ul>
@@ -34,6 +34,12 @@ const blogEntries = await getCollection('events');
 
 // Remove single slash as it causes double slashes in card
 const base = import.meta.env.BASE_URL == '/' ? '' : import.meta.env.BASE_URL;
+
+const date_options = {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+};
 </script>
 
 <style scoped>
