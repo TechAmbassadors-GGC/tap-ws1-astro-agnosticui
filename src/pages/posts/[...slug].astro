@@ -1,4 +1,4 @@
- ---
+---
 // Style Imports
 import '../../styles/global.css';
 import '@fontsource/source-sans-pro';
@@ -9,8 +9,6 @@ import '@fontsource/cormorant-garamond';
 import '@fontsource/spectral';
 import '@fontsource/crimson-pro';
 import '@fontsource/alfa-slab-one';
-
-
 
 // common.min.css is distributed with agnostic-react
 // and agnostic-svelte too. But, since we're using all
@@ -28,6 +26,7 @@ import "agnostic-vue/dist/opinions.min.css";
 import "agnostic-vue/dist/index.css";
 import TAPHeader from '../../components/TAPHeader.vue';
 import Crumbs from '../../components/Crumbs.vue';
+import Gallery from '../../components/astro/Gallery.astro';
 
 // Read from conten collection
 import { getCollection } from 'astro:content';
@@ -51,8 +50,12 @@ let title = `${entry.data.title} (${entry.data.eventDate.toDateString()}) - GGC 
 
 import TAPDefaultLayout from "../../layouts/default.astro";
 ---
-<TAPDefaultLayout title={title}>
+<TAPDefaultLayout title={title} class="blog">
 	<Crumbs pageType="post" pageUrl=`/posts/${entry.data.year}/${entry.data.semester}/${entry.data.title}` />
-    <h1>{entry.data.title}</h1>
+
     <Content />
+
+    <h2>Gallery</h2>
+    <Gallery photos={entry.data.images} />
+    
 </TAPDefaultLayout>

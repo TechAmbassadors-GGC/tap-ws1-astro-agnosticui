@@ -20,16 +20,20 @@ interface PhotoProps {
 
 interface Props {
   photos: PhotoProps[];
+  glob: string;
 }
 
 const { photos } = Astro.props;
----
 
+//const imports = import.meta.glob(`${glob}`);
+
+//const photosSrc = photos.map(photo => { return { ...photo, "img": import.meta.glob<{ default: ImageMetadata }>( photo.src ) } });
+---
 <LightGallery client:load settings={ { speed: 500, selector: ".gallery-item" /*, plugins: plugins*/ } }>
   <div id="light-gallery">
-    {photos.slice(0, 9).map((Photo, index) => (
-      <a href={Photo.link || Photo.src} class="gallery-item">
-        <img alt={Photo.alt} src={Photo.src} />
+    {photos.map((Photo, index) => (
+      <a href={Photo.link || Photo.src.src} class="gallery-item">
+        <img alt={Photo.alt} src={Photo.src.src} />
         {Photo.caption && <p class="caption">{Photo.caption}</p>}
       </a>
     ))}
