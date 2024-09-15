@@ -11,7 +11,7 @@
     </div>
       <ul>
         <li v-for="blogPostEntry in blogEntries">
-        <a :href="`${base}/posts/${blogPostEntry.data.year}/${blogPostEntry.data.semester}/${blogPostEntry.data.title}`">{{ blogPostEntry.data.title }}</a> &nbsp;
+        <a :href="`${base}/posts/${blogPostEntry.data.year}/${blogPostEntry.data.semester}/${blogPostEntry.data.id}`">{{ blogPostEntry.data.title }}</a> &nbsp;
         <time datetime={{ blogPostEntry.data.eventDate.toISOString() }}>
           {{ blogPostEntry.data.eventDate.toLocaleDateString(undefined, date_options) /*.toDateString().slice(4)*/ }}
         </time>

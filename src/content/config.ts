@@ -1,5 +1,6 @@
 // 1. Import utilities from `astro:content`
-import { z, defineCollection } from 'astro:content';
+import { z, defineCollection, getCollection } from 'astro:content';
+
 // 2. Define your collection(s)
 const eventCollection = defineCollection({
   type: 'content', // v2.5.0 and later
@@ -10,6 +11,15 @@ const eventCollection = defineCollection({
     semester: z.string(),
     year: z.number(),
     eventDate: z.string().datetime().transform((str) => new Date(str)),
+    students: z.array(z.string()).optional(), /* do a refine check like in projects */
+    instructors: z.array(z.string()).optional(), /* do a refine check like in projects */
+    projects: z.array(z.string().refine(
+      async (projectId) => {
+        const projects = await getCollection('projects');
+
+        return projects.some(project => project.data.id.toLowerCase() == projectId)        
+      },
+      (projectId) => ({ message: `Project ID '${projectId}' not found.` }))).optional(),
     image: z.string().optional(),
     images: z.array(z.object({
       src: image().refine((img) => img.width <= 1500, {
