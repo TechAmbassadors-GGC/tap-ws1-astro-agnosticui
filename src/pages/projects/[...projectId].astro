@@ -99,7 +99,7 @@ imageLogoDark = imageLogoTrans ? imageLogoTrans : imageLogoDark;
 		<p><b> TEAM MEMBERS: </b>
 		{project.data.students.map((student, index) => (
 		<>
-		<a href={`students/${student}`}>{student}</a>
+		<a href={`/students/${student}`}>{student}</a>
 		{index < project.data.students.length - 1 ? ", " : ""}
 		</>
 		))}
@@ -108,7 +108,7 @@ imageLogoDark = imageLogoTrans ? imageLogoTrans : imageLogoDark;
 		<p><b> ADVISORS: </b>  
 			{project.data.instructors.map((instructor, index) => (
 				<>
-				<a href={`students/${instructor}`}>{instructor}</a>
+				<a href={`/instructors/${instructor}`}>{instructor}</a>
 				{index < project.data.instructors.length - 1 ? ", " : ""}
 				</>
 				))}
