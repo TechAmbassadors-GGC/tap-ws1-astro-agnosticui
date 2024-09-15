@@ -62,6 +62,11 @@ const projectCollection = defineCollection({
       // This part of the config file needs to be reviewed and changed at a later date.
     }).optional(),
     videoAd: z.string().optional(),
+    images: z.array(z.object({
+      src: image().refine((img) => img.width <= 1500, {
+          message: "Image too large! Convert images to be less than 1500 pixels wide.",
+        }), 
+      alt: z.string() })).optional(),
   }),
 });
 

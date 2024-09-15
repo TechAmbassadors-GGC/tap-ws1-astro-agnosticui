@@ -71,6 +71,8 @@ const showIframe = project.data.videoAd ? true : false; // Check if videoAd exis
 import { Button, ButtonGroup } from 'agnostic-vue';
 import githubLogo from '/public/assets/github.svg';
 import VideoAd from '../../components/astro/VideoAd.astro';
+import Gallery from '../../components/astro/Gallery.astro';
+
 // Logos
 let imageLogoLight = project.data.imageLogoLight?.src;
 let imageLogoDark = project.data.imageLogoDark ? project.data.imageLogoDark.src : imageLogoLight;
@@ -174,6 +176,11 @@ imageLogoDark = imageLogoTrans ? imageLogoTrans : imageLogoDark;
 	
 
     <Content />
+
+	{project.data?.images && (
+		<h2>Gallery</h2>
+		<Gallery photos={project.data.images} />
+	  )}
 </div>
 	
 <style>
