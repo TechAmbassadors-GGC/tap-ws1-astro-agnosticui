@@ -86,7 +86,9 @@ let title = `${entry.data.title} (${entry.data.eventDate.toDateString()}) - GGC 
       </ul>
     )}
 
-    <h2>Gallery</h2>
-    <Gallery photos={entry.data.images} />
+    {entry.data?.images && (
+      <h2>Gallery</h2>
+      <Gallery photos={entry.data.images} />
+    )}
     
 </TAPDefaultLayout>
