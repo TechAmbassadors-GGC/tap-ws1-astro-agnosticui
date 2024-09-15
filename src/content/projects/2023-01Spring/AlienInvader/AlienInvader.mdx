@@ -19,6 +19,11 @@ techs: [
   "tableau"
 ]
 videos: []
+images: [
+    { src: './AtlantaScienceFestival.png', alt: 'Atlanta Science Festival'},
+    { src: './TapExpo1.png', alt: 'Tap Expo 1'},
+    { src: './TAPExpo2.png', alt: 'Tap Expo 2'},
+]
 events: [
   "tap expo",
   "atlanta science festival",
@@ -49,15 +54,10 @@ curator: [Trung Dao]
 import { Image } from "astro:assets";
 import Photo from '/src/components/astro/Photo.astro';
 import Logo from '/src/components/astro/Logo.astro';
-import Gallery from '/src/components/astro/Gallery.astro';
-
 
 import groupPhoto from './STARS_Symposium.png';
 import tableau from './tableau.png';
 import Processing from './Processing.png';
-import ASF from './AtlantaScienceFestival.png';
-import TapExpo1 from './TapExpo1.png';
-import TapExpo2 from './TAPExpo2.png';
 
 {/* Right text block, Project description */}
 
@@ -79,15 +79,6 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 1. Atlanta Science Festival, March 25, Piedmont Park - To promote computing and technology to children.
 2. Tap Expo, Mar 21, 2023, Georgia Gwinnett College – To promote IT field and the TAP program to college students.
 3. Class Workshops – on Apr 10 and two on Apr 13, to promote IT field to non-IT college students.
-</div>
-
-<div style="margin-top:50px">
-## Gallery
-<Gallery photos={[
-    { src: ASF.src, alt:'Atlanta Science Festival'},
-    { src: TapExpo1.src, alt:'Tap Expo 1'},
-    { src: TapExpo2.src, alt:'Tap Expo 2'},
-]} />
 </div>
 
 ## Technology
