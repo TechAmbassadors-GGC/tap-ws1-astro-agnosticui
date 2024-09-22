@@ -39,6 +39,12 @@ publishedDate: 2024-12-09
 relatedIds: [
   "SliceIT"
 ]
+images: [
+  {src: './TAP1.png',alt: 'TAP class 1'},
+  {src: './TAP2.png',alt: 'Atlanta Science Festival'},
+  {src: './TAP3.png',alt: 'Tap Expo 1'},
+  {src: './TAP4.png',alt: 'TAP class 2'}
+]
 imageLogoLight: ./FruitRain.png
 curator: ["Trung Dao"]
 ---
@@ -46,16 +52,11 @@ curator: ["Trung Dao"]
 import { Image } from "astro:assets";
 import Photo from '/src/components/astro/Photo.astro';
 import Logo from '/src/components/astro/Logo.astro';
-import Gallery from '/src/components/astro/Gallery.astro';
 
 import GroupPhoto from './TAP_Team.png';
 import ProcesingLogo from './Processing.png';
 import MakeyMakey from './MakeyMakey.png';
 
-import Tap1 from './TAP1.png';
-import Tap2 from './TAP2.png';
-import Tap3 from './TAP3.png';
-import Tap4 from './TAP4.png';
 
 {/* Right text block, Project description */}	
 
@@ -76,15 +77,6 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 3. 2 Workshops - ITEC 1001, ITEC 2110
 </div>
 
-<div style="margin-top:50px">
-## Gallery
-<Gallery photos={[
-  {src:Tap1.src,alt:'TAP class 1'},
-  {src:Tap2.src,alt:'Atlanta Science Festival'},
-  {src:Tap3.src,alt:'Tap Expo 1'},
-  {src:Tap4.src,alt:'TAP class 2'}
-]} />
-</div>
 
 ## Technology
 <div style='text-align:center; display: flex; justify-content: center; font-size: 1.25em'>

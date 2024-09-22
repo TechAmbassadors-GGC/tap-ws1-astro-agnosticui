@@ -26,7 +26,15 @@ durationMins: [
   60
 ]
 publishedDate: 2024-07-16
-relatedIds: []
+images: [
+    { src: './virtualWarriorsTeamPhoto.png', alt: 'Virtual Warriors Team Photo'},
+    { src: './FullClassPhoto.jpg', alt: 'Full Class Photo'},
+    { src: './S3Photo.jpg', alt: 'S3 Event Photo'},
+    { src: './S3Photo2.jpg', alt: 'S3 Event Photo'},
+    { src: './S3Photo3.jpg', alt: 'S3 Event Photo'},
+    { src: './TapExpoPhoto.jpg', alt: 'TAP Expo Photo'},
+    { src: './TapExpoPhoto2.jpg', alt: 'TAP Expo Photo'},
+]
 image: ./virtualWarriorsTransparentLogo.png
 imageLogoLight: ./virtualWarriorsLightLogo.png
 imageLogoDark: ./virtualWarriorsDarkLogo.png
@@ -41,13 +49,7 @@ import Logo from '/src/components/astro/Logo.astro';
 import metaQuest2 from './MetaQuest2Image.jpg';
 import robloxStudioImage from './RobloxStudioImage.png';
 import virtualWarriorsTeamPhoto from './virtualWarriorsTeamPhoto.png';
-import s3Photo from './S3Photo.jpg';
-import s3Photo2 from './S3Photo2.jpg';
-import s3Photo3 from './S3Photo3.jpg';
-import fullClassPhoto from './FullClassPhoto.jpg';
-import tapExpoPhoto from './TapExpoPhoto.jpg';
-import tapExpoPhoto2 from './TapExpoPhoto2.jpg';
-import Gallery from '/src/components/astro/Gallery.astro';
+
 
 
 {/* Right text block, Project description */}	
@@ -58,10 +60,6 @@ Roblox Studio is a game development engine that allows users to create simple an
 
 The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to break the misconceptions of the IT field by providing fun workshops for students of all backgrounds. TAP students design engaging and fun outreach workshops to encourage interest in IT and STEM.
 
-{/* content block, Activities, steps & materials */}
-
-{/* Video Ad */}
-{/* <Video src="8odVRHWLpv4" showIframe={true}></Video> */}
 
 <div style="text-align:center; margin-top:50px">
 ## Team members
@@ -71,32 +69,14 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 </div>
 
 <div style="text-align: center; justify-content: center; font-size: 1.125em;">
-## Outreach Activities:{/*TODO: Fix layout***/}
+## Outreach Activities:
 1. Tap Expo, Oct 10, GGC - Workshop demo to promote IT field and the TAP program to college students
 2. Super Saturday Series (S3), October 28, 2023, Georiga Gwinnett College - Workshop demo for middle and high school girls to promote IT and STEM career
 3. Class Workshops - October 24th, November 14th, November 16th (2023) - Workshop demo to 1001 level IT students at GGC, to spark interests in IT, ITEC major opportunities, and the Game Development field
 4. Consortium for Computing Sciences in Colleges (CCSC), Nov 3rd-4th, 2023, CCU: Poster presentation of project research result
 </div>
 
-{/* <div style="transform: translate3d(-13.0438%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d; opacity: 1; will-change: transform;"> */}
 
-<div style="margin-top:50px">
-## Gallery
-{/* <div style='text-align:center; display: grid; justify-content: center; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); grid-gap: 20px; font-size: 1.25em;'>
-<Photo src={virtualWarriorsTeamPhoto.src} alt="Virtual Warriors Team Photo" caption="Virtual Warriors SCSS" />
-<Photo src={virtualWarriorsTeamPhoto.src} alt="Virtual Warriors Team Photo" caption="S3 Workshop" />
-</div> */}
-{/* Testing photo gallery */}
-<Gallery photos={[
-    { src: virtualWarriorsTeamPhoto.src, alt:'Virtual Warriors Team Photo'},
-    { src: fullClassPhoto.src, alt:'Full Class Photo'},
-    { src: s3Photo.src, alt:'S3 Event Photo'},
-    { src: s3Photo2.src, alt:'S3 Event Photo'},
-    { src: s3Photo3.src, alt:'S3 Event Photo'},
-    { src: tapExpoPhoto.src, alt:'TAP Expo Photo'},
-    { src: tapExpoPhoto2.src, alt:'TAP Expo Photo'},
-]} />
-</div>
 
 <div class="flex flex-row flex-wrap">
 

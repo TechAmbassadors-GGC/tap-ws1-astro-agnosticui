@@ -40,7 +40,13 @@ relatedIds: [
   "jedi",
   "dancing sphero"
 ]
-image: ""
+images: [
+   { src: './TeamPhoto.png', alt: 'Team Photo'},
+    { src: './DescribingSpherFunctions.png', alt: '/Describing Sphero Functions'},
+    { src: './ShowingCodeToStudent.png', alt: 'Showing Code To Student'},
+    { src: './ExplainingTheFreeThrowChallenge.png', alt: 'Explaining The Free ThrowChallenge'},
+    { src: './Figure8Challenge.png', alt: 'Figure 8 Challenge'},
+]
 imageLogoLight: ./ExplainingTheFreeThrowChallenge.png
 imageTeam: ./TeamPhoto.png
 curator: ["Trung Dao"]
@@ -54,10 +60,6 @@ import Clip from '/src/components/astro/Clip.astro';
 
 
 import GroupPhoto from './TeamPhoto.png';
-import Describing from './DescribingSpherFunctions.png';
-import Explaining from './ExplainingTheFreeThrowChallenge.png';
-import Figure8 from './Figure8Challenge.png';
-import Showing from './ShowingCodeToStudent.png';
 
 import SpheroEdu from './SpheroEdu.jpg';
 import spheroRobot from './SpheroRobot.jpg';
@@ -91,16 +93,6 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 3. Class Workshops – November 12th, November 13th, November 20th, GGC - to promote IT to non-IT college students.
 </div>
 
-<div style="margin-top:50px; margin-bottom:50px">
-## Gallery
-<Gallery photos={[
-    { src: GroupPhoto.src, alt:'Team Photo'},
-    { src: Describing.src, alt:'/Describing Sphero Functions'},
-    { src: Showing.src, alt:'Showing Code To Student'},
-    { src: Explaining.src, alt:'Explaining The Free ThrowChallenge'},
-    { src: Figure8.src, alt:'Figure 8 Challenge'},
-]} />
-</div>
 
 ## Materials List:
 <div style="display: flex; justify-content: center; min-width: 25em; margin-top:50px">
