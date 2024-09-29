@@ -153,6 +153,7 @@ imageLogoDark = imageLogoTrans ? imageLogoTrans : imageLogoDark;
 		<p><b> PUBLISHED DATE:</b> {project.data.publishedDate.toDateString().slice(4)} </p>
 		<!-- TODO: change format of date -->
 
+		<p><b> CREATED IN SEMESTER:</b> {project.data.semester[0].toUpperCase()}{project.data.semester.slice(1)} {project.data.year} </p>
 		<!-- <p>Read more on <a href={project.data.github} target="_blank">Github</a>.</p> -->
 
 		<p>Read more on
