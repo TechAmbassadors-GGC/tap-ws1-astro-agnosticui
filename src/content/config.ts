@@ -1,16 +1,31 @@
 // 1. Import utilities from `astro:content`
-import { z, defineCollection } from 'astro:content';
+import { z, defineCollection, getCollection } from 'astro:content';
+
 // 2. Define your collection(s)
 const eventCollection = defineCollection({
   type: 'content', // v2.5.0 and later
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     id: z.string(),
     tags: z.array(z.string()),
     semester: z.string(),
     year: z.number(),
     eventDate: z.string().datetime().transform((str) => new Date(str)),
+    students: z.array(z.string()).optional(), /* do a refine check like in projects */
+    instructors: z.array(z.string()).optional(), /* do a refine check like in projects */
+    projects: z.array(z.string().refine(
+      async (projectId) => {
+        const projects = await getCollection('projects');
+
+        return projects.some(project => project.data.id.toLowerCase() == projectId)        
+      },
+      (projectId) => ({ message: `Project ID '${projectId}' not found.` }))).optional(),
     image: z.string().optional(),
+    images: z.array(z.object({
+      src: image().refine((img) => img.width <= 1500, {
+          message: "Image too large! Convert images to be less than 1500 pixels wide.",
+        }), 
+      alt: z.string() })).optional(),
   }),
 });
 const imageLogoValidator = (img) => Math.abs(img.width / img.height - 1) < 0.2;
@@ -47,6 +62,11 @@ const projectCollection = defineCollection({
       // This part of the config file needs to be reviewed and changed at a later date.
     }).optional(),
     videoAd: z.string().optional(),
+    images: z.array(z.object({
+      src: image().refine((img) => img.width <= 1500, {
+          message: "Image too large! Convert images to be less than 1500 pixels wide.",
+        }), 
+      alt: z.string() })).optional(),
   }),
 });
 

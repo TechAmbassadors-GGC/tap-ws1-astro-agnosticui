@@ -1,7 +1,7 @@
 ---
-shortTitle: Foe
+shortTitle: Foes
 title: Teaching JavaScript Fundamentals Through a MultiPlayer Fighting Game
-id: Foe
+id: foes
 desc : The goal of this project is to educate others about JavaScript basics while building a HTML/CSS webpage. They can experiment with JavaScript, HTML, and CSS code to immediately view their changes on their browser.
 github: https://github.com/TAP-GGC/Foe
 students: [
@@ -36,23 +36,26 @@ difficulty: [
 durationMins: [
   120
 ]
+images: [
+  {src: './TapExpo1.jpg',alt: 'Tap Expo 1'},
+  {src:  './TapExpo2.jpg',alt: 'Tap Expo 2'},
+  {src: './TapExpo3.jpg',alt: 'Tap Expo 3'},
+  {src: './ASF3.jpg',alt: 'Atlanta Science Festival'}
+]
 publishedDate: 2023-03-18
 relatedIds: []
 imageLogoLight: ./foe-logo-light.png
 imageLogoDark: ./foe-logo-dark.png
 imageTeam: ./FoeGroupPhoto.jpeg
 videoAd: "TSae0OkMVps"
-curator: ["Trung Dao"]
+curator: ["Danielle Mathieu", "Trung Dao"]
 ---
 import { Image } from "astro:assets";
 import Photo from '/src/components/astro/Photo.astro';
 import Logo from '/src/components/astro/Logo.astro';
 import FoeGroupPhoto from './FoeGroupPhoto.jpeg';
 import vscLogo from './vscLogo.jpeg';
-import TapExpo1 from './TapExpo1.jpg';
-import TapExpo2 from './TapExpo2.jpg';
-import TapExpo3 from './TapExpo3.jpg';
-import ASF3 from './ASF3.jpg';
+
 import cssSample from './cssSample.png';
 import htmlSample from './htmlSample.png';
 import jsSample from './jsSample.png';
@@ -91,15 +94,6 @@ Foes is a web-hosted project. This project is curated to peak the interest of no
 </div>
 
 
-<div style="margin-top:50px">
-## Gallery
-<Gallery photos={[
-  {src:TapExpo1.src,alt:'Tap Expo 1'},
-  {src:TapExpo2.src,alt:'Tap Expo 2'},
-  {src:TapExpo3.src,alt:'Tap Expo 3'},
-  {src:ASF3.src,alt:'Atlanta Science Festival'}
-]} />
-</div>
 
 <div class="flex flex-row flex-wrap">
 

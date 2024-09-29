@@ -1,4 +1,4 @@
-			---
+---
 // Style Imports
 import '../../styles/global.css';
 import '@fontsource/source-sans-pro';
@@ -71,6 +71,8 @@ const showIframe = project.data.videoAd ? true : false; // Check if videoAd exis
 import { Button, ButtonGroup } from 'agnostic-vue';
 import githubLogo from '/public/assets/github.svg';
 import VideoAd from '../../components/astro/VideoAd.astro';
+import Gallery from '../../components/astro/Gallery.astro';
+
 // Logos
 let imageLogoLight = project.data.imageLogoLight?.src;
 let imageLogoDark = project.data.imageLogoDark ? project.data.imageLogoDark.src : imageLogoLight;
@@ -99,7 +101,7 @@ imageLogoDark = imageLogoTrans ? imageLogoTrans : imageLogoDark;
 		<p><b> TEAM MEMBERS: </b>
 		{project.data.students.map((student, index) => (
 		<>
-		<a href={`students/${student}`}>{student}</a>
+		<a href={`/students/${student}`}>{student}</a>
 		{index < project.data.students.length - 1 ? ", " : ""}
 		</>
 		))}
@@ -108,7 +110,7 @@ imageLogoDark = imageLogoTrans ? imageLogoTrans : imageLogoDark;
 		<p><b> ADVISORS: </b>  
 			{project.data.instructors.map((instructor, index) => (
 				<>
-				<a href={`students/${instructor}`}>{instructor}</a>
+				<a href={`/instructors/${instructor}`}>{instructor}</a>
 				{index < project.data.instructors.length - 1 ? ", " : ""}
 				</>
 				))}
@@ -174,6 +176,11 @@ imageLogoDark = imageLogoTrans ? imageLogoTrans : imageLogoDark;
 	
 
     <Content />
+
+	{project.data?.images && (
+		<h2>Gallery</h2>
+		<Gallery photos={project.data.images} />
+	  )}
 </div>
 	
 <style>

@@ -16,7 +16,10 @@ levels: [middle-school,high-school,college]
 difficulty: [Intermediate]
 durationMins: [60,90]
 publishedDate: 2024-03-08
-related-ids: []
+images: [
+     { src: './JediImage.jpg', alt: 'Jedi at S3 photo'},
+    { src: './JediGroupPhoto.jpg', alt: 'Jedi group photo'},
+]
 imageLogoLight: ./jedi-logo.jpg
 imageLogoDark: ./jedi-logo-dark.png
 imageTeam: ./JediGroupPhoto_cropped.jpg
@@ -30,7 +33,7 @@ import Logo from '/src/components/astro/Logo.astro';
 import spheroClassSet from './SpheroClassSet.jpg';
 import spheroEduLogo from './SpheroEdu.jpg';
 import JediGroupPhoto from './JediGroupPhoto.jpg'
-import JediAtS3 from './JediImage.jpg';
+
 import easyCode from './easyCode.jpeg';
 import hardCode1 from './hardCode1.jpeg';
 import hardCode2 from './hardCode2.jpeg';
@@ -64,18 +67,6 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 
 {/* <div style="transform: translate3d(-13.0438%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d; opacity: 1; will-change: transform;"> */}
 
-<div style="margin-top:50px">
-## Gallery
-{/* <div style='text-align:center; display: grid; justify-content: center; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); grid-gap: 20px; font-size: 1.25em;'>
-<Photo src={JediAtS3.src} alt="Jedi at S3 photo" caption="S3 Workshop" />
-<Photo src={JediGroupPhoto.src} alt="Jedi at S3 photo" caption="S3 Workshop" />
-</div> */}
-{/* Testing photo gallery */}
-<Gallery photos={[
-    { src: JediAtS3.src, alt:'Jedi at S3 photo'},
-    { src: JediGroupPhoto.src, alt:'Jedi group photo'},
-]} />
-</div>
 
 <div class="flex flex-row flex-wrap">
 <div style="flex: 1; min-width: 25em; margin-top:50px">

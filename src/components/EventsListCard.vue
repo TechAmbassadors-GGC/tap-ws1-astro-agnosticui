@@ -14,7 +14,7 @@
             <li v-for="event in events">
             <!-- <a :href="`${base}/events/${event.data.year}/${event.data.month}/${event.data.day}`">{{ event.data.title }}</a> &nbsp; -->
             <p> {{ event.name }}</p>
-            <p> {{ event.date }}</p>
+            <p> {{ event.date.toDateString().slice(4) }}</p>
             <!-- {{ event.data.date.toString() }} -->Hi
             </li>
             </ul>

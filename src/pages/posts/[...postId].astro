@@ -1,4 +1,4 @@
- ---
+---
 // Style Imports
 import '../../styles/global.css';
 import '@fontsource/source-sans-pro';
@@ -9,8 +9,6 @@ import '@fontsource/cormorant-garamond';
 import '@fontsource/spectral';
 import '@fontsource/crimson-pro';
 import '@fontsource/alfa-slab-one';
-
-
 
 // common.min.css is distributed with agnostic-react
 // and agnostic-svelte too. But, since we're using all
@@ -27,7 +25,11 @@ import "agnostic-vue/dist/opinions.min.css";
 // Component Imports
 import "agnostic-vue/dist/index.css";
 import TAPHeader from '../../components/TAPHeader.vue';
+import TAPDefaultLayout from "../../layouts/default.astro";
 import Crumbs from '../../components/Crumbs.vue';
+import Gallery from '../../components/astro/Gallery.astro';
+import projectIds from '../../components/astro/ProjectIds';
+import ProjectCard from '../../components/ProjectCard.vue';
 
 // Read from conten collection
 import { getCollection } from 'astro:content';
@@ -35,12 +37,14 @@ import { getCollection } from 'astro:content';
 export async function getStaticPaths() {
   const blogEntries = await getCollection('events');
   return blogEntries.map(entry => ({
-    params: { slug: `${entry.data.year}/${entry.data.semester}/${entry.data.title}` }, props: { entry },
+    params: { postId: `${entry.data.year}/${entry.data.semester}/${entry.data.id}` }, props: { entry },
   }));
 }
 // 2. For your template, you can get the entry directly from the prop
 const { entry } = Astro.props;
+const { postId } = Astro.params;
 const { Content } = await entry.render();
+const projects = await getCollection('projects');        
 
 //BreadCrumb variables
 const postName = entry.data.title;
@@ -49,10 +53,42 @@ const postTag = entry.data.tags;
 // Page title
 let title = `${entry.data.title} (${entry.data.eventDate.toDateString()}) - GGC Technology Ambassadors Program`;
 
-import TAPDefaultLayout from "../../layouts/default.astro";
 ---
-<TAPDefaultLayout title={title}>
-	<Crumbs pageType="post" pageUrl=`/posts/${entry.data.year}/${entry.data.semester}/${entry.data.title}` />
-    <h1>{entry.data.title}</h1>
+<TAPDefaultLayout title={title} class="blog">
+	<Crumbs pageType="post" pageUrl=`/posts/${postId}` />
+
     <Content />
+
+    {entry.data?.projects && (
+      <h2>Outreach Projects Included</h2>
+      <section class="mbe40 project-cards-flex flex flex-row flex-grow-1 flex-shrink-1 flex-wrap flex-fill">
+        {entry.data.projects.map((project_id) => (      
+          <ProjectCard item={projectIds[project_id]} />
+        ))}
+      </section>
+    )}
+
+    {entry.data?.instructors && (
+      <h2>Faculty Facilitators</h2>
+      <ul>
+        {entry.data.instructors.map((instructor) => (      
+          <li><a href={`/instructors/${instructor}`}>{instructor}</a></li> 
+        ))}
+      </ul>
+    )}
+
+    {entry.data?.students && (
+      <h2>Students</h2>
+      <ul>
+        {entry.data.students.map((student) => (      
+          <li><a href={`/students/${student}`}>{student}</a></li> 
+        ))}
+      </ul>
+    )}
+
+    {entry.data?.images && (
+      <h2>Gallery</h2>
+      <Gallery photos={entry.data.images} />
+    )}
+    
 </TAPDefaultLayout>
