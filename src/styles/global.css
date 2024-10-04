@@ -11,9 +11,28 @@
 
 :root {
 	font-size: clamp(0.575rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem);
-  --agnostic-header-content-width: 75vw; /* set minimum size of header menu - set to percent of viewport width */  
+  --agnostic-header-content-width: 100vw; /* set minimum size of header menu - set to percent of viewport width */
+
+/* dark mode */
+  --agnostic-primary-modedark: #2173c0; /*link color*/
+  --agnostic-primary-hover-modedark: #c02196; /*link hover color*/
+
+  --agnostic-light-modedark: black; /* head & foot background colour*/
+  --agnostic-gray-light-modedark: rgb(17, 17, 17); /* body background colour*/
+
+  /* --agnostic-primary-hover-modedark: #a4d11e; /*hover color*/
   --user-font-scale: 1.3em; /* Scale to apply to all fonts - slightly bigger for teachers' eyes */
+  --agnostic-dark-modedark: pink; /**/
+  /* DO NOT TOUCH */
+  /* --agnostic-font-color: white;- font color; */
+     /* --agnostic-light: green;-  background color; */
 }
+
+ .header {
+background-color: var(--agnostic-light-modedark);
+
+
+ }
 
 body {
   display: grid; /* need to remove this */
@@ -28,7 +47,7 @@ body {
   /*justify-content: space-between;*/
   align-items: center;
   justify-items: center;
-  /* background: var(--agnostic-secondary-hover); */
+  background: var(--agnostic-gray-light);
   color: var(--agnostic-font-color);
   
 }

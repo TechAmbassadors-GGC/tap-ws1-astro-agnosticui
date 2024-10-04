@@ -7,7 +7,7 @@ import { Header, HeaderNav, HeaderNavItem, Menu } from "agnostic-vue";
 const base = import.meta.env.BASE_URL;
 </script>
 <template>  
-  <Header isHeaderContentStart>
+  <Header isHeaderContentStart css="header">
     <template v-slot:logoleft>      
       <a class="flex-fill" :href="base" >
         <img :src="`${base == '/' ? '' : base}/images/tap-logo-dark.jpg`" width="100px" class="imageDark">
