@@ -1,6 +1,6 @@
 ---
 // Style Imports
-import '../../styles/global.css';
+import '../styles/global.css';
 import '@fontsource/source-sans-pro';
 import '@fontsource/pixelify-sans';
 import '@fontsource/ibm-plex-mono';
@@ -27,9 +27,9 @@ import "agnostic-vue/dist/index.css";
 
 // Read from content collection
 import { getCollection } from 'astro:content';
-import Crumbs from "../../components/Crumbs.vue"
-import ProjectSearch from '../../components/ProjectSearch.vue';
-import TAPDefaultLayout from "../../layouts/default.astro";
+import Crumbs from "../components/Crumbs.vue"
+import ProjectSearch from '../components/ProjectSearch.vue';
+import TAPDefaultLayout from "../layouts/default.astro";
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');  
@@ -68,7 +68,7 @@ let title = `Projects with ${student}`;
 ---
 <TAPDefaultLayout title=`${title}`>
 
-	<Crumbs pageType="student" pageUrl=`/students/${student}`/>
+	<Crumbs pageType="student" pageUrl=`/students`/>
 
 	<ProjectSearch client:load projectList={projects} filter={Astro.props}/>
 

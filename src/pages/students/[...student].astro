@@ -1,0 +1,120 @@
+---
+import '../../styles/global.css';
+import '@fontsource/source-sans-pro';
+import '@fontsource/work-sans';
+import '@fontsource/cormorant-garamond';
+
+// Component Imports
+import "agnostic-vue/dist/index.css";
+import { Image } from "astro:assets";
+import TAPHeader from '../../components/TAPHeader.vue';
+import TAPFooter from '../../components/TAPFooter.vue';
+import { getCollection } from 'astro:content';
+import Crumbs from "../../components/Crumbs.vue";
+
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+  const students = await getCollection('students');
+  return students.map(student => ({
+    params: { studentId: student.data.id }, props: { student },
+  }));
+}
+
+const { student } = Astro.props;
+const { Content } = await student.render();
+
+// Page title
+let title = `${student.data.name} - Student Profile`;
+const studentId = student.data.id;
+
+
+import TAPDefaultLayout from "../../layouts/default.astro";
+
+---
+
+// Page Layout
+<TAPDefaultLayout title={title}>
+  <Crumbs pageType="student" pageUrl={`/students/${studentId}`} />
+
+  <div class="body-student">
+    <h1 class="studentName">{student.data.name}</h1>
+    <h2 class="studentTitle">{student.data.title}</h2>
+
+    {student.data.image && (
+      <img src={student.data.image} alt="{student.data.name} Photo" class="studentImage" />
+    )}
+
+    <div class="studentDetails">
+      <p><b>Email:</b> <a href={`mailto:${student.data.email}`}>{student.data.email}</a></p>
+      {student.data.phone && <p><b>Phone:</b> {student.data.phone}</p>}
+      {student.data.location && <p><b>Location:</b> {student.data.location}</p>}
+      {student.data.website && <p><b>Website:</b> <a href={student.data.website} target="_blank">{student.data.website}</a></p>}
+      {student.data.linkedin && <p><b>LinkedIn:</b> <a href={student.data.linkedin} target="_blank">{student.data.linkedin}</a></p>}
+      {student.data.github && <p><b>GitHub:</b> <a href={student.data.github} target="_blank">{student.data.github}</a></p>}
+
+      <h3>Education</h3>
+      {student.data.education.map(edu => (
+        <p>{edu.degree}, {edu.institution} - {edu.year}</p>
+      ))}
+
+      <h3>Skills</h3>
+      <ul>
+        {student.data.skills.map(skill => (
+          <li>{skill}</li>
+        ))}
+      </ul>
+
+      <h3>Experience</h3>
+      {student.data.experience.map(exp => (
+        <p>
+          <b>{exp.role}</b>, {exp.institution || exp.company} ({exp.year})
+          <br />
+          {exp.description}
+        </p>
+      ))}
+
+      <h3>Projects</h3>
+      {student.data.projects.map(proj => (
+        <p>
+          <b>{proj.name}</b>: {proj.description}
+          {proj.link && <a href={proj.link} target="_blank"> Project Link</a>}
+        </p>
+      ))}
+    </div>z
+
+    <Content />
+
+  </div>
+
+  <TAPFooter />
+</TAPDefaultLayout>
+
+<style>
+  .studentImage {
+    margin-right: 1em;
+    width: clamp(10em, 25%, 15em);
+    float: left;
+    padding-bottom: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .studentDetails {
+    font-size: 1.125em;
+    text-align: left;
+    width: clamp(15em, 50%, 45em);
+    display: inline;
+  }
+
+  .studentDetails p {
+    margin-bottom: 0.5em;
+  }
+
+  h1.studentName {
+    text-align: center;
+  }
+
+  h2.studentTitle {
+    text-align: center;
+    margin-top: 0.5em;
+  }
+</style>
