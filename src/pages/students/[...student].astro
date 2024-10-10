@@ -16,7 +16,8 @@ import Crumbs from "../../components/Crumbs.vue";
 export async function getStaticPaths() {
   const students = await getCollection('students');
   return students.map(student => ({
-    params: { studentId: student.data.id }, props: { student },
+    params: { "studentId": `${student.data.id}`},
+    props: { student },
   }));
 }
 
@@ -25,16 +26,13 @@ const { Content } = await student.render();
 
 // Page title
 let title = `${student.data.name} - Student Profile`;
-const studentId = student.data.id;
-
-
 import TAPDefaultLayout from "../../layouts/default.astro";
 
 ---
 
 // Page Layout
 <TAPDefaultLayout title={title}>
-  <Crumbs pageType="student" pageUrl={`/students/${studentId}`} />
+  <Crumbs pageType="student" pageUrl=`/students/${student.data.id}`/>
 
   <div class="body-student">
     <h1 class="studentName">{student.data.name}</h1>
