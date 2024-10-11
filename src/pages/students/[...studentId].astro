@@ -42,20 +42,24 @@ import TAPDefaultLayout from "../../layouts/default.astro";
     <div class="studentDetails">
     <img src= {studentImg} alt="student Photo" class="studentImage"/>
     <div class="col2">
-      <p><b>Email:</b> <a href={`mailto:${student.data.email}`}>{student.data.email}</a></p>
-      {student.data.phone && <p><b>Phone:</b> {student.data.phone}</p>}
-      {student.data.location && <p><b>Location:</b> {student.data.location}</p>}
-      {student.data.website && <p><b>Website:</b> <a href={student.data.website} target="_blank">{student.data.website}</a></p>}
-      {student.data.linkedin && <p><b>LinkedIn:</b> <a href={student.data.linkedin} target="_blank">{student.data.linkedin}</a></p>}
-      {student.data.github && <p><b>GitHub:</b> <a href={student.data.github} target="_blank">{student.data.github}</a></p>}
-      <h3>Education</h3>
-      {student.data.education.map(edu => (
-        <p>{edu.degree} {edu.institution} - {edu.year}</p>
-      ))}
+      <h3>About Me</h3>
+      {student.data.desc && <p>{student.data.desc}</p>}
+      <h3>Contact</h3>
+      <p><b>Email: </b> <a href={`mailto:${student.data.email}`}>{student.data.email}</a></p>
+      {student.data.phone && <p><b>Phone: </b> {student.data.phone}</p>}
+      {student.data.location && <p><b>Location: </b> {student.data.location}</p>}
+      {student.data.website && <p><b>Website: </b> <a href={student.data.website} target="_blank">{student.data.website}</a></p>}
+      {student.data.linkedin && <p><b>LinkedIn: </b> <a href={student.data.linkedin} target="_blank">{student.data.linkedin}</a></p>}
+      {student.data.github && <p><b>GitHub: </b> <a href={student.data.github} target="_blank">{student.data.github}</a></p>}
+      
     </div>
       </div>
 
       <div class="portfolio">
+        <h3>Education</h3>
+      {student.data.education.map(edu => (
+        <p>{edu.degree} {edu.institution} - {edu.year}</p>
+      ))}
       <h3>Skills</h3>
       <ul>
         {student.data.skills.map(skill => (
@@ -129,5 +133,7 @@ import TAPDefaultLayout from "../../layouts/default.astro";
   h2.studentTitle {
     text-align: center;
     margin-top: 0.5em;
+    margin-bottom: 1em;
+
   }
 </style>
