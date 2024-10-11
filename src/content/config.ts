@@ -81,7 +81,7 @@ const studentCollection = defineCollection({
     website: z.string().url().optional(),
     linkedin: z.string().url().optional(),
     github: z.string().url().optional(),
-    image: z.string().url().optional(),
+    image: z.string().optional(),
     education: z.array(z.object({
       degree: z.string(),
       institution: z.string(),

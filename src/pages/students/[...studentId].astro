@@ -26,35 +26,36 @@ const { Content } = await student.render();
 
 // Page title
 let title = `${student.data.name} - Student Profile`;
+const studentImg = student.data.image;
 import TAPDefaultLayout from "../../layouts/default.astro";
 
 ---
 
 // Page Layout
 <TAPDefaultLayout title={title}>
-  <Crumbs pageType="student" pageUrl=`/students/${student.data.id}`/>
+  <Crumbs pageType="student" pageUrl={`/students/${student.data.id}`}/>
 
   <div class="body-student">
     <h1 class="studentName">{student.data.name}</h1>
     <h2 class="studentTitle">{student.data.title}</h2>
 
-    {student.data.image && (
-      <img src={student.data.image} alt="{student.data.name} Photo" class="studentImage" />
-    )}
-
     <div class="studentDetails">
+    <img src= {studentImg} alt="student Photo" class="studentImage"/>
+    <div class="col2">
       <p><b>Email:</b> <a href={`mailto:${student.data.email}`}>{student.data.email}</a></p>
       {student.data.phone && <p><b>Phone:</b> {student.data.phone}</p>}
       {student.data.location && <p><b>Location:</b> {student.data.location}</p>}
       {student.data.website && <p><b>Website:</b> <a href={student.data.website} target="_blank">{student.data.website}</a></p>}
       {student.data.linkedin && <p><b>LinkedIn:</b> <a href={student.data.linkedin} target="_blank">{student.data.linkedin}</a></p>}
       {student.data.github && <p><b>GitHub:</b> <a href={student.data.github} target="_blank">{student.data.github}</a></p>}
-
       <h3>Education</h3>
       {student.data.education.map(edu => (
-        <p>{edu.degree}, {edu.institution} - {edu.year}</p>
+        <p>{edu.degree} {edu.institution} - {edu.year}</p>
       ))}
+    </div>
+      </div>
 
+      <div class="portfolio">
       <h3>Skills</h3>
       <ul>
         {student.data.skills.map(skill => (
@@ -78,29 +79,43 @@ import TAPDefaultLayout from "../../layouts/default.astro";
           {proj.link && <a href={proj.link} target="_blank"> Project Link</a>}
         </p>
       ))}
-    </div>z
+    </div>
 
     <Content />
 
   </div>
 
-  <TAPFooter />
+  
 </TAPDefaultLayout>
 
 <style>
   .studentImage {
     margin-right: 1em;
-    width: clamp(10em, 25%, 15em);
-    float: left;
-    padding-bottom: 0.5em;
-    padding-right: 0.5em;
+		width: clamp(15em, 50%, 25em);
+		float: left;
+		padding-bottom: 0.5em;
+		padding-right: 0.5em;
   }
 
   .studentDetails {
-    font-size: 1.125em;
-    text-align: left;
-    width: clamp(15em, 50%, 45em);
-    display: inline;
+    font-size: 1.125em; 
+		text-align: left;
+		width: clamp(15em, 45%, 45em);
+		vertical-align: bottom; 			
+		display: inline;
+		margin-bottom: 1em;
+  }
+
+  .col2{
+  display: flex;
+  flex-direction: column; /* Stack the content vertically */
+  justify-content: space-between; /* Ensure content takes the full height */
+  height: 100%;
+  }
+
+  .portfolio{
+  clear: both; /* Ensure portfolio is placed below floating content */
+  margin-top: 1em; 
   }
 
   .studentDetails p {
