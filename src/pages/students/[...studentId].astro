@@ -30,8 +30,6 @@ const studentImg = student.data.image;
 import TAPDefaultLayout from "../../layouts/default.astro";
 
 ---
-
-// Page Layout
 <TAPDefaultLayout title={title}>
   <Crumbs pageType="student" pageUrl={`/students/${student.data.id}`}/>
 
@@ -51,42 +49,9 @@ import TAPDefaultLayout from "../../layouts/default.astro";
       {student.data.website && <p><b>Website: </b> <a href={student.data.website} target="_blank">{student.data.website}</a></p>}
       {student.data.linkedin && <p><b>LinkedIn: </b> <a href={student.data.linkedin} target="_blank">{student.data.linkedin}</a></p>}
       {student.data.github && <p><b>GitHub: </b> <a href={student.data.github} target="_blank">{student.data.github}</a></p>}
-      
     </div>
-      </div>
-
-      <div class="portfolio">
-        <h3>Education</h3>
-      {student.data.education.map(edu => (
-        <p>{edu.degree} {edu.institution} - {edu.year}</p>
-      ))}
-      <h3>Skills</h3>
-      <ul>
-        {student.data.skills.map(skill => (
-          <li>{skill}</li>
-        ))}
-      </ul>
-
-      <h3>Experience</h3>
-      {student.data.experience.map(exp => (
-        <p>
-          <b>{exp.role}</b>, {exp.institution || exp.company} ({exp.year})
-          <br />
-          {exp.description}
-        </p>
-      ))}
-
-      <h3>Projects</h3>
-      {student.data.projects.map(proj => (
-        <p>
-          <b>{proj.name}</b>: {proj.description}
-          {proj.link && <a href={proj.link} target="_blank"> Project Link</a>}
-        </p>
-      ))}
     </div>
-
     <Content />
-
   </div>
 
   
@@ -101,25 +66,26 @@ import TAPDefaultLayout from "../../layouts/default.astro";
 		padding-right: 0.5em;
   }
 
-  .studentDetails {
+  .studentDetails{
     font-size: 1.125em; 
 		text-align: left;
-		width: clamp(15em, 45%, 45em);
 		vertical-align: bottom; 			
-		display: inline;
-		margin-bottom: 1em;
+		display: inline-block;
+		margin-bottom: em;
+    height: 100%;
   }
 
   .col2{
   display: flex;
   flex-direction: column; /* Stack the content vertically */
   justify-content: space-between; /* Ensure content takes the full height */
-  height: 100%;
+  height: max-content;
   }
 
   .portfolio{
   clear: both; /* Ensure portfolio is placed below floating content */
-  margin-top: 1em; 
+  margin-top: 2em; 
+  margin-bottom: 2em;
   }
 
   .studentDetails p {
@@ -135,5 +101,24 @@ import TAPDefaultLayout from "../../layouts/default.astro";
     margin-top: 0.5em;
     margin-bottom: 1em;
 
+  }
+
+  /* Media query for mobile devices */
+  @media (max-width: 768px) {
+    .studentImage {
+      float: none; /* Remove the float */
+      margin-right: 0;
+      width: 100%; /* Make the image take full width */
+      display: block;
+    }
+
+    .col2 {
+      display: block; /* Display as block for stacking */
+      width: 100%;
+    }
+
+    .studentDetails {
+      margin-bottom: 0; /* Remove extra margin */
+    }
   }
 </style>
