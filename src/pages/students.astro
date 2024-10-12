@@ -10,13 +10,6 @@ import '@fontsource/spectral';
 import '@fontsource/crimson-pro';
 import '@fontsource/alfa-slab-one';
 
-// common.min.css is distributed with agnostic-react
-// and agnostic-svelte too. But, since we're using all
-// of these together, we only need to import global CSS
-// once and in one place.
-// common.min.css combines properties, resets, utilities
-// import "agnostic-vue/dist/common.min.css";
-// But!! Rob much prefers individual modular import ;)
 import "agnostic-vue/dist/common.properties.min.css";
 import "agnostic-vue/dist/common.resets.min.css";
 import "agnostic-vue/dist/common.utilities.min.css";
@@ -32,7 +25,7 @@ import ProjectSearch from '../components/ProjectSearch.vue';
 import TAPDefaultLayout from "../layouts/default.astro";
 
 export async function getStaticPaths() {
-  const projects = await getCollection('projects');  
+  const students = await getCollection('students');  
   let slugs = new Array();
 
   
