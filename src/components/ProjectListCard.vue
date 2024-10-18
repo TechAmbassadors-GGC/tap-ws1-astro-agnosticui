@@ -5,18 +5,24 @@
             isShadow
             isAnimated
             class=card-main
-            >
-            <div class="h4 p16 card-title">
-                Recent Outreach Projects
-            </div>            
-            <ul> <!-- order recent projects by date? -->
-            <li v-for="project in projects.sort( (p1, p2) => p1.data.publishedDate < p2.data.publishedDate).slice(0,4)">
-            <a :href="`${base}/projects/${project.data.year}/${project.data.semester}/${project.data.id}`">
-                {{ project.data.shortTitle ? project.data.shortTitle : project.data.title }}</a> &nbsp;
-            {{ project.data.publishedDate.toLocaleDateString(undefined, date_options) }}
-            </li>
-            <li><a :href="`${base}/projects/`">More . . .</a></li>
-            </ul>
+            style=" background-image: url('./images/tap-projects-board.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+            <div class="overlay">
+                <div class="h4 p16 card-title">
+                    Recent Outreach Projects
+                </div>
+                <div>            
+                    <ul> <!-- order recent projects by date? -->
+                        <li v-for="project in projects.sort( (p1, p2) => p1.data.publishedDate < p2.data.publishedDate).slice(0,4)">
+                            <a :href="`${base}/projects/${project.data.year}/${project.data.semester}/${project.data.id}`">
+                                {{ project.data.shortTitle ? project.data.shortTitle : project.data.title }}</a> &nbsp;
+                                {{ project.data.publishedDate.toLocaleDateString(undefined, date_options) }}
+                        </li>
+                        <li>
+                            <a :href="`${base}/projects/`">More . . .</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </Card>
     
   </template>
@@ -42,5 +48,8 @@
   </script>
   
   <style scoped>
+  card{
+   
+  }
   </style>
   

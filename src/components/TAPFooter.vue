@@ -62,7 +62,7 @@ const year = ref(new Date().getFullYear());
     width: 100%;
     text-align: center;
     padding:  25px 0;
-    background-color: var(--agnostic-gray-mid);
+    background-color: var(--agnostic-light);
     font-weight: 300;
     margin-top: 20px;
     

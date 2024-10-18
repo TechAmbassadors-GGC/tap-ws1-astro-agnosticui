@@ -1,16 +1,1 @@
-<svg version="1.1" id="svg5" xmlns:svg="http://www.w3.org/2000/svg"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-   viewBox="0 0 1668.56 1221.19"
-   style="width: 100px; height: auto; padding: 5px;">
-<style type="text/css">
-	.st0{stroke:#FFFFFF;stroke-miterlimit:10;}
-	.st1{fill:#FFFFFF;}
-</style>
-<path class="st0" d="M1168.12,1056.56H511.72c-55.12,0-99.8-44.68-99.8-99.8V300.36c0-55.12,44.68-99.8,99.8-99.8h656.39
-	c55.12,0,99.8,44.68,99.8,99.8v656.39C1267.92,1011.88,1223.24,1056.56,1168.12,1056.56z"/>
-<g id="layer1" transform="translate(52.390088,-25.058597)">
-	<path id="path1009" class="st1" d="M491.03,374.75L721.1,682.38L489.58,932.49h52.11l202.7-218.98l163.77,218.98h177.32
-		L842.46,607.56l215.5-232.81h-52.11L819.18,576.42L668.35,374.75H491.03z M567.66,413.14h81.46l359.72,480.97h-81.46L567.66,413.14
-		z"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" zoomAndPan="magnify" viewBox="0 0 375 374.999991" height="500" preserveAspectRatio="xMidYMid meet" version="1.0"><defs><clipPath id="c7ba5014ca"><path d="M 55.425781 56.25 L 319.425781 56.25 L 319.425781 318.75 L 55.425781 318.75 Z M 55.425781 56.25 " clip-rule="nonzero"/></clipPath></defs><g clip-path="url(#c7ba5014ca)"><path fill="#709a06" d="M 223.152344 187.300781 L 319.238281 56.230469 L 308.984375 56.230469 L 116.554688 318.71875 L 126.808594 318.71875 L 187.5 235.933594 L 248.179688 318.71875 L 319.476562 318.71875 Z M 191.121094 147.625 L 192.59375 145.613281 L 127.078125 56.230469 L 55.78125 56.230469 L 151.855469 187.304688 L 55.511719 318.71875 L 65.765625 318.71875 L 191.167969 147.660156 Z M 191.121094 147.625 " fill-opacity="1" fill-rule="nonzero"/></g></svg>

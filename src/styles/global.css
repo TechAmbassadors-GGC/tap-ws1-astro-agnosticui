@@ -12,17 +12,24 @@
 :root {
 	font-size: clamp(0.575rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem);
   --agnostic-header-content-width: 100vw; /* set minimum size of header menu - set to percent of viewport width */
+  
+  /* light mode */
+  --agnostic-primary-modelight: #7cb518; /*link color*/
+  --agnostic-primary-hover-modelight: #c3973b; /*link hover color*/
+  --agnostic-light-modelight: #ffffff; /* head & foot background colour*/
+  --agnostic-gray-light-modelight: #faf7f3; /* body background colour*/
+  --agnostic-dark-modelight: #000; /*font colour*/
+  --agnostic-gray-mid-modelight: #dad9d7;
 
 /* dark mode */
-  --agnostic-primary-modedark: #2173c0; /*link color*/
-  --agnostic-primary-hover-modedark: #c02196; /*link hover color*/
-
+  --agnostic-primary-modedark: #a1de36; /*link color*/
+  --agnostic-primary-hover-modedark: #fdb623; /*link hover color*/
   --agnostic-light-modedark: black; /* head & foot background colour*/
-  --agnostic-gray-light-modedark: rgb(17, 17, 17); /* body background colour*/
+  --agnostic-gray-light-modedark: #111111; /* body background colour*/
+  --agnostic-dark-modedark: #fff; /*font colour*/
 
-  /* --agnostic-primary-hover-modedark: #a4d11e; /*hover color*/
   --user-font-scale: 1.3em; /* Scale to apply to all fonts - slightly bigger for teachers' eyes */
-  --agnostic-dark-modedark: pink; /**/
+
   /* DO NOT TOUCH */
   /* --agnostic-font-color: white;- font color; */
      /* --agnostic-light: green;-  background color; */
@@ -97,8 +104,15 @@ h2 {
   text-align:center;
   font-size: clamp(var(--agnostic-h5), 5vw, var(--agnostic-h2));
   font-family: 'Gagalin', Helvetica, Arial, sans-serif;
+  text-shadow: black 2px 1px;
 }
 
+a{
+  color: var(--agnostic-primary);
+}
+a:hover{
+  color: var(--agnostic-primary-hover);
+}
 .project-cards-flex {  /*Project search page cards container */
 justify-content: space-around;
   flex-flow: row wrap;
@@ -120,12 +134,25 @@ justify-content: space-around;
   margin-block-end: var(--fluid-40); */
   background-color: var(--agnostic-gray-mid);
 }
+.card-container .card-main .overlay{
+  z-index: 2;
+  background-color: #1111115b; 
+  background-size: cover;
+  width: 100%; 
+  height: 100%; 
+  text-align: center;
+  position: absolute; 
+  top: 0; 
+  left: 0;
+}
 
 .card-main ul {
-  text-align: left;
+  z-index: 3;
+  text-align: center;
 }
 
 .card-title { /*Card titles  */
+  z-index: 3;
   text-align:center;
   font-size: clamp(var(--agnostic-h5), 1vw, var(--agnostic-h2));
   font-family: 'Gagalin', Helvetica, Arial, sans-serif;

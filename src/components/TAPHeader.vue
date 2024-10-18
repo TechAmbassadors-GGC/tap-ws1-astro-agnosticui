@@ -6,6 +6,7 @@ import { Header, HeaderNav, HeaderNavItem, Menu } from "agnostic-vue";
 
 const base = import.meta.env.BASE_URL;
 </script>
+
 <template>  
   <Header isHeaderContentStart css="header">
     <template v-slot:logoleft>      
