@@ -19,7 +19,9 @@
   --agnostic-light-modelight: #ffffff; /* head & foot background colour*/
   --agnostic-gray-light-modelight: #faf7f3; /* body background colour*/
   --agnostic-dark-modelight: #000; /*font colour*/
-  --agnostic-gray-mid-modelight: #dad9d7;
+  --agnostic-gray-mid-modelight: #dad9d7; /*card color*/
+  --agnostic-link-color-modelight: #7cb518;
+
 
 /* dark mode */
   --agnostic-primary-modedark: #a1de36; /*link color*/
@@ -27,6 +29,8 @@
   --agnostic-light-modedark: black; /* head & foot background colour*/
   --agnostic-gray-light-modedark: #111111; /* body background colour*/
   --agnostic-dark-modedark: #fff; /*font colour*/
+  --agnostic-link-color-modedark: #a1de36;
+
 
   --user-font-scale: 1.3em; /* Scale to apply to all fonts - slightly bigger for teachers' eyes */
 
@@ -36,9 +40,11 @@
 }
 
  .header {
-background-color: var(--agnostic-light-modedark);
-
-
+  background-color: var(--agnostic-light-modedark);
+  color: var(--agnostic-dark);
+  position: fixed;
+  top:0;
+  z-index: 10;
  }
 
 body {
@@ -107,10 +113,10 @@ h2 {
   text-shadow: black 2px 1px;
 }
 
-a{
-  color: var(--agnostic-primary);
+a, .header a{
+  color: var(--agnostic-primary) !important; 
 }
-a:hover{
+a:hover, .header a:hover{
   color: var(--agnostic-primary-hover);
 }
 .project-cards-flex {  /*Project search page cards container */
