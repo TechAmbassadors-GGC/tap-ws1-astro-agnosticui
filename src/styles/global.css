@@ -42,7 +42,7 @@
  .header {
   background-color: var(--agnostic-light-modedark);
   color: var(--agnostic-dark);
-  position: fixed;
+  /* position: fixed; */
   top:0;
   z-index: 10;
  }
@@ -104,6 +104,7 @@ main {
   justify-items: center;
   */
   width: clamp(26ch, 90%, 100%);
+  position: relative;
 }
 
 h2 {
@@ -187,11 +188,11 @@ justify-content: space-around;
   display: none;
 }
 .imageLight {
-  display: block;
+  display: flex;
 }
 @media (prefers-color-scheme: dark) {
   .imageDark {
-    display: block;
+    display: flex;
   }
   .imageLight {
     display: none;

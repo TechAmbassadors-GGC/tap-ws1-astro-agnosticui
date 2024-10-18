@@ -10,7 +10,7 @@ const base = import.meta.env.BASE_URL;
 <template>  
   <Header isHeaderContentStart css="header">
     <template v-slot:logoleft>      
-      <a class="flex-fill" :href="base" >
+      <a class="flex-fill" style="padding:0 20px;" :href="base" >
         <img :src="`${base == '/' ? '' : base}/images/tap-logo-dark.jpg`" width="100px" class="imageDark">
         <img :src="`${base == '/' ? '' : base}/images/tap-logo-light.png`" width="100px" class="imageLight">
       </a>
@@ -33,6 +33,9 @@ const base = import.meta.env.BASE_URL;
             <template #menuitem-apply>
               <a href="https://ggc.edu/academics/school-of-science-and-technology/research-internships-service-learning/technology-ambassador-program"
                  target="_blank">Student application</a></template>
+            <template #menuitem-alum>
+              <a href="https://www.linkedin.com/groups/4866341/"
+                 target="_blank">Alumni LinkedIn</a></template>
             <template #icon>&#9662;</template>
           </Menu>
         </HeaderNavItem>
