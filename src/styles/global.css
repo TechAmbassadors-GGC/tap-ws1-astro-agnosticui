@@ -14,12 +14,12 @@
   --agnostic-header-content-width: 100vw; /* set minimum size of header menu - set to percent of viewport width */
   
   /* light mode */
-  --agnostic-primary-modelight: #7cb518; /*link color*/
+  --agnostic-primary-modelight: #598310; /*link color*/
   --agnostic-primary-hover-modelight: #c3973b; /*link hover color*/
   --agnostic-light-modelight: #ffffff; /* head & foot background colour*/
   --agnostic-gray-light-modelight: #faf7f3; /* body background colour*/
   --agnostic-dark-modelight: #000; /*font colour*/
-  --agnostic-gray-mid-modelight: #dad9d7; /*card color*/
+  --agnostic-gray-mid-modelight: #dad9d7a5; /*card color*/
   --agnostic-link-color-modelight: #7cb518;
 
 
@@ -28,6 +28,8 @@
   --agnostic-primary-hover-modedark: #fdb623; /*link hover color*/
   --agnostic-light-modedark: black; /* head & foot background colour*/
   --agnostic-gray-light-modedark: #111111; /* body background colour*/
+  --agnostic-gray-mid-modedark: #1111115b; /*card color*/
+
   --agnostic-dark-modedark: #fff; /*font colour*/
   --agnostic-link-color-modedark: #a1de36;
 
@@ -143,7 +145,7 @@ justify-content: space-around;
 }
 .card-container .card-main .overlay{
   z-index: 2;
-  background-color: #1111115b; 
+  background-color: var(--agnostic-gray-mid); 
   background-size: cover;
   width: 100%; 
   height: 100%; 
