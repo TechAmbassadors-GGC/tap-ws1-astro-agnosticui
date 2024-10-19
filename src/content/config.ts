@@ -83,7 +83,7 @@ const studentCollection = defineCollection({
     github: z.string().url().optional(),
     image: z.string().optional(),
     desc: z.string(),
-    gradYear: z.string(),
+    graduationYear: z.string(),
     relatedProjectIds: z.array(z.string()).optional(),
     projects: z.array(z.object({
       name: z.string(),

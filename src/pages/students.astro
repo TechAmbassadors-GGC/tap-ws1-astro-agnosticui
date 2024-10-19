@@ -24,45 +24,43 @@ import Crumbs from "../components/Crumbs.vue"
 import StudentSearch from '../components/StudentSearch.vue';
 import TAPDefaultLayout from "../layouts/default.astro";
 
-export async function getStaticPaths() {
-  const students = await getCollection('students');  
-  let slugs = new Array();
+// export async function getStaticPaths() {
+//   const students = await getCollection('students');  
+//   let slugs = new Array();
 
   
-  // New algorithm: find unique tech combinations
-  let projectStudent = {};
-  projects.forEach(project => {
-    project.data.students.forEach(student => {
-      if (!projectStudent[student]) {
-        projectStudent[student] = [];
-      }
-      projectStudent[student].push(project);
-    });
-  });
+//   // New algorithm: find unique tech combinations
+//   let projectStudent = {};
+//   projects.forEach(project => {
+//     project.data.students.forEach(student => {
+//       if (!projectStudent[student]) {
+//         projectStudent[student] = [];
+//       }
+//       projectStudent[student].push(project);
+//     });
+//   });
 
-  Object.keys(projectStudent).forEach(student => {
-    slugs.push({	
-      params: { "projectStudent": `${student}` },
-      props: { "student": student, "projects": projectStudent[student] }
-    });
-  });
+//   Object.keys(projectStudent).forEach(student => {
+//     slugs.push({	
+//       params: { "projectStudent": `${student}` },
+//       props: { "student": student, "projects": projectStudent[student] }
+//     });
+//   });
 
-  return slugs;  
-}
+//   return slugs;  
+// }
 
 // read to pass to ProjectSearch
-const projects = await getCollection('projects');
+const students = await getCollection('students');
 
 // 2. For your template, you can get the entry directly from the prop
-const { student } = Astro.props;
 
 // Page title
-let title = `Projects with ${student}`;
 ---
-<TAPDefaultLayout title=`${title}`>
+<TAPDefaultLayout title=`${"TAP Students"}`>
 
 	<Crumbs pageType="students" pageUrl=`/students`/>
 
-	<StudentSearch client:load projectList={projects} filter={Astro.props}/>
+	<StudentSearch client:load studentList={students}/>
 
 </TAPDefaultLayout> 

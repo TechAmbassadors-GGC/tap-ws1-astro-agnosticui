@@ -1,4 +1,4 @@
-<script>
+<script setup>
 import { computed, ref } from "vue";
 import "agnostic-vue/dist/common.min.css";
 import "agnostic-vue/dist/index.css";
@@ -7,9 +7,13 @@ import { Card } from "agnostic-vue";
 // Remove single slash as it causes double slashes in card
 const base = import.meta.env.BASE_URL == '/' ? '' : import.meta.env.BASE_URL;
 
-// const studentProp = defineProps({
-//         item: Object
-//     });
+const studentProp = defineProps({
+        item: Object
+    });
+
+const imageSrc = computed(() => item.data.image || 'path/to/default-image.jpg');
+const studentTitle = computed(() => item.data.title || 'Unknown Student');
+
 
 // Truncate description to a fixed number of characters
 const maxDescriptionLength = 100; // Adjust the length as needed
@@ -25,8 +29,8 @@ const truncatedDescription = computed(() => {
     <Card css="studentCard" isShadow>
         <a :href="`/students/${item.data.id}`" class="card-link" isShadow></a>
         <div class="studentText">   
-            <img :src="item.data.image" alt="Student Image" class="studentImage">
-            <h4 class="studentTitle">{{ item.data.title}}</h4>
+            <img :src="imageSrc" alt="Student Image" class="studentImage">
+            <h4 class="studentTitle">{{ studentTitle}}</h4>
             <p class="description">{{ truncatedDescription }}</p>
             <div class="tag-container">
                 <a v-for="(website, index) in item.data.website" :key="index" :href="`${website}`" class="tag" >{{ Website }}</a>

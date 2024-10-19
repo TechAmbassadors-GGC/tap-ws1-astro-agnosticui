@@ -3,77 +3,173 @@ import { computed, ref } from "vue";
 import "agnostic-vue/dist/index.css";
 import "agnostic-vue/dist/common.min.css";
 import { Input, Select } from "agnostic-vue";
+
 import StudentCard from "./StudentCard.vue";
 
 // Load props
 const props = defineProps({
-    studentList: Array, // Ensure studentList is an array
+    studentList: Object, 
     filter: Object
 });
 
-const students = props.studentList || []; // Ensure students is an array
+const students = props.studentList || []; 
 const search_text = ref("");
 const graduationYear = props.filter?.graduationYear ? ref([props.filter.graduationYear]) : ref(['Any']);
-const project = props.filter?.project ? ref([props.filter.project]) : ref(['Any']);
+const projectId = props.filter?.relatedProjectIds ? ref([props.filter.relatedProjectIds]) : ref(['Any']);
 
 // Create options for dropdowns
-function createOptions(students, field) {
+function createOptions(students, x) {
     let optionSet = new Set();
     optionSet.add("Any");
-    
-    students.forEach(student => {
-        if (Array.isArray(student[field])) {
-            student[field].forEach(element => {
+    students.forEach(arrayContainer => {
+        if (Array.isArray(arrayContainer.data[x])) {
+            arrayContainer.data[x].forEach(element => {
                 optionSet.add(element);
             });
         } else {
-            optionSet.add(student[field]);
+            optionSet.add(arrayContainer.data[x]);
         }
     });
-
     return Array.from(optionSet).map(option => ({ value: option, label: option }));
 }
 
 // Generate options for dropdowns
-const yearOptions = createOptions(students, "graduationYear"); // Update this based on your metadata if necessary
-const projectOptions = createOptions(students, "relatedProjectIds"); // Use relatedProjectIds for projects
+const yearOptions = createOptions(students, "Graduation Year"); 
+const projectOptions = createOptions(students, "Related ProjectIds"); // Use relatedProjectIds for projects
 
 // Matches function to filter students based on search criteria
 function matches(student) {
-    const matchesSearchText = student.name.toLowerCase().includes(search_text.value.toLowerCase());
-    const matchesGraduationYear = graduationYear.value.includes('Any') || student.graduationYear === graduationYear.value[0]; // Check for graduationYear if it exists
-    const matchesProject = project.value.includes('Any') || student.relatedProjectIds.includes(project.value[0]); // Check against relatedProjectIds
+    let isMatch = false;
 
-    return matchesSearchText && matchesGraduationYear && matchesProject;
+    // Check if any filter is active (search text or dropdowns)
+    if (search_text.value || graduationYear.value !== 'Any' || projectId.value !== 'Any') {
+
+        // Check filters (dropdown menus)
+        // If dropdown value does not match student data, return false immediately
+        if (graduationYear.value !== 'Any' && !graduationYear.value.includes(student.data.graduationYear.toString())) {
+            return false;
+        }
+        if (relatedProjectIds.value !== 'Any' && !relatedProjectIds.value.includes(student.data.relatedProjectIds)) {
+            return false;
+        }
+
+        let searchText = search_text.value.toLowerCase();
+        
+        // If no search text is provided, pass the filtering based on dropdown values
+        if (searchText === '') {
+            return true;
+        } else {
+            // Check if student matches the search text (by name, projects, etc.)
+            if (
+                student.name.toLowerCase().includes(searchText) ||
+                student.graduationYear.toString().includes(searchText) ||
+                student.relatedProjectIds.some(projectId => projectId.includes(searchText)) ||
+                student.website.some(site => site.toLowerCase().includes(searchText)) ||
+                student.github.some(repo => repo.toLowerCase().includes(searchText)) ||
+                student.linkedin.some(profile => profile.toLowerCase().includes(searchText))
+            ) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    // If no filters are active, return true
+    return true;
 }
 
-// Computed property to filter students based on criteria
+// Compute filtered students based on matching criteria
 const filteredStudents = computed(() => {
-    return students.filter(matches);
+    return students.filter(student => matches(student));
 });
+
+const base = import.meta.env.BASE_URL;
 </script>
 
 <template>
     <div>
-        <Input v-model="search_text" placeholder="Search students..." />
-        <Select v-model="graduationYear" :options="yearOptions" />
-        <Select v-model="project" :options="projectOptions" />
+        <section class="mbe40">
 
-        <div class="student-cards">
-            <!-- Display StudentCards for filtered students -->
-            <StudentCard 
-                v-for="student in filteredStudents" 
-                :key="student.id" 
-                :student="student" 
-            />
-        </div>
+            <!-- Input for searching students -->
+            <Input id="7" is-underlined is-underlined-with-background 
+                placeholder="Enter student name..." 
+                label="Search for students" 
+                type="text" 
+                v-model="search_text" />
+
+            <!-- Filter dropdowns -->
+            <div class="student-filter-container">
+                
+                <!-- Graduation Year Filter -->
+                <div class="student-filter-dropdown">
+                    <label>Graduation Year:</label>
+                    <Select 
+                        unique-id="grad-year" 
+                        :options="yearOptions" 
+                        :is-multiple="true" 
+                        :multiple-size="3" 
+                        @selected="(value) => { graduationYear = value }">
+                    </Select>
+                </div>
+
+                <!-- Project Filter -->
+                <div class="student-filter-dropdown">
+                    <label>Related Projects:</label>
+                    <Select 
+                        unique-id="projects" 
+                        :options="projectOptions" 
+                        :is-multiple="true" 
+                        :multiple-size="3" 
+                        @selected="(value) => { relatedProjectIds = value }">
+                    </Select>
+                </div>
+
+                <!-- Reset Button -->
+                <div class="student-filter-dropdown">
+                    <a :href="`${base == '/' ? '' : base}/students`">
+                        <Button mode="primary" isRounded>Reset</Button>
+                    </a>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Display selected or all students -->
+        <h3>{{ ((search_text || !graduationYear.includes('Any') || !projectId.includes('Any')) ? 
+            `Filtered students` : 'All Students') }} ({{ filteredStudents.length }})</h3>
+
+        <!-- Display Student Cards for filtered students -->
+        <section class="mbe40 student-cards-flex flex flex-row flex-grow-1 flex-shrink-1 flex-wrap flex-fill">
+            <template v-for="student in filteredStudents" :key="student.data.id">
+                <StudentCard :item="student" />
+            </template>
+        </section>
     </div>
 </template>
+
+
 
 <style scoped>
 .student-cards {
     display: flex;
     flex-wrap: wrap;
     gap: 16px; /* Adjust gap between cards */
+}
+
+.student-filter-container {
+    justify-content: space-around;
+    display: flex;
+    flex-flow: row wrap;
+    /* align-items: flex-start; */ 
+    justify-content: center;
+    align-items: center;
+}
+.student-filter-dropdown {
+    /* apply grid and flex here */
+    min-width: 10rem !important;
+    max-width: 15em;
+    padding: 1em;
+    flex: 1;
 }
 </style>
