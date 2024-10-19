@@ -7,9 +7,9 @@ import { Card } from "agnostic-vue";
 // Remove single slash as it causes double slashes in card
 const base = import.meta.env.BASE_URL == '/' ? '' : import.meta.env.BASE_URL;
 
-const studentProp = defineProps({
-        item: Object
-    });
+// const studentProp = defineProps({
+//         item: Object
+//     });
 
 // Truncate description to a fixed number of characters
 const maxDescriptionLength = 100; // Adjust the length as needed
@@ -25,7 +25,7 @@ const truncatedDescription = computed(() => {
     <Card css="studentCard" isShadow>
         <a :href="`/students/${item.data.id}`" class="card-link" isShadow></a>
         <div class="studentText">   
-            <img :src="studentProp.item.image" alt="Student Image" class="studentImage">
+            <img :src="item.data.image" alt="Student Image" class="studentImage">
             <h4 class="studentTitle">{{ item.data.title}}</h4>
             <p class="description">{{ truncatedDescription }}</p>
             <div class="tag-container">

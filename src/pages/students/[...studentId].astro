@@ -59,8 +59,8 @@ import TAPDefaultLayout from "../../layouts/default.astro";
     <div class="col2">
       <h3>About Me</h3>
       {student.data.desc && <p>{student.data.desc}</p>}
+      {student.data.gradYear && <p><b>Graduation year: </b> {student.data.gradYear}</p>}
 
-      {student.data.relatedProjectIds && <p><b>Related Project: </b>{student.data.relatedProjectIds}</p>}
       
       <!-- Try this later {student.data.relatedProjectIds.map((projectId, index) => (
 				<>
@@ -78,6 +78,10 @@ import TAPDefaultLayout from "../../layouts/default.astro";
       {student.data.website && <p><b>Website: </b> <a href={student.data.website} target="_blank">{student.data.website}</a></p>}
       {student.data.linkedin && <p><b>LinkedIn: </b> <a href={student.data.linkedin} target="_blank">{student.data.linkedin}</a></p>}
       {student.data.github && <p><b>GitHub: </b> <a href={student.data.github} target="_blank">{student.data.github}</a></p>}
+      
+      <h3>Related Project</h3>
+      {student.data.relatedProjectIds && <p><b>Project: </b>{student.data.relatedProjectIds}</p>}
+
     </div>
     </div>
     <Content />

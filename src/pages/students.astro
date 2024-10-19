@@ -21,7 +21,7 @@ import "agnostic-vue/dist/index.css";
 // Read from content collection
 import { getCollection } from 'astro:content';
 import Crumbs from "../components/Crumbs.vue"
-import ProjectSearch from '../components/ProjectSearch.vue';
+import StudentSearch from '../components/StudentSearch.vue';
 import TAPDefaultLayout from "../layouts/default.astro";
 
 export async function getStaticPaths() {
@@ -63,6 +63,6 @@ let title = `Projects with ${student}`;
 
 	<Crumbs pageType="students" pageUrl=`/students`/>
 
-	<ProjectSearch client:load projectList={projects} filter={Astro.props}/>
+	<StudentSearch client:load projectList={projects} filter={Astro.props}/>
 
 </TAPDefaultLayout> 
