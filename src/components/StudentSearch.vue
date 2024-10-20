@@ -49,7 +49,7 @@ function matches(student) {
         if (graduationYear.value !== 'Any' && !graduationYear.value.includes(student.data.graduationYear.toString())) {
             return false;
         }
-        if (relatedProjectIds.value !== 'Any' && !relatedProjectIds.value.includes(student.data.relatedProjectIds)) {
+        if (projectId.value !== 'Any' && !projectId.value.includes(student.data.relatedProjectIds)) {
             return false;
         }
 
@@ -61,12 +61,8 @@ function matches(student) {
         } else {
             // Check if student matches the search text (by name, projects, etc.)
             if (
-                student.name.toLowerCase().includes(searchText) ||
-                student.graduationYear.toString().includes(searchText) ||
-                student.relatedProjectIds.some(projectId => projectId.includes(searchText)) ||
-                student.website.some(site => site.toLowerCase().includes(searchText)) ||
-                student.github.some(repo => repo.toLowerCase().includes(searchText)) ||
-                student.linkedin.some(profile => profile.toLowerCase().includes(searchText))
+                student.data.graduationYear.toString().includes(searchText) ||
+                student.data.relatedProjectIds.some(projectId => projectId.tolowerCase().includes(searchText))
             ) {
                 return true;
             } else {
