@@ -41,7 +41,7 @@ imageLogoDark: ./virtualWarriorsDarkLogo.png
 imageLogoTrans: ./virtualWarriorsTransparentLogo.png
 imageTeam: ./virtualWarriorsTeamPhoto.png
 videoAd: "8odVRHWLpv4"
-curator: [Sean Nolan]
+curator: [Sean Nolan, Kelechi Ariwodo]
 ---
 import { Image } from "astro:assets";
 import Photo from '/src/components/astro/Photo.astro';
@@ -61,14 +61,14 @@ Roblox Studio is a game development engine that allows users to create simple an
 The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to break the misconceptions of the IT field by providing fun workshops for students of all backgrounds. TAP students design engaging and fun outreach workshops to encourage interest in IT and STEM.
 
 
-<div style="text-align:center; margin-top:50px">
+<div class="prj-txt">
 ## Team members
 <Image src={virtualWarriorsTeamPhoto} alt="Virtual Warriors Team Photo" />
 #### From left to right: Sean Nolan, Ronoquade Lawrence, Red Godana
 <br />
 </div>
 
-<div style="text-align: center; justify-content: center; font-size: 1.125em;">
+<div class="prj-list">
 ## Outreach Activities:
 1. Tap Expo, Oct 10, GGC - Workshop demo to promote IT field and the TAP program to college students
 2. Super Saturday Series (S3), October 28, 2023, Georiga Gwinnett College - Workshop demo for middle and high school girls to promote IT and STEM career
@@ -78,9 +78,9 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 
 
 
-<div class="flex flex-row flex-wrap">
+{/* <div class="flex flex-row flex-wrap"> */}
 
-<div style="flex: 1; min-width: 25em; margin-top:50px; text-align: center; justify-content: center">
+<div class="prj-list">
 
 ## Steps:
 
@@ -93,19 +93,19 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 
 </div>
 
-</div>
+{/* </div> */}
 
 
 
 
 ## Technology
-<div style='text-align:center; display: flex; justify-content: center; font-size: 1.25em'>
+<div class='gallery-list'>
 <Logo src= {metaQuest2.src} alt="Meta Quest 2" link="https://www.meta.com/quest/products/quest-2/" />
 <Logo src= {robloxStudioImage.src} alt="Roblox Studio" link="https://create.roblox.com"/>
 </div>
 
 {/* CONTENT BLOCK */}
-<div style="text-align:center;">
+<div class='prj-list'>
 <iframe width="560" class="youtube" src="https://www.youtube.com/embed/fTHYSRMObBw?si=5DyCDRpUBAxpnLX8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Project Setup & Installation:

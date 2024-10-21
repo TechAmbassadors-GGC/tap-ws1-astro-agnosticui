@@ -10,7 +10,7 @@
 }
 
 :root {
-	font-size: clamp(0.575rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem);
+	font-size: clamp(0.575rem, 0.4626rem + 1.0309rem + var(--user-font-scale), 1.125rem);
   --agnostic-header-content-width: 100vw; /* set minimum size of header menu - set to percent of viewport width */
   
   /* light mode */
@@ -65,9 +65,9 @@ body {
 /* Make all markdown paragraphs in the blog and projects sections in a centered box */
 .blog p, .body-prj p, .body-prj ol {
   max-width: 60em;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 0;
 }
+
 
 .blog h1, .blog h2, .blog h3, .blog h4 {
   text-align: center;
@@ -194,6 +194,30 @@ justify-content: space-around;
   font-size: clamp(var(--agnostic-h5), 2vw, var(--agnostic-h3));
 }
 
+.prj-txt{
+  text-align:center; 
+  /* margin-top:50px; */
+}
+
+.prj-list{
+  flex: 1;
+  text-align:left; 
+  /* margin-top:50px; */
+}
+
+.materials-list{
+  display: flex; 
+  flex:1;
+  justify-content: center; 
+  min-width: 25em; 
+  /* margin-top:50px */
+}
+
+.gallery-list{
+  text-align:center; 
+  display: flex; 
+  justify-content: center;
+}
 /* Only show light or dark image based on browser option */
 .imageDark {
   display: none;
