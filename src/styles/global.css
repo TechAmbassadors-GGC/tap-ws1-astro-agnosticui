@@ -14,39 +14,34 @@
   --agnostic-header-content-width: 100vw; /* set minimum size of header menu - set to percent of viewport width */
   
   /* light mode */
-  --agnostic-primary-modelight: #598310; /*link color*/
-  --agnostic-primary-hover-modelight: #c3973b; /*link hover color*/
+  --agnostic-primary-modelight: #6060f3; /*button color*/
+  --agnostic-primary-hover-modelight: #f1bd50; /*link hover color*/
   --agnostic-light-modelight: #ffffff; /* head & foot background colour*/
   --agnostic-gray-light-modelight: #faf7f3; /* body background colour*/
   --agnostic-dark-modelight: #000; /*font colour*/
   --agnostic-gray-mid-modelight: #dad9d7a5; /*card color*/
-  --agnostic-link-color-modelight: #7cb518;
-
+  --agnostic-btn-primary-color-modelight: #000;
+  --agnostic-font-color-modelight: #709a06; /*font color; */
 
 /* dark mode */
-  --agnostic-primary-modedark: #a1de36; /*link color*/
-  --agnostic-primary-hover-modedark: #fdb623; /*link hover color*/
+  --agnostic-primary-modedark: #6060f3; /*button color*/
+  --agnostic-primary-hover-modedark: #f1bd50; /*link hover color*/
   --agnostic-light-modedark: black; /* head & foot background colour*/
   --agnostic-gray-light-modedark: #111111; /* body background colour*/
-  --agnostic-gray-mid-modedark: #1111115b; /*card color*/
-
+  --agnostic-gray-mid-modedark: #111111d7; /*card color*/
+  --agnostic-font-color-modedark: white; /*font color; */
   --agnostic-dark-modedark: #fff; /*font colour*/
-  --agnostic-link-color-modedark: #a1de36;
-
+  --agnostic-btn-primary-color-modedark: #709a06;
 
   --user-font-scale: 1.3em; /* Scale to apply to all fonts - slightly bigger for teachers' eyes */
-
-  /* DO NOT TOUCH */
-  /* --agnostic-font-color: white;- font color; */
-     /* --agnostic-light: green;-  background color; */
 }
 
  .header {
-  background-color: var(--agnostic-light-modedark);
+  background-color: var(--agnostic-light);
   color: var(--agnostic-dark);
   /* position: fixed; */
-  top:0;
-  z-index: 10;
+  /* top:0; */
+  /* z-index: 10; */
  }
 
 body {
@@ -80,6 +75,8 @@ body {
 
 /* Project and blog pages show list bullets again, and also centered. */
 .body-prj ul, .blog ul {
+  display: inline-block;
+  text-align: left;
   list-style: inside disc;
   font-family: 'Work Sans', medium; 
   /*font-size: 1.25em; do not use fixed sizes, instead rely on Agnostic scalable size above */
@@ -109,18 +106,29 @@ main {
   position: relative;
 }
 
-h2 {
+h1 {
   text-align:center;
-  font-size: clamp(var(--agnostic-h5), 5vw, var(--agnostic-h2));
+  font-size: clamp(var(--agnostic-h5), 5vw, var(--agnostic-h1));
   font-family: 'Gagalin', Helvetica, Arial, sans-serif;
   text-shadow: black 2px 1px;
 }
 
+p {
+  margin: 0.24rem;
+  padding: 4px;
+}
+
 a, .header a{
+  /* color: var(--agnostic-font-color) !important;  */
   color: var(--agnostic-primary) !important; 
 }
 a:hover, .header a:hover{
-  color: var(--agnostic-primary-hover);
+  color: var(--agnostic-primary-hover) !important;
+}
+
+.tag, .button{
+  background-color: var(--agnostic-primary);
+  color: var(--agnostic-dark) !important;
 }
 .project-cards-flex {  /*Project search page cards container */
 justify-content: space-around;
@@ -157,7 +165,8 @@ justify-content: space-around;
 
 .card-main ul {
   z-index: 3;
-  text-align: center;
+  display: inline-block;
+  text-align: left;
 }
 
 .card-title { /*Card titles  */

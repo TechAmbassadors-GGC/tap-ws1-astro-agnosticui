@@ -37,16 +37,10 @@ const year = ref(new Date().getFullYear());
         </div> 
 
         <!--- col 2 --->
-        <div class="footer-column"> 
+        <!-- <div class="footer-column"> 
         
-          <div class="nsf-statement">
-            <p>
-              <a href="https://www.nsf.gov/" target="_blank" rel="noopener noreferrer"><img :src="`${base}/logos/NSF_Official_logo.png`" alt="NSF Logo"></a>
-            </p>
-            <p>           Supported by National Science Foundation Broadening Participation in Computing (BPC) 
-            Demo Project #2315804  </p>      
-          </div>
-        </div> 
+          
+        </div>  -->
 
         <!--- col 3 --->
         <div class="footer-column" style=""> 
@@ -81,7 +75,14 @@ const year = ref(new Date().getFullYear());
         </div> 
       </div> 
       <!--end of footer colums -->
-        
+      <div class="nsf-statement">
+            <p>
+              <a href="https://www.nsf.gov/" target="_blank" rel="noopener noreferrer"><img :src="`${base}/logos/NSF_Official_logo.png`" alt="NSF Logo"></a>
+            </p>
+            <p>           Supported by National Science Foundation Broadening Participation in Computing (BPC) 
+            Demo Project #2315804  </p>      
+          </div>
+
       <div class="copyright">
           <p>&copy; {{year}} Technology Ambassador Program. All Rights Reserved.</p>
       </div>
@@ -92,10 +93,10 @@ const year = ref(new Date().getFullYear());
 <style scoped>
 .footer-container{
     display: flex;
-    position: relative;
+    /* position: relative; */
     flex-direction: column;
-    bottom: 0;
-    width: 100vw;
+    /* bottom: 0; */
+    width: 100%;
     text-align: center;
     padding: 20px;
     background-color: var(--agnostic-light);
@@ -134,6 +135,8 @@ p, ul{
 ul {
   list-style-type: none;
   padding: 0;
+  display: inline-block;
+  text-align: left;
 }
 
 .footer-column ul li {
