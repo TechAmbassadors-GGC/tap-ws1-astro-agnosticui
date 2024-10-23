@@ -11,8 +11,8 @@ const studentProp = defineProps({
         item: Object
     });
 
-const imageSrc = computed(() => item.data.image || 'path/to/default-image.jpg');
-const studentTitle = computed(() => item.data.title || 'Unknown Student');
+const imageSrc = computed(() => studentProp.item.data.image || 'path/to/default-image.jpg');
+const studentTitle = computed(() => studentProp.item.data.title || 'Unknown Student');
 
 
 // Truncate description to a fixed number of characters

@@ -42,14 +42,14 @@ function matches(student) {
     let isMatch = false;
 
     // Check if any filter is active (search text or dropdowns)
-    if (search_text.value || graduationYear.value !== 'Any' || projectId.value !== 'Any') {
+    if (search_text.value || graduationYear.value != 'Any' || projectId.value != 'Any') {
 
         // Check filters (dropdown menus)
         // If dropdown value does not match student data, return false immediately
-        if (graduationYear.value !== 'Any' && !graduationYear.value.includes(student.data.graduationYear.toString())) {
+        if (graduationYear.value != 'Any' && !graduationYear.value.includes(student.data.graduationYear.toString())) {
             return false;
         }
-        if (projectId.value !== 'Any' && !projectId.value.includes(student.data.relatedProjectIds)) {
+        if (projectId.value != 'Any' && !projectId.value.includes(student.data.relatedProjectIds)) {
             return false;
         }
 
