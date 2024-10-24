@@ -33,9 +33,10 @@ const truncatedDescription = computed(() => {
             <h4 class="studentTitle">{{ studentTitle}}</h4>
             <p class="description">{{ truncatedDescription }}</p>
             <div class="tag-container">
-                <a v-for="(website, index) in item.data.website" :key="index" :href="`${website}`" class="tag" >{{ Website }}</a>
-                <a v-for="(github, index) in item.data.github" :key="index" :href="`${github}`" class="tag" >{{ GitHub }}</a>
-                <a v-for="(linkedin, index) in item.data.linkedin" :key="index" :href="`${linkedin}`" class="tag" >{{ LinkedLn }}</a>
+                <!-- Check if the link exists before rendering it -->
+                <a v-if="item.data.website" :href="item.data.website" class="tag">Website</a>
+                <a v-if="item.data.github" :href="item.data.github" class="tag">GitHub</a>
+                <a v-if="item.data.linkedin" :href="item.data.linkedin" class="tag">LinkedIn</a>
             </div>
         </div> 
     </Card>

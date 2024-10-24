@@ -34,8 +34,8 @@ function createOptions(students, x) {
 }
 
 // Generate options for dropdowns
-const yearOptions = createOptions(students, "Graduation Year"); 
-const projectOptions = createOptions(students, "Related ProjectIds"); // Use relatedProjectIds for projects
+const yearOptions = createOptions(students, "graduationYear"); 
+const projectOptions = createOptions(students, "relatedProjectIds"); // Use relatedProjectIds for projects
 
 // Matches function to filter students based on search criteria
 function matches(student) {
@@ -49,14 +49,14 @@ function matches(student) {
         if (graduationYear.value != 'Any' && !graduationYear.value.includes(student.data.graduationYear.toString())) {
             return false;
         }
-        if (projectId.value != 'Any' && !projectId.value.includes(student.data.relatedProjectIds)) {
+        if (projectId.value != 'Any' && !projectId.value.some(projectID => student.data.relatedProjectIds.includes(projectID))) {
             return false;
         }
 
         let searchText = search_text.value.toLowerCase();
         
         // If no search text is provided, pass the filtering based on dropdown values
-        if (searchText === '') {
+        if (searchText == '') {
             return true;
         } else {
             // Check if student matches the search text (by name, projects, etc.)
@@ -105,7 +105,7 @@ const base = import.meta.env.BASE_URL;
                         :options="yearOptions" 
                         :is-multiple="true" 
                         :multiple-size="3" 
-                        @selected="(value) => { graduationYear = value }">
+                        @selected="(value) => { graduationYear.value = value }">
                     </Select>
                 </div>
 
@@ -117,7 +117,7 @@ const base = import.meta.env.BASE_URL;
                         :options="projectOptions" 
                         :is-multiple="true" 
                         :multiple-size="3" 
-                        @selected="(value) => { relatedProjectIds = value }">
+                        @selected="(value) => { projectId.value = value }">
                     </Select>
                 </div>
 
