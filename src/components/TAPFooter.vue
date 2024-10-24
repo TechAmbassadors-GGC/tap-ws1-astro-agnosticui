@@ -31,7 +31,7 @@ const year = ref(new Date().getFullYear());
             <ul class="social-media-icons">
               <li><a href="https://github.com/TAP-GGC" target="_blank" rel="noopener noreferrer"><img :src= "`${base}/logos/github-logo.svg`" alt="Github Icon"></a></li>
               <li><a href="#" target="_blank" rel="noopener noreferrer"><img :src= "`${base}/logos/instagram-logo.svg`" alt="Instagram Icon"></a></li>
-              <li><a href="https://www.linkedin.com/search/results/all/?keywords=tap%20ggc&origin=GLOBAL_SEARCH_HEADER&sid=gWd" target="_blank" rel="noopener noreferrer"><img :src= "`${base}/logos/linkedin-logo.svg`" alt="LinkedIn Icon"></a></li>
+              <li><a href="https://www.linkedin.com/search/results/all/?keywords=tapggc&origin=GLOBAL_SEARCH_HEADER&sid=O4S" target="_blank" rel="noopener noreferrer"><img :src= "`${base}/logos/linkedin-logo.svg`" alt="LinkedIn Icon"></a></li>
             </ul>
           </div>
         </div> 

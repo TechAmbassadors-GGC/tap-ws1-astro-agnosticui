@@ -39,6 +39,7 @@
  .header {
   background-color: var(--agnostic-light);
   color: var(--agnostic-dark);
+  /* overflow-x: hidden; */
   /* position: fixed; */
   /* top:0; */
   /* z-index: 10; */
