@@ -46,15 +46,5 @@ const base = import.meta.env.BASE_URL;
 </template>
 
 <style scoped>
-header{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    padding:  25px 0;
-    background-color: var(--agnostic-light);
-    font-weight: 300;
-    margin-top: 20px;
-    
-}
 
 </style>

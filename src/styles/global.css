@@ -14,7 +14,7 @@
   --agnostic-header-content-width: 100vw; /* set minimum size of header menu - set to percent of viewport width */
   
   /* light mode */
-  --agnostic-primary-modelight: #6060f3; /*button color*/
+  --agnostic-primary-modelight: #709a06; /*button color*/
   --agnostic-primary-hover-modelight: #f1bd50; /*link hover color*/
   --agnostic-light-modelight: #ffffff; /* head & foot background colour*/
   --agnostic-gray-light-modelight: #faf7f3; /* body background colour*/
@@ -24,7 +24,7 @@
   --agnostic-font-color-modelight: #709a06; /*font color; */
 
 /* dark mode */
-  --agnostic-primary-modedark: #6060f3; /*button color*/
+  --agnostic-primary-modedark: #709a06; /*button color*/
   --agnostic-primary-hover-modedark: #f1bd50; /*link hover color*/
   --agnostic-light-modedark: black; /* head & foot background colour*/
   --agnostic-gray-light-modedark: #111111; /* body background colour*/
@@ -42,6 +42,12 @@
   /* position: fixed; */
   /* top:0; */
   /* z-index: 10; */
+ }
+
+ .footer{
+  background-color: var(--agnostic-light);
+  color: var(--agnostic-dark);
+  width: 100vw;
  }
 
 body {
@@ -110,7 +116,7 @@ h1 {
   text-align:center;
   font-size: clamp(var(--agnostic-h5), 5vw, var(--agnostic-h1));
   font-family: 'Gagalin', Helvetica, Arial, sans-serif;
-  text-shadow: black 2px 1px;
+  /* text-shadow: black 2px 1px; */
 }
 
 p {

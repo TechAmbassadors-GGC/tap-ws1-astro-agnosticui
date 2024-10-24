@@ -10,8 +10,8 @@ const base = import.meta.env.BASE_URL == '/' ? '' : import.meta.env.BASE_URL;
 const year = ref(new Date().getFullYear());
 </script>
 <template>
-  <footer class="footer-container">
-    <div>
+  <footer >
+    <div class="footer-container">
       <div class="footer-columns">
         
         <!--- col 1 --->
@@ -37,10 +37,17 @@ const year = ref(new Date().getFullYear());
         </div> 
 
         <!--- col 2 --->
-        <!-- <div class="footer-column"> 
+        <div class="footer-column"> 
+           <div class="nsf-statement">
+            <p>
+              <a href="https://www.nsf.gov/" target="_blank" rel="noopener noreferrer"><img :src="`${base}/logos/NSF_Official_logo.png`" alt="NSF Logo"></a>
+            </p>
+            <p>           Supported by National Science Foundation Broadening Participation in Computing (BPC) 
+            Demo Project #2315804  </p>      
+          </div>
         
           
-        </div>  -->
+        </div> 
 
         <!--- col 3 --->
         <div class="footer-column" style=""> 
@@ -48,7 +55,11 @@ const year = ref(new Date().getFullYear());
             <h4>Contact Us</h4>
 
             <ul>
-              <li>Email: <a href="mailto:admin@tapggc.org" target="_blank">admin@tapggc.org</a></li>
+              <li>
+                <p>Email: 
+                  <a href="mailto:admin@tapggc.org" target="_blank">admin@tapggc.org</a>
+                </p>
+              </li>
               <li>
                 <p>Address: </p>
                 <p>
@@ -75,13 +86,7 @@ const year = ref(new Date().getFullYear());
         </div> 
       </div> 
       <!--end of footer colums -->
-      <div class="nsf-statement">
-            <p>
-              <a href="https://www.nsf.gov/" target="_blank" rel="noopener noreferrer"><img :src="`${base}/logos/NSF_Official_logo.png`" alt="NSF Logo"></a>
-            </p>
-            <p>           Supported by National Science Foundation Broadening Participation in Computing (BPC) 
-            Demo Project #2315804  </p>      
-          </div>
+     
 
       <div class="copyright">
           <p>&copy; {{year}} Technology Ambassador Program. All Rights Reserved.</p>
@@ -96,7 +101,7 @@ const year = ref(new Date().getFullYear());
     /* position: relative; */
     flex-direction: column;
     /* bottom: 0; */
-    width: 100%;
+    width: 100vw;
     text-align: center;
     padding: 20px;
     background-color: var(--agnostic-light);
@@ -105,7 +110,7 @@ const year = ref(new Date().getFullYear());
     box-sizing: border-box;
     align-content: center;
     flex-wrap: wrap;
-    max-width: 100vw;    
+    /* max-width: 1770px;     */
 }
 
 .footer-columns {
@@ -125,7 +130,7 @@ const year = ref(new Date().getFullYear());
 }
 
 h4 {
-  margin-bottom: 7px;
+  margin-bottom: 5px;
   font-size: 1em;
 }
 p, ul{
@@ -151,7 +156,10 @@ ul {
   max-height: 100px;
   margin: 0 auto;
 }
-
+.contact{
+  margin-top: 30px;
+  line-height: 0.5;
+}
 .social-media-icons li {
   display: inline-block;
   margin-right: 7px;
@@ -206,12 +214,21 @@ ul {
   .nsf-statement a img{
   height: 40px;
 }
+.contact{
+  margin-top: 0;
+}
+.footer-column ul li {
+  margin-bottom: 0.125em;
+}
 
 .nsf-statement {
   text-align: center;
   max-width: 300px;
   margin: 0 auto;
 
+}
+.nsf-statement p{
+  margin-bottom: 4px;
 }
 
 .social-media-icons li a img{
