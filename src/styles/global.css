@@ -14,24 +14,27 @@
   --agnostic-header-content-width: 100vw; /* set minimum size of header menu - set to percent of viewport width */
   
   /* light mode */
-  --agnostic-primary-modelight: #709a06; /*button color*/
+  --agnostic-primary-modelight: #9ec33f; /*button, tags color*/
   --agnostic-primary-hover-modelight: #f1bd50; /*link hover color*/
   --agnostic-light-modelight: #ffffff; /* head & foot background colour*/
   --agnostic-gray-light-modelight: #faf7f3; /* body background colour*/
   --agnostic-dark-modelight: #000; /*font colour*/
-  --agnostic-gray-mid-modelight: #dad9d7a5; /*card color*/
+  --agnostic-gray-mid-modelight: #8eb629; /*card color*/
   --agnostic-btn-primary-color-modelight: #000;
   --agnostic-font-color-modelight: #709a06; /*font color; */
+  --agnostic-gray-mid-dark-modelight: #dad9d7a5; /*overlay color*/
 
 /* dark mode */
-  --agnostic-primary-modedark: #709a06; /*button color*/
+  --agnostic-primary-modedark: #709a06; /*button, tags color*/
   --agnostic-primary-hover-modedark: #f1bd50; /*link hover color*/
   --agnostic-light-modedark: black; /* head & foot background colour*/
   --agnostic-gray-light-modedark: #111111; /* body background colour*/
-  --agnostic-gray-mid-modedark: #111111d7; /*card color*/
+  --agnostic-gray-mid-modedark: #516816; /*card color*/
   --agnostic-font-color-modedark: white; /*font color; */
   --agnostic-dark-modedark: #fff; /*font colour*/
   --agnostic-btn-primary-color-modedark: #709a06;
+  --agnostic-gray-mid-dark-modedark: #111111d7; /*overlay color*/
+
 
   --user-font-scale: 1.3em; /* Scale to apply to all fonts - slightly bigger for teachers' eyes */
 }
@@ -142,6 +145,46 @@ justify-content: space-around;
   flex-flow: row wrap;
 }
 
+.homepg-banner{
+  position: relative;
+  display: inline-block;
+}
+
+.img.banner{
+  width: 80%; 
+  height: auto; 
+  margin: 0 auto;
+}
+.banner-text-overlay{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  line-height: 1;
+  text-decoration: left;
+  color: var(--agnostic-font-color);
+  /* background: rgba(0, 0, 0, 0.5); */
+}
+.banner-text{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--agnostic-font-color);
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.banner{
+  width: 100%;
+  height: fit-content;
+  padding: 1rem;
+  background-color: var(--agnostic-gray-mid);
+}
+
 .card-container .card-main { /* div contains a single card on index page - more specific CSS selector takes priority */
   min-width: 20em !important;
   max-width: 30em;  
@@ -160,7 +203,7 @@ justify-content: space-around;
 }
 .card-container .card-main .overlay{
   z-index: 2;
-  background-color: var(--agnostic-gray-mid); 
+  background-color: var(--agnostic-gray-mid-dark); 
   background-size: cover;
   width: 100%; 
   height: 100%; 
@@ -224,6 +267,40 @@ justify-content: space-around;
   text-align:center; 
   display: flex; 
   justify-content: center;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 1.5rem;
+  margin-top: -50px;
+  color: var(--agnostic-font-color);
+  font-weight: bold;
+  font-size: 84px;
+  border-radius: 0 3px 3px 0;
+  /* user-select: none; */
+  /* -webkit-user-select: none; */
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  text-decoration: none;
+}
+.prev:disabled,
+.next:disabled {
+  cursor: not-allowed;
+  text-decoration: none;
+  color: #2f2c2c
 }
 /* Only show light or dark image based on browser option */
 .imageDark {
