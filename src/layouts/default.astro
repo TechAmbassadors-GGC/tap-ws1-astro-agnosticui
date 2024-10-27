@@ -54,102 +54,21 @@ let bodyClass = Astro.props.class;
 	gtag('config', 'G-L6HGVGHGF3');
 	</script>
 
-	<style>
-		
-	.banner-text-overlay h4{
-		font-family: 'Gagalin', Helvetica, Arial, sans-serif;
-		padding-bottom: 10rem;
-		padding-left: 5rem;
-	} 
-	.banner-text-overlay p {
-  		/* margin: 0; */
-  		padding-bottom: 8.5rem;
- 		padding-left: 5rem;	}
-
-	</style>
+	
 </head>
 
 <body class={bodyClass}>
 	<TAPHeader client:load />
-	<section class="homepg-banner">
-		<img id="home-banner" src="" alt="TAP Gallery" style="max-width: 100%; height: auto;" />
-		<div class="banner-text-overlay">
-			<h4 id="photoTitle" class="banner-text-overlay">Title Here</h4>
-			<p id="caption">caption here.</p>
-		</div>
-			<a id="prev" class="prev">&#10094;</a>
-			<a id="next" class="next">&#10095;</a>
-	  </section>
+	
 	  
 	<main>
         <slot/>
 	</main>
-	<!-- <section class="banner">
-		<h2> About TAP </h2>
-	</section> -->
+
 
 	<TAPFooter client:load />
 
 </body>
 </html>
-<script>
-	const gallery = [
-	  {
-		file: 'public/images/homepg-gallery/tap-homepage-banner.jpg',
-		photoTitle: 'TECHNOLOGY AMBASSADORS PROGRAM',
-		caption: 'Georgia Gwinnett College'
-	  },
-	  {
-		file: 'public/images/homepg-gallery/tap-homepage-banner-2.jpg',
-		photoTitle: 'TECHNOLOGY AMBASSADORS PROGRAM',
-		caption: 'Georgia Gwinnett College'
-	  },
-	  {
-		file: 'public/images/homepg-gallery/tap-homepage-banner-3.jpg',
-		photoTitle: 'TECHNOLOGY AMBASSADORS PROGRAM',
-		caption: 'Georgia Gwinnett College'
-	  }
-	];
-	
-	let cIndex = 0;
-  
-	const homeBanner = document.getElementById('home-banner');
-	const photoTitle = document.getElementById('photoTitle');
-	const caption = document.getElementById('caption');
-	const prevArrow = document.getElementById('prev');
-	const nxtArrow = document.getElementById('next');
-  
-	function updateGallery(index) {
-	  const photo = gallery[index]; 
-	  homeBanner.src = photo.file;
-	  photoTitle.textContent = photo.photoTitle;
-	  caption.textContent = photo.caption;
-  
-	}
-  
-	prevArrow.addEventListener('click', () => {
-	  if (cIndex > 0) {
-		cIndex--;
-	  }
-	  else cIndex = gallery.length -1;
-	  updateGallery(cIndex);
 
-	});
-  
-	nxtArrow.addEventListener('click', () => {
-	  if (cIndex < gallery.length - 1) {
-		cIndex++;
-	  }
-	  else cIndex = 0;
-	  updateGallery(cIndex);
-
-	});
-  
-	window.onload = () => {
-	  if (gallery.length > 0) {
-		updateGallery(cIndex);
-	   } 
-	};
-  </script>
-  
 </script>

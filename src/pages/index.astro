@@ -72,7 +72,18 @@ const blogEntries = await getCollection('events');
 ---
 <TAPDefaultLayout title={title}>
 
+  <section class="homepg-banner">
+		<img id="home-banner" src="" alt="TAP Gallery" style="max-width: 100%; height: auto;" />
+		<div class="banner-text-overlay">
+			<h4 id="photoTitle" class="banner-text-overlay">Title Here</h4>
+			<p id="caption">caption here.</p>
+		</div>
+			<a id="prev" class="prev">&#10094;</a>
+			<a id="next" class="next">&#10095;</a>
+	  </section>
+
   <Heading />
+
         <section class="card-container">
             <PostListCard client:load/>
             <ProjectListCard client:load/>
@@ -80,5 +91,70 @@ const blogEntries = await getCollection('events');
             <EventsListCard client:load/>
             <PapersListCard client:load/-->
         </section>
+
+        	<!-- <section class="banner">
+		<h2> About TAP </h2>
+	</section> -->
   
 </TAPDefaultLayout>
+
+<script>
+	const gallery = [
+	  {
+		file: 'public/images/homepg-gallery/tap-homepage-banner.jpg',
+		photoTitle: 'TECHNOLOGY AMBASSADORS PROGRAM',
+		caption: 'Georgia Gwinnett College'
+	  },
+	  {
+		file: 'public/images/homepg-gallery/tap-homepage-banner-2.jpg',
+		photoTitle: 'TECHNOLOGY AMBASSADORS PROGRAM',
+		caption: 'Georgia Gwinnett College'
+	  },
+	  {
+		file: 'public/images/homepg-gallery/tap-homepage-banner-3.jpg',
+		photoTitle: 'TECHNOLOGY AMBASSADORS PROGRAM',
+		caption: 'Georgia Gwinnett College'
+	  }
+	];
+	
+	let cIndex = 0;
+  
+	const homeBanner = document.getElementById('home-banner');
+	const photoTitle = document.getElementById('photoTitle');
+	const caption = document.getElementById('caption');
+	const prevArrow = document.getElementById('prev');
+	const nxtArrow = document.getElementById('next');
+  
+	function updateGallery(index) {
+	  const photo = gallery[index]; 
+	  homeBanner.src = photo.file;
+	  photoTitle.textContent = photo.photoTitle;
+	  caption.textContent = photo.caption;
+  
+	}
+  
+	prevArrow.addEventListener('click', () => {
+	  if (cIndex > 0) {
+		cIndex--;
+	  }
+	  else cIndex = gallery.length -1;
+	  updateGallery(cIndex);
+
+	});
+  
+	nxtArrow.addEventListener('click', () => {
+	  if (cIndex < gallery.length - 1) {
+		cIndex++;
+	  }
+	  else cIndex = 0;
+	  updateGallery(cIndex);
+
+	});
+  
+	window.onload = () => {
+	  if (gallery.length > 0) {
+		updateGallery(cIndex);
+	   } 
+	};
+  </script>
+  
