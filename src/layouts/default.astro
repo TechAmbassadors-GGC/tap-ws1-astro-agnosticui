@@ -125,31 +125,30 @@ let bodyClass = Astro.props.class;
 	  photoTitle.textContent = photo.photoTitle;
 	  desc.textContent = photo.caption;
   
-	  prevArrow.disabled = index === 0;
-	  nxtArrow.disabled = index === gallery.length - 1;
 	}
   
 	prevArrow.addEventListener('click', () => {
 	  if (cIndex > 0) {
 		cIndex--;
-		updateGallery(cIndex);
 	  }
+	  else cIndex = gallery.length -1;
+	  updateGallery(cIndex);
+
 	});
   
 	nxtArrow.addEventListener('click', () => {
 	  if (cIndex < gallery.length - 1) {
 		cIndex++;
-		updateGallery(cIndex);
 	  }
+	  else cIndex = 0;
+	  updateGallery(cIndex);
+
 	});
   
 	window.onload = () => {
 	  if (gallery.length > 0) {
 		updateGallery(cIndex);
-	  } else {
-		prevArrow.disabled = true;
-		nxtArrow.disabled = true;
-	  }
+	   } 
 	};
   </script>
   

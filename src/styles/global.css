@@ -14,14 +14,14 @@
   --agnostic-header-content-width: 100vw; /* set minimum size of header menu - set to percent of viewport width */
   
   /* light mode */
-  --agnostic-primary-modelight: #9ec33f; /*button, tags color*/
+  --agnostic-primary-modelight: #708930; /*button, tags color*/
   --agnostic-primary-hover-modelight: #f1bd50; /*link hover color*/
   --agnostic-light-modelight: #ffffff; /* head & foot background colour*/
   --agnostic-gray-light-modelight: #faf7f3; /* body background colour*/
   --agnostic-dark-modelight: #000; /*font colour*/
   --agnostic-gray-mid-modelight: #8eb629; /*card color*/
   --agnostic-btn-primary-color-modelight: #000;
-  --agnostic-font-color-modelight: #709a06; /*font color; */
+  --agnostic-font-color-modelight: #708930; /*font color; */
   --agnostic-gray-mid-dark-modelight: #dad9d7a5; /*overlay color*/
 
 /* dark mode */
@@ -51,7 +51,7 @@
  .footer{
   background-color: var(--agnostic-light);
   color: var(--agnostic-dark);
-  width: 100vw;
+  width: 100%;
  }
 
 body {
@@ -112,7 +112,7 @@ main {
   align-items: center;
   justify-items: center;
   */
-  width: clamp(26ch, 90%, 100%);
+  /* width: clamp(26ch, 90%, 100%); */
   position: relative;
 }
 
@@ -151,7 +151,7 @@ justify-content: space-around;
 }
 
 .img.banner{
-  width: 80%; 
+  width: 100%; 
   height: auto; 
   margin: 0 auto;
 }
