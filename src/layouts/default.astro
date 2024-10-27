@@ -115,7 +115,7 @@ let bodyClass = Astro.props.class;
   
 	const homeBanner = document.getElementById('home-banner');
 	const photoTitle = document.getElementById('photoTitle');
-	const desc = document.getElementById('caption');
+	const caption = document.getElementById('caption');
 	const prevArrow = document.getElementById('prev');
 	const nxtArrow = document.getElementById('next');
   
@@ -123,7 +123,7 @@ let bodyClass = Astro.props.class;
 	  const photo = gallery[index]; 
 	  homeBanner.src = photo.file;
 	  photoTitle.textContent = photo.photoTitle;
-	  desc.textContent = photo.caption;
+	  caption.textContent = photo.caption;
   
 	}
   
