@@ -98,6 +98,27 @@ const studentCollection = defineCollection({
   }),
 });
 
+// Define faculty collection
+const facultyCollection = defineCollection({
+  type: 'content',
+  schema: ({ image }) => z.object({
+    name: z.string(),
+    id: z.string(),
+    affiliation: z.string(),
+    title: z.string(),
+    email: z.string().email({ message: "Invalid email address" }),
+    phone: z.string().optional(),
+    website: z.string().url().optional(),
+    linkedin: z.string().url().optional(),
+    github: z.string().url().optional(),
+    image: image().refine((img) => img.width <= 1500, {
+      message: "Image too large! Ensure image is less than 1500 pixels wide."
+    }).optional(),
+    desc: z.string(),
+    projectList: z.array(z.string()).optional()  // Optional list of project IDs associated with the faculty member
+  }),
+});
+
 const testCollection = defineCollection({
   type:'content',
   schema: z.object({
@@ -113,4 +134,5 @@ export const collections = {
   'events': eventCollection,
   'projects': projectCollection,
   'students': studentCollection,
+  'faculty': facultyCollection,
 };
