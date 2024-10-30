@@ -14,22 +14,22 @@
   --agnostic-header-content-width: 100vw; /* set minimum size of header menu - set to percent of viewport width */
   
   /* light mode */
-  --agnostic-primary-modelight: #708930; /*button, tags color*/
+  --agnostic-primary-modelight: #6c8d1b; /*button, tags color*/
   --agnostic-primary-hover-modelight: #f1bd50; /*link hover color*/
   --agnostic-light-modelight: #ffffff; /* head & foot background colour*/
   --agnostic-gray-light-modelight: #faf7f3; /* body background colour*/
   --agnostic-dark-modelight: #000; /*font colour*/
-  --agnostic-gray-mid-modelight: #8eb629; /*card color*/
+  --agnostic-gray-mid-modelight: #c6e478; /*card color*/
   --agnostic-btn-primary-color-modelight: #000;
   --agnostic-font-color-modelight: #708930; /*font color; */
   --agnostic-gray-mid-dark-modelight: #dad9d7a5; /*overlay color*/
 
 /* dark mode */
-  --agnostic-primary-modedark: #709a06; /*button, tags color*/
+  --agnostic-primary-modedark: #516816; /*button, tags color*/
   --agnostic-primary-hover-modedark: #f1bd50; /*link hover color*/
   --agnostic-light-modedark: black; /* head & foot background colour*/
   --agnostic-gray-light-modedark: #111111; /* body background colour*/
-  --agnostic-gray-mid-modedark: #516816; /*card color*/
+  --agnostic-gray-mid-modedark: #282f17; /*card color*/
   --agnostic-font-color-modedark: white; /*font color; */
   --agnostic-dark-modedark: #fff; /*font colour*/
   --agnostic-btn-primary-color-modedark: #709a06;
