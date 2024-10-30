@@ -30,7 +30,7 @@ const truncatedDescription = computed(() => {
         <a :href="`/faculties/${item.data.id}`" class="card-link" isShadow></a>
         <div class="facultyText">   
             <img :src="imageSrc" alt="Faculty Image" class="facultyImage">
-            <h4 class="facultyTitle">{{ studentTitle}}</h4>
+            <h4 class="facultyTitle">{{ facultyTitle}}</h4>
             <p class="description">{{ truncatedDescription }}</p>
             <div class="tag-container">
                 <!-- Check if the link exists before rendering it -->

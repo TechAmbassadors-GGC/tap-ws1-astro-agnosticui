@@ -1,0 +1,124 @@
+---
+import '../../styles/global.css';
+import '@fontsource/source-sans-pro';
+import '@fontsource/work-sans';
+import '@fontsource/cormorant-garamond';
+
+// Component Imports
+import "agnostic-vue/dist/index.css";
+import { Image } from "astro:assets";
+import TAPHeader from '../../components/TAPHeader.vue';
+import TAPFooter from '../../components/TAPFooter.vue';
+import { getCollection } from 'astro:content';
+import Crumbs from "../../components/Crumbs.vue";
+import TAPDefaultLayout from "../../layouts/default.astro";
+
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+  const facultyMembers = await getCollection('faculties');
+  return facultyMembers.map(faculty => ({
+    params: { "facultyId": `${faculty.data.id}` },
+    props: { faculty },
+  }));
+}
+
+const { faculty } = Astro.props;
+const { Content } = await faculty.render();
+
+// Page title
+let title = `${faculty.data.name} - Faculty Profile`;
+const facultyImg = faculty.data.image;
+
+---
+<TAPDefaultLayout title={title}>
+  <Crumbs pageType="faculty" pageUrl={`/faculty/${faculty.data.id}`} />
+
+  <div class="body-faculty">
+    <h1 class="facultyName">{faculty.data.name}</h1>
+    <h2 class="facultyTitle">{faculty.data.title}</h2>
+
+    <div class="facultyDetails">
+      <img src={facultyImg} alt="Faculty Photo" class="facultyImage" />
+      <div class="col2">
+        <h3>About Me</h3>
+        {faculty.data.desc && <p>{faculty.data.desc}</p>}
+
+        <h3>Contact</h3>
+        <p><strong>Email: </strong><a href={`mailto:${faculty.data.email}`}>{faculty.data.email}</a></p>
+        {faculty.data.phone && <p><strong>Phone: </strong>{faculty.data.phone}</p>}
+        {faculty.data.website && <p><strong>Website: </strong><a href={faculty.data.website} target="_blank">{faculty.data.website}</a></p>}
+        {faculty.data.linkedin && <p><strong>LinkedIn: </strong><a href={faculty.data.linkedin} target="_blank">{faculty.data.linkedin}</a></p>}
+        {faculty.data.github && <p><strong>GitHub: </strong><a href={faculty.data.github} target="_blank">{faculty.data.github}</a></p>}
+
+        <h3>Projects</h3>
+        {faculty.data.projectList && faculty.data.projectList.length > 0 ? (
+          <p><strong>Related Projects: </strong>{faculty.data.projectList.map((projectId, index) => (
+            <a href={`/projects/${projectId}`} key={projectId}>
+              {projectId}{index < faculty.data.projectList.length - 1 ? ", " : ""}
+            </a>
+          ))}</p>
+        ) : (
+          <p>No related projects available.</p>
+        )}
+      </div>
+    </div>
+    <Content />
+  </div>
+</TAPDefaultLayout>
+
+<style>
+  .facultyImage {
+    margin-right: 1em;
+    width: clamp(15em, 50%, 25em);
+    float: left;
+    padding-bottom: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .facultyDetails {
+    font-size: 1.125em;
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 1em;
+    height: 100%;
+  }
+
+  .col2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: max-content;
+  }
+
+  .facultyDetails p {
+    margin-bottom: 0.5em;
+  }
+
+  h1.facultyName {
+    text-align: center;
+  }
+
+  h2.facultyTitle {
+    text-align: center;
+    margin: 0.5em 0 1em;
+  }
+
+  /* Media query for mobile devices */
+  @media (max-width: 768px) {
+    .facultyImage {
+      float: none;
+      margin-right: 0;
+      width: 100%;
+      display: block;
+    }
+
+    .col2 {
+      display: block;
+      width: 100%;
+    }
+
+    .facultyDetails {
+      margin-bottom: 0;
+    }
+  }
+</style>

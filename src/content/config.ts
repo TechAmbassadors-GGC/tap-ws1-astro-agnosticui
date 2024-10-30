@@ -134,5 +134,5 @@ export const collections = {
   'events': eventCollection,
   'projects': projectCollection,
   'students': studentCollection,
-  'faculty': facultyCollection,
+  'faculties': facultyCollection,
 };
