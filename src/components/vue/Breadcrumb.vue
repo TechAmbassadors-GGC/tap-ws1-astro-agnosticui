@@ -47,6 +47,7 @@ const crumbClasses = (index) => {
 </script>
 <style module>
 .breadcrumb {
+  content: '>';
   display: flex;
   flex-wrap: wrap;
   padding: 0;

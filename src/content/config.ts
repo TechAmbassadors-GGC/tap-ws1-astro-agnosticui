@@ -44,7 +44,9 @@ const projectCollection = defineCollection({
     instructors: z.array(z.string()),
     curator: z.array(z.string()).optional(),
     techs: z.array(z.string()),
-    videos: z.array(z.string()).optional(),
+    videos: z.array(z.object({
+      src: z.string(), 
+      caption: z.string() }).optional()).optional(),
     tags: z.array(z.string()).optional(),
     levels: z.array(z.string()),      // most projects will be appropriate for all audiences, but otherwise it could be specified
     difficulty: z.array(z.string()), // project could be set up to be at different difficulties
