@@ -12,11 +12,11 @@ const studentProp = defineProps({
     });
 
 const imageSrc = computed(() => studentProp.item.data.image || 'path/to/default-image.jpg');
-const studentTitle = computed(() => studentProp.item.data.title || 'Unknown Student');
+const studentName = computed(() => studentProp.item.data.name || 'Unknown Student');
 
 
 // Truncate description to a fixed number of characters
-const maxDescriptionLength = 100; // Adjust the length as needed
+const maxDescriptionLength = 200; // Adjust the length as needed
 const truncatedDescription = computed(() => {
   const desc = studentProp.item.data.desc || '';
   return desc.length > maxDescriptionLength
@@ -30,7 +30,7 @@ const truncatedDescription = computed(() => {
         <a :href="`/students/${item.data.id}`" class="card-link" isShadow></a>
         <div class="studentText">   
             <img :src="imageSrc" alt="Student Image" class="studentImage">
-            <h4 class="studentTitle">{{ studentTitle}}</h4>
+            <h4 class="studentTitle">{{ studentName}}</h4>
             <p class="description">{{ truncatedDescription }}</p>
             <div class="tag-container">
                 <!-- Check if the link exists before rendering it -->
