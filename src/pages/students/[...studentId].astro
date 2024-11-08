@@ -52,37 +52,38 @@ import TAPDefaultLayout from "../../layouts/default.astro";
 
   <div class="body-student">
     <h1 class="studentName">{student.data.name}</h1>
-    <h2 class="studentTitle">{student.data.title}</h2>
+    {student.data.title && <h2 class="studentTitle">{student.data.title}</h2>}
 
     <div class="studentDetails">
-    <img src= {studentImg} alt="student Photo" class="studentImage"/>
-    <div class="col2">
-      <h3>About Me</h3>
-      {student.data.desc && <p>{student.data.desc}</p>}
-      {student.data.gradYear && <p><b>Graduation year: </b> {student.data.gradYear}</p>}
+      {studentImg && <img src={studentImg} alt="student Photo" class="studentImage" />}
+      <div class="col2">
+        {student.data.desc && <h3>About Me</h3>}
+        {student.data.desc && <p>{student.data.desc}</p>}
+        {student.data.gradYear && <p><b>Graduation year: </b> {student.data.gradYear}</p>}
+        
+        {student.data.phone && <p><b>Phone: </b> {student.data.phone}</p>}
+        {student.data.location && <p><b>Location: </b> {student.data.location}</p>}
+        {student.data.website && <p><b>Website: </b> <a href={student.data.website} target="_blank">{student.data.website}</a></p>}
+        {student.data.linkedin && <p><b>LinkedIn: </b> <a href={student.data.linkedin} target="_blank">{student.data.linkedin}</a></p>}
+        {student.data.github && <p><b>GitHub: </b> <a href={student.data.github} target="_blank">{student.data.github}</a></p>}
 
-      
-      <!-- Try this later {student.data.relatedProjectIds.map((projectId, index) => (
-				<>
-				<a href={`/projects/${projectId}`}>
-          {projectId}
-          </a>
-				{index < student.data.relatedProjectIds.length - 1 ? ", " : ""}
-				</>
-				))} -->
-      
-      <h3>Contact</h3>
-      <p><b>Email: </b> <a href={`mailto:${student.data.email}`}>{student.data.email}</a></p>
-      {student.data.phone && <p><b>Phone: </b> {student.data.phone}</p>}
-      {student.data.location && <p><b>Location: </b> {student.data.location}</p>}
-      {student.data.website && <p><b>Website: </b> <a href={student.data.website} target="_blank">{student.data.website}</a></p>}
-      {student.data.linkedin && <p><b>LinkedIn: </b> <a href={student.data.linkedin} target="_blank">{student.data.linkedin}</a></p>}
-      {student.data.github && <p><b>GitHub: </b> <a href={student.data.github} target="_blank">{student.data.github}</a></p>}
-      
-      <h3>Related Project</h3>
-      {student.data.relatedProjectIds && <p><b>Project: </b>{student.data.relatedProjectIds}</p>}
+        <!-- {student.data.relatedProjectIds && student.data.relatedProjectIds.length > 0 && (
+          <>
+            <h3>Related Project</h3>
+            <p><b>Project: </b>
+              {student.data.relatedProjectIds.map((projectId, index) => (
+                <>
+                  <a href={`/projects/${projectId}`} key={projectId}>
+                    {projectId}
+                  </a>
+                  {index < student.data.relatedProjectIds.length - 1 ? ", " : ""}
+                </>
+              ))}
+            </p>
+          </>
+        )} -->
 
-    </div>
+      </div>
     </div>
     <Content />
   </div>
