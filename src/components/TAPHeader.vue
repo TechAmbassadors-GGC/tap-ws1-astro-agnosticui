@@ -9,11 +9,12 @@ const base = import.meta.env.BASE_URL;
 
 <template>  
   <Header isHeaderContentStart css="header">
-    <template v-slot:logoleft>      
-      <a class="flex-fill" style="padding:0 20px;" :href="base" >
+    <template v-slot:logoleft >      
+      <a  style="padding:0 20px;" :href="base" >
         <img :src="`${base == '/' ? '' : base}/images/tap-logo-dark.jpg`" width="100px" class="imageDark">
         <img :src="`${base == '/' ? '' : base}/images/tap-logo-light.png`" width="100px" class="imageLight">
       </a>
+      <div class="flex-fill"></div>
     </template>
 
     <template v-slot:headernav>
@@ -27,7 +28,7 @@ const base = import.meta.env.BASE_URL;
         </HeaderNavItem>
       
         <HeaderNavItem>
-          <Menu id="menu-More" menuTitle="More" :disabledItems="['menuitem-about', 'menuitem-2', 'menuitem-people']" :isBordered="true" type="simple" >
+          <Menu id="menu-More" menuTitle="More" :disabledItems="['menuitem-about', 'menuitem-2', 'menuitem-people']" :isBordered="true" type="simple" :isItemsRight="true">
             <template #menuitem-about>About</template>
             <template #menuitem-template><a :href="`${base == '/' ? '' : base}/template`">Add project</a></template>
             <template #menuitem-apply>

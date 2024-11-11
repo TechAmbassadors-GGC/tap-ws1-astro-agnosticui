@@ -11,7 +11,7 @@
 
 :root {
 	font-size: clamp(0.575rem, 0.4626rem + 1.0309rem + var(--user-font-scale), 1.125rem);
-  --agnostic-header-content-width: 100vw; /* set minimum size of header menu - set to percent of viewport width */
+  --agnostic-header-content-width: 95vw; /* set minimum size of header menu - set to percent of viewport width */
   
   /* light mode */
   --agnostic-primary-modelight: #6c8d1b; /*button, tags color*/
@@ -72,6 +72,7 @@ body {
   justify-items: center;
   background: var(--agnostic-gray-light);
   color: var(--agnostic-font-color);
+  width: 100%;
   
 }
 .blog, .body-prj{
