@@ -67,7 +67,7 @@ function prev() {
 		position: absolute;
 		top: 50%;
 		width: auto;
-		//padding: 1.5rem;
+		/*padding: 1.5rem;*/
 		margin-top: -50px;
 		color: var(--agnostic-font-color);
 		font-weight: bold;
