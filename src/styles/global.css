@@ -10,10 +10,52 @@
 }
 
 :root {
-	font-size: clamp(0.575rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem);
-  --agnostic-header-content-width: 75vw; /* set minimum size of header menu - set to percent of viewport width */  
+	font-size: clamp(0.575rem, 0.4626rem + 1.0309rem + var(--user-font-scale), 1.125rem);
+  --agnostic-header-content-width: 95vw; /* set minimum size of header menu - set to percent of viewport width */
+  
+  /* light mode */
+  --agnostic-primary-modelight: #6c8d1b; /*button, tags color*/
+  --agnostic-primary-hover-modelight: #f1bd50; /*link hover color*/
+  --agnostic-light-modelight: #ffffff; /* head & foot background colour*/
+  --agnostic-gray-light-modelight: #faf7f3; /* body background colour*/
+  --agnostic-dark-modelight: #000; /*font colour*/
+  --agnostic-gray-mid-modelight: #c6e478; /*card color*/
+  --agnostic-btn-primary-color-modelight: #000;
+  --agnostic-font-color-modelight: #708930; /*font color; */
+  --agnostic-gray-mid-dark-modelight: #dad9d7a5; /*overlay color*/
+  /* --agnostic-link-color-modelight: #708930; */
+
+/* dark mode */
+  --agnostic-primary-modedark: #82af0f; /*button, tags color*/
+  --agnostic-primary-hover-modedark: #f1bd50; /*link hover color*/
+  --agnostic-light-modedark: black; /* head & foot background colour*/
+  --agnostic-gray-light-modedark: #111111; /* body background colour*/
+  --agnostic-gray-mid-modedark: #445321; /*card color*/
+  --agnostic-font-color-modedark: white; /*font color; */
+  --agnostic-dark-modedark: #fff; /*font colour*/
+  --agnostic-btn-primary-color-modedark: #709a06;
+  --agnostic-gray-mid-dark-modedark: #111111d7; /*overlay color*/
+  /* --agnostic-link-color-modedark: #709a06; */
+
+
+
   --user-font-scale: 1.3em; /* Scale to apply to all fonts - slightly bigger for teachers' eyes */
 }
+
+ .header {
+  background-color: var(--agnostic-light);
+  color: var(--agnostic-dark);
+  /* overflow-x: hidden; */
+  /* position: fixed; */
+  /* top:0; */
+  /* z-index: 10; */
+ }
+
+ .footer{
+  background-color: var(--agnostic-light);
+  color: var(--agnostic-dark);
+  width: 100%;
+ }
 
 body {
   display: grid; /* need to remove this */
@@ -28,24 +70,37 @@ body {
   /*justify-content: space-between;*/
   align-items: center;
   justify-items: center;
-  /* background: var(--agnostic-secondary-hover); */
+  background: var(--agnostic-gray-light);
   color: var(--agnostic-font-color);
+  width: 100%;
   
+}
+.blog, .body-prj{
+  background-color: var(--agnostic-light);
+  max-width: 1440px;
+  margin: 1rem;
+  padding: 3rem;
 }
 
 /* Make all markdown paragraphs in the blog and projects sections in a centered box */
 .blog p, .body-prj p, .body-prj ol {
-  max-width: 60em;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 0;
 }
+
 
 .blog h1, .blog h2, .blog h3, .blog h4 {
   text-align: center;
 }
 
+.body-prj h3{
+  text-align: center;
+  padding-bottom: 0.5em;
+}
+
 /* Project and blog pages show list bullets again, and also centered. */
 .body-prj ul, .blog ul {
+  display: inline-block;
+  text-align: left;
   list-style: inside disc;
   font-family: 'Work Sans', medium; 
   /*font-size: 1.25em; do not use fixed sizes, instead rely on Agnostic scalable size above */
@@ -71,15 +126,34 @@ main {
   align-items: center;
   justify-items: center;
   */
-  width: clamp(26ch, 90%, 100%);
+  /* width: clamp(26ch, 90%, 100%); */
+  position: relative;
 }
 
-h2 {
+h1 {
   text-align:center;
-  font-size: clamp(var(--agnostic-h5), 5vw, var(--agnostic-h2));
+  font-size: clamp(var(--agnostic-h5), 5vw, var(--agnostic-h1));
   font-family: 'Gagalin', Helvetica, Arial, sans-serif;
+  /* text-shadow: black 2px 1px; */
 }
 
+/* Kelechi: what is this for??? you can't change all paragraphs in project! */
+p {
+  margin: 0.24rem;
+  padding: 4px;
+}
+
+a, .header a{
+  color: var(--agnostic-primary) !important; 
+}
+a:hover, .header a:hover{
+  color: var(--agnostic-primary-hover) !important;
+}
+
+.tag, .button{
+  background-color: var(--agnostic-primary);
+  color: var(--agnostic-light) !important;
+}
 .project-cards-flex {  /*Project search page cards container */
 justify-content: space-around;
   flex-flow: row wrap;
@@ -101,12 +175,26 @@ justify-content: space-around;
   margin-block-end: var(--fluid-40); */
   background-color: var(--agnostic-gray-mid);
 }
+.card-container .card-main .overlay{
+  z-index: 2;
+  background-color: var(--agnostic-gray-mid-dark); 
+  background-size: cover;
+  width: 100%; 
+  height: 100%; 
+  text-align: center;
+  position: absolute; 
+  top: 0; 
+  left: 0;
+}
 
 .card-main ul {
+  z-index: 3;
+  display: inline-block;
   text-align: left;
 }
 
 .card-title { /*Card titles  */
+  z-index: 3;
   text-align:center;
   font-size: clamp(var(--agnostic-h5), 1vw, var(--agnostic-h2));
   font-family: 'Gagalin', Helvetica, Arial, sans-serif;
@@ -130,19 +218,47 @@ justify-content: space-around;
   font-size: clamp(var(--agnostic-h5), 2vw, var(--agnostic-h3));
 }
 
+/* TODO obsolete: remove from all projects? */
+.body-prj .prj-txt{
+  text-align:center; 
+  /* margin-top:50px; */
+}
+
+/* TODO obsolete: remove from all projects? */
+.body-prj .prj-list{
+  flex: 1;
+  text-align:left; 
+  /* margin-top:50px; */
+}
+
+.materials-list{
+  display: flex; 
+  flex:1;
+  justify-content: center; 
+  min-width: 25em; 
+  /* margin-top:50px */
+}
+
+/* Tech gallery in projects, can be embedded inside projects/[...projectId].astro */
+.body-prj .gallery-list{
+  text-align:center; 
+  display: flex; 
+  justify-content: center;
+}
+
 /* Only show light or dark image based on browser option */
 .imageDark {
   display: none;
 }
 .imageLight {
-  display: block;
+  display: flex; /* Kelechi changed this, not sure why */
 }
 @media (prefers-color-scheme: dark) {
   .imageDark {
-    display: block;
+    display: flex; /* Kelechi changed this, not sure why */
   }
   .imageLight {
-    display: none;
+    display: none; 
   }
 }
 

@@ -17,9 +17,14 @@ instructors: [
 techs: [
   "sphero"
 ]
-videos: []
+videos: [
+ {src: "LAu1CeJtu_Q?si=AcRs9piXJeWouMp6", caption: "Installing Sphero Edu"} ,
+ {src: "ej4uR7sUrAw?si=4JHqj1fgXhTiHwRg" , caption: "Creating a Teacher Sphero Account"} ,
+ {src: "3PSOkOrgY9g?si=ylERtGFnYhsydKdh", caption: "Creating a Classroom and Adding Students in Sphero Edu"} ,
+ {src: "SYQ1Sk9o07E?si=J7VJDk5-XsiZTfO_", caption: "Creating a Program in Sphero Edu"} 
+]
 events: [
-  "super satur  day series (s3)",
+  "super saturday series (s3)",
   "tap expo",
   "class workshops"
 ]
@@ -47,9 +52,10 @@ images: [
     { src: './ExplainingTheFreeThrowChallenge.png', alt: 'Explaining The Free ThrowChallenge'},
     { src: './Figure8Challenge.png', alt: 'Figure 8 Challenge'},
 ]
-imageLogoLight: ./ExplainingTheFreeThrowChallenge.png
+imageLogoLight: ./ball-is-life-logo-light.png
+imageLogoDark: ./ball-is-life-logo-dark.png
 imageTeam: ./TeamPhoto.png
-curator: ["Trung Dao"]
+curator: ["Trung Dao, Kelechi Ariwodo"]
 ---
 
 import { Image } from "astro:assets";
@@ -58,9 +64,7 @@ import Logo from '/src/components/astro/Logo.astro';
 import Gallery from '/src/components/astro/Gallery.astro';
 import Clip from '/src/components/astro/Clip.astro';
 
-
 import GroupPhoto from './TeamPhoto.png';
-
 import SpheroEdu from './SpheroEdu.jpg';
 import spheroRobot from './SpheroRobot.jpg';
 import SpheroClassSet from './SpheroClassSet.jpg';
@@ -79,23 +83,23 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 
 {/* content block, Activities, steps & materials */}
 
-<div style="text-align:center; margin-top:50px">
+{/* <div class="prj-txt"> */}
 ## Team members
 <Image src={GroupPhoto} alt="BallIsLifePhoto" />
 #### Joel Garcia, Patrick Page, Nikki Mehdikhani, Daniel Redder
 <br />
-</div>
+{/* </div> */}
 
-<div style="text-align: center; justify-content: center; font-size: 1.125em;">
+{/* <div class="prj-list"> */}
 ## Outreach Activities:{/*TODO: Fix layout***/}
 1. Super Saturday Series(S3), November 9, 2019, GGC – middle and high school girls to promote IT and STEM career.
 2. Tap Expo, October 10, 2019, GGC – Promote IT field and the TAP program to college students.
 3. Class Workshops – November 12th, November 13th, November 20th, GGC - to promote IT to non-IT college students.
-</div>
+{/* </div> */}
 
 
 ## Materials List:
-<div style="display: flex; justify-content: center; min-width: 25em; margin-top:50px">
+{/* <div class="materials-list"> */}
 {/* Copied from Jedi */}
 | Amount | Materials | Dimension |
 | :----: | :------- | :-------- |
@@ -111,29 +115,29 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 | 15     | Sphero Protractors | ------ |
 | ------ | Sphero EDU Desktop Application | ----- |
 
-</div>
+{/* </div> */}
 
 ## Technology
-<div style='text-align:center; display: flex; justify-content: center; font-size: 1.25em'>
+<div class='gallery-list'>
 <Logo src= {SpheroClassSet.src} alt="Class Set Of Sphepro" link="https://sphero.com" />
 <Logo src= {SpheroEdu.src} alt="Sphero Website Logo" link="https://sphero.com/pages/educators"/>
 <Logo src= {spheroRobot.src} alt="Sphero Robot"/>
 </div>
 
 {/* CONTENT BLOCK */}
-<div style="text-align:center; font-size: 1.25em">
+{/* <div class="prj-list"> */}
 <iframe width="560" class="youtube" src="https://www.youtube.com/embed/fTHYSRMObBw?si=5DyCDRpUBAxpnLX8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Project Setup & Installation:
-- [Installing Sphero Edu](https://github.com/TAP-GGC/ball-is-life/blob/master/documents/Installing%20Sphero%20Edu.pdf)
+{/* - [Installing Sphero Edu](https://github.com/TAP-GGC/ball-is-life/blob/master/documents/Installing%20Sphero%20Edu.pdf)
 <Clip src="LAu1CeJtu_Q" showIframe={true}/>
 - [Creating a Teacher Sphero Account](https://github.com/TAP-GGC/ball-is-life/blob/master/documents/Creating%20a%20Teacher%20Sphero%20Account.pdf)
 <Clip src="ej4uR7sUrAw" showIframe={true}/>
 - [Creating a Classroom and Adding Students in Sphero Edu](https://github.com/TAP-GGC/ball-is-life/blob/master/documents/CreatingaClassroomandAddingStudentsinSpheroEdu.pdf)
 <Clip src="3PSOkOrgY9g" showIframe={true}/>
 - [Creating a Program in Sphero Edu](https://github.com/TAP-GGC/ball-is-life/blob/master/documents/CreatingAProgramInSpheroEdu.pdf)
-<Clip src="SYQ1Sk9o07E" showIframe={true}/>
+<Clip src="SYQ1Sk9o07E" showIframe={true}/> */}
 - [Sphero Programming Fundementals Workshop Step by Step](https://github.com/TAP-GGC/ball-is-life/blob/master/documents/Using%20Sphero%20to%20Teach%20Programming%20Fundementals%20Workshop%20Step%20by%20Step.pdf)
 - [Sphero Programming Fundamentals Construction](https://github.com/TAP-GGC/ball-is-life/blob/master/documents/Using%20Sphero%20To%20Teach%20Programming%20Fundamentals%20Construction.pdf)
 - [Sphero Programming Fundementals Commented Code](https://github.com/TAP-GGC/ball-is-life/blob/master/documents/Using%20Sphero%20to%20Teach%20Programming%20Fundementals%20Commented%20Code.pdf)
-</div>
+{/* </div> */}

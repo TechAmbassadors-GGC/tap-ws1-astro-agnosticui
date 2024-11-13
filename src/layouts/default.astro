@@ -53,15 +53,23 @@ let bodyClass = Astro.props.class;
 
 	gtag('config', 'G-L6HGVGHGF3');
 	</script>
+
+	
+	
 </head>
 
 <body class={bodyClass}>
 	<TAPHeader client:load />
-
+	
+	  
 	<main>
         <slot/>
 	</main>
+
+
 	<TAPFooter client:load />
 
 </body>
 </html>
+
+</script>

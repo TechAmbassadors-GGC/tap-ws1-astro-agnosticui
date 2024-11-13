@@ -88,7 +88,7 @@ const date_options = {
 }
 
 .projectTitle {
-    text-align: center;
+    text-align: left;
 }
 
 .projectCard {
@@ -131,7 +131,7 @@ const date_options = {
 
 /* Save this until we can have links for each tag */
 .tag:hover {
-  background-color: #0056b3;
+  background-color: var(--agnostic-btn-primary-color);
   color: var(--agnostic-btn-hover-color, white); /* Change color on hover */
 
 }
@@ -153,13 +153,13 @@ const date_options = {
   inset: 0; 
 }
 
-.projectCard {
-  /*pointer-events: auto;*/ 
-}
+/* .projectCard {
+  pointer-events: auto; 
+} */
 
 /* Date shown to the right and small */
 .dateStamp {
-  text-align: right;
+  text-align: left;
   font-style: italic;
   font-size: small;
   height: 0;

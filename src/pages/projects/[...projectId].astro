@@ -72,6 +72,8 @@ import { Button, ButtonGroup } from 'agnostic-vue';
 import githubLogo from '/public/assets/github.svg';
 import VideoAd from '../../components/astro/VideoAd.astro';
 import Gallery from '../../components/astro/Gallery.astro';
+import VideoCarousel from '../../components/vue/VideoCarousel.vue';
+
 
 // Logos
 let imageLogoLight = project.data.imageLogoLight?.src;
@@ -86,7 +88,7 @@ imageLogoDark = imageLogoTrans ? imageLogoTrans : imageLogoDark;
 	<div class="body-prj">
     <h1 class="projectTitle">{project.data.shortTitle ? project.data.shortTitle : project.data.title }</h1>
 	{ project.data.shortTitle && (
-		<h2 class="projectSubtitle"> {project.data.title} </h2>
+		<h3 class="projectSubtitle"> {project.data.title} </h3>
 	)}
 	<!-- <img src={project.data.imageTeam.src} alt="Project Image" class="projectImage"/> -->
 	
@@ -98,16 +100,16 @@ imageLogoDark = imageLogoTrans ? imageLogoTrans : imageLogoDark;
 		
 		<!-- TODO: link to publications? or Github -->
 		
-		<p><b> TEAM MEMBERS: </b>
+		<h5><b> TEAM MEMBERS: </b>
 		{project.data.students.map((student, index) => (
 		<>
 		<a href={`/students/${student}`}>{student}</a>
 		{index < project.data.students.length - 1 ? ", " : ""}
 		</>
 		))}
-		</p>
+		</h5>
 		
-		<p><b> ADVISORS: </b>  
+		<h5><b> ADVISORS: </b>  
 			{project.data.instructors.map((instructor, index) => (
 				<>
 				<a href={`/instructors/${instructor}`}>{instructor}</a>
@@ -115,10 +117,9 @@ imageLogoDark = imageLogoTrans ? imageLogoTrans : imageLogoDark;
 				</>
 				))}
 		
-		</p>
+		</h5>
 		
-		<!-- Separate each tech and create different links -->
-		<p>
+		<h5>
 			<b>TECH:</b>
 			{project.data.techs.map((tech, index) => (
 			  <>
@@ -126,41 +127,40 @@ imageLogoDark = imageLogoTrans ? imageLogoTrans : imageLogoDark;
 				{index < project.data.techs.length - 1 ? ", " : ""}
 			  </>
 			))}
-		  </p>
+		  </h5>
 
-		<p><b> DIFFICULTY: </b> 
+		<h5><b> DIFFICULTY: </b> 
 			{project.data.difficulty.map((diff, index) =>(
 			<>
 			<a href={`/difficulties/${diff}`}>{diff}</a>
 			{index < project.data.difficulty.length - 1 ? ", " : ""}
 			</>
 			))} 
-		</p>
+		</h5>
 		
-		<p><b> TARGET AUDIENCE: </b>
+		<h5><b> TARGET AUDIENCE: </b>
 			{project.data.levels.map((level, index) =>(
 				<>
 				<a href={`/levels/${level}`}>{level}</a>
 				{index < project.data.levels.length - 1 ? ", " : ""}
 				</>
 			))} 
-		</p>
+		</h5>
 		
-		<p><b> DURATION: </b> {project.data.durationMins.join(" - ")} minutes</p>
+		<h5><b> DURATION: </b> {project.data.durationMins.join(" - ")} minutes</h5>
 
-		<p><b> CURATOR(S): </b> {project.data.curator?.join(", ")} </p>
+		<h5><b> CURATOR(S): </b> {project.data.curator?.join(", ")} </h5>
 
-		<p><b> PUBLISHED DATE:</b> {project.data.publishedDate.toDateString().slice(4)} </p>
+		<h5><b> PUBLISHED DATE:</b> {project.data.publishedDate.toDateString().slice(4)} </h5>
 		<!-- TODO: change format of date -->
 
-		<p><b> CREATED IN SEMESTER:</b> {project.data.semester[0].toUpperCase()}{project.data.semester.slice(1)} {project.data.year} </p>
-		<!-- <p>Read more on <a href={project.data.github} target="_blank">Github</a>.</p> -->
+		<h5><b> CREATED IN SEMESTER:</b> {project.data.semester[0].toUpperCase()}{project.data.semester.slice(1)} {project.data.year} </h5>
 
-		<p>Read more on
+		<h5>Read more on
 			<a href={project.data.github} target="_blank">
 			<Button mode="primary" isRounded>Github <Image src={githubLogo} alt="GitHub Octocat" class="octocat-logo"></Image></button>
 			</a>
-		</p>
+		</h5>
 
 	</div>
 
@@ -177,6 +177,14 @@ imageLogoDark = imageLogoTrans ? imageLogoTrans : imageLogoDark;
 	
 
     <Content />
+<div class="prj-setup-section">
+	{project.data?.videos && project.data.videos.length > 0 && (
+		// <h2>Project Setup & Installation:</h2>
+		<VideoCarousel client:load videos={project.data.videos} showIframe={true}/>
+		)
+
+	}
+	</div>
 
 	{project.data?.images && (
 		<h2>Gallery</h2>
@@ -185,22 +193,7 @@ imageLogoDark = imageLogoTrans ? imageLogoTrans : imageLogoDark;
 </div>
 	
 <style>
-	/* .github-button{
-	color: white;
-	font-size: 20px;
-	font-weight: bold;
-	display: inline-block;
-  	border: none;
-	border-radius: 10px;
-  	background: rgb(14, 183, 14);
-  	cursor: pointer;
-  	padding: 5px;
-	}
-
-	.github-button:hover {
-	background: rgb(13, 218, 78);
-  	transform: translateY(-3px);
-	} */
+	
 
 	.octocat-logo{
 	margin-left: 8px;
@@ -225,15 +218,15 @@ imageLogoDark = imageLogoTrans ? imageLogoTrans : imageLogoDark;
 	}
 
 	.projectText {
-		font-size: 1.125em; 
+		font-size: 1.25em; 
 		text-align: left;
-		width: clamp(15em, 45%, 45em);
+		/* width: clamp(15em, 45%, 45em); */
 		vertical-align: bottom; 			
 		display: inline;
 		margin-bottom: 1em; /* doesn't work when display: inline */
 	}
 
-	.projectText p {
+	.projectText h5 {
 		margin-bottom: 0.5em;
 	}
 
@@ -243,13 +236,28 @@ imageLogoDark = imageLogoTrans ? imageLogoTrans : imageLogoDark;
 
 	h2.projectSubtitle {
 		margin-top: 0em;
-		margin-bottom: 1em;
+		margin-bottom: 1em; 
+		/* margin: 0em auto 1em; */
+		text-align: center;
 	}
 
 	.body-prj h2 {
 		margin-top: 2em;
 	}
 	
+	h5{
+		margin: 1.5rem, auto;
+		gap: 1rem;
+	}
+
+	.prj-setup-section{
+    	justify-content: center;
+		align-items: center;
+    	height: fit-content;
+		position: relative;
+		margin: 0 auto;
+
+  }
 </style>
 </TAPDefaultLayout>
 
