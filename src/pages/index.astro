@@ -69,6 +69,7 @@ import TAPDefaultLayout from "../layouts/default.astro";
 
 const blogEntries = await getCollection('events');
 
+// TODO: make the carousel into component
 ---
 <TAPDefaultLayout title={title}>
 
@@ -145,6 +146,24 @@ const blogEntries = await getCollection('events');
 		border-radius: 0 3px 3px 0;
 		/* user-select: none; */
 		/* -webkit-user-select: none; */
+	}
+
+	/* Position the "next button" to the right */
+	.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+	}
+
+	/* On hover, add a black background color with a little bit see-through */
+	.prev:hover,
+	.next:hover {
+	text-decoration: none;
+	}
+	.prev:disabled,
+	.next:disabled {
+	cursor: not-allowed;
+	text-decoration: none;
+	color: #2f2c2c
 	}
 
 </style>

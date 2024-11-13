@@ -84,7 +84,6 @@ body {
 
 /* Make all markdown paragraphs in the blog and projects sections in a centered box */
 .blog p, .body-prj p, .body-prj ol {
-  max-width: 1440px; /*keep width with content*/
   margin: 0 auto 0;
 }
 
@@ -138,6 +137,7 @@ h1 {
   /* text-shadow: black 2px 1px; */
 }
 
+/* Kelechi: what is this for??? you can't change all paragraphs in project! */
 p {
   margin: 0.24rem;
   padding: 4px;
@@ -218,12 +218,14 @@ justify-content: space-around;
   font-size: clamp(var(--agnostic-h5), 2vw, var(--agnostic-h3));
 }
 
-.prj-txt{
+/* TODO obsolete: remove from all projects? */
+.body-prj .prj-txt{
   text-align:center; 
   /* margin-top:50px; */
 }
 
-.prj-list{
+/* TODO obsolete: remove from all projects? */
+.body-prj .prj-list{
   flex: 1;
   text-align:left; 
   /* margin-top:50px; */
@@ -237,42 +239,26 @@ justify-content: space-around;
   /* margin-top:50px */
 }
 
-.gallery-list{
+/* Tech gallery in projects, can be embedded inside projects/[...projectId].astro */
+.body-prj .gallery-list{
   text-align:center; 
   display: flex; 
   justify-content: center;
 }
 
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-  text-decoration: none;
-}
-.prev:disabled,
-.next:disabled {
-  cursor: not-allowed;
-  text-decoration: none;
-  color: #2f2c2c
-}
 /* Only show light or dark image based on browser option */
 .imageDark {
   display: none;
 }
 .imageLight {
-  display: flex;
+  display: flex; /* Kelechi changed this, not sure why */
 }
 @media (prefers-color-scheme: dark) {
   .imageDark {
-    display: flex;
+    display: flex; /* Kelechi changed this, not sure why */
   }
   .imageLight {
-    display: none;
+    display: none; 
   }
 }
 

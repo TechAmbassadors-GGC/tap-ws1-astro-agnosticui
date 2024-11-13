@@ -30,7 +30,7 @@ function prev() {
 
 <template>
 
-<section>
+<section class="video-carousel">
     <div v-if="showIframe">
       <iframe
         class="video-section"
@@ -50,10 +50,51 @@ function prev() {
 </template>
 
 <style scoped>
-   .video-section {
+  section.video-carousel {
+    position: relative;
+  }
+
+  .video-section {
     width: 100%;
     max-width: 800px;
     height: 450px;
   }
+
+  /* make these more specific! */
+  .video-carousel .prev,
+	.video-carousel .next {
+		cursor: pointer;
+		position: absolute;
+		top: 50%;
+		width: auto;
+		//padding: 1.5rem;
+		margin-top: -50px;
+		color: var(--agnostic-font-color);
+		font-weight: bold;
+		font-size: 84px;
+		border-radius: 0 3px 3px 0;
+		/* user-select: none; */
+		/* -webkit-user-select: none; */
+	}
+
+	/* Position the "next button" to the right */
+	.video-carousel .next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+	}
+
+	/* On hover, add a black background color with a little bit see-through */
+	.video-carousel .prev:hover,
+	.video-carousel .next:hover {
+	text-decoration: none;
+	}
+
+	.video-carousel .prev:disabled,
+	.video-carousel .next:disabled {
+	cursor: not-allowed;
+	text-decoration: none;
+	color: #2f2c2c
+	}
+
 
 </style>
