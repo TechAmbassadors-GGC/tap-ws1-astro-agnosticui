@@ -1,5 +1,6 @@
 <script setup lang="ts">
 
+import { ref } from 'vue'
 import '/src/styles/global.css';
 
 interface ClipProps {
@@ -16,16 +17,14 @@ const props = defineProps<Props>();
 
 const { videos, showIframe } = props;
 
-let cIndex = 0;
+let cIndex = ref(0);
 
 function next() {
-  cIndex = cIndex === videos.length - 1 ? 0 : cIndex + 1;
-  console.log("CIndex:");
-  console.log(cIndex);
+  cIndex.value = cIndex.value == videos.length - 1 ? 0 : cIndex.value + 1;
 }
 
 function prev() {
-  cIndex = cIndex === 0 ? videos.length - 1 : cIndex - 1;
+  cIndex.value = cIndex.value == 0 ? videos.length - 1 : cIndex.value - 1;
 } 
 </script>
 
@@ -43,8 +42,8 @@ function prev() {
         allowfullscreen
       ></iframe>
       <p v-if="videos[cIndex].caption">{{videos[cIndex].caption}}</p>
-        <a :onclick="prev()" class="prev">&#10094;</a>
-        <span @click="next()" class="next">&#10095;</span>
+        <a @click="prev()" class="prev">&#10094;</a>
+        <a @click="next()" class="next">&#10095;</a>
     </div>
 </section>
 
