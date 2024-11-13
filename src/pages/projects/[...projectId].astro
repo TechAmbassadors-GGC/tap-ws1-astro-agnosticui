@@ -178,7 +178,7 @@ imageLogoDark = imageLogoTrans ? imageLogoTrans : imageLogoDark;
 
     <Content />
 <div class="prj-setup-section">
-	{project.data?.videos && (
+	{project.data?.videos && project.data.videos.length > 0 && (
 		// <h2>Project Setup & Installation:</h2>
 		<VideoCarousel videos={project.data.videos} showIframe={true}/>
 		)
