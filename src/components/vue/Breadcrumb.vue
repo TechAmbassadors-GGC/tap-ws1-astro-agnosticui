@@ -47,7 +47,6 @@ const crumbClasses = (index) => {
 </script>
 <style module>
 .breadcrumb {
-  content: '>';
   display: flex;
   flex-wrap: wrap;
   padding: 0;
@@ -61,7 +60,7 @@ const crumbClasses = (index) => {
 
 .breadcrumb-item + .breadcrumb-item::before {
   padding-inline-end: var(--fluid-6);
-  color: var(--agnostic-gray-mid-dark);
+  color: var(--agnostic-primary-hover) !important;
   content: "\203A";
 }
 
