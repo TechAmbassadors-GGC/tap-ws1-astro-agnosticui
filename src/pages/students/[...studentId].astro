@@ -26,7 +26,7 @@ const { Content } = await student.render();
 
 // Page title
 let title = `${student.data.name} - Student Profile`;
-const studentImg = student.data.image;
+const studentImg = student.data.image.src;
 import TAPDefaultLayout from "../../layouts/default.astro";
 
 // Goal: Actually link from student page to project page

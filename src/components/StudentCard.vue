@@ -11,7 +11,7 @@ const studentProp = defineProps({
         item: Object
     });
 
-const imageSrc = computed(() => studentProp.item.data.image || 'src/content/students/empty.png');
+const imageSrc = computed(() => studentProp.item.data.image?.src || 'src/content/students/empty.png');
 const studentName = computed(() => studentProp.item.data.name || 'Unknown Student');
 
 

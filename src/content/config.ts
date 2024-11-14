@@ -74,7 +74,8 @@ const projectCollection = defineCollection({
 
 const studentCollection = defineCollection({
   type: 'content', // v2.5.0 and later
-  schema: z.object({
+  schema: ({ image }) => z.object({
+    id: z.string(),
     name: z.string(),
     title: z.string(),
     email: z.string().email(),
@@ -83,15 +84,15 @@ const studentCollection = defineCollection({
     website: z.string().url().optional(),
     linkedin: z.string().url().optional(),
     github: z.string().url().optional(),
-    image: z.string().optional(),
-    desc: z.string(),
+    image: image().refine(imageLogoValidator, imageLogoValidatorMsg).optional(),
+    desc: z.string().optional(),
     graduationYear: z.string(),
     relatedProjectIds: z.array(z.string()).optional(),
     projects: z.array(z.object({
       name: z.string(),
       description: z.string(),
       link: z.string().url().optional(),
-    })),
+    })).optional(),
   }),
 });
 
@@ -109,4 +110,5 @@ const testCollection = defineCollection({
 export const collections = {
   'events': eventCollection,
   'projects': projectCollection,
+  'students': studentCollection,
 };
