@@ -30,7 +30,9 @@ const base = import.meta.env.BASE_URL;
         <HeaderNavItem>
           <Menu id="menu-More" menuTitle="More" :disabledItems="['menuitem-about', 'menuitem-2', 'menuitem-people']" :isBordered="true" type="simple" :isItemsRight="true">
             <template #menuitem-about>About</template>
-            <template #menuitem-template><a :href="`${base == '/' ? '' : base}/template`">Add project</a></template>
+            <template #menuitem-students><a :href="`${base == '/' ? '' : base}/students`">Students</a></template>
+            <template #menuitem-techs><a :href="`${base == '/' ? '' : base}/techs`">Technologies</a></template>
+            <template #menuitem-add-prj><a :href="`${base == '/' ? '' : base}/template`">Add project</a></template>
             <template #menuitem-apply>
               <a href="https://ggc.edu/academics/school-of-science-and-technology/research-internships-service-learning/technology-ambassador-program"
                  target="_blank">Student application</a></template>
