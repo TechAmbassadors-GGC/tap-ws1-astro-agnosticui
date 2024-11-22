@@ -46,7 +46,7 @@ function matches(student) {
 
         // Check filters (dropdown menus)
         // If dropdown value does not match student data, return false immediately
-        if (graduationYear.value != 'Any' && !graduationYear.value.includes(student.data.graduationYear.toString())) {
+        if (student.data?.graduationYear && graduationYear.value != 'Any' && !graduationYear.value.includes(student.data.graduationYear.toString())) {
             return false;
         }
         if (student.data?.projects && projects.value != 'Any' && !projects.value.some(project => student.data.projects.includes(project))) {
@@ -61,7 +61,7 @@ function matches(student) {
         } else {
             // Check if student matches the search text (by name, projects, etc.)
             if (
-                student.data.graduationYear.toString().includes(searchText) ||
+                (student.data?.graduationYear && student.data.graduationYear.toString().includes(searchText)) ||
                 (student.data?.projects && student.data.projects.some(project => project.toLowerCase().includes(searchText)))
             ) {
                 return true;
