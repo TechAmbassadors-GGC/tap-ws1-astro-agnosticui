@@ -57,7 +57,7 @@ import TAPDefaultLayout from "../../layouts/default.astro";
       </div>
     </div>
     <Content />
-    {student.data?.projects && (
+    {student.data?.projects && student.data.projects.length > 0 && (
       <h2>Related Projects Included</h2>
       <section class="mbe40 project-cards-flex flex flex-row flex-grow-1 flex-shrink-1 flex-wrap flex-fill">
         {student.data.projects.map((project_id) => (      

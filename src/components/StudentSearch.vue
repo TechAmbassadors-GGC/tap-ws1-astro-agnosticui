@@ -49,7 +49,7 @@ function matches(student) {
         if (graduationYear.value != 'Any' && !graduationYear.value.includes(student.data.graduationYear.toString())) {
             return false;
         }
-        if (projects.value != 'Any' && !projects.value.some(project => student.data.projects.includes(project))) {
+        if (student.data?.projects && projects.value != 'Any' && !projects.value.some(project => student.data.projects.includes(project))) {
             return false;
         }
 
@@ -62,7 +62,7 @@ function matches(student) {
             // Check if student matches the search text (by name, projects, etc.)
             if (
                 student.data.graduationYear.toString().includes(searchText) ||
-                student.data.projects.some(project => project.toLowerCase().includes(searchText))
+                (student.data?.projects && student.data.projects.some(project => project.toLowerCase().includes(searchText)))
             ) {
                 return true;
             } else {
