@@ -77,7 +77,7 @@ function matches(student) {
 
 // Compute filtered students based on matching criteria
 const filteredStudents = computed(() => {
-    return students.filter(student => matches(student));
+    return students.filter((student) => matches(student));
 });
 
 const base = import.meta.env.BASE_URL;
