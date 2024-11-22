@@ -75,9 +75,9 @@ const projectCollection = defineCollection({
 const studentCollection = defineCollection({
   type: 'content', // v2.5.0 and later
   schema: ({ image }) => z.object({
-    id: z.string(),
-    name: z.string(),
-    title: z.string(),
+    id: z.string().optional(),
+    name: z.string().optional(),
+    title: z.string().optional(),
     email: z.string().email(),
     phone: z.string().optional(),
     location: z.string().optional(),
@@ -88,11 +88,13 @@ const studentCollection = defineCollection({
     desc: z.string().optional(),
     graduationYear: z.string(),
     relatedProjectIds: z.array(z.string()).optional(),
-    projects: z.array(z.object({
-      name: z.string(),
-      description: z.string(),
-      link: z.string().url().optional(),
-    })).optional(),
+    projects: z.array(z.string().refine(
+      async (projectId) => {
+        const projects = await getCollection('projects');
+
+        return projects.some(project => project.data.id.toLowerCase() == projectId)        
+      },
+      (projectId) => ({ message: `Project ID '${projectId}' not found.` }))).optional(),
   }),
 });
 

@@ -11,6 +11,9 @@ import TAPHeader from '../../components/TAPHeader.vue';
 import TAPFooter from '../../components/TAPFooter.vue';
 import { getCollection } from 'astro:content';
 import Crumbs from "../../components/Crumbs.vue";
+import projectIds from '../../components/astro/ProjectIds';
+import ProjectCard from '../../components/ProjectCard.vue';
+
 
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
@@ -29,23 +32,6 @@ let title = `${student.data.name} - Student Profile`;
 import EmptyImage from '../../content/students/empty.png'
 const studentImg = student.data.image?.src || EmptyImage.src;
 import TAPDefaultLayout from "../../layouts/default.astro";
-
-// Goal: Actually link from student page to project page
-// 1. Generate a new path for every collection entry
-// export async function getStaticPaths2() {
-//   const projects = await getCollection('projects');
-//   return projects.map(project => ({
-//     params: { "projectId": `${project.data.year}/${project.data.semester}/${project.data.id}` }, props: { project },
-//   }));
-  // TODO: add to list: years and semesters as search results pages; potentially add techs/ and students/ folders here or in the base
-// }
-// const { project } = Astro.props;
-// const { Content2 } = await project.render();
-
-// // BreadCrumb variables
-// const  projYear  = project.data.year;
-// const  projSemester  = project.data.semester;
-// const  projName  = project.data.title;
 
 ---
 <TAPDefaultLayout title={title}>
@@ -68,25 +54,17 @@ import TAPDefaultLayout from "../../layouts/default.astro";
         {student.data.linkedin && <p><b>LinkedIn: </b> <a href={student.data.linkedin} target="_blank">{student.data.linkedin}</a></p>}
         {student.data.github && <p><b>GitHub: </b> <a href={student.data.github} target="_blank">{student.data.github}</a></p>}
 
-        <!-- {student.data.relatedProjectIds && student.data.relatedProjectIds.length > 0 && (
-          <>
-            <h3>Related Project</h3>
-            <p><b>Project: </b>
-              {student.data.relatedProjectIds.map((projectId, index) => (
-                <>
-                  <a href={`/projects/${projectId}`} key={projectId}>
-                    {projectId}
-                  </a>
-                  {index < student.data.relatedProjectIds.length - 1 ? ", " : ""}
-                </>
-              ))}
-            </p>
-          </>
-        )} -->
-
       </div>
     </div>
     <Content />
+    {student.data?.projects && (
+      <h2>Related Projects Included</h2>
+      <section class="mbe40 project-cards-flex flex flex-row flex-grow-1 flex-shrink-1 flex-wrap flex-fill">
+        {student.data.projects.map((project_id) => (      
+          <ProjectCard item={projectIds[project_id]} />
+        ))}
+      </section>
+    )}
   </div>
 
   
