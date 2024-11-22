@@ -12,6 +12,9 @@ import TAPFooter from '../../components/TAPFooter.vue';
 import { getCollection } from 'astro:content';
 import Crumbs from "../../components/Crumbs.vue";
 import TAPDefaultLayout from "../../layouts/default.astro";
+import projectIds from '../../components/astro/ProjectIds';
+import ProjectCard from '../../components/ProjectCard.vue';
+import { date } from 'astro:schema';
 
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
@@ -34,35 +37,31 @@ const facultyImg = faculty.data.image;
   <Crumbs pageType="faculty" pageUrl={`/faculty/${faculty.data.id}`} />
 
   <div class="body-faculty">
-    <h1 class="facultyName">{faculty.data.name}</h1>
-    <h2 class="facultyTitle">{faculty.data.title}</h2>
-
+    { faculty.data.name &&   <h1 class="facultyName">{faculty.data.name}</h1>}
+    { faculty.data.title && <h2 class="facultyTitle">{faculty.data.title}</h2>}
     <div class="facultyDetails">
-      <img src={facultyImg} alt="Faculty Photo" class="facultyImage" />
-      <div class="col2">
+    { faculty.data.facultyImg &&  <img src={facultyImg} alt="Faculty Photo" class="facultyImage" />}      
+    <div class="col2">
         <h3>About Me</h3>
         {faculty.data.desc && <p>{faculty.data.desc}</p>}
 
         <h3>Contact</h3>
-        <p><strong>Email: </strong><a href={`mailto:${faculty.data.email}`}>{faculty.data.email}</a></p>
+        {faculty.data.email && <p><strong>Email: </strong><a href={`mailto:${faculty.data.email}`}>{faculty.data.email}</a></p>}
         {faculty.data.phone && <p><strong>Phone: </strong>{faculty.data.phone}</p>}
         {faculty.data.website && <p><strong>Website: </strong><a href={faculty.data.website} target="_blank">{faculty.data.website}</a></p>}
         {faculty.data.linkedin && <p><strong>LinkedIn: </strong><a href={faculty.data.linkedin} target="_blank">{faculty.data.linkedin}</a></p>}
         {faculty.data.github && <p><strong>GitHub: </strong><a href={faculty.data.github} target="_blank">{faculty.data.github}</a></p>}
-
-        <h3>Projects</h3>
-        {faculty.data.projectList && faculty.data.projectList.length > 0 ? (
-          <p><strong>Related Projects: </strong>{faculty.data.projectList.map((projectId, index) => (
-            <a href={`/projects/${projectId}`} key={projectId}>
-              {projectId}{index < faculty.data.projectList.length - 1 ? ", " : ""}
-            </a>
-          ))}</p>
-        ) : (
-          <p>No related projects available.</p>
-        )}
       </div>
     </div>
     <Content />
+    {faculty.data?.projects && (
+      <h2>Related Projects Included</h2>
+      <section class="mbe40 project-cards-flex flex flex-row flex-grow-1 flex-shrink-1 flex-wrap flex-fill">
+        {faculty.data.projects.map((project_id) => (      
+          <ProjectCard item={projectIds[project_id]} />
+        ))}
+      </section>
+    )}
   </div>
 </TAPDefaultLayout>
 

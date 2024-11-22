@@ -11,7 +11,7 @@ const facultyProp = defineProps({
         item: Object
     });
 
-const imageSrc = computed(() => facultyProp.item.data.image || 'path/to/default-image.jpg');
+const imageSrc = computed(() => facultyProp.item.data.image || 'public/images/placeholder.png');
 const facultyTitle = computed(() => facultyProp.item.data.title || 'Unknown faculty');
 
 
@@ -30,7 +30,7 @@ const truncatedDescription = computed(() => {
         <a :href="`/faculties/${item.data.id}`" class="card-link" isShadow></a>
         <div class="facultyText">   
             <img :src="imageSrc" alt="Faculty Image" class="facultyImage">
-            <h4 class="facultyTitle">{{ facultyTitle}}</h4>
+            <h4 class="facultyTitle">{{ facultyName}}</h4>
             <p class="description">{{ truncatedDescription }}</p>
             <div class="tag-container">
                 <!-- Check if the link exists before rendering it -->
