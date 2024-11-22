@@ -6,6 +6,7 @@ import '@fontsource/cormorant-garamond';
 
 // Component Imports
 import "agnostic-vue/dist/index.css";
+import { computed, ref } from "vue";
 import { Image } from "astro:assets";
 import TAPHeader from '../../components/TAPHeader.vue';
 import TAPFooter from '../../components/TAPFooter.vue';
@@ -30,17 +31,18 @@ const { Content } = await faculty.render();
 
 // Page title
 let title = `${faculty.data.name} - Faculty Profile`;
-const facultyImg = faculty.data.image;
+import EmptyImage from '/public/techs/empty.png'
+const facultyImg = faculty.data.image?.src || EmptyImage.src;
 
 ---
 <TAPDefaultLayout title={title}>
-  <Crumbs pageType="faculty" pageUrl={`/faculty/${faculty.data.id}`} />
+  <Crumbs pageType="faculty" pageUrl={`/faculties/${faculty.data.id}`} />
 
   <div class="body-faculty">
     { faculty.data.name &&   <h1 class="facultyName">{faculty.data.name}</h1>}
     { faculty.data.title && <h2 class="facultyTitle">{faculty.data.title}</h2>}
     <div class="facultyDetails">
-    { faculty.data.facultyImg &&  <img src={facultyImg} alt="Faculty Photo" class="facultyImage" />}      
+    { facultyImg &&  <img src={facultyImg} alt="Faculty Photo" class="facultyImage" />}      
     <div class="col2">
         <h3>About Me</h3>
         {faculty.data.desc && <p>{faculty.data.desc}</p>}

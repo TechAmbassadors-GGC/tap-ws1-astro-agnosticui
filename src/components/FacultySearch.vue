@@ -15,14 +15,14 @@ const props = defineProps({
 // Reactive references for search inputs
 const faculties = props.facultyList || []; 
 const search_text = ref("");
-const Name =  props.filter?.name ? ref([props.filter.name]) : ref(['Any']);
-const ProjectList = props.filter?.projectList ? ref([props.filter.projectList]) : ref(['Any']);
+const name =  props.filter?.name ? ref([props.filter.name]) : ref(['Any']);
+const projects = props.filter?.projects ? ref([props.filter.projects]) : ref(['Any']);
 
 // Generate unique options for the project dropdown based on projectList
 function createOptions(faculties,x) {
     let optionSet = new Set();
     optionSet.add("Any");
-    students.forEach(arrayContainer => {
+    faculties.forEach(arrayContainer => {
         if (Array.isArray(arrayContainer.data[x])) {
             arrayContainer.data[x].forEach(element => {
                 optionSet.add(element);
@@ -35,17 +35,17 @@ function createOptions(faculties,x) {
 }
 // Generate options for dropdowns
 const nameOptions = createOptions(faculties, "name"); 
-const projectOptions = createOptions(faculties, "projectList");
+const projectOptions = createOptions(faculties, "projects");
 
 // Filter faculty based on name and projectList
 function matches(faculty) {
     let isMatch = false;
     // Check if any filter is active (search text or dropdowns)
-if (search_text.value || Name.value != 'Any' || ProjectList.value != 'Any') {
-if (Name.value != 'Any' && !Name.value.includes(faculty.data.name.toString())) {
+if (search_text.value || name.value != 'Any' || projects.value != 'Any') {
+if (name.value != 'Any' && !name.value.includes(faculty.data.name.toString())) {
     return false;
 }
-if (ProjectList.value != 'Any' && !ProjectList.value.some(ProjectList => faculty.data.projectList.includes(ProjectList))) {
+if (projects.value != 'Any' && !projects.value.some(projects => faculty.data.projects.includes(pojects))) {
     return false;
 }
 
@@ -58,7 +58,7 @@ if (searchText == '') {
     // Check if student matches the search text (by name, projects, etc.)
     if (
         faculty.data.name.toString().includes(searchText) ||
-        faculty.data.projectList.some(ProjectList => ProjectList.tolowerCase().includes(searchText))
+        faculty.data.projects.some(projects => projects.tolowerCase().includes(searchText))
     ) {
         return true;
     } else {
@@ -113,7 +113,7 @@ const base = import.meta.env.BASE_URL;
                         :options="projectOptions" 
                         :is-multiple="true" 
                         :multiple-size="3" 
-                        @selected="(value) => { projectList.value = value }">
+                        @selected="(value) => { projects.value = value }">
                     </Select>
                 </div>
 
@@ -128,12 +128,12 @@ const base = import.meta.env.BASE_URL;
         </section>
 
         <!-- Display selected or all faculty -->
-        <h3>{{ ((search_text|| !name.includes('Any')|| projectList.includes('Any')) ? 
+        <h3>{{ ((search_text|| !name.includes('Any')|| projects.includes('Any')) ? 
             `Filtered Faculty` : 'All Faculty') }} ({{ filteredFaculties.length }})</h3>
 
         <!-- Display Faculty Cards for filtered faculty -->
-        <section class="mbe40 faculty-cards-flex flex flex-row flex-grow-1 flex-shrink-1 flex-wrap flex-fill">
-            <template v-for="faculty in filteredFaculty" :key="faculty.data.id">
+        <section class="mbe40 project-cards-flex flex flex-row flex-grow-1 flex-shrink-1 flex-wrap flex-fill">
+            <template v-for="faculty in filteredFaculties" :key="faculty.data.id">
                 <FacultyCard :item="faculty" />
             </template>
         </section>

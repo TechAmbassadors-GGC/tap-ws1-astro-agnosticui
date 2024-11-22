@@ -102,26 +102,24 @@ const studentCollection = defineCollection({
 const facultyCollection = defineCollection({
   type: 'content',
   schema: ({ image }) => z.object({
-    name: z.string().optional(),
-    id: z.string().optional(),
-    affiliation: z.string().optional(),
-    title: z.string().optional(),
-    email: z.string().email({ message: "Invalid email address" }).optional(),
-    phone: z.string().optional(),
-    website: z.string().url().optional(),
-    linkedin: z.string().url().optional(),
-    github: z.string().url().optional(),
-    image: image().refine((img) => img.width <= 1500, {
-      message: "Image too large! Ensure image is less than 1500 pixels wide."
-    }).optional(),
-    desc: z.string().optional(),
+    name: z.string().optional().nullable(),
+    id: z.string().optional().nullable(),
+    affiliation: z.string().optional().nullable(),
+    title: z.string().optional().nullable(),
+    email: z.string().email({ message: "Invalid email address" }).optional().nullable(),
+    phone: z.string().optional().nullable(),
+    website: z.string().url().optional().nullable(),
+    linkedin: z.string().url().optional().nullable(),
+    github: z.string().url().optional().nullable(),
+    image: image().refine(imageLogoValidator, imageLogoValidatorMsg).optional().nullable(),
+    desc: z.string().optional().nullable(),
     projects: z.array(z.string().refine(
       async (projectId) => {
         const projects = await getCollection('projects');
 
         return projects.some(project => project.data.id.toLowerCase() == projectId)        
       },
-      (projectId) => ({ message: `Project ID '${projectId}' not found.` }))).optional(),
+      (projectId) => ({ message: `Project ID '${projectId}' not found.` }))).optional().nullable(),
   }),
 });
 

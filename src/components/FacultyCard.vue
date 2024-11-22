@@ -11,8 +11,8 @@ const facultyProp = defineProps({
         item: Object
     });
 
-const imageSrc = computed(() => facultyProp.item.data.image || 'public/images/placeholder.png');
-const facultyTitle = computed(() => facultyProp.item.data.title || 'Unknown faculty');
+const imageSrc = computed(() => facultyProp.item.data.image?.src || '/public/images/placeholder.png');
+const facultyName = computed(() => facultyProp.item.data.name || 'Unknown faculty');
 
 
 // Truncate description to a fixed number of characters
