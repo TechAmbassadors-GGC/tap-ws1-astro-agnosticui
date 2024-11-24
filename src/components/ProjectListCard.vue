@@ -12,7 +12,7 @@
                 </div>
                 <div>            
                     <ul> <!-- order recent projects by date? -->
-                        <li v-for="project in projects.sort( (p1, p2) => p1.data.publishedDate < p2.data.publishedDate).slice(0,4)">
+                        <li v-for="project in top5_projects">
                             <a :href="`${base}/projects/${project.data.year}/${project.data.semester}/${project.data.id}`">
                                 {{ project.data.shortTitle ? project.data.shortTitle : project.data.title }}</a> &nbsp;
                                 {{ project.data.publishedDate.toLocaleDateString(undefined, date_options) }}
@@ -35,7 +35,7 @@
   
   // load blog content: news, etc.
   import { getCollection } from 'astro:content';
-  const projects = await getCollection('projects');
+  const top5_projects = (await getCollection('projects')).sort( (p1, p2) => p2.data.publishedDate - p1.data.publishedDate ).slice(0,6);
   // Remove single slash as it causes double slashes in card
   const base = import.meta.env.BASE_URL == '/' ? '' : import.meta.env.BASE_URL;
 
