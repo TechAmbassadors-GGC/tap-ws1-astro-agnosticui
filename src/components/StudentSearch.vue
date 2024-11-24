@@ -105,7 +105,7 @@ const base = import.meta.env.BASE_URL;
                         :options="yearOptions" 
                         :is-multiple="true" 
                         :multiple-size="3" 
-                        @selected="(value) => { graduationYear.value = value }">
+                        @selected="(value) => { graduationYear = value }">
                     </Select>
                 </div>
 
@@ -117,7 +117,7 @@ const base = import.meta.env.BASE_URL;
                         :options="projectOptions" 
                         :is-multiple="true" 
                         :multiple-size="3" 
-                        @selected="(value) => { projects.value = value }">
+                        @selected="(value) => { projects = value }">
                     </Select>
                 </div>
 
