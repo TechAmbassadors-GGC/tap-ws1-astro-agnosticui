@@ -36,7 +36,7 @@ const createRow = (techData) => ({
 // Populate rows when props.projects change
 watchEffect(() => {
   rows.value = props.projects.map(createRow);
-  console.log("Rows:", rows.value); // Debugging: Log the rows to see what data is being populated
+  //console.log("Rows:", rows.value); // Debugging: Log the rows to see what data is being populated
 });
 
 // Define table headers
