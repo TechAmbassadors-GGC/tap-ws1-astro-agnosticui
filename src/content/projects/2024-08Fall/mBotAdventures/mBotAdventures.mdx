@@ -1,0 +1,125 @@
+---
+shortTitle: mBot Adventures
+title: Using robots to teach block coding and algorithmic thinking
+id: mbot-adventures
+desc :  Teaches basic coding fundamentals such as 'if-else' statements, forever loops, and booleans using block coding and the mBot's sensors. 
+          The students will program a robot to perform basic movement, detect obstacles, and navigate through a track by developing block code that is uploaded to the robot.
+github: https://github.com/TAP-GGC/TheBeepBops
+students: [
+  "Sanaa Boddie",
+  "Hector Cruz",
+  "Jay Tak"
+]
+instructors: [
+  "Dr. Cengiz Gunay",  
+  "Dr. Cindy Robertson"
+] 
+techs: [
+  "mBot Mega",
+  "mBlock"
+]
+videos: [
+]
+events: [
+  "tap expo",
+  "class workshops",
+  "ccsc:se",
+  "create symposium",
+  "super saturday series (s3)"
+]
+semester: fall
+year: 2024
+levels: [
+  "middle-school",
+  "college"
+] 
+difficulty: [
+  "beginner"
+] 
+durationMins: [75]
+publishedDate: 2024-11-22
+relatedIds: [
+  "thebeepbops",
+  "mbot mega",
+  "mblock"
+]
+images: [
+]
+imageLogoLight: ./mBotAdventureslogoLight.png
+imageLogoDark: ./mBotAdventureslogoDark.png
+imageTeam: ./thebeepbops.jpg
+curator: ["Trung Dao"]
+---
+
+import { Image } from "astro:assets";
+import Photo from '/src/components/astro/Photo.astro';
+import Logo from '/src/components/astro/Logo.astro';
+import Gallery from '/src/components/astro/Gallery.astro';
+import Clip from '/src/components/astro/Clip.astro';
+
+import GroupPhoto from './thebeepbops.jpg';
+import mBlock from './mBlock.png';
+import mBotMega from './mBotMega.png';
+
+
+{/* Right text block, Project description */}	
+
+Our project uses mBot Mega to teach basic coding fundamentals (if-else statements, forever loops, and booleans) by programming a robot's sensors for movement.
+We are using a physical robot to show a connection between the code in the digital space to an external, real-world device as a means of highlighting the vast capability of programming.
+The students will program the mBot to perform simple movement, obstacle detection using its sensors, and traversing or racing through a track by uploading their block code to the mBot.
+
+The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to break the misconceptions of the IT field by providing fun workshops for students of all backgrounds. TAP students design engaging and fun outreach workshops to encourage interest in IT and STEM.
+
+{/* Video Ad is borrow from Jedi*/}
+
+
+{/* content block, Activities, steps & materials */}
+
+{/* <div class="prj-txt"> */}
+## Team members
+<Image src={GroupPhoto} alt="BeepBopsPhoto" />
+#### (From left to right) Hector Cruz, Sanaa Boddie, Jay Tak
+<br />
+{/* </div> */}
+
+{/* <div class="prj-list"> */}
+## Outreach Activities:{/*TODO: Fix layout***/}
+1. Tap Expo, October 8, 2024, GGC – Promote the IT field and the TAP program to college students.
+2. Class Workshops, October 21-25, 2024, GGC - to promote IT to non-IT college students.
+3. CCSC:SE, November 1-2, 2024, Furman University - to present the project to fellow IT students and professors of various universities.
+4. CREATE Symposium, November 14, 2024, GGC - to promote the IT field to IT and non-IT college students, professors, and other attendees.
+5. Super Saturday Series (S3), November 16, 2024, GGC – to promote the IT field and educate middle school students.
+{/* </div> */}
+
+
+## Materials List:
+{/* <div class="materials-list"> */}
+| Amount | Materials | 
+| :----: | :-------: | 
+| 20-25  | Computers/Laptops |
+| 6      | Fully built mBot Mega |
+| 6      | Batteries for mBot Mega |
+| 6      | USB Cable for mBot Mega | 
+| 8-10   | Foam Poster Boards | 
+| 1      | Scissors or Exacto Knife | 
+| 1      | Hot Glue Gun |
+| 1      | 8 Count Pack of Hot Glue Sticks | 
+| ------ | mBlock IDE Application | 
+
+{/* </div> */}
+
+## Technology
+<div class='gallery-list'>
+<Logo src= {mBlock.src} alt="mBlock IDE Logo" link="https://mblock.cc/"/>
+<Logo src= {mBotMega.src} alt="mBot Mega Robot" link="https://www.makeblock.com/pages/mbot-mega-smart-remote-control-robot"/>
+</div>
+
+{/* CONTENT BLOCK */}
+{/* <div class="prj-list"> */}
+<iframe width="400" class="youtube" src="https://www.youtube.com/embed/fTHYSRMObBw?si=5DyCDRpUBAxpnLX8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Project Setup & Installation:
+- [Building the mBot Mega](https://support.makeblock.com/hc/en-us/articles/1500009896321-Build-mBot-Mega)
+- [Demo Instructions](https://github.com/TAP-GGC/TheBeepBops/blob/a7f47cf25b2650eba115ab7c36221ab4f1020a78/documents/tutorial%20materials/Demo%20Instructions.pdf)
+- [Workshop Instructions](https://github.com/TAP-GGC/TheBeepBops/blob/282ccf778098ee76d8b40ffa923941319c8c6ed9/documents/tutorial%20materials/Workshop%20Instructions.pdf)
+{/* </div> */}
