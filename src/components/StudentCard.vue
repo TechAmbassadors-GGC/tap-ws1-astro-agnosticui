@@ -3,6 +3,7 @@ import { computed, ref } from "vue";
 import "agnostic-vue/dist/common.min.css";
 import "agnostic-vue/dist/index.css";
 import { Card } from "agnostic-vue";
+import EmptyImage from '/src/content/students/empty.png';
 
 // Remove single slash as it causes double slashes in card
 const base = import.meta.env.BASE_URL == '/' ? '' : import.meta.env.BASE_URL;
@@ -11,7 +12,7 @@ const studentProp = defineProps({
         item: Object
     });
 
-const imageSrc = computed(() => studentProp.item.data.image?.src || 'src/content/students/empty.png');
+const imageSrc = computed(() => studentProp.item.data.image?.src || EmptyImage.src);
 const studentName = computed(() => studentProp.item.data.name || 'Unknown Student');
 
 
