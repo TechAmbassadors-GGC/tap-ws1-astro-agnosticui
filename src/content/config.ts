@@ -75,24 +75,26 @@ const projectCollection = defineCollection({
 const studentCollection = defineCollection({
   type: 'content', // v2.5.0 and later
   schema: ({ image }) => z.object({
-    id: z.string(),
-    name: z.string(),
-    title: z.string(),
-    email: z.string().email(),
-    phone: z.string().optional(),
-    location: z.string().optional(),
-    website: z.string().url().optional(),
-    linkedin: z.string().url().optional(),
-    github: z.string().url().optional(),
-    image: image().refine(imageLogoValidator, imageLogoValidatorMsg).optional(),
-    desc: z.string().optional(),
-    graduationYear: z.string(),
-    relatedProjectIds: z.array(z.string()).optional(),
-    projects: z.array(z.object({
-      name: z.string(),
-      description: z.string(),
-      link: z.string().url().optional(),
-    })).optional(),
+    id: z.string().optional().nullable(),
+    name: z.string().optional().nullable(),
+    title: z.string().optional().nullable(),
+    email: z.string().email().nullable(),
+    phone: z.string().optional().nullable(),
+    location: z.string().optional().nullable(),
+    website: z.string().url().optional().nullable(),
+    linkedin: z.string().url().optional().nullable(),
+    github: z.string().url().optional().nullable(),
+    image: image().refine(imageLogoValidator, imageLogoValidatorMsg).optional().nullable(),
+    desc: z.string().optional().nullable(),
+    graduationYear: z.string().nullable(),
+    relatedProjectIds: z.array(z.string()).optional().nullable(),
+    projects: z.array(z.string().refine(
+      async (projectId) => {
+        const projects = await getCollection('projects');
+
+        return projects.some(project => project.data.id.toLowerCase() == projectId)        
+      },
+      (projectId) => ({ message: `Project ID '${projectId}' not found.` }))).optional().nullable(),
   }),
 });
 
