@@ -2,7 +2,7 @@
 import { computed, ref } from "vue";
 import "agnostic-vue/dist/index.css";
 import "agnostic-vue/dist/common.min.css";
-import { Input, Select } from "agnostic-vue";
+import { Input, Select, Button } from "agnostic-vue";
 
 import StudentCard from "./StudentCard.vue";
 
@@ -67,6 +67,7 @@ function matches(student) {
             // Check if student matches the search text (by name, projects, etc.)
             if (
                 (student.data?.name && student.data.name.toLowerCase().includes(searchText))||
+                (student.data?.desc && student.data.desc.toLowerCase().includes(searchText))||
                 (student.data?.graduationYear && student.data.graduationYear.toString().includes(searchText)) ||
                 (student.data?.projects && student.data.projects.some(project => project.toLowerCase().includes(searchText)))
             ) {
