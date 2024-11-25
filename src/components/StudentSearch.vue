@@ -12,8 +12,9 @@ const props = defineProps({
     filter: Object
 });
 
-const students = props.studentList; 
+const students = props.studentList;
 const search_text = ref("");
+const name = props.filter?.name ? ref([props.filter.name]) : ref(['Any']);
 const graduationYear = props.filter?.graduationYear ? ref([props.filter.graduationYear]) : ref(['Any']);
 const projects = props.filter?.projects ? ref([props.filter.projects]) : ref(['Any']);
 
@@ -35,6 +36,7 @@ function createOptions(students, x) {
 
 // Generate options for dropdowns
 const yearOptions = createOptions(students, "graduationYear"); 
+const nameOptions = createOptions(students, "name"); 
 const projectOptions = createOptions(students, "projects"); // Use relatedProjectIds for projects
 
 // Matches function to filter students based on search criteria
@@ -42,10 +44,13 @@ function matches(student) {
     let isMatch = false;
 
     // Check if any filter is active (search text or dropdowns)
-    if (search_text.value || graduationYear.value != 'Any' || projects.value != 'Any') {
+    if (search_text.value || graduationYear.value != 'Any' || projects.value != 'Any' || name.value != 'any') {
 
         // Check filters (dropdown menus)
         // If dropdown value does not match student data, return false immediately
+        if (student.data?.name && name.value != 'Any' && !name.value.includes(student.data.name)) {
+            return false;
+        }
         if (student.data?.graduationYear && graduationYear.value != 'Any' && !graduationYear.value.includes(student.data.graduationYear.toString())) {
             return false;
         }
@@ -61,6 +66,7 @@ function matches(student) {
         } else {
             // Check if student matches the search text (by name, projects, etc.)
             if (
+                (student.data?.name && student.data.name.toLowerCase().includes(searchText))||
                 (student.data?.graduationYear && student.data.graduationYear.toString().includes(searchText)) ||
                 (student.data?.projects && student.data.projects.some(project => project.toLowerCase().includes(searchText)))
             ) {
@@ -89,7 +95,7 @@ const base = import.meta.env.BASE_URL;
 
             <!-- Input for searching students -->
             <Input id="7" is-underlined is-underlined-with-background 
-                placeholder="Enter student name..." 
+                placeholder="Enter student name, gradution year or related projects" 
                 label="Search for students" 
                 type="text" 
                 v-model="search_text" />
@@ -97,6 +103,18 @@ const base = import.meta.env.BASE_URL;
             <!-- Filter dropdowns -->
             <div class="student-filter-container">
                 
+                <!-- Name Filter -->
+                <div class="student-filter-dropdown">
+                    <label>Student Name:</label>
+                    <Select 
+                        unique-id="name" 
+                        :options="nameOptions" 
+                        :is-multiple="true" 
+                        :multiple-size="3" 
+                        @selected="(value) => { name = value }">
+                    </Select>
+                </div>
+
                 <!-- Graduation Year Filter -->
                 <div class="student-filter-dropdown">
                     <label>Graduation Year:</label>
@@ -132,7 +150,7 @@ const base = import.meta.env.BASE_URL;
         </section>
 
         <!-- Display selected or all students -->
-        <h3>{{ ((search_text || !graduationYear.includes('Any') || !projects.includes('Any')) ? 
+        <h3>{{ ((search_text || !name.includes('Any') || !graduationYear.includes('Any') || !projects.includes('Any')) ? 
             `Filtered students` : 'All Students') }} ({{ filteredStudents.length }})</h3>
 
         <!-- Display Student Cards for filtered students -->
