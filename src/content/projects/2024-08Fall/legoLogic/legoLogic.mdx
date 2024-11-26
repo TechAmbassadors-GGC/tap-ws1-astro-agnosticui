@@ -39,6 +39,7 @@ publishedDate: 2024-11-19
 relatedIds: []
 imageLogoLight: "./LegoLogicSquare.png"
 ---
+import { Image } from "astro:assets";
 import TeamPhoto from './TeamPhoto.jpg';
 
 {/* Right text block, Project description */}	
@@ -53,7 +54,8 @@ This project utilizes LEGO SPIKE sets to create an interactive, educational expe
 
 <div class="prj-txt">
 ## Team members
-<img src={TeamPhoto} alt="Team Photo" />
+<Image src={TeamPhoto} alt="Team Photo" />
+
 #### From left to right: Miguel Leon, Jenna Vincent, Juan Guevara
 <br />
 </div>
