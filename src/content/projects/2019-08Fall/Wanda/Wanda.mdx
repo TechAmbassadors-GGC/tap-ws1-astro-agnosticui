@@ -36,8 +36,8 @@ difficulty: [
 durationMins: [60]
 publishedDate: 2024-08-11
 relatedIds: []
-imageLogoLight: /public/techs/empty.png
-imageLogoDark: /public/techs/empty.png
+imageLogoLight: ./WandaLightLogo.png
+imageLogoDark: ./WandaDarkLogo.png
 videoAd: ""
 curator: ["Trung Dao"]
 ---
@@ -45,6 +45,8 @@ import { Image } from "astro:assets";
 import Photo from '/src/components/astro/Photo.astro';
 import Logo from '/src/components/astro/Logo.astro';
 import Clip from '/src/components/astro/Clip.astro';
+
+import GroupPhoto from 'WandaGroup.jpg';
 
 import CosmoBot from '/public/techs/cosmo.gif';
 
@@ -56,6 +58,12 @@ The focus of the project is to teach students what an algorithm is and how it wo
 The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to break the misconceptions of the IT field by providing fun workshops for students of all backgrounds. TAP students design engaging and fun outreach workshops to encourage interest in IT and STEM.
 
  {/* content block, Activities, steps & materials */}
+
+ <div class="prj-txt">
+## Team members
+<Image src={GroupPhoto} alt="Wanda Group Photo" />
+#### From left to right: Yassin Moghazy, Shawna Cassagnol, Josue Mayorga
+</div>
 
 <div style="text-align: center ; justify-content: center; font-size: 1.125em;">
 ## Outreach Activities
@@ -74,6 +82,11 @@ The Technology Ambassador Program at [GGC](http://www.ggc.edu/tap) strives to br
 1. Download the Cozmo App (it can be found on the Google Play store and the Apple store).
 2. Connect to Cozmo through its wifi (move its lift up and down and the wifi password will appear).
 3. You should be connected to Cozmo now!
+4. [How to construct a maze](https://github.com/TAP-GGC/wanda/blob/master/Documents/Using%20Interactive%20Technology%20To%20Teach%20%20Basic%20Algorithmic%20Instructions%20Maze%20Construction.pdf)
+
+## Workshops
+1. [Workshop step-by-step](https://github.com/TAP-GGC/wanda/blob/master/Documents/Using%20Interactive%20Technology%20to%20Teach%20Basic%20Algorithmic%20Instructions%20Step-by-Step.pdf)
+2. [Commented code](https://github.com/TAP-GGC/wanda/blob/master/Code/Using%20Interactive%20Technology%20to%20Teach%20Basic%20Algorithmic%20Instructions%20Commented%20Code.pdf)
 
 ## How to run & Usage
 1. Cozmo comes with a bunch of different activites that it is able to perform such as an Explorer Mode where the user can navigate it with the smart device connected, a visual progrramming mode where users are able to code Cozmo to do certain actions with block coding and much more.
