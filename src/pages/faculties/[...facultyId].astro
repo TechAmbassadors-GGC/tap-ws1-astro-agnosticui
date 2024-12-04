@@ -44,10 +44,8 @@ const facultyImg = faculty.data.image?.src || EmptyImage.src;
     <div class="facultyDetails">
     { facultyImg &&  <img src={facultyImg} alt="Faculty Photo" class="facultyImage" />}      
     <div class="col2">
-        <h3>About Me</h3>
+        {faculty.data.desc && <h3>About Me</h3>}
         {faculty.data.desc && <p>{faculty.data.desc}</p>}
-
-        <h3>Contact</h3>
         {faculty.data.email && <p><strong>Email: </strong><a href={`mailto:${faculty.data.email}`}>{faculty.data.email}</a></p>}
         {faculty.data.phone && <p><strong>Phone: </strong>{faculty.data.phone}</p>}
         {faculty.data.website && <p><strong>Website: </strong><a href={faculty.data.website} target="_blank">{faculty.data.website}</a></p>}
@@ -56,7 +54,7 @@ const facultyImg = faculty.data.image?.src || EmptyImage.src;
       </div>
     </div>
     <Content />
-    {faculty.data?.projects && (
+    {faculty.data?.projects && faculty.data.projects.length > 0 &&(
       <h2>Related Projects Included</h2>
       <section class="mbe40 project-cards-flex flex flex-row flex-grow-1 flex-shrink-1 flex-wrap flex-fill">
         {faculty.data.projects.map((project_id) => (      

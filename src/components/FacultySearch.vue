@@ -1,6 +1,6 @@
 <script setup>
 import { computed, ref } from 'vue';
-import { Input, Select } from 'agnostic-vue';
+import { Input, Select, Button} from 'agnostic-vue';
 import "agnostic-vue/dist/index.css";
 import "agnostic-vue/dist/common.min.css";
 
@@ -13,7 +13,7 @@ const props = defineProps({
 });
 
 // Reactive references for search inputs
-const faculties = props.facultyList || []; 
+const faculties = props.facultyList; 
 const search_text = ref("");
 const name =  props.filter?.name ? ref([props.filter.name]) : ref(['Any']);
 const projects = props.filter?.projects ? ref([props.filter.projects]) : ref(['Any']);
@@ -42,29 +42,31 @@ function matches(faculty) {
     let isMatch = false;
     // Check if any filter is active (search text or dropdowns)
 if (search_text.value || name.value != 'Any' || projects.value != 'Any') {
-if (name.value != 'Any' && !name.value.includes(faculty.data.name.toString())) {
-    return false;
-}
-if (projects.value != 'Any' && !projects.value.some(projects => faculty.data.projects.includes(pojects))) {
-    return false;
-}
 
-let searchText = search_text.value.toLowerCase();
-
-// If no search text is provided, pass the filtering based on dropdown values
-if (searchText == '') {
-    return true;
-} else {
-    // Check if student matches the search text (by name, projects, etc.)
-    if (
-        faculty.data.name.toString().includes(searchText) ||
-        faculty.data.projects.some(projects => projects.tolowerCase().includes(searchText))
-    ) {
-        return true;
-    } else {
+    if (faculty.data?.name && name.value != 'Any' && !name.value.includes(faculty.data.name)) {
         return false;
     }
-}
+    if (faculty.data?.projects && projects.value != 'Any' && !projects.value.some(project => faculty.data.projects.includes(project))) {
+        return false;
+    }
+
+    let searchText = search_text.value.toLowerCase();
+
+    // If no search text is provided, pass the filtering based on dropdown values
+    if (searchText == '') {
+        return true;
+    } else {
+        // Check if faculty matches the search text (by name, projects, etc.)
+        if (
+            (faculty.data?.name && faculty.data.name.toLowerCase().includes(searchText)) ||
+            (faculty.data?.desc && faculty.data.desc.toLowerCase().includes(searchText))||
+            (faculty.data?.projects && faculty.data.projects.some(project => project.toLowerCase().includes(searchText)))
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 // If no filters are active, return true
@@ -73,7 +75,7 @@ return true;
 
 // Compute filtered students based on matching criteria
 const filteredFaculties = computed(() => {
-    return faculties.filter(faculty => matches(faculty));
+    return faculties.filter((faculty) => matches(faculty));
 });
 const base = import.meta.env.BASE_URL;
 
@@ -85,7 +87,7 @@ const base = import.meta.env.BASE_URL;
 
             <!-- Input for searching faculty -->
             <Input id="faculty-search" is-underlined is-underlined-with-background 
-                placeholder="Enter faculty name..." 
+                placeholder="Enter faculty name, related projects..." 
                 label="Search for faculty" 
                 type="text" 
                 v-model="search_text" />
@@ -97,11 +99,11 @@ const base = import.meta.env.BASE_URL;
                 <div class="faculty-filter-dropdown">
                     <label>Name:</label>
                     <Select 
-                        unique-id="names" 
+                        unique-id="name" 
                         :options="nameOptions" 
                         :is-multiple="true" 
                         :multiple-size="3" 
-                        @selected="(value) => { name.value = value }">
+                        @selected="(value) => { name = value }">
                     </Select>
                 </div>
                 
@@ -113,7 +115,7 @@ const base = import.meta.env.BASE_URL;
                         :options="projectOptions" 
                         :is-multiple="true" 
                         :multiple-size="3" 
-                        @selected="(value) => { projects.value = value }">
+                        @selected="(value) => { projects = value }">
                     </Select>
                 </div>
 
@@ -129,7 +131,7 @@ const base = import.meta.env.BASE_URL;
 
         <!-- Display selected or all faculty -->
         <h3>{{ ((search_text|| !name.includes('Any')|| projects.includes('Any')) ? 
-            `Filtered Faculty` : 'All Faculty') }} ({{ filteredFaculties.length }})</h3>
+            `Filtered Faculty` : 'All Faculties') }} ({{ filteredFaculties.length }})</h3>
 
         <!-- Display Faculty Cards for filtered faculty -->
         <section class="mbe40 project-cards-flex flex flex-row flex-grow-1 flex-shrink-1 flex-wrap flex-fill">
