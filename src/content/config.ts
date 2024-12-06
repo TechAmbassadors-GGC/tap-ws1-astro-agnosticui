@@ -98,6 +98,31 @@ const studentCollection = defineCollection({
   }),
 });
 
+// Define faculty collection
+const facultyCollection = defineCollection({
+  type: 'content',
+  schema: ({ image }) => z.object({
+    name: z.string().optional().nullable(),
+    id: z.string().optional().nullable(),
+    affiliation: z.string().optional().nullable(),
+    title: z.string().optional().nullable(),
+    email: z.string().email({ message: "Invalid email address" }).optional().nullable(),
+    phone: z.string().optional().nullable(),
+    website: z.string().url().optional().nullable(),
+    linkedin: z.string().url().optional().nullable(),
+    github: z.string().url().optional().nullable(),
+    image: image().refine(imageLogoValidator, imageLogoValidatorMsg).optional().nullable(),
+    desc: z.string().optional().nullable(),
+    projects: z.array(z.string().refine(
+      async (projectId) => {
+        const projects = await getCollection('projects');
+
+        return projects.some(project => project.data.id.toLowerCase() == projectId)        
+      },
+      (projectId) => ({ message: `Project ID '${projectId}' not found.` }))).optional().nullable(),
+  }),
+});
+
 const testCollection = defineCollection({
   type:'content',
   schema: z.object({
@@ -113,4 +138,5 @@ export const collections = {
   'events': eventCollection,
   'projects': projectCollection,
   'students': studentCollection,
+  'instructors': facultyCollection,
 };
