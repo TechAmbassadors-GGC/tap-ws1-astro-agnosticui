@@ -130,7 +130,7 @@ const base = import.meta.env.BASE_URL;
         </section>
 
         <!-- Display selected or all faculty -->
-        <h3>{{ ((search_text|| !name.includes('Any')|| projects.includes('Any')) ? 
+        <h3>{{ ((search_text|| !name.includes('Any')|| !projects.includes('Any')) ? 
             `Filtered instructors` : 'All instructors') }} ({{ filteredInstructors.length }})</h3>
 
         <!-- Display Faculty Cards for filtered faculty -->
