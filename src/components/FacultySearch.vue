@@ -8,21 +8,21 @@ import FacultyCard from "./FacultyCard.vue";
 
 // Props to receive the faculty collection data
 const props = defineProps({
-    facultyList: Object, 
+    instructorList: Object, 
     filter: Object
 });
 
 // Reactive references for search inputs
-const faculties = props.facultyList; 
+const instructors = props.instructorList; 
 const search_text = ref("");
 const name =  props.filter?.name ? ref([props.filter.name]) : ref(['Any']);
 const projects = props.filter?.projects ? ref([props.filter.projects]) : ref(['Any']);
 
 // Generate unique options for the project dropdown based on projectList
-function createOptions(faculties,x) {
+function createOptions(instructors,x) {
     let optionSet = new Set();
     optionSet.add("Any");
-    faculties.forEach(arrayContainer => {
+    instructors.forEach(arrayContainer => {
         if (Array.isArray(arrayContainer.data[x])) {
             arrayContainer.data[x].forEach(element => {
                 optionSet.add(element);
@@ -34,8 +34,8 @@ function createOptions(faculties,x) {
     return Array.from(optionSet).map(option => ({ value: option, label: option }));
 }
 // Generate options for dropdowns
-const nameOptions = createOptions(faculties, "name"); 
-const projectOptions = createOptions(faculties, "projects");
+const nameOptions = createOptions(instructors, "name"); 
+const projectOptions = createOptions(instructors, "projects");
 
 // Filter faculty based on name and projectList
 function matches(faculty) {
@@ -74,8 +74,8 @@ return true;
 }
 
 // Compute filtered students based on matching criteria
-const filteredFaculties = computed(() => {
-    return faculties.filter((faculty) => matches(faculty));
+const filteredInstructors = computed(() => {
+    return instructors.filter((faculty) => matches(faculty));
 });
 const base = import.meta.env.BASE_URL;
 
@@ -121,7 +121,7 @@ const base = import.meta.env.BASE_URL;
 
                 <!-- Reset Button -->
                 <div class="faculty-filter-dropdown">
-                    <a :href="`${base == '/' ? '' : base}/faculties`">
+                    <a :href="`${base == '/' ? '' : base}/instructors`">
                         <Button mode="primary" isRounded>Reset</Button>
                     </a>
                 </div>
@@ -131,11 +131,11 @@ const base = import.meta.env.BASE_URL;
 
         <!-- Display selected or all faculty -->
         <h3>{{ ((search_text|| !name.includes('Any')|| projects.includes('Any')) ? 
-            `Filtered Faculty` : 'All Faculties') }} ({{ filteredFaculties.length }})</h3>
+            `Filtered instructors` : 'All instructors') }} ({{ filteredInstructors.length }})</h3>
 
         <!-- Display Faculty Cards for filtered faculty -->
         <section class="mbe40 project-cards-flex flex flex-row flex-grow-1 flex-shrink-1 flex-wrap flex-fill">
-            <template v-for="faculty in filteredFaculties" :key="faculty.data.id">
+            <template v-for="faculty in filteredInstructors" :key="faculty.data.id">
                 <FacultyCard :item="faculty" />
             </template>
         </section>

@@ -22,12 +22,12 @@ import { Input } from "agnostic-vue";
 import Crumbs from '../components/Crumbs.vue';
 import { getCollection } from 'astro:content';
 import FacultySearch from '../components/FacultySearch.vue';
-const faculties = await getCollection('faculties');
+const instructors = await getCollection('instructors');
 ---
-<TAPDefaultLayout title="TAP Faculties">
+<TAPDefaultLayout title="TAP Instructors">
 
-    <Crumbs pageType="faculties" pageUrl="/faculties" />
-    <FacultySearch client:load facultyList={faculties}/>
+    <Crumbs pageType="instructors" pageUrl="/instructors" />
+    <FacultySearch client:load instructorList={instructors}/>
 
 </TAPDefaultLayout>
 

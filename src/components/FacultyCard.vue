@@ -27,7 +27,7 @@ const truncatedDescription = computed(() => {
 
 <template>
     <Card css="facultyCard" isShadow>
-        <a :href="`/faculties/${item.data.id}`" class="card-link" isShadow></a>
+        <a :href="`/instructors/${item.data.id}`" class="card-link" isShadow></a>
         <div class="facultyText">   
             <img :src="imageSrc" alt="Faculty Image" class="facultyImage">
             <h4 class="facultyTitle">{{ facultyName}}</h4>
