@@ -1,35 +1,39 @@
 <template>
     <section class = "banner">
         <div class="banner-content">
-            <h3> The Technology Ambassadors Program (TAP) aligns with GGC’s four pillars – scholarship, leadership, service and creativity – with a focused commitment to service learning. This award-winning program also addresses a need to increase the number of students who persist in an IT major or IT minor, particularly those underrepresented in computing.</h3>
-            <a href="#" class="click">Read more...</a>
+            <h3> The Technology Ambassadors Program (TAP) aligns with GGC’s four pillars – <em>scholarship, leadership, service and creativity </em> – with a focused commitment to service learning. 
+            <a href="https://www.ggc.edu/academics/school-of-science-and-technology/research-internships-service-learning/technology-ambassador-program" class="click">Read more...</a></h3>
         </div>
     </section>
 </template>
 
 <script>
 export default{
-    name: "BannerComponent",
+    name: "Banner",
 }
 </script>
 
 <style scoped>
 .banner{
-    background-color: var(--agnostic-primary);
+    background-color: var(--agnostic-gray-mid);
     color: var(--agnostic-dark);
     text-align: center;
-    padding: 2rem 1rem;
-    width: 100vh;
+    padding: 2rem 3rem;
+    width: 100vw;
 }
 .banner-content{
-    font-size: 1.25rem;
-    width: 1440px;
-    font-weight: 500;
+    width: 70%;
+    font-weight: 300;
+    padding: 1rem 0.625rem;
     margin: 0 auto;
 }
-.click{
+a .click{
     display: inline-block;
-    color: var(-)
+    color: var(--agnostic-dark) !important;
+}
+.banner h3{
+    font-weight: 300 !important;
+    font-size: 1rem;
 }
 
 </style>
